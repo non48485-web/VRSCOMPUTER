@@ -2467,3 +2467,539 @@ body.lang-kh .card-title {
   line-height: 1.65;
 }
 
+/* ==========================================================================
+   MULTI-DEVICE RESPONSIVE SUITE (PHONES, TABLETS, LAPTOPS & DESKTOPS)
+   ========================================================================== */
+
+/* Universal Overflow Protection */
+html, body {
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+/* --------------------------------------------------------------------------
+   1. LAPTOPS & SMALL DESKTOPS (1024px - 1399px)
+   -------------------------------------------------------------------------- */
+@media (max-width: 1399px) and (min-width: 1024px) {
+  .header-main {
+    gap: 16px;
+  }
+  .search-wrapper {
+    max-width: 420px;
+  }
+  .products-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+  }
+  .brand-tagline {
+    font-size: 0.6rem;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   2. TABLETS & SMALL LAPTOPS (769px - 1023px)
+   -------------------------------------------------------------------------- */
+@media (max-width: 1023px) {
+  .header-main {
+    gap: 12px;
+  }
+  
+  .brand-logo {
+    gap: 10px;
+  }
+  
+  .brand-emblem-wrap {
+    width: 38px;
+    height: 38px;
+  }
+  
+  .brand-name, .brand-name-accent {
+    font-size: 1.35rem;
+  }
+  
+  .brand-tagline {
+    display: none;
+  }
+  
+  .search-wrapper {
+    max-width: 340px;
+  }
+  
+  .header-actions {
+    gap: 8px;
+  }
+  
+  .wishlist-trigger-btn span[data-i18n],
+  .cart-trigger-btn span[data-i18n] {
+    display: none;
+  }
+  
+  .wishlist-trigger-btn {
+    padding: 0 10px;
+    height: 38px;
+  }
+  
+  .cart-trigger-btn {
+    padding: 0 12px;
+    height: 38px;
+  }
+  
+  .category-nav-bar {
+    padding: 8px 0;
+  }
+  
+  .category-nav-list {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    gap: 8px;
+    padding: 2px 4px;
+  }
+  
+  .category-nav-list::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .category-nav-item {
+    white-space: nowrap;
+    flex-shrink: 0;
+    padding: 7px 14px;
+    font-size: 0.82rem;
+    border-radius: var(--border-radius-full);
+  }
+  
+  .products-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+  
+  .trust-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   3. MOBILE PHONES & PHABLETS (<= 768px)
+   -------------------------------------------------------------------------- */
+@media (max-width: 768px) {
+  /* Ticker Bar */
+  .ticker-bar {
+    height: auto;
+    padding: 6px 0;
+    font-size: 0.72rem;
+  }
+  
+  .ticker-inner {
+    flex-direction: column;
+    gap: 4px;
+    align-items: center;
+  }
+  
+  .ticker-hotline {
+    font-size: 0.72rem;
+  }
+  
+  /* Modern Two-Tier Mobile Header */
+  .vrs-header {
+    padding-bottom: 8px;
+  }
+  
+  .header-main {
+    height: auto;
+    padding: 8px 0 4px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 8px;
+  }
+  
+  .brand-logo {
+    order: 1;
+    gap: 8px;
+  }
+  
+  .brand-emblem-wrap {
+    width: 34px;
+    height: 34px;
+  }
+  
+  .brand-name, .brand-name-accent {
+    font-size: 1.25rem;
+  }
+  
+  .brand-tagline {
+    display: none;
+  }
+  
+  .header-actions {
+    order: 2;
+    gap: 6px;
+  }
+  
+  .currency-selector {
+    padding: 2px;
+  }
+  
+  .currency-btn {
+    padding: 4px 7px;
+    font-size: 0.7rem;
+  }
+  
+  .lang-btn {
+    padding: 5px 8px;
+    font-size: 0.72rem;
+    gap: 4px;
+  }
+  
+  .theme-toggle-btn {
+    width: 34px;
+    height: 34px;
+  }
+  
+  .wishlist-trigger-btn {
+    height: 34px;
+    padding: 0 8px;
+    gap: 4px;
+  }
+  
+  .cart-trigger-btn {
+    height: 34px;
+    padding: 0 10px;
+    gap: 5px;
+  }
+  
+  .wishlist-count-badge,
+  .cart-count-badge {
+    min-width: 18px;
+    height: 18px;
+    font-size: 0.68rem;
+  }
+  
+  /* Full-width Search Bar Row */
+  .search-wrapper {
+    order: 3;
+    width: 100%;
+    max-width: 100%;
+    margin-top: 4px;
+  }
+  
+  .search-bar {
+    height: 40px;
+    padding: 0 12px;
+    gap: 8px;
+  }
+  
+  .search-input {
+    font-size: 0.82rem;
+  }
+  
+  .search-shortcut-badge {
+    display: none;
+  }
+  
+  /* Category Horizontal Bar */
+  .category-nav-bar {
+    padding: 6px 0;
+  }
+  
+  .category-nav-list {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    gap: 6px;
+    padding: 2px 2px;
+  }
+  
+  .category-nav-item {
+    font-size: 0.78rem;
+    padding: 6px 12px;
+    gap: 6px;
+  }
+  
+  .category-nav-item svg {
+    width: 14px;
+    height: 14px;
+  }
+  
+  /* Hero Slider */
+  .hero-slider {
+    height: auto;
+    min-height: 420px;
+    border-radius: var(--border-radius-md);
+  }
+  
+  .hero-slide {
+    padding: 28px 16px 42px;
+  }
+  
+  .hero-content {
+    padding: 0 8px;
+  }
+  
+  .hero-title {
+    font-size: clamp(1.4rem, 6vw, 2.2rem);
+    line-height: 1.2;
+    margin-bottom: 12px;
+  }
+  
+  .hero-desc {
+    font-size: 0.86rem;
+    line-height: 1.5;
+    margin-bottom: 16px;
+    max-width: 100%;
+  }
+  
+  .hero-specs {
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 20px;
+  }
+  
+  .hero-spec-pill {
+    font-size: 0.72rem;
+    padding: 3px 8px;
+  }
+  
+  .hero-cta-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  
+  .slider-arrow {
+    display: none;
+  }
+  
+  .slider-dots {
+    bottom: 14px;
+    left: 20px;
+  }
+  
+  /* Catalog Controls */
+  .section-header-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  
+  .filter-tags {
+    width: 100%;
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    padding-bottom: 6px;
+    gap: 6px;
+  }
+  
+  .filter-tag-btn {
+    white-space: nowrap;
+    flex-shrink: 0;
+    font-size: 0.76rem;
+    padding: 6px 12px;
+  }
+  
+  /* Catalog Products Grid */
+  .products-grid {
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 14px;
+  }
+  
+  .product-card {
+    padding: 14px;
+  }
+  
+  .card-media {
+    height: 190px;
+  }
+  
+  .card-title {
+    font-size: 0.95rem;
+    min-height: auto;
+    margin-bottom: 8px;
+  }
+  
+  .card-actions {
+    display: flex;
+    gap: 8px;
+  }
+  
+  .card-btn-cart,
+  .card-btn-direct {
+    flex: 1;
+    min-width: 0;
+    padding: 9px 8px;
+    font-size: 0.78rem;
+    justify-content: center;
+    text-align: center;
+  }
+  
+  /* Cart Drawer on Mobile */
+  .cart-drawer {
+    width: 100%;
+    max-width: 100vw;
+  }
+  
+  .cart-drawer-header {
+    padding: 16px 20px;
+  }
+  
+  .cart-drawer-items {
+    padding: 12px 16px;
+  }
+  
+  .cart-drawer-footer {
+    padding: 16px;
+  }
+  
+  /* Modals */
+  .khqr-card {
+    width: 100%;
+    max-width: calc(100vw - 24px);
+    margin: 10px auto;
+    padding-bottom: 18px;
+  }
+  
+  .khqr-qr-box img {
+    max-width: 200px;
+    height: auto;
+  }
+  
+  .part-modal-content,
+  .invoice-modal-container {
+    width: 96vw;
+    max-height: 92vh;
+    border-radius: var(--border-radius-md);
+  }
+  
+  .invoice-printable-body {
+    padding: 16px;
+  }
+  
+  .invoice-meta-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    padding: 12px 14px;
+  }
+  
+  .invoice-summary-card {
+    max-width: 100%;
+  }
+  
+  /* Trust Grid */
+  .trust-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  
+  .trust-card {
+    padding: 20px;
+  }
+  
+  /* Showroom Section */
+  .showroom-card {
+    grid-template-columns: 1fr;
+  }
+  
+  .showroom-content-pad {
+    padding: 20px;
+  }
+  
+  .showroom-map iframe {
+    height: 260px;
+  }
+  
+  /* Footer */
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+  
+  .footer-bottom {
+    flex-direction: column;
+    text-align: center;
+    gap: 12px;
+  }
+  
+  /* Floating Cambodia Contact Action Buttons */
+  .floating-actions {
+    bottom: 16px;
+    right: 14px;
+    gap: 8px;
+  }
+  
+  .float-btn {
+    width: 42px;
+    height: 42px;
+  }
+  
+  .float-btn svg {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   4. ULTRA-COMPACT MOBILE PHONES (<= 480px, iPhone SE, Galaxy A)
+   -------------------------------------------------------------------------- */
+@media (max-width: 480px) {
+  .container {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+  
+  .brand-name, .brand-name-accent {
+    font-size: 1.15rem;
+  }
+  
+  .header-actions {
+    gap: 4px;
+  }
+  
+  .currency-btn {
+    padding: 3px 6px;
+    font-size: 0.66rem;
+  }
+  
+  .lang-btn {
+    padding: 4px 6px;
+    font-size: 0.68rem;
+  }
+  
+  .wishlist-trigger-btn,
+  .cart-trigger-btn,
+  .theme-toggle-btn {
+    height: 32px;
+    padding: 0 7px;
+  }
+  
+  .hero-cta-group .btn {
+    flex: 1 1 100%;
+    justify-content: center;
+  }
+  
+  .products-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .card-actions {
+    flex-direction: column;
+    gap: 6px;
+  }
+  
+  .card-btn-cart,
+  .card-btn-direct {
+    width: 100%;
+    padding: 10px;
+  }
+  
+  .khqr-amount {
+    font-size: 1.35rem;
+  }
+}
+
+

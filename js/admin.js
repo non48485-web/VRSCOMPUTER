@@ -145,18 +145,54 @@ function changeAdminPin() {
    SIDEBAR & TAB SWITCHING
    -------------------------------------------------------------------------- */
 function initSidebar() {
+  const sidebar = document.getElementById('adminSidebar');
+  const backdrop = document.getElementById('adminSidebarBackdrop');
+  const mobileToggle = document.getElementById('adminMobileToggle');
+  const closeBtn = document.getElementById('adminSidebarCloseBtn');
+
+  function openMobileSidebar() {
+    sidebar?.classList.add('is-open');
+    backdrop?.classList.add('is-open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeMobileSidebar() {
+    sidebar?.classList.remove('is-open');
+    backdrop?.classList.remove('is-open');
+    document.body.style.overflow = '';
+  }
+
+  mobileToggle?.addEventListener('click', (e) => {
+    e.stopPropagation();
+    if (sidebar?.classList.contains('is-open')) {
+      closeMobileSidebar();
+    } else {
+      openMobileSidebar();
+    }
+  });
+
+  closeBtn?.addEventListener('click', closeMobileSidebar);
+  backdrop?.addEventListener('click', closeMobileSidebar);
+
   document.querySelectorAll('.admin-sidebar .nav-item').forEach(item => {
     item.addEventListener('click', () => {
       const tab = item.getAttribute('data-tab');
       if (tab) switchTab(tab);
+      if (window.innerWidth <= 1024) {
+        closeMobileSidebar();
+      }
     });
   });
 
   document.getElementById('quickAddProductBtn')?.addEventListener('click', () => {
     switchTab('products');
     openProductModal();
+    if (window.innerWidth <= 1024) {
+      closeMobileSidebar();
+    }
   });
 }
+
 
 function switchTab(tabId) {
   currentTab = tabId;

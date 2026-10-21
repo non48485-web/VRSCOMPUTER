@@ -52,6 +52,9 @@
     </div>
   </div>
 
+  <!-- Backdrop Overlay for Mobile Drawer -->
+  <div id="adminSidebarBackdrop" class="admin-sidebar-backdrop"></div>
+
   <!-- ==================== SIDEBAR ==================== -->
   <aside class="admin-sidebar" id="adminSidebar">
     <div class="sidebar-header">
@@ -62,6 +65,7 @@
           <span>ADMIN CONTROLLER</span>
         </div>
       </a>
+      <button id="adminSidebarCloseBtn" class="admin-sidebar-close" aria-label="Close Sidebar">✕</button>
     </div>
 
     <nav class="sidebar-nav">
@@ -125,10 +129,17 @@
     <!-- Top Bar -->
     <header class="admin-topbar">
       <div class="topbar-left">
+        <button id="adminMobileToggle" class="admin-mobile-toggle" aria-label="Toggle Navigation Sidebar" title="Open Navigation Menu">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
         <h2 class="page-title" id="pageTitleText">Store Overview &amp; Control</h2>
         <div class="sync-status">
           <span class="pulse-dot"></span>
-          <span>Live Synchronized with Storefront</span>
+          <span>Live Sync</span>
         </div>
       </div>
       <div class="topbar-right">
