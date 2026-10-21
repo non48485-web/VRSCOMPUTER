@@ -1,0 +1,231 @@
+/* ==========================================================================
+   VRS COMPUTER - DESIGN SYSTEM & REFINED HUMAN-CRAFTED THEME TOKENS
+   Modern, Authentic, Trustworthy Tech Retailer Architecture
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&family=Kantumruy+Pro:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+:root {
+  /* Dark Mode Palette (Authentic High-End Tech Retailer) */
+  --bg-primary: #0a0e17;
+  --bg-secondary: #0f1523;
+  --bg-tertiary: #172033;
+  --bg-card: #111a2c;
+  --bg-card-hover: #162238;
+  --bg-glass: rgba(15, 21, 35, 0.88);
+  --bg-glass-strong: rgba(11, 16, 26, 0.95);
+  --bg-surface-elevated: #1d2a42;
+  --bg-surface-sunken: #06090f;
+
+  /* Primary Accent: Professional Electric Cobalt Blue (Trusted Retail Standard) */
+  --accent-cyan: #2563eb;
+  --accent-cyan-dark: #1d4ed8;
+  --accent-cyan-glow: rgba(37, 99, 235, 0.25);
+  --accent-primary: #2563eb;
+  --accent-primary-hover: #1d4ed8;
+  --accent-blue: #3b82f6;
+  --accent-purple: #7c3aed;
+  --accent-neon-green: #10b981;
+  --accent-amber: #f59e0b;
+  --accent-red: #ef4444;
+
+  /* Authorized Brand Colors */
+  --brand-rog: #e60012;
+  --brand-nvidia: #76b900;
+  --brand-intel: #0071c5;
+  --brand-amd: #ed1c24;
+  --brand-razer: #00e700;
+  --brand-corsair: #f59e0b;
+  --brand-apple: #ffffff;
+
+  /* Subtle, Balanced Gradients */
+  --grad-primary: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+  --grad-cyber: linear-gradient(135deg, #ffffff 0%, #cbd5e1 100%);
+  --grad-fire: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+  --grad-surface: linear-gradient(180deg, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0) 100%);
+  --grad-card: linear-gradient(145deg, #131c2e 0%, #0f1523 100%);
+  --grad-vip: linear-gradient(135deg, #d97706 0%, #b45309 100%);
+  --grad-glow: radial-gradient(circle at 50% 0%, rgba(37, 99, 235, 0.08) 0%, transparent 70%);
+
+  /* Text Colors */
+  --text-primary: #f8fafc;
+  --text-secondary: #94a3b8;
+  --text-muted: #64748b;
+  --text-subtle: #475569;
+  --text-inverse: #0a0e17;
+  --text-cyan: #60a5fa;
+  --text-gold: #fbbf24;
+  --text-emerald: #34d399;
+
+  /* Borders & Radii */
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --border-medium: rgba(255, 255, 255, 0.14);
+  --border-accent: rgba(37, 99, 235, 0.35);
+  --border-radius-xs: 6px;
+  --border-radius-sm: 8px;
+  --border-radius-md: 12px;
+  --border-radius-lg: 16px;
+  --border-radius-xl: 22px;
+  --border-radius-full: 9999px;
+
+  /* Clean Shadows */
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.25);
+  --shadow-md: 0 4px 14px rgba(0, 0, 0, 0.35);
+  --shadow-lg: 0 10px 30px rgba(0, 0, 0, 0.45);
+  --shadow-glow-cyan: 0 4px 14px rgba(37, 99, 235, 0.25);
+  --shadow-glow-purple: 0 4px 14px rgba(124, 58, 237, 0.2);
+  --shadow-glow-red: 0 4px 14px rgba(239, 68, 68, 0.25);
+
+  /* Typography */
+  --font-display: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-body: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-khmer: 'Kantumruy Pro', 'Plus Jakarta Sans', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  /* Transitions */
+  --transition-fast: 0.15s ease;
+  --transition-normal: 0.22s ease;
+  --transition-smooth: 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+
+  /* Layout */
+  --container-max: 1400px;
+  --header-height: 74px;
+  --ticker-height: 36px;
+}
+
+/* Light Theme Variables */
+[data-theme="light"] {
+  --bg-primary: #f8fafc;
+  --bg-secondary: #ffffff;
+  --bg-tertiary: #f1f5f9;
+  --bg-card: #ffffff;
+  --bg-card-hover: #ffffff;
+  --bg-glass: rgba(255, 255, 255, 0.92);
+  --bg-glass-strong: rgba(255, 255, 255, 0.98);
+  --bg-surface-elevated: #e2e8f0;
+  --bg-surface-sunken: #edf2f7;
+
+  --accent-cyan: #2563eb;
+  --accent-cyan-dark: #1d4ed8;
+  --accent-cyan-glow: rgba(37, 99, 235, 0.15);
+  --accent-primary: #2563eb;
+  --accent-primary-hover: #1d4ed8;
+  --accent-blue: #2563eb;
+  --accent-purple: #6d28d9;
+
+  --brand-apple: #111827;
+
+  --grad-primary: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+  --grad-cyber: linear-gradient(135deg, #0f172a 0%, #334155 100%);
+  --grad-card: linear-gradient(145deg, #ffffff 0%, #f8fafc 100%);
+  --grad-surface: linear-gradient(180deg, rgba(0, 0, 0, 0.02) 0%, rgba(0, 0, 0, 0) 100%);
+  --grad-glow: radial-gradient(circle at 50% 0%, rgba(37, 99, 235, 0.05) 0%, transparent 70%);
+
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  --text-muted: #64748b;
+  --text-subtle: #94a3b8;
+  --text-inverse: #ffffff;
+  --text-cyan: #2563eb;
+  --text-emerald: #059669;
+
+  --border-subtle: #e2e8f0;
+  --border-medium: #cbd5e1;
+  --border-accent: rgba(37, 99, 235, 0.3);
+
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 14px rgba(0, 0, 0, 0.07);
+  --shadow-lg: 0 10px 28px rgba(0, 0, 0, 0.1);
+  --shadow-glow-cyan: 0 4px 12px rgba(37, 99, 235, 0.18);
+}
+
+/* Base Reset & Foundation */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  scroll-padding-top: calc(var(--header-height) + 52px);
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+/* Khmer Language Support */
+body.lang-kh {
+  font-family: var(--font-khmer);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: all var(--transition-fast);
+}
+
+button, input, select, textarea {
+  font-family: inherit;
+  font-size: inherit;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+  font-family: inherit;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+/* Refined Clean Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+::-webkit-scrollbar-thumb {
+  background: #334155;
+  border-radius: 99px;
+  border: 2px solid var(--bg-primary);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #475569;
+}
+
+/* Containers */
+.container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+}

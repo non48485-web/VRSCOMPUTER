@@ -1,0 +1,980 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VRS COMPUTER - Premier Laptops, Custom Gaming PCs & Parts in Cambodia</title>
+  
+  <!-- SEO & Social Meta -->
+  <meta name="description" content="VRS COMPUTER is Cambodia's premier technology store for high-end gaming laptops, custom liquid-cooled desktop PCs, authorized computer components, second-hand laptops, and accessories in Phnom Penh.">
+  <meta name="keywords" content="VRS Computer, computer store cambodia, laptop price cambodia, gaming pc phnom penh, custom pc builder khmer, rog strix, tuf gaming, macbook pro m3, rtx 4090, asus cambodia, cc computer alternative">
+  <meta property="og:title" content="VRS COMPUTER - Premier Laptops & Custom Gaming PCs">
+  <meta property="og:description" content="Explore Cambodia's most advanced computer retail store. Custom PC Builder, dual currency USD/KHR, and official warranty.">
+  <meta property="og:image" content="assets/images/hero-gaming.jpg">
+  <meta property="og:type" content="website">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%230f172a'/><path d='M28 26 L50 74 L72 26 L59 26 L50 49 L41 26 Z' fill='%232563eb'/></svg>">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/theme.css?v=3.1">
+  <link rel="stylesheet" href="css/style.css?v=3.1">
+  <link rel="stylesheet" href="css/builder.css?v=3.1">
+</head>
+<body>
+
+  <!-- ==================== TOP ANNOUNCEMENT TICKER ==================== -->
+  <div class="ticker-bar">
+    <div class="container ticker-inner">
+      <div class="ticker-scroll">
+        <div class="ticker-item">
+          <span class="ticker-badge">⚡ NEW</span>
+          <span>VRS COMPUTER - មានលក់កុំព្យូទ័រថ្មី និងមួយទឹកធានាគុណភាពខ្ពស់ 100% | YOUR PREMIER TECHNOLOGY DESTINATION</span>
+        </div>
+        <div class="ticker-item">
+          <span class="ticker-badge">🚀 DELIVERY</span>
+          <span>Express 2-Hour Delivery in Phnom Penh | Nationwide Delivery via Virak Buntham & J&T Express</span>
+        </div>
+        <div class="ticker-item">
+          <span class="ticker-badge">🛡️ WARRANTY</span>
+          <span>Official 1-3 Years Warranty + Free Lifetime Dust Cleaning & Windows Software Support</span>
+        </div>
+        <div class="ticker-item">
+          <span class="ticker-badge">⚡ NEW</span>
+          <span>VRS COMPUTER - មានលក់កុំព្យូទ័រថ្មី និងមួយទឹកធានាគុណភាពខ្ពស់ 100% | YOUR PREMIER TECHNOLOGY DESTINATION</span>
+        </div>
+      </div>
+      <div class="ticker-hotline">
+        <span>Hotline:</span>
+        <a href="tel:+85598871314">+855 98 871 314</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== MAIN HEADER ==================== -->
+  <header class="vrs-header" id="vrsHeader">
+    <div class="container header-main">
+      <!-- Human-Crafted Architectural Tech Brand Logo -->
+      <a href="index.html" class="brand-logo" aria-label="VRS Computer Home">
+        <div class="brand-emblem-wrap">
+          <svg class="brand-emblem-svg" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="44" height="44" rx="11" fill="#0f172a"/>
+            <rect x="0.5" y="0.5" width="43" height="43" rx="10.5" stroke="rgba(255,255,255,0.1)"/>
+            <path d="M12 13 L22 35 L32 13 L26.2 13 L22 23 L17.8 13 Z" fill="#2563eb"/>
+            <circle cx="22" cy="18" r="2.2" fill="#60a5fa"/>
+          </svg>
+        </div>
+        <div class="brand-text">
+          <div class="brand-title-row">
+            <span class="brand-name">VRS</span>
+            <span class="brand-name-accent">COMPUTER</span>
+          </div>
+          <span class="brand-tagline">Authorized Tech Store • Phnom Penh</span>
+        </div>
+      </a>
+
+      <!-- Global Search -->
+      <div class="search-wrapper">
+        <div class="search-bar">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+          <input type="search" id="globalSearchInput" class="search-input" placeholder="Search ROG, RTX 4090, MacBook, Ryzen, parts..." autocomplete="off">
+          <span class="search-shortcut-badge">/</span>
+        </div>
+        <div id="searchResultsDropdown" class="search-results-dropdown"></div>
+      </div>
+
+      <!-- Header Actions -->
+      <div class="header-actions">
+        <!-- Currency Selector ($ / ៛) -->
+        <div class="currency-selector" title="Select Currency">
+          <button id="currencyUsdBtn" class="currency-btn is-active">USD ($)</button>
+          <button id="currencyKhrBtn" class="currency-btn">KHR (៛)</button>
+        </div>
+
+        <!-- Language Switcher -->
+        <button id="langToggleBtn" class="lang-btn" title="Change Language">🇰🇭 ភាសាខ្មែរ</button>
+
+        <!-- Dark / Light Theme Toggle -->
+        <button class="theme-toggle-btn" id="themeToggleBtn" onclick="toggleTheme()" title="Toggle Dark/Light Mode">
+          <span id="themeToggleIcon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="5"></circle>
+              <line x1="12" y1="1" x2="12" y2="3"></line>
+              <line x1="12" y1="21" x2="12" y2="23"></line>
+              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+              <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+              <line x1="1" y1="12" x2="3" y2="12"></line>
+              <line x1="21" y1="12" x2="23" y2="12"></line>
+              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+              <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+            </svg>
+          </span>
+        </button>
+
+        <!-- Wishlist Trigger Button -->
+        <button id="headerWishlistBtn" class="wishlist-trigger-btn" aria-label="Open Saved Wishlist" title="View Wishlist">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3">
+            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+          </svg>
+          <span data-i18n="nav_wishlist">Wishlist</span>
+          <span id="headerWishlistCount" class="wishlist-count-badge">0</span>
+        </button>
+
+        <!-- Cart Trigger Button -->
+        <button id="headerCartBtn" class="cart-trigger-btn" aria-label="Open Shopping Cart">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3">
+            <circle cx="9" cy="21" r="1"></circle>
+            <circle cx="20" cy="21" r="1"></circle>
+            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+          </svg>
+          <span data-i18n="nav_cart">Cart</span>
+          <span id="headerCartCount" class="cart-count-badge">0</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==================== STICKY CATEGORY NAV (PROFESSIONAL SVG ICONS) ==================== -->
+  <nav class="category-nav-bar" aria-label="Main Store Categories">
+    <div class="container">
+      <ul class="category-nav-list">
+        <li>
+          <a class="category-nav-item is-active" data-category-filter="all" href="#catalog">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+            All Tech Inventory
+          </a>
+        </li>
+        <li>
+          <a class="category-nav-item" data-category-filter="gaming" href="#catalog">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+            Gaming Laptops
+          </a>
+        </li>
+        <li>
+          <a class="category-nav-item" data-category-filter="ultrabook" href="#catalog">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
+            Ultrabooks &amp; Business
+          </a>
+        </li>
+        <li>
+          <a class="category-nav-item" data-category-filter="macbook" href="#catalog">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 6.37c.62-.75 1.04-1.8 0.93-2.85-.9.04-1.99.6-2.63 1.35-.57.65-.99 1.71-.86 2.73 1.01.08 2.04-.51 2.56-1.23z"/></svg>
+            Apple MacBooks
+          </a>
+        </li>
+        <li>
+          <a class="category-nav-item" data-category-filter="desktop" href="#catalog">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="2" width="16" height="20" rx="2"></rect><circle cx="12" cy="14" r="3"></circle><line x1="12" y1="6" x2="12.01" y2="6"></line></svg>
+            Pre-Built Gaming PCs
+          </a>
+        </li>
+        <li>
+          <a class="category-nav-item" href="#builder">
+            <span class="nav-tag-highlight">PRO STUDIO</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+            PC Builder Studio
+          </a>
+        </li>
+        <li>
+          <a class="category-nav-item" data-category-filter="component" href="#catalog">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="4" width="16" height="16" rx="2"></rect><rect x="9" y="9" width="6" height="6"></rect><line x1="9" y1="1" x2="9" y2="4"></line><line x1="15" y1="1" x2="15" y2="4"></line><line x1="9" y1="20" x2="9" y2="23"></line><line x1="15" y1="20" x2="15" y2="23"></line><line x1="20" y1="9" x2="23" y2="9"></line><line x1="20" y1="14" x2="23" y2="14"></line><line x1="1" y1="9" x2="4" y2="9"></line><line x1="1" y1="14" x2="4" y2="14"></line></svg>
+            GPUs &amp; Components
+          </a>
+        </li>
+        <li>
+          <a class="category-nav-item" data-category-filter="secondhand" href="#catalog">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"></path></svg>
+            Certified Refurbished (99%)
+          </a>
+        </li>
+        <li>
+          <a class="category-nav-item" data-category-filter="monitor" href="#catalog">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+            4K / OLED Displays
+          </a>
+        </li>
+        <li>
+          <a class="category-nav-item" data-category-filter="peripheral" href="#catalog">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"></rect><path d="M6 8h.01M10 8h.01M14 8h.01M18 8h.01M6 12h.01M10 12h.01M14 12h.01M18 12h.01M7 16h10"></path></svg>
+            Gaming Gear &amp; Audio
+          </a>
+        </li>
+        <li>
+          <a class="category-nav-item" href="#showroom">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+            Showroom &amp; Map
+          </a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ==================== HERO SLIDER SECTION ==================== -->
+  <section class="hero-section">
+    <div class="container">
+      <div class="hero-slider">
+        <!-- Slide 1: High End Gaming -->
+        <div class="hero-slide is-active">
+          <img class="hero-slide-bg" src="assets/images/hero-gaming.jpg?v=3.1" alt="VRS Next-Gen Gaming PCs">
+          <div class="hero-overlay">
+            <div class="hero-content">
+              <span class="hero-badge">AUTHORIZED RETAIL &amp; ENTERPRISE HARDWARE</span>
+              <h1 class="hero-title">PREMIER HIGH-PERFORMANCE<br>GAMING SYSTEMS &amp; RIGS</h1>
+              <p class="hero-desc">Official distributor stock for ASUS ROG, MSI, Corsair, and Apple in Cambodia. Rigorously tested and verified with genuine manufacturer warranty and same-day Phnom Penh delivery.</p>
+              <div class="hero-cta-group">
+                <a href="#catalog" class="btn-hero-primary" onclick="currentCategory='gaming'; renderCatalog();">
+                  Explore Gaming Systems
+                  <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </a>
+                <a href="#builder" class="btn-hero-secondary">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+                  Custom PC Builder
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 2: Creator Workstation -->
+        <div class="hero-slide">
+          <img class="hero-slide-bg" src="assets/images/hero-creator.jpg?v=3.1" alt="VRS Creator Workstations">
+          <div class="hero-overlay">
+            <div class="hero-content">
+              <span class="hero-badge" style="color:#60a5fa; border-color: rgba(96,165,250,0.3); background: rgba(37,99,235,0.12);">WORKSTATION &amp; STUDIO SYSTEMS</span>
+              <h2 class="hero-title">PRECISION WORKSTATIONS<br>FOR CREATIVE PROFESSIONALS</h2>
+              <p class="hero-desc">Engineered for architectural CAD, 8K video production, and local machine learning models. Featuring Apple M3 Max, ASUS ProArt, and factory color-calibrated displays.</p>
+              <div class="hero-cta-group">
+                <a href="#catalog" class="btn-hero-primary" onclick="currentCategory='ultrabook'; renderCatalog();">
+                  Explore Workstations
+                  <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </a>
+                <a href="https://t.me/Sounvisal" target="_blank" class="btn-hero-secondary">
+                  Consult Tech Specialist
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 3: Custom PC Builds -->
+        <div class="hero-slide">
+          <img class="hero-slide-bg" src="assets/images/hero-custom-pc.jpg?v=3.1" alt="VRS Custom Water-Cooled PCs">
+          <div class="hero-overlay">
+            <div class="hero-content">
+              <span class="hero-badge" style="color:#10b981; border-color: rgba(16,185,129,0.3); background: rgba(16,185,129,0.12);">HARDWARE WORKSHOP &amp; LAB</span>
+              <h2 class="hero-title">HAND-BUILT LIQUID COOLED<br>COMPUTING ARCHITECTURE</h2>
+              <p class="hero-desc">Meticulous cable management, custom hardline water cooling, thermal optimization, and 3-Year comprehensive hardware warranty with free lifetime maintenance.</p>
+              <div class="hero-cta-group">
+                <a href="#builder" class="btn-hero-primary">
+                  Launch PC Configurator
+                  <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </a>
+                <a href="#catalog" class="btn-hero-secondary">
+                  Ready-to-Ship PCs
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Safe Slider Controls -->
+        <button class="slider-arrow slider-arrow--prev" id="heroPrevBtn" aria-label="Previous Slide">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"></polyline></svg>
+        </button>
+        <button class="slider-arrow slider-arrow--next" id="heroNextBtn" aria-label="Next Slide">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+        </button>
+        <div class="slider-dots" id="heroSliderDots"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== OFFICIAL AUTHORIZED BRANDS STRIP ==================== -->
+  <section class="brands-section">
+    <div class="container">
+      <div class="brands-header-label">Official Authorized Partners &amp; Distributors</div>
+      <div class="brands-grid">
+        <button class="brand-chip" data-brand-filter="ROG" title="Republic of Gamers">
+          <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm3.5 13.5l-4.5-3 4.5-3v6z"/></svg>
+          <span>ROG</span>
+        </button>
+        <button class="brand-chip" data-brand-filter="ASUS" title="ASUS">
+          <span>ASUS</span>
+        </button>
+        <button class="brand-chip" data-brand-filter="TUF" title="TUF Gaming">
+          <span>TUF GAMING</span>
+        </button>
+        <button class="brand-chip" data-brand-filter="APPLE" title="Apple Authorized">
+          <svg viewBox="0 0 24 24"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 6.37c.62-.75 1.04-1.8 0.93-2.85-.9.04-1.99.6-2.63 1.35-.57.65-.99 1.71-.86 2.73 1.01.08 2.04-.51 2.56-1.23z"/></svg>
+          <span>APPLE</span>
+        </button>
+        <button class="brand-chip" data-brand-filter="MSI" title="MSI Gaming">
+          <span>MSI</span>
+        </button>
+        <button class="brand-chip" data-brand-filter="LENOVO" title="Lenovo Legion">
+          <span>LEGION</span>
+        </button>
+        <button class="brand-chip" data-brand-filter="DELL" title="Dell Alienware">
+          <span>ALIENWARE</span>
+        </button>
+        <button class="brand-chip" data-brand-filter="RAZER" title="Razer Chroma">
+          <span>RAZER</span>
+        </button>
+        <button class="brand-chip" data-brand-filter="SAMSUNG" title="Samsung Odyssey">
+          <span>SAMSUNG</span>
+        </button>
+        <button class="brand-chip" data-brand-filter="CORSAIR" title="Corsair Gaming">
+          <span>CORSAIR</span>
+        </button>
+        <button class="brand-chip" data-brand-filter="LIAN LI" title="Lian Li Cases">
+          <span>LIAN LI</span>
+        </button>
+        <button class="brand-chip" data-brand-filter="LOGITECH" title="Logitech G">
+          <span>LOGITECH G</span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== DISTRIBUTOR PROMOTION BANNER ==================== -->
+  <div class="container">
+    <div class="flash-sales-banner">
+      <div class="flash-title-wrap">
+        <div class="flash-live-dot"></div>
+        <div>
+          <div class="flash-title">DISTRIBUTOR SEASONAL BUNDLE — COMPLIMENTARY VIP ACCESSORY KIT ($149 VALUE)</div>
+          <div class="flash-subtitle">Included with all RTX 40-Series gaming laptops and custom desktop builds purchased this month</div>
+        </div>
+      </div>
+      <div class="flash-right-wrap">
+        <a href="#catalog" class="btn-hero-primary" style="padding: 10px 20px; font-size: 0.85rem;" onclick="currentCategory='gaming'; renderCatalog();">
+          View Eligible Systems
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== PRODUCT CATALOG SECTION ==================== -->
+  <section class="catalog-section" id="catalog">
+    <div class="container">
+      <!-- Section Header -->
+      <div class="section-head">
+        <div>
+          <h2 class="section-title">Explore Tech Inventory</h2>
+          <p class="section-subtitle">Real-time stock with detailed Cambodian spec sheets, warranty terms &amp; free gift packages</p>
+        </div>
+        <div class="catalog-controls">
+          <span id="productsFoundCount" style="font-size: 0.88rem; font-weight: 700; color: var(--accent-cyan);"></span>
+          <select id="catalogSortSelect" class="sort-select">
+            <option value="featured">Featured &amp; Recommended</option>
+            <option value="price-low">Price: Low to High</option>
+            <option value="price-high">Price: High to Low</option>
+            <option value="rating">Top Customer Rated</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Filter Tags -->
+      <div class="filter-tags-bar">
+        <button class="filter-tag-btn is-active" data-category-filter="all">All Inventory</button>
+        <button class="filter-tag-btn" data-category-filter="laptop">Laptops (All)</button>
+        <button class="filter-tag-btn" data-category-filter="gaming">Gaming Laptops</button>
+        <button class="filter-tag-btn" data-category-filter="ultrabook">Business Ultrabooks</button>
+        <button class="filter-tag-btn" data-category-filter="macbook">Apple MacBooks</button>
+        <button class="filter-tag-btn" data-category-filter="desktop">Custom Desktops</button>
+        <button class="filter-tag-btn" data-category-filter="component">PC Parts &amp; GPUs</button>
+        <button class="filter-tag-btn" data-category-filter="secondhand">Certified 99% Used</button>
+        <button class="filter-tag-btn" data-category-filter="monitor">4K / OLED Monitors</button>
+        <button class="filter-tag-btn" data-category-filter="peripheral">Peripherals &amp; Gear</button>
+      </div>
+
+      <!-- Products Grid -->
+      <div id="productsGridContainer" class="products-grid">
+        <!-- Rendered dynamically by app.js -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== PC BUILDER STUDIO (NEXT-GEN FEATURE) ==================== -->
+  <section class="builder-section" id="builder">
+    <div class="container">
+      <div class="builder-header">
+        <span class="hero-badge" style="margin-bottom: 8px;">⚙️ VRS EXCLUSIVE CONFIGURATOR</span>
+        <h2 class="builder-title">CUSTOM PC BUILDER STUDIO</h2>
+        <p class="builder-subtitle">Design your custom PC build with automated hardware compatibility verification, real-time power wattage calculation, and 1-click quotation export.</p>
+        
+        <!-- Presets Bar -->
+        <div class="builder-presets">
+          <span class="preset-label">Quick Load Presets:</span>
+          <button class="btn-preset" data-builder-preset="titan4090">👑 Titan 4090 Extreme ($3,899)</button>
+          <button class="btn-preset" data-builder-preset="apex7800">🎯 Apex 7800X3D + 4070TiS ($1,999)</button>
+          <button class="btn-preset" data-builder-preset="budgetEsports">⚡ Esports 1080p Starter ($849)</button>
+        </div>
+      </div>
+
+      <div class="builder-layout">
+        <!-- Left: Hardware Slots Grid -->
+        <div class="builder-slots-grid" id="builderSlotsContainer">
+          <!-- Rendered dynamically by builder.js -->
+        </div>
+
+        <!-- Right: Sticky System Diagnostics & Quotation Summary -->
+        <aside class="builder-sidebar">
+          <div class="builder-summary-card">
+            <h3 class="builder-summary-title">
+              <span>System Diagnostics</span>
+              <span style="font-size: 0.8rem; color: var(--accent-cyan); font-weight: 600;">VRS v2.4</span>
+            </h3>
+
+            <!-- Wattage Bar -->
+            <div class="wattage-box">
+              <div class="wattage-header">
+                <span>Estimated Consumption</span>
+                <span id="builderEstimatedWattage" class="wattage-val">0 W</span>
+              </div>
+              <div class="wattage-track">
+                <div id="builderWattageFill" class="wattage-fill" style="width: 20%;"></div>
+              </div>
+              <div class="wattage-rec">
+                <span>Recommended PSU:</span>
+                <strong id="builderRecommendedPSU" style="color: var(--text-primary);">650 W+</strong>
+              </div>
+            </div>
+
+            <!-- Compatibility Status -->
+            <div id="builderCompatStatus" class="compat-indicator is-compatible">
+              <span class="compat-icon">✓</span>
+              <span>All Selected Parts 100% Compatible</span>
+            </div>
+            <div id="builderCompatDetails" class="compat-details">
+              Sockets, RAM technology, and power requirements are verified safe.
+            </div>
+
+            <!-- Pricing Breakdown -->
+            <div class="builder-price-box">
+              <div class="builder-price-row">
+                <span class="builder-total-label">Total Estimate:</span>
+                <span id="builderTotalPrice" class="builder-total-price">$0</span>
+              </div>
+              <div id="builderTotalPriceKhr" class="builder-khr-price">≈ 0 ៛</div>
+            </div>
+
+            <!-- Builder Actions -->
+            <div class="builder-action-btns">
+              <button id="builderAddToCartBtn" class="btn-builder-primary">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
+                Add Build to Cart
+              </button>
+              <button id="builderOrderTelegramBtn" class="btn-builder-tg">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 4.5 2.8 11.9c-1.2.5-1.2 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.2-2.1 4.6 3.4c.8.5 1.4.2 1.6-.8l3-14c.3-1.2-.4-1.7-1.9-1.8zM8.9 14.5l9-5.6c.4-.3.8-.1.5.2l-7.4 6.7-.3 3.1z"/></svg>
+                Send Build Spec to Telegram
+              </button>
+              <button id="builderPrintQuotationBtn" class="btn-builder-outline">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 6 2 18 2 18 9"></polyline><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg>
+                Print / Save Official Quotation
+              </button>
+              <button id="builderClearBtn" class="btn-builder-clear">Clear Configuration</button>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== TRUST & VALUE PROPOSITION ==================== -->
+  <section class="trust-section">
+    <div class="container">
+      <div class="trust-grid">
+        <div class="trust-item">
+          <div class="trust-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+          </div>
+          <div>
+            <h4 class="trust-title">100% Genuine &amp; Authorized</h4>
+            <p class="trust-desc">Direct authorized distributor stock with original factory serial numbers and official warranties.</p>
+          </div>
+        </div>
+
+        <div class="trust-item">
+          <div class="trust-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg>
+          </div>
+          <div>
+            <h4 class="trust-title">2-Hour Express Delivery</h4>
+            <p class="trust-desc">Fast delivery across Phnom Penh. Same-day dispatch to provinces via Virak Buntham &amp; J&amp;T.</p>
+          </div>
+        </div>
+
+        <div class="trust-item">
+          <div class="trust-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 14 14"></polyline></svg>
+          </div>
+          <div>
+            <h4 class="trust-title">Lifetime Maintenance</h4>
+            <p class="trust-desc">Free lifetime interior dust cleaning, thermal paste repasting, and Windows support for all clients.</p>
+          </div>
+        </div>
+
+        <div class="trust-item">
+          <div class="trust-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="5" width="20" height="14" rx="2"></rect><line x1="2" y1="10" x2="22" y2="10"></line></svg>
+          </div>
+          <div>
+            <h4 class="trust-title">Seamless Bakong KHQR</h4>
+            <p class="trust-desc">Pay instantly using any bank app: ABA Mobile, ACLEDA mobile, Wing Bank, Canadia, or Cash on Delivery.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== SHOWROOM & STORE LOCATION ==================== -->
+  <section class="showroom-section" id="showroom">
+    <div class="container">
+      <div class="showroom-card">
+        <div class="showroom-content-pad">
+          <div class="showroom-status-pill" id="showroomStatusPill">
+            <span class="pulse-dot"></span>
+            <span id="showroomStatusText" data-i18n="showroom_open_status">OPEN TODAY • 8:00 AM – 8:30 PM ICT</span>
+          </div>
+          <span class="hero-badge" style="margin-bottom: 10px;">🏪 FLAGSHIP STORE &amp; EXPERIENCE CENTER</span>
+          <h2 class="showroom-title">VRS COMPUTER SHOWROOM</h2>
+          <p style="color: var(--text-secondary); line-height: 1.6; font-size: 0.92rem;">Welcome to Phnom Penh’s premier hardware destination. Experience 240Hz OLED monitors, mechanical switch testers, custom liquid-cooled loops, and consult directly with our master PC technicians.</p>
+
+          <div class="showroom-highlights-grid">
+            <div class="showroom-pill">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+              <span>Hands-on Live Testing Station</span>
+            </div>
+            <div class="showroom-pill">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+              <span>Official Distributor Certified Techs</span>
+            </div>
+            <div class="showroom-pill">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 14 14"></polyline></svg>
+              <span>Instant In-Store Pickup in 15 Min</span>
+            </div>
+            <div class="showroom-pill">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path></svg>
+              <span>Free Lifetime Dusting &amp; Repasting</span>
+            </div>
+          </div>
+
+          <div class="showroom-info-list">
+            <div class="showroom-info-row">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+              <div>
+                <strong>Physical Address:</strong><br>
+                #188 Preah Monivong Blvd (Corner Kampuchea Krom), Sangkat Monorom, Khan 7 Makara, Phnom Penh, Cambodia
+              </div>
+            </div>
+
+            <div class="showroom-info-row">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+              <div>
+                <strong>Operating Schedule:</strong><br>
+                Monday – Sunday: 8:00 AM – 8:30 PM (Open 7 Days a week including Public Holidays)
+              </div>
+            </div>
+
+            <div class="showroom-info-row">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .3 2 .7 2.9a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.5c.9.4 1.9.6 2.9.7a2 2 0 0 1 1.8 2z"></path></svg>
+              <div>
+                <strong>Hotlines &amp; Direct VIP Contact:</strong><br>
+                <a href="tel:+85598871314" style="color: var(--accent-blue); font-weight: 700;">+855 98 871 314</a> • Telegram: <a href="https://t.me/Sounvisal" target="_blank" style="color: #229ed9; font-weight: 700;">@Sounvisal</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="map-placeholder">
+          <iframe title="VRS Computer Location Phnom Penh" src="https://maps.google.com/maps?q=Phnom+Penh+Monivong+Blvd&t=&z=14&ie=UTF8&iwloc=&output=embed" loading="lazy"></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="vrs-footer">
+    <div class="container">
+      <!-- Payment Methods & National Standards Strip -->
+      <div class="footer-payment-strip">
+        <div class="payment-label">Supported Payment Gateways &amp; KHQR:</div>
+        <div class="payment-badges-row">
+          <div class="payment-badge-pill" style="color: #ea1d25; border-color: rgba(234, 29, 37, 0.4);">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+            <span>Bakong KHQR</span>
+          </div>
+          <div class="payment-badge-pill" style="color: #005696; border-color: rgba(0, 86, 150, 0.4);">
+            <span>ABA PAY</span>
+          </div>
+          <div class="payment-badge-pill" style="color: #003865; border-color: rgba(0, 56, 101, 0.4);">
+            <span>ACLEDA Mobile</span>
+          </div>
+          <div class="payment-badge-pill" style="color: #6ebb34; border-color: rgba(110, 187, 52, 0.4);">
+            <span>Wing Bank</span>
+          </div>
+          <div class="payment-badge-pill" style="color: #d32f2f; border-color: rgba(211, 47, 47, 0.4);">
+            <span>Canadia Bank</span>
+          </div>
+          <div class="payment-badge-pill" style="color: #0284c7; border-color: rgba(2, 132, 199, 0.4);">
+            <span>Visa &amp; Mastercard</span>
+          </div>
+          <div class="payment-badge-pill" style="color: #10b981; border-color: rgba(16, 185, 129, 0.4);">
+            <span>Cash on Delivery (Phnom Penh)</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-grid">
+        <div>
+          <!-- Architectural Tech Brand Logo -->
+          <div class="brand-logo" style="margin-bottom: 16px;">
+            <div class="brand-emblem-wrap" style="width: 38px; height: 38px;">
+              <svg class="brand-emblem-svg" viewBox="0 0 44 44" fill="none">
+                <rect width="44" height="44" rx="11" fill="#0f172a"/>
+                <rect x="0.5" y="0.5" width="43" height="43" rx="10.5" stroke="rgba(255,255,255,0.1)"/>
+                <path d="M12 13 L22 35 L32 13 L26.2 13 L22 23 L17.8 13 Z" fill="#2563eb"/>
+                <circle cx="22" cy="18" r="2.2" fill="#60a5fa"/>
+              </svg>
+            </div>
+            <div class="brand-text">
+              <div class="brand-title-row">
+                <span class="brand-name" style="font-size: 1.25rem;">VRS</span>
+                <span class="brand-name-accent" style="font-size: 1.25rem;">COMPUTER</span>
+              </div>
+              <span class="brand-tagline">Flagship Store • Phnom Penh</span>
+            </div>
+          </div>
+          <p style="color: var(--text-secondary); font-size: 0.86rem; line-height: 1.6; margin-bottom: 20px;">
+            VRS COMPUTER is Cambodia's premier technology store for authentic laptops, custom liquid-cooled desktop PCs, authorized computer components, and official warranties.
+          </p>
+          <div style="display:flex; gap:10px;">
+            <a href="https://t.me/Sounvisal" target="_blank" class="float-btn float-btn--telegram" style="position:static; width:38px; height:38px;">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 4.5 2.8 11.9c-1.2.5-1.2 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.2-2.1 4.6 3.4c.8.5 1.4.2 1.6-.8l3-14c.3-1.2-.4-1.7-1.9-1.8zM8.9 14.5l9-5.6c.4-.3.8-.1.5.2l-7.4 6.7-.3 3.1z"/></svg>
+            </a>
+            <a href="https://facebook.com" target="_blank" class="float-btn float-btn--facebook" style="position:static; width:38px; height:38px; background: #1877f2;">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M13.5 21v-8h2.7l.4-3.1h-3.1V8c0-.9.25-1.5 1.55-1.5H16.7V3.7c-.28-.04-1.25-.12-2.37-.12-2.34 0-3.94 1.43-3.94 4.05v2.26H8v3.1h2.4V21h3.1z"/></svg>
+            </a>
+            <a href="tel:+85598871314" class="float-btn float-btn--phone" style="position:static; width:38px; height:38px;">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .3 2 .7 2.9a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.5c.9.4 1.9.6 2.9.7a2 2 0 0 1 1.8 2z"></path></svg>
+            </a>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="footer-title">Product Catalog</h4>
+          <ul class="footer-links">
+            <li><a href="#catalog" onclick="currentCategory='gaming'; renderCatalog();">Gaming Laptops</a></li>
+            <li><a href="#catalog" onclick="currentCategory='ultrabook'; renderCatalog();">Business Ultrabooks</a></li>
+            <li><a href="#catalog" onclick="currentCategory='macbook'; renderCatalog();">Apple MacBooks</a></li>
+            <li><a href="#catalog" onclick="currentCategory='desktop'; renderCatalog();">Custom Desktops</a></li>
+            <li><a href="#builder">PC Builder Studio</a></li>
+            <li><a href="#catalog" onclick="currentCategory='secondhand'; renderCatalog();">Certified 99% Pre-Owned</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-title">Customer Care</h4>
+          <ul class="footer-links">
+            <li><a href="#showroom">Store Location &amp; Directions</a></li>
+            <li><a href="tel:+85598871314">Official Warranty Terms (+855 98 871 314)</a></li>
+            <li><a href="#showroom">Phnom Penh 2-Hour Delivery</a></li>
+            <li><a href="https://t.me/Sounvisal" target="_blank">Telegram Direct Support (@Sounvisal)</a></li>
+            <li><a href="#builder">Download Official Quotation</a></li>
+            <li><a href="javascript:void(0)" onclick="openKHQRModal()">Bakong KHQR Payment Guide</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-title">VIP Tech Alerts</h4>
+          <p style="color: var(--text-secondary); font-size: 0.85rem; margin-bottom: 14px; line-height: 1.5;">Subscribe for new RTX 50/40 GPU restock notifications, private flash sales, and price drops.</p>
+          <div style="display:flex; gap:8px;">
+            <input type="email" placeholder="Your Telegram or Email..." style="background: var(--bg-tertiary); border: 1px solid var(--border-subtle); color: #fff; padding: 10px 14px; border-radius: 8px; font-size: 0.85rem; flex: 1; outline: none;">
+            <button class="btn-hero-primary" style="padding: 10px 16px; font-size: 0.85rem;" onclick="showToast('Thank you for subscribing to VRS VIP Alerts!', 'success')">Join</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>© 2026 VRS COMPUTER Cambodia. All Rights Reserved. Premier Authorized Computer Retailer.</div>
+        <div style="display: flex; align-items: center; gap: 14px; flex-wrap: wrap;">
+          <span>Engineered with Next-Gen Cyber-Luxe Architecture. Dual Currency Engine ($ / ៛) Active.</span>
+          <a href="admin.html" style="color: var(--text-muted); font-size: 0.76rem; text-decoration: none; border: 1px solid var(--border-subtle); padding: 2px 8px; border-radius: 4px; transition: all 0.2s;" onmouseover="this.style.color='var(--accent-cyan)'; this.style.borderColor='var(--border-accent)'" onmouseout="this.style.color='var(--text-muted)'; this.style.borderColor='var(--border-subtle)'" title="Store Management Control Panel">🔐 Staff Portal</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==================== SLIDE-OVER CART DRAWER ==================== -->
+  <div id="cartDrawerScrim" class="cart-drawer-scrim">
+    <div class="cart-drawer">
+      <div class="cart-drawer-header">
+        <h3 class="cart-drawer-title"><span data-i18n="cart_title">Shopping Cart</span> (<span id="cartDrawerCount">0</span>)</h3>
+        <button id="closeCartDrawerBtn" class="cart-drawer-close" aria-label="Close Cart">✕</button>
+      </div>
+
+      <!-- Free Express Delivery Progress Bar ($500 threshold) -->
+      <div class="cart-shipping-meter">
+        <div class="shipping-meter-header">
+          <div class="shipping-meter-title">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="1" y="3" width="15" height="13"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg>
+            <span id="freeShippingText">Add $500 for FREE 2-Hour Phnom Penh Express</span>
+          </div>
+          <span id="freeShippingPercent" class="shipping-meter-pct">0%</span>
+        </div>
+        <div class="shipping-meter-track">
+          <div id="freeShippingProgress" class="shipping-meter-fill" style="width: 0%;"></div>
+        </div>
+      </div>
+
+      <div id="cartItemsList" class="cart-drawer-items">
+        <!-- Rendered by app.js -->
+      </div>
+
+      <div class="cart-drawer-footer">
+        <!-- Promo Coupon Input -->
+        <div class="coupon-box-wrap">
+          <div style="display:flex; gap:8px; width: 100%;">
+            <input type="text" id="couponCodeInput" placeholder="Promo code (VRS2026, GAMER50)" style="background: var(--bg-tertiary); border: 1px solid var(--border-subtle); color: #fff; padding: 8px 12px; border-radius: 6px; font-size: 0.85rem; flex: 1; outline: none; text-transform: uppercase;">
+            <button id="applyCouponBtn" style="background: var(--bg-surface-elevated); color: var(--accent-cyan); border: 1px solid var(--border-accent); padding: 8px 14px; border-radius: 6px; font-weight: 700; font-size: 0.82rem; cursor: pointer;">Apply</button>
+          </div>
+          <div id="appliedCouponTag" style="display: none; align-items: center; justify-content: space-between; background: rgba(16, 185, 129, 0.12); border: 1px solid rgba(16, 185, 129, 0.35); padding: 4px 10px; border-radius: 6px; margin-top: 8px; font-size: 0.8rem; color: #10b981;">
+            <span><strong id="appliedCouponName">VRS2026</strong>: -$<span id="appliedCouponSavings">20</span> USD Discount Applied</span>
+            <button id="removeCouponBtn" style="color: #ef4444; font-weight: 800; padding: 2px 6px; font-size: 0.82rem;" title="Remove Coupon">✕</button>
+          </div>
+        </div>
+
+        <!-- Breakdown Rows -->
+        <div class="cart-summary-breakdown">
+          <div class="cart-summary-line">
+            <span>Subtotal:</span>
+            <span id="cartSubtotalAmount">$0</span>
+          </div>
+          <div id="cartDiscountLine" class="cart-summary-line discount-line" style="display: none; color: #10b981;">
+            <span>Promo Discount:</span>
+            <span id="cartDiscountAmount">-$0</span>
+          </div>
+          <div class="cart-summary-line">
+            <span>Express Delivery:</span>
+            <span id="cartDeliveryFee" style="color: #10b981; font-weight: 700;">FREE</span>
+          </div>
+        </div>
+
+        <div class="cart-total-row">
+          <span style="font-weight: 800; font-size: 1.05rem;" data-i18n="cart_total">Estimated Grand Total:</span>
+          <span id="cartTotalAmount" class="cart-total-amount">$0</span>
+        </div>
+        <div id="cartKhrAmount" class="cart-khr-amount">≈ 0 ៛</div>
+
+        <div class="cart-checkout-btns">
+          <button id="cartCheckoutKhqrBtn" class="btn-khqr-checkout">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+            <span data-i18n="btn_pay_khqr">Pay with Bakong KHQR (ABA / ACLEDA / Wing)</span>
+          </button>
+          <button id="cartCheckoutTelegramBtn" class="btn-builder-tg">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 4.5 2.8 11.9c-1.2.5-1.2 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.2-2.1 4.6 3.4c.8.5 1.4.2 1.6-.8l3-14c.3-1.2-.4-1.7-1.9-1.8zM8.9 14.5l9-5.6c.4-.3.8-.1.5.2l-7.4 6.7-.3 3.1z"/></svg>
+            <span data-i18n="btn_checkout_tg">Instant Checkout via Telegram</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== SLIDE-OVER WISHLIST DRAWER ==================== -->
+  <div id="wishlistDrawerScrim" class="cart-drawer-scrim">
+    <div class="cart-drawer">
+      <div class="cart-drawer-header">
+        <h3 class="cart-drawer-title"><span data-i18n="wishlist_title">Saved Wishlist</span> (<span id="wishlistDrawerCount">0</span>)</h3>
+        <button id="closeWishlistDrawerBtn" class="cart-drawer-close" aria-label="Close Wishlist">✕</button>
+      </div>
+
+      <div id="wishlistItemsList" class="cart-drawer-items">
+        <!-- Rendered by app.js -->
+      </div>
+
+      <div class="cart-drawer-footer">
+        <button id="wishlistMoveAllBtn" class="btn-builder-primary" style="width: 100%; margin-bottom: 8px;">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
+          <span data-i18n="btn_wishlist_all_cart">Add All Wishlist Items to Cart</span>
+        </button>
+        <button id="wishlistClearBtn" class="btn-builder-clear" style="width: 100%;">
+          <span data-i18n="btn_clear_wishlist">Clear Wishlist</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== BAKONG KHQR PAYMENT MODAL ==================== -->
+  <!-- ==================== BAKONG KHQR PAYMENT MODAL ==================== -->
+  <div id="khqrPaymentModal" class="khqr-modal">
+    <div class="khqr-card" style="max-width: 440px; text-align: center; overflow: hidden; border-radius: 16px; border: 1px solid rgba(0, 86, 150, 0.4); box-shadow: 0 25px 60px rgba(0,0,0,0.8);">
+      <div class="khqr-header" style="background: linear-gradient(135deg, #002b49 0%, #005696 100%); padding: 18px 24px; color: #fff;">
+        <div style="font-size: 1.25rem; font-weight: 900; letter-spacing: 2px;">ABA' QR • KHQR</div>
+        <div style="font-size: 0.76rem; opacity: 0.9; margin-top: 2px; letter-spacing: 0.5px;">NATIONAL BANK OF CANADA GROUP</div>
+      </div>
+
+      <div style="padding: 22px 24px 18px; background: #ffffff; color: #0f172a;">
+        <div style="font-size: 0.82rem; color: #64748b; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px;">Account Name</div>
+        <div id="khqrAccountNameEl" style="font-size: 1.15rem; font-weight: 900; color: #002b49; letter-spacing: 0.5px; margin-top: 2px;">VISAL SOUN</div>
+
+        <div id="khqrDisplayAmount" class="khqr-amount" style="font-size: 1.45rem; font-weight: 900; color: #005696; margin: 8px 0 14px;">$0 USD</div>
+
+        <!-- Official ABA Bank KHQR Image -->
+        <div class="khqr-qr-box" style="padding: 8px; background: #fff; border-radius: 12px; border: 1.5px solid #e2e8f0; display: inline-block; margin-bottom: 14px; box-shadow: 0 4px 16px rgba(0, 43, 73, 0.1);">
+          <img id="khqrQrImageEl" src="assets/images/aba-khqr.png" alt="Official ABA Bank KHQR - VISAL SOUN" style="width: 240px; height: auto; border-radius: 8px; display: block;">
+        </div>
+
+        <!-- Account Numbers Quick-Copy Box -->
+        <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 10px; padding: 10px 14px; margin-bottom: 12px; text-align: left; font-size: 0.84rem;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+            <span style="color: #475569; font-weight: 600;">💵 USD Account:</span>
+            <span style="display: flex; align-items: center; gap: 6px;">
+              <strong id="khqrUsdAccountEl" style="color: #0f172a; font-family: monospace; font-size: 0.95rem;">013 997 388</strong>
+              <button onclick="navigator.clipboard.writeText(document.getElementById('khqrUsdAccountEl').textContent.trim()); showToast('USD Account copied!', 'success');" style="background: #e2e8f0; border: none; border-radius: 4px; padding: 2px 6px; font-size: 0.72rem; cursor: pointer; color: #0f172a;" title="Copy USD Account">Copy</button>
+            </span>
+          </div>
+          <div style="display: flex; justify-content: space-between; align-items: center;">
+            <span style="color: #475569; font-weight: 600;">៛ KHR Account:</span>
+            <span style="display: flex; align-items: center; gap: 6px;">
+              <strong id="khqrKhrAccountEl" style="color: #0f172a; font-family: monospace; font-size: 0.95rem;">013 997 391</strong>
+              <button onclick="navigator.clipboard.writeText(document.getElementById('khqrKhrAccountEl').textContent.trim()); showToast('KHR Account copied!', 'success');" style="background: #e2e8f0; border: none; border-radius: 4px; padding: 2px 6px; font-size: 0.72rem; cursor: pointer; color: #0f172a;" title="Copy KHR Account">Copy</button>
+            </span>
+          </div>
+        </div>
+
+        <div style="font-size: 0.78rem; color: #64748b; margin-bottom: 8px; line-height: 1.4;">
+          Scan with <strong>ABA Mobile, Bakong, ACLEDA, Wing, Canadia</strong> or any Cambodian banking app.
+        </div>
+
+        <div style="font-size: 0.82rem; font-weight: 700; color: #ef4444; margin-bottom: 14px;">
+          QR Active • Valid: <span id="khqrCountdownTimer">15:00</span>
+        </div>
+
+        <button id="confirmKhqrPaymentBtn" class="btn-khqr-confirm" style="width: 100%; padding: 12px; font-size: 0.92rem; font-weight: 700; background: #005696; color: #fff; border: none; border-radius: 8px; cursor: pointer; transition: background 0.2s ease;">I Have Paid (Confirm &amp; Generate Invoice)</button>
+        <button id="closeKhqrModalBtn" style="color: #64748b; font-size: 0.82rem; margin-top: 10px; padding: 6px; cursor: pointer; background: none; border: none;">Cancel Payment</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== PART PICKER MODAL (FOR PC BUILDER) ==================== -->
+  <div id="partPickerModal" class="part-modal">
+    <div class="part-modal-content" style="max-width: 860px; width: 95%;">
+      <div class="part-modal-header">
+        <div>
+          <h3 id="partPickerModalTitle" class="part-modal-title">Select Component</h3>
+          <div id="partPickerSubtitle" style="font-size: 0.8rem; color: var(--text-muted); margin-top: 2px;">Choose hardware with guaranteed socket and power compatibility</div>
+        </div>
+        <button id="closePartPickerBtn" class="part-modal-close" aria-label="Close component picker">✕</button>
+      </div>
+
+      <!-- Live Search & Brand Filter Bar inside modal -->
+      <div class="picker-controls-bar">
+        <div class="picker-search-wrap">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+          <input type="text" id="pickerSearchInput" class="picker-search-input" placeholder="Search by model, chipset, or socket...">
+        </div>
+        <div class="picker-filters-row">
+          <div class="picker-brand-chips" id="pickerBrandChips">
+            <!-- Populated by builder.js -->
+          </div>
+          <div style="display:flex; gap:8px; align-items:center; margin-left:auto;">
+            <select id="pickerSortSelect" class="sort-select" style="padding: 6px 12px; font-size: 0.82rem;">
+              <option value="featured">Featured First</option>
+              <option value="price-asc">Price: Low to High</option>
+              <option value="price-desc">Price: High to Low</option>
+            </select>
+            <button id="pickerClearSlotBtn" class="btn-picker-clear-slot" title="Remove current part from this slot" style="display:none;">Clear Part</button>
+          </div>
+        </div>
+      </div>
+
+      <div id="partPickerItemsList" class="part-modal-body">
+        <!-- Injected by builder.js -->
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== DIGITAL TAX INVOICE & ORDER RECEIPT MODAL ==================== -->
+  <div id="invoiceModal" class="part-modal">
+    <div class="part-modal-content invoice-modal-container" style="max-width: 760px; width: 95%;">
+      <div class="part-modal-header" style="background: linear-gradient(90deg, rgba(0,242,254,0.08) 0%, rgba(37,99,235,0.08) 100%);">
+        <div>
+          <h3 class="part-modal-title" style="color: var(--accent-cyan); display: flex; align-items: center; gap: 8px;">
+            <span>🧾</span> <span data-i18n="invoice_header">Official Order Invoice &amp; Tax Receipt</span>
+          </h3>
+          <div style="font-size: 0.78rem; color: var(--text-muted);">VRS COMPUTER CO., LTD. • Authorized Hardware Distributor • Phnom Penh</div>
+        </div>
+        <button id="closeInvoiceBtn" class="part-modal-close" aria-label="Close invoice">✕</button>
+      </div>
+
+      <div class="part-modal-body invoice-printable-body" id="invoiceModalBody">
+        <!-- Injected by app.js when payment or order is confirmed -->
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== QUICK VIEW MODAL ==================== -->
+  <div id="quickViewModal" class="part-modal">
+    <div class="part-modal-content" style="max-width: 900px;">
+      <div class="part-modal-header">
+        <h3 class="part-modal-title">Product Details &amp; Specifications</h3>
+        <button id="closeQuickViewBtn" class="part-modal-close">✕</button>
+      </div>
+      <div id="quickViewContent" class="part-modal-body" style="padding: 24px;">
+        <!-- Injected by app.js -->
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== SPEC COMPARISON DRAWER & MODAL ==================== -->
+  <div id="compareFloatingBar" style="position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%) translateY(120px); background: var(--bg-card); border: 1px solid var(--border-accent); border-radius: var(--border-radius-full); padding: 10px 24px; display: flex; align-items: center; gap: 16px; box-shadow: var(--shadow-lg); z-index: 999; transition: transform 0.4s ease; backdrop-filter: blur(12px);" class="">
+    <span style="font-size: 0.88rem; font-weight: 700; color: var(--accent-cyan);">⚡ Compare Specs:</span>
+    <div id="compareItemsSlot" style="display: flex; gap: 10px;"></div>
+    <button class="btn-builder-primary" style="padding: 6px 16px; font-size: 0.82rem;" onclick="openComparisonModal()">Compare Now</button>
+    <button id="closeCompareBarBtn" style="color: var(--text-muted); font-size: 0.82rem; margin-left: 6px;">✕</button>
+  </div>
+
+  <div id="compareModal" class="part-modal">
+    <div class="part-modal-content" style="max-width: 1050px;">
+      <div class="part-modal-header">
+        <h3 class="part-modal-title">Side-by-Side Product Comparison</h3>
+        <button id="closeCompareModalBtn" class="part-modal-close">✕</button>
+      </div>
+      <div style="padding: 20px; overflow-x: auto;">
+        <table id="compareTableContent" style="width: 100%; border-collapse: collapse;"></table>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== CAMBODIA FLOATING ACTION BUTTONS ==================== -->
+  <div class="floating-actions">
+    <!-- Telegram -->
+    <a href="https://t.me/Sounvisal" target="_blank" rel="noopener" class="float-btn float-btn--telegram" title="Chat on Telegram (@Sounvisal)">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 4.5 2.8 11.9c-1.2.5-1.2 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.2-2.1 4.6 3.4c.8.5 1.4.2 1.6-.8l3-14c.3-1.2-.4-1.7-1.9-1.8zM8.9 14.5l9-5.6c.4-.3.8-.1.5.2l-7.4 6.7-.3 3.1z"/></svg>
+    </a>
+    <!-- WhatsApp -->
+    <a href="https://api.whatsapp.com/send/?phone=85598871314" target="_blank" rel="noopener" class="float-btn float-btn--whatsapp" title="WhatsApp Support (+855 98 871 314)">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3a9 9 0 0 0-7.8 13.5L3 21l4.6-1.2A9 9 0 1 0 12 3zm0 16.3a7.3 7.3 0 0 1-3.7-1l-.3-.2-2.7.7.7-2.6-.2-.3A7.3 7.3 0 1 1 12 19.3zm4-5.4c-.2-.1-1.3-.6-1.5-.7-.2-.1-.4-.1-.5.1-.2.2-.6.7-.7.9-.1.2-.3.2-.5.1-.2-.1-1-.4-2-1.2-.7-.6-1.2-1.4-1.4-1.6-.1-.2 0-.4.1-.5l.4-.4c.1-.1.2-.3.2-.4 0-.2 0-.3-.1-.5-.1-.1-.5-1.2-.7-1.7-.2-.4-.4-.4-.5-.4h-.5c-.2 0-.4.1-.6.3-.2.2-.8.8-.8 1.9 0 1.1.8 2.2.9 2.3.1.2 1.6 2.5 3.9 3.5.6.2 1 .4 1.3.5.5.2 1 .1 1.4.1.4-.1 1.3-.5 1.5-1 .2-.5.2-.9.1-1z"/></svg>
+    </a>
+    <!-- Phone Call -->
+    <a href="tel:+85598871314" class="float-btn float-btn--phone" title="Call Hotline (+855 98 871 314)">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .3 2 .7 2.9a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.5c.9.4 1.9.6 2.9.7a2 2 0 0 1 1.8 2z"></path></svg>
+    </a>
+    <!-- Back to Top -->
+    <a href="#top" id="backToTopBtn" class="float-btn float-btn--top" title="Back to Top" style="display: none;">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="18 15 12 9 6 15"></polyline></svg>
+    </a>
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/products.js?v=3.5"></script>
+  <script src="js/builder-data.js?v=3.5"></script>
+  <script src="js/builder.js?v=3.5"></script>
+  <script src="js/app.js?v=3.5"></script>
+</body>
+</html>
