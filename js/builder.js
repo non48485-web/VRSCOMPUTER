@@ -553,7 +553,7 @@ function printBuilderQuotation() {
       <div class="header">
         <div>
           <div class="logo-title">VRS COMPUTER</div>
-          <div class="logo-sub">Official Computer Store &amp; Custom PC Workshop<br>Preah Monivong Blvd, Phnom Penh, Cambodia<br>Hotline: +855 98 871 314 | Telegram: @Sounvisal</div>
+          <div class="logo-sub">Official Computer Store &amp; Custom PC Workshop<br>${window.VRS_SETTINGS?.address || 'VRS Computer Shop, Krong Chbar Mon, Cambodia'}<br>Hotline: ${window.VRS_SETTINGS?.hotline || '+855 98 871 314'} | Telegram: @${window.VRS_SETTINGS?.telegramHandle || 'Sounvisal'}</div>
         </div>
         <div class="meta-box">
           <strong style="font-size:16px; color:#0284c7;">OFFICIAL PC QUOTATION</strong><br>

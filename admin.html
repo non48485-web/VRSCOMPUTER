@@ -592,7 +592,41 @@
 
             <div class="form-group" style="grid-column: 1 / -1;">
               <label class="form-label">Showroom Physical Address</label>
-              <input type="text" id="settingAddress" class="form-input" placeholder="Preah Monivong Blvd, Phnom Penh, Cambodia">
+              <input type="text" id="settingAddress" class="form-input" placeholder="VRS Computer Shop, Krong Chbar Mon, Cambodia">
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Google Maps Direct Link</label>
+              <input type="url" id="settingGoogleMapsUrl" class="form-input" placeholder="https://maps.app.goo.gl/yCtUfzkAvsytpT6A7?g_st=it">
+              <span class="form-help">Short share link for customer navigation &amp; directions</span>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Google Maps Embed URL</label>
+              <input type="url" id="settingMapEmbedUrl" class="form-input" placeholder="https://maps.google.com/maps?q=VRS+Computer+Shop,+Krong+Chbar+Mon&amp;t=&amp;z=15&amp;ie=UTF8&amp;iwloc=&amp;output=embed">
+              <span class="form-help">Interactive map iframe source URL</span>
+            </div>
+
+            <div class="form-group" style="grid-column: 1 / -1; background: rgba(15, 23, 42, 0.4); border: 1px solid var(--admin-border); border-radius: 12px; padding: 16px; display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap;">
+              <div style="display: flex; align-items: center; gap: 16px;">
+                <div style="background: #fff; padding: 6px; border-radius: 8px; border: 1px solid #cbd5e1; flex-shrink: 0;">
+                  <img src="assets/images/vrs-maps-qr.png" alt="Google Maps QR Code" style="width: 76px; height: 76px; display: block;">
+                </div>
+                <div>
+                  <h4 style="margin: 0 0 4px; font-size: 0.95rem; color: #fff;">📱 Public Location QR Code</h4>
+                  <div style="font-size: 0.8rem; color: var(--admin-text-dim); line-height: 1.4;">
+                    Customers scan this QR code with their mobile phone cameras to open Google Maps &amp; GPS navigation to VRS Computer Shop in Krong Chbar Mon.
+                  </div>
+                </div>
+              </div>
+              <div style="display: flex; gap: 8px; flex-shrink: 0;">
+                <a href="qr.html" target="_blank" class="btn-admin" style="font-size: 0.82rem; text-decoration: none;">
+                  🖨️ Printable Stand Card
+                </a>
+                <a href="assets/images/vrs-maps-qr.png" download="VRS-Maps-QR.png" class="btn-admin btn-admin-primary" style="font-size: 0.82rem; text-decoration: none;">
+                  💾 Download QR (PNG)
+                </a>
+              </div>
             </div>
 
             <div class="form-group">

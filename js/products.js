@@ -23,9 +23,11 @@ const DEFAULT_STORE_SETTINGS = {
   telegramUrl: "https://t.me/Sounvisal",
   whatsappNumber: "85598871314",
   whatsappUrl: "https://api.whatsapp.com/send/?phone=85598871314",
-  address: "Preah Monivong Blvd, Phnom Penh, Cambodia",
-  hoursWeekday: "8:00 AM - 8:00 PM ICT",
-  hoursSunday: "8:30 AM - 6:00 PM ICT",
+  address: "VRS Computer Shop, Krong Chbar Mon, Cambodia",
+  googleMapsUrl: "https://maps.app.goo.gl/yCtUfzkAvsytpT6A7?g_st=it",
+  mapEmbedUrl: "https://maps.google.com/maps?q=VRS+Computer+Shop,+Krong+Chbar+Mon&t=&z=15&ie=UTF8&iwloc=&output=embed",
+  hoursWeekday: "8:00 AM - 8:30 PM ICT",
+  hoursSunday: "8:00 AM - 8:30 PM ICT",
   exchangeRateKHR: 4100,
   abaAccountName: "VISAL SOUN",
   abaUsdAccount: "013 997 388",
@@ -38,7 +40,13 @@ function getStoreSettings() {
   try {
     const raw = localStorage.getItem(STORAGE_KEYS.SETTINGS);
     if (raw) {
-      return { ...DEFAULT_STORE_SETTINGS, ...JSON.parse(raw) };
+      const parsed = JSON.parse(raw);
+      if (!parsed.googleMapsUrl) parsed.googleMapsUrl = DEFAULT_STORE_SETTINGS.googleMapsUrl;
+      if (!parsed.mapEmbedUrl) parsed.mapEmbedUrl = DEFAULT_STORE_SETTINGS.mapEmbedUrl;
+      if (!parsed.address || parsed.address.includes("Monivong")) {
+        parsed.address = DEFAULT_STORE_SETTINGS.address;
+      }
+      return { ...DEFAULT_STORE_SETTINGS, ...parsed };
     }
   } catch (e) {
     console.warn('Error reading store settings:', e);

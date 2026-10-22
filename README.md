@@ -102,7 +102,7 @@ const EXCHANGE_RATE_KHR = 4100; // Change to current rate (e.g., 4120)
 In [`index.html`](file:///d:/VRS%20Computer/index.html) and [`js/app.js`](file:///d:/VRS%20Computer/js/app.js):
 - Telegram: Replace `vrscomputerkh` with your actual Telegram username or channel link.
 - Phone Hotlines: `012 888 999` and `096 888 999`.
-- Address: Preah Monivong Blvd, Phnom Penh.
+- Address: VRS Computer Shop, Krong Chbar Mon, Cambodia ([Google Maps](https://maps.app.goo.gl/yCtUfzkAvsytpT6A7?g_st=it)).
 
 ---
 

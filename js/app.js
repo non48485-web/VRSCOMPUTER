@@ -59,7 +59,11 @@ const I18N_DICTIONARY = {
     add_to_cart: 'Add to Cart',
     telegram_btn: 'Telegram',
     save_prefix: 'SAVE',
-    free_prefix: 'Free'
+    free_prefix: 'Free',
+    showroom_map_btn: 'Open in Google Maps',
+    showroom_directions_btn: 'Get Driving Directions',
+    showroom_map_overlay: 'View Map',
+    showroom_scan_qr: '📱 Scan Location QR'
   },
   KH: {
     brand_tagline: 'ហាងកុំព្យូទ័រផ្លូវការ • រាជធានីភ្នំពេញ',
@@ -100,7 +104,11 @@ const I18N_DICTIONARY = {
     add_to_cart: 'ដាក់ក្នុងកន្ត្រក',
     telegram_btn: 'Telegram',
     save_prefix: 'ចំណេញ',
-    free_prefix: 'ថែមជូន'
+    free_prefix: 'ថែមជូន',
+    showroom_map_btn: 'បើកមើលក្នុង Google Maps',
+    showroom_directions_btn: 'បង្ហាញផ្លូវធ្វើដំណើរ',
+    showroom_map_overlay: 'មើលក្នុងផែនទី',
+    showroom_scan_qr: '📱 ស្កេន QR ទីតាំង'
   }
 };
 
@@ -178,6 +186,27 @@ function applyStoreSettings() {
   document.querySelectorAll('.float-btn--whatsapp').forEach(a => {
     a.href = waUrl;
     a.setAttribute('title', `WhatsApp Support (${hotlineFormatted})`);
+  });
+
+  // Showroom Physical Address
+  const storeAddress = settings.address || 'VRS Computer Shop, Krong Chbar Mon, Cambodia';
+  const addressEl = document.getElementById('showroomAddressText');
+  if (addressEl) {
+    addressEl.textContent = storeAddress;
+  }
+
+  // Google Maps URL & Map Embed
+  const gMapsUrl = settings.googleMapsUrl || 'https://maps.app.goo.gl/yCtUfzkAvsytpT6A7?g_st=it';
+  const gMapsEmbed = settings.mapEmbedUrl || 'https://maps.google.com/maps?q=VRS+Computer+Shop,+Krong+Chbar+Mon&t=&z=15&ie=UTF8&iwloc=&output=embed';
+
+  const mapIframe = document.getElementById('showroomMapIframe');
+  if (mapIframe && (!mapIframe.src || !mapIframe.src.includes('VRS+Computer+Shop'))) {
+    mapIframe.src = gMapsEmbed;
+  }
+
+  // Update all Google Maps links across the website
+  document.querySelectorAll('a[data-map-link], #showroomGoogleMapsBtn, #showroomDirectionsBtn, #footerMapLink, .map-badge-btn, .map-bottom-link').forEach(a => {
+    a.href = gMapsUrl;
   });
 
   // KHQR Modal Elements
@@ -1388,6 +1417,34 @@ function openKHQRModal() {
 
   modal.classList.add('is-open');
 }
+
+/* --------------------------------------------------------------------------
+   LOCATION GOOGLE MAPS QR MODAL
+   -------------------------------------------------------------------------- */
+function openLocationQRModal() {
+  const modal = document.getElementById('locationQrModal');
+  if (!modal) return;
+  const s = typeof getStoreSettings === 'function' ? getStoreSettings() : null;
+  const addrEl = document.getElementById('modalQrAddress');
+  if (addrEl && s && s.address) {
+    addrEl.textContent = s.address;
+  }
+  modal.classList.add('is-open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeLocationQRModal() {
+  const modal = document.getElementById('locationQrModal');
+  if (!modal) return;
+  modal.classList.remove('is-open');
+  document.body.style.overflow = '';
+}
+
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') {
+    closeLocationQRModal();
+  }
+});
 
 /* --------------------------------------------------------------------------
    QUICK VIEW MODAL

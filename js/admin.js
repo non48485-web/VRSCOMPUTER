@@ -854,9 +854,15 @@ function initSettingsForm() {
   document.getElementById('settingTelegramHandle').value = s.telegramHandle || 'Sounvisal';
   document.getElementById('settingWhatsappNumber').value = s.whatsappNumber || '85598871314';
   document.getElementById('settingExchangeRate').value = s.exchangeRateKHR || 4100;
-  document.getElementById('settingAddress').value = s.address || '';
-  document.getElementById('settingHoursWeekday').value = s.hoursWeekday || '8:00 AM - 8:00 PM ICT';
-  document.getElementById('settingHoursSunday').value = s.hoursSunday || '8:30 AM - 6:00 PM ICT';
+  document.getElementById('settingAddress').value = s.address || 'VRS Computer Shop, Krong Chbar Mon, Cambodia';
+  if (document.getElementById('settingGoogleMapsUrl')) {
+    document.getElementById('settingGoogleMapsUrl').value = s.googleMapsUrl || 'https://maps.app.goo.gl/yCtUfzkAvsytpT6A7?g_st=it';
+  }
+  if (document.getElementById('settingMapEmbedUrl')) {
+    document.getElementById('settingMapEmbedUrl').value = s.mapEmbedUrl || 'https://maps.google.com/maps?q=VRS+Computer+Shop,+Krong+Chbar+Mon&t=&z=15&ie=UTF8&iwloc=&output=embed';
+  }
+  document.getElementById('settingHoursWeekday').value = s.hoursWeekday || '8:00 AM - 8:30 PM ICT';
+  document.getElementById('settingHoursSunday').value = s.hoursSunday || '8:00 AM - 8:30 PM ICT';
   document.getElementById('settingTickerAnnouncement').value = s.tickerAnnouncement || '';
 }
 
@@ -871,7 +877,13 @@ function saveStoreSettingsForm() {
   s.whatsappNumber = document.getElementById('settingWhatsappNumber').value.trim().replace(/[^0-9]/g, '');
   s.whatsappUrl = `https://api.whatsapp.com/send/?phone=${s.whatsappNumber}`;
   s.exchangeRateKHR = parseInt(document.getElementById('settingExchangeRate').value) || 4100;
-  s.address = document.getElementById('settingAddress').value.trim();
+  s.address = document.getElementById('settingAddress').value.trim() || 'VRS Computer Shop, Krong Chbar Mon, Cambodia';
+  if (document.getElementById('settingGoogleMapsUrl')) {
+    s.googleMapsUrl = document.getElementById('settingGoogleMapsUrl').value.trim() || 'https://maps.app.goo.gl/yCtUfzkAvsytpT6A7?g_st=it';
+  }
+  if (document.getElementById('settingMapEmbedUrl')) {
+    s.mapEmbedUrl = document.getElementById('settingMapEmbedUrl').value.trim() || 'https://maps.google.com/maps?q=VRS+Computer+Shop,+Krong+Chbar+Mon&t=&z=15&ie=UTF8&iwloc=&output=embed';
+  }
   s.hoursWeekday = document.getElementById('settingHoursWeekday').value.trim();
   s.hoursSunday = document.getElementById('settingHoursSunday').value.trim();
   s.tickerAnnouncement = document.getElementById('settingTickerAnnouncement').value.trim();
@@ -881,7 +893,7 @@ function saveStoreSettingsForm() {
   EXCHANGE_RATE_KHR = s.exchangeRateKHR;
 
   refreshAllData();
-  showAdminToast('Store settings & hotline saved! Synced to storefront.', 'success');
+  showAdminToast('Store settings, location & map saved! Synced to storefront.', 'success');
 }
 
 /* --------------------------------------------------------------------------
