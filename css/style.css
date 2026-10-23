@@ -4703,3 +4703,438 @@ html, body {
   justify-content: space-between;
   gap: 10px;
 }
+
+
+/* =========================================================================
+   MOBILE & CROSS-PLATFORM OVERRIDES FOR STYLE.CSS
+   Ensures burger button is always visible, header never overflows on phones
+   ========================================================================= */
+
+@media (max-width: 768px) {
+  .vrs-header,
+  .cc-header {
+    height: auto !important;
+  }
+
+  .cc-header__row {
+    height: 60px !important;
+    padding-inline: 12px !important;
+    gap: 8px !important;
+    justify-content: space-between !important;
+  }
+
+  .cc-logo {
+    gap: 8px !important;
+    padding: 0 !important;
+    flex-shrink: 0 !important;
+  }
+
+  .cc-logo__img,
+  .cc-logo svg,
+  .vrs-logo-badge,
+  .cc-logo .brand-emblem-svg {
+    width: 36px !important;
+    height: 36px !important;
+    min-width: 36px !important;
+    max-width: 36px !important;
+  }
+
+  .cc-logo__name {
+    font-size: 17px !important;
+    line-height: 1 !important;
+  }
+
+  .cc-logo__tag {
+    display: none !important;
+  }
+
+  .cc-search {
+    display: none !important;
+  }
+
+  .cc-actions {
+    display: flex !important;
+    align-items: center !important;
+    gap: 6px !important;
+    margin-left: auto !important;
+    flex-shrink: 0 !important;
+  }
+
+  /* Hide all header social icons on mobile */
+  .cc-actions .cc-icon-btn {
+    display: none !important;
+  }
+
+  /* Compact ONE QR button */
+  .cc-qr-trigger-btn {
+    height: 36px !important;
+    padding: 0 10px !important;
+    font-size: 11px !important;
+    gap: 4px !important;
+    border-radius: 999px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+  }
+
+  /* Compact hotline button: circular icon button */
+  .cc-cta {
+    width: 36px !important;
+    height: 36px !important;
+    min-width: 36px !important;
+    padding: 0 !important;
+    border-radius: 50% !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+
+  .cc-cta__label {
+    display: none !important;
+  }
+
+  /* Burger button: ALWAYS clearly visible at top right */
+  .cc-burger {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 38px !important;
+    height: 38px !important;
+    min-width: 38px !important;
+    border-radius: 9px !important;
+    border: 1px solid var(--border-subtle, #e2e8f0) !important;
+    background: var(--bg-tertiary, #f8fafc) !important;
+    color: var(--text-primary, #0f172a) !important;
+    cursor: pointer !important;
+    flex-shrink: 0 !important;
+    touch-action: manipulation;
+  }
+}
+
+
+/* ==========================================================================
+   FOOTER SOCIAL ICONS - STRICT CROSS-PLATFORM DIMENSIONS
+   ========================================================================== */
+.cc-footer__socials {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+  flex-wrap: wrap !important;
+  gap: 10px !important;
+  margin-top: 14px !important;
+  width: auto !important;
+}
+
+.cc-footer__socials a {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 36px !important;
+  height: 36px !important;
+  min-width: 36px !important;
+  max-width: 36px !important;
+  min-height: 36px !important;
+  max-height: 36px !important;
+  border-radius: 50% !important;
+  background: rgba(255, 255, 255, 0.08) !important;
+  color: #ffffff !important;
+  border: 1px solid rgba(255, 255, 255, 0.14) !important;
+  padding: 0 !important;
+  flex-shrink: 0 !important;
+  box-sizing: border-box !important;
+  transition: all 0.2s ease !important;
+}
+
+.cc-footer__socials a:hover {
+  background: #2563eb !important;
+  color: #ffffff !important;
+  transform: translateY(-2px) !important;
+  border-color: transparent !important;
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.35) !important;
+}
+
+.cc-footer__socials svg,
+.cc-footer__socials a svg,
+svg.cc-footer__social-svg {
+  width: 18px !important;
+  height: 18px !important;
+  min-width: 18px !important;
+  max-width: 18px !important;
+  min-height: 18px !important;
+  max-height: 18px !important;
+  display: block !important;
+  flex-shrink: 0 !important;
+}
+
+
+/* =========================================================================
+   VRS COMPUTER - CLEAN, LUXURY, HIGH-CONTRAST FOOTER
+   ========================================================================= */
+
+.cc-footer {
+  background: linear-gradient(180deg, #0a1329 0%, #060c1c 100%) !important;
+  border-radius: 28px !important;
+  width: 100% !important;
+  max-width: 1320px !important;
+  margin: 48px auto 28px auto !important;
+  padding: 52px 56px 32px 56px !important;
+  box-shadow: 0 24px 60px rgba(6, 12, 28, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.1) !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  position: relative !important;
+  box-sizing: border-box !important;
+  overflow: hidden !important;
+}
+
+.cc-footer::before {
+  content: '';
+  position: absolute;
+  top: -100px;
+  right: -100px;
+  width: 320px;
+  height: 320px;
+  background: radial-gradient(circle, rgba(37, 99, 235, 0.12) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.cc-footer__grid {
+  display: grid !important;
+  grid-template-columns: 1.8fr 1fr 1fr 1.5fr !important;
+  gap: 48px !important;
+  padding-bottom: 36px !important;
+  padding-right: 52px !important;
+  align-items: start !important;
+}
+
+/* Brand Area */
+.cc-footer__brand {
+  display: flex !important;
+  align-items: center !important;
+  gap: 14px !important;
+  margin-bottom: 14px !important;
+}
+
+.cc-footer__brand .brand-emblem-svg {
+  width: 40px !important;
+  height: 40px !important;
+  flex-shrink: 0 !important;
+  filter: drop-shadow(0 4px 10px rgba(37, 99, 235, 0.35));
+}
+
+.cc-footer__name {
+  font-family: 'Outfit', 'Inter', sans-serif !important;
+  font-size: 20px !important;
+  font-weight: 800 !important;
+  color: #ffffff !important;
+  letter-spacing: 0.6px !important;
+  line-height: 1.2 !important;
+  display: block !important;
+}
+
+.cc-footer__tagline {
+  font-size: 13.5px !important;
+  line-height: 1.7 !important;
+  color: #94a3b8 !important;
+  margin-top: 10px !important;
+  margin-bottom: 20px !important;
+  max-width: 340px !important;
+}
+
+/* Social Icon Pills */
+.cc-footer__socials {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  gap: 12px !important;
+  margin-top: 16px !important;
+}
+
+.cc-footer__socials a {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 40px !important;
+  height: 40px !important;
+  min-width: 40px !important;
+  max-width: 40px !important;
+  min-height: 40px !important;
+  max-height: 40px !important;
+  border-radius: 50% !important;
+  background: rgba(255, 255, 255, 0.06) !important;
+  color: #e2e8f0 !important;
+  border: 1px solid rgba(255, 255, 255, 0.14) !important;
+  padding: 0 !important;
+  flex-shrink: 0 !important;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2) !important;
+}
+
+.cc-footer__socials a:hover {
+  transform: translateY(-3px) scale(1.05) !important;
+  color: #ffffff !important;
+}
+
+.cc-footer__socials a[aria-label="Facebook"]:hover {
+  background: #1877f2 !important;
+  border-color: #1877f2 !important;
+  box-shadow: 0 6px 16px rgba(24, 119, 242, 0.45) !important;
+}
+
+.cc-footer__socials a[aria-label="Telegram"]:hover {
+  background: #0088cc !important;
+  border-color: #0088cc !important;
+  box-shadow: 0 6px 16px rgba(0, 136, 204, 0.45) !important;
+}
+
+.cc-footer__socials a[aria-label="WhatsApp"]:hover {
+  background: #25d366 !important;
+  border-color: #25d366 !important;
+  box-shadow: 0 6px 16px rgba(37, 211, 102, 0.45) !important;
+}
+
+.cc-footer__socials a[aria-label="WeChat"]:hover {
+  background: #07c160 !important;
+  border-color: #07c160 !important;
+  box-shadow: 0 6px 16px rgba(7, 193, 96, 0.45) !important;
+}
+
+.cc-footer__socials svg,
+.cc-footer__socials a svg,
+svg.cc-footer__social-svg {
+  width: 18px !important;
+  height: 18px !important;
+  min-width: 18px !important;
+  max-width: 18px !important;
+  min-height: 18px !important;
+  max-height: 18px !important;
+  display: block !important;
+  flex-shrink: 0 !important;
+}
+
+/* Footer Section Headings */
+.cc-footer__heading {
+  font-family: 'Outfit', 'Inter', sans-serif !important;
+  font-size: 14px !important;
+  font-weight: 800 !important;
+  letter-spacing: 0.8px !important;
+  text-transform: uppercase !important;
+  color: #ffffff !important;
+  margin-bottom: 22px !important;
+  position: relative !important;
+  padding-bottom: 8px !important;
+}
+
+.cc-footer__heading::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 24px;
+  height: 2px;
+  background: #38bdf8;
+  border-radius: 2px;
+}
+
+/* Link Columns */
+.cc-footer__links {
+  list-style: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 12px !important;
+}
+
+.cc-footer__links a {
+  font-size: 13.5px !important;
+  color: #94a3b8 !important;
+  text-decoration: none !important;
+  transition: all 0.2s ease !important;
+  display: inline-block !important;
+  line-height: 1.4 !important;
+}
+
+.cc-footer__links a:hover {
+  color: #38bdf8 !important;
+  transform: translateX(4px) !important;
+}
+
+/* Contact Info Items */
+.cc-footer__contact-item {
+  display: flex !important;
+  align-items: flex-start !important;
+  gap: 12px !important;
+  font-size: 13.5px !important;
+  color: #cbd5e1 !important;
+  line-height: 1.55 !important;
+  margin-bottom: 14px !important;
+}
+
+.cc-footer__contact-item svg {
+  width: 18px !important;
+  height: 18px !important;
+  min-width: 18px !important;
+  color: #ffd700 !important;
+  flex-shrink: 0 !important;
+  margin-top: 2px !important;
+}
+
+.cc-footer__contact-item a {
+  color: #cbd5e1 !important;
+  text-decoration: none !important;
+  transition: color 0.2s ease !important;
+}
+
+.cc-footer__contact-item a:hover {
+  color: #38bdf8 !important;
+}
+
+/* Bottom Bar */
+.cc-footer__bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.08) !important;
+  padding-top: 24px !important;
+  margin-top: 8px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  flex-wrap: wrap !important;
+  gap: 12px !important;
+  font-size: 12.5px !important;
+  color: #64748b !important;
+  padding-right: 52px !important;
+}
+
+.cc-footer__bottom p {
+  margin: 0 !important;
+}
+
+/* Responsive Overrides */
+@media (max-width: 992px) {
+  .cc-footer {
+    padding: 38px 30px 24px 30px !important;
+    margin: 32px 14px 20px 14px !important;
+    border-radius: 20px !important;
+  }
+  .cc-footer__grid {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 32px !important;
+    padding-right: 0 !important;
+  }
+  .cc-footer__bottom {
+    padding-right: 0 !important;
+  }
+}
+
+@media (max-width: 600px) {
+  .cc-footer {
+    padding: 30px 20px 20px 20px !important;
+    margin: 20px 10px 14px 10px !important;
+    border-radius: 16px !important;
+  }
+  .cc-footer__grid {
+    grid-template-columns: 1fr !important;
+    gap: 28px !important;
+  }
+  .cc-footer__tagline {
+    max-width: 100% !important;
+  }
+}

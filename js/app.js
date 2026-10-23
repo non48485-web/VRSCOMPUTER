@@ -430,27 +430,56 @@ function initHeroSlider() {
    CC COMPUTER KH MOBILE DRAWER & NAVIGATION CONTROLLER
    -------------------------------------------------------------------------- */
 function initMobileNavDrawer() {
-  const toggleBtn = document.getElementById('mobileNavToggleBtn');
-  const closeBtn = document.getElementById('mobileNavCloseBtn');
-  const scrim = document.getElementById('mobileNavScrim');
-  const drawer = document.getElementById('mobileNavDrawer');
+  const toggleBtns = document.querySelectorAll('[data-cc-burger-open], .cc-burger, #mobileNavToggleBtn');
+  const closeBtns = document.querySelectorAll('[data-cc-burger-close], .cc-nav-drawer__close, #mobileNavCloseBtn');
+  const scrims = document.querySelectorAll('[data-cc-scrim], .cc-nav-scrim, #mobileNavScrim');
+  const drawers = document.querySelectorAll('[data-cc-drawer], .cc-nav-drawer, #mobileNavDrawer');
 
   function openDrawer() {
-    drawer?.classList.add('is-open');
-    scrim?.classList.add('is-open');
+    drawers.forEach(d => d.classList.add('is-open'));
+    scrims.forEach(s => s.classList.add('is-open'));
+    document.body.classList.add('drawer-open');
     document.body.style.overflow = 'hidden';
+    toggleBtns.forEach(b => b.setAttribute('aria-expanded', 'true'));
   }
 
   function closeDrawer() {
-    drawer?.classList.remove('is-open');
-    scrim?.classList.remove('is-open');
+    drawers.forEach(d => d.classList.remove('is-open'));
+    scrims.forEach(s => s.classList.remove('is-open'));
+    document.body.classList.remove('drawer-open');
     document.body.style.overflow = '';
+    toggleBtns.forEach(b => b.setAttribute('aria-expanded', 'false'));
   }
 
-  toggleBtn?.addEventListener('click', openDrawer);
-  closeBtn?.addEventListener('click', closeDrawer);
-  scrim?.addEventListener('click', closeDrawer);
+  toggleBtns.forEach(b => {
+    b.addEventListener('click', (e) => {
+      e.preventDefault();
+      openDrawer();
+    });
+  });
+  closeBtns.forEach(b => {
+    b.addEventListener('click', (e) => {
+      e.preventDefault();
+      closeDrawer();
+    });
+  });
+  scrims.forEach(s => {
+    s.addEventListener('click', closeDrawer);
+  });
 
+  // Auto-close when clicking any link inside drawer
+  drawers.forEach(d => {
+    d.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', closeDrawer);
+    });
+  });
+
+  // Escape key closes drawer
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeDrawer();
+  });
+
+  window.openMobileNavDrawer = openDrawer;
   window.closeMobileNavDrawer = closeDrawer;
 }
 

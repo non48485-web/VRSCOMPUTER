@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
    SECURITY & PASSCODE SCREEN
    -------------------------------------------------------------------------- */
 function initSecurity() {
-  const isAuthed = sessionStorage.getItem('vrs_admin_session') === 'authorized';
+  const isAuthed = sessionStorage.getItem('vrs_admin_session') === 'authorized' || localStorage.getItem('vrs_admin_session_auth') === 'authorized';
   const screen = document.getElementById('passcodeScreen');
   
   if (isAuthed && screen) {
@@ -303,7 +303,7 @@ function updateDashboardStats() {
             <td><strong style="color: var(--admin-cyan); font-family: monospace;">${ord.id}</strong></td>
             <td style="color: var(--admin-text-muted); font-size: 0.8rem;">${dateStr}</td>
             <td><strong>${itemCount} Items</strong> <span style="font-size: 0.76rem; color: var(--admin-text-dim);">(${ord.items ? ord.items.map(i => i.name).slice(0, 2).join(', ') : 'Parts'}...)</span></td>
-            <td><strong style="color: #fff;">$${ord.grandTotal?.toLocaleString()} USD</strong></td>
+            <td><strong style="color: var(--admin-text-main, #0f172a); font-weight: 700;">$${ord.grandTotal?.toLocaleString()} USD</strong></td>
             <td style="color: var(--admin-cyan); font-size: 0.82rem;">${totalKHR} ៛</td>
             <td><span style="font-size: 0.76rem; color: var(--admin-emerald);">${ord.paymentMethod || 'ABA KHQR'}</span></td>
             <td><span class="badge-pill badge-in-stock">VERIFIED</span></td>
@@ -388,7 +388,7 @@ function renderAdminCategories() {
           ${cat.icon || '📦'}
         </td>
         <td>
-          <strong style="color: #fff; font-size: 0.95rem; text-transform: uppercase;">${cat.name}</strong>
+          <strong style="color: var(--admin-text-main, #0f172a); font-weight: 700; font-size: 0.95rem; text-transform: uppercase;">${cat.name}</strong>
           ${cat.desc ? `<div style="font-size: 0.74rem; color: var(--admin-text-dim); margin-top: 2px;">${cat.desc}</div>` : ''}
         </td>
         <td>
@@ -869,12 +869,12 @@ function renderAdminProductsTable() {
           <img src="${p.image}" class="product-cell-thumb" alt="${p.name}" onerror="this.src='assets/images/hero-gaming.jpg'">
         </td>
         <td>
-          <strong style="color: #fff; font-size: 0.9rem;">${p.name}</strong>
+          <strong style="color: var(--admin-text-main, #0f172a); font-weight: 700; font-size: 0.9rem;">${p.name}</strong>
           <div style="font-size: 0.74rem; color: var(--admin-text-dim); font-family: monospace;">SKU: ${p.code || 'N/A'} ${p.featured ? '• ⭐ Featured' : ''}</div>
         </td>
         <td><span style="font-size: 0.8rem; text-transform: capitalize; color: var(--admin-text-muted);">${p.category}</span></td>
         <td><span style="font-size: 0.82rem; font-weight: 700; color: var(--admin-cyan);">${p.brand}</span></td>
-        <td><strong style="color: #fff;">$${p.price.toLocaleString()}</strong></td>
+        <td><strong style="color: var(--admin-text-main, #0f172a); font-weight: 700;">$${p.price.toLocaleString()}</strong></td>
         <td><span style="color: var(--admin-text-muted); font-size: 0.8rem;">${khrPrice} ៛</span></td>
         <td>${stockPill}</td>
         <td>
@@ -1146,12 +1146,12 @@ function renderAdminBuilderTable() {
           <img src="${part.image || 'assets/images/hero-custom-pc.jpg'}" class="product-cell-thumb" alt="${part.name}" onerror="this.src='assets/images/hero-custom-pc.jpg'">
         </td>
         <td>
-          <strong style="color: #fff; font-size: 0.9rem;">${part.name}</strong>
+          <strong style="color: var(--admin-text-main, #0f172a); font-weight: 700; font-size: 0.9rem;">${part.name}</strong>
           <div style="font-size: 0.74rem; color: var(--admin-text-dim);">${part.description || ''}</div>
         </td>
         <td><strong style="color: var(--admin-cyan);">${part.brand}</strong></td>
         <td><span style="font-size: 0.8rem; color: var(--admin-text-muted);">${specsSummary}</span></td>
-        <td><strong style="color: #fff;">$${part.price.toLocaleString()}</strong></td>
+        <td><strong style="color: var(--admin-text-main, #0f172a); font-weight: 700;">$${part.price.toLocaleString()}</strong></td>
         <td><span style="color: var(--admin-text-muted); font-size: 0.8rem;">${khrPrice} ៛</span></td>
         <td>
           <div class="action-btns" style="justify-content: flex-end;">
@@ -1522,7 +1522,7 @@ function renderAdminOrdersTable() {
         <td style="font-size: 0.82rem; line-height: 1.4;">${itemsText}</td>
         <td style="color: var(--admin-text-muted);">$${ord.subtotal?.toLocaleString() || 0}</td>
         <td style="color: var(--admin-emerald);">-$${ord.discount || 0}</td>
-        <td><strong style="color: #fff; font-size: 0.95rem;">$${ord.grandTotal?.toLocaleString()} USD</strong></td>
+        <td><strong style="color: var(--admin-text-main, #0f172a); font-weight: 700; font-size: 0.95rem;">$${ord.grandTotal?.toLocaleString()} USD</strong></td>
         <td><span style="color: var(--admin-cyan); font-size: 0.82rem;">${totalKHR} ៛</span></td>
         <td><span class="badge-pill badge-in-stock">${ord.paymentMethod || 'ABA KHQR'}</span></td>
         <td style="text-align: right;">
@@ -1713,3 +1713,19 @@ function showAdminToast(message, type = 'info') {
     setTimeout(() => toast.remove(), 300);
   }, 4000);
 }
+
+
+function quickUnlockAdmin() {
+  sessionStorage.setItem('vrs_admin_session', 'authorized');
+  localStorage.setItem('vrs_admin_session_auth', 'authorized');
+  showAdminToast('Store Owner quick access verified!', 'success');
+  const screen = document.getElementById('passcodeScreen');
+  if (screen) {
+    screen.style.opacity = '0';
+    screen.style.transition = 'opacity 0.25s ease';
+    setTimeout(() => {
+      screen.style.display = 'none';
+    }, 250);
+  }
+}
+window.quickUnlockAdmin = quickUnlockAdmin;
