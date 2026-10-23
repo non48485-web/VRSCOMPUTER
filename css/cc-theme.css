@@ -168,47 +168,73 @@ body {
 
 /* Logo (wordmark built in CSS — swap for <img> if you have a vector logo) */
 .cc-logo {
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  gap: var(--cc-space-3);
+  gap: 12px;
   flex-shrink: 0;
+  text-decoration: none;
+  padding: 2px 0;
+  line-height: 1;
 }
 
-.cc-logo__mark {
-  display: grid;
-  place-items: center;
-  width: 42px;
-  height: 42px;
-  border-radius: var(--cc-radius-md);
-  background: linear-gradient(135deg, var(--cc-blue-600), var(--cc-navy-900));
-  color: var(--cc-white);
-  font-weight: 800;
-  font-size: 16px;
-  letter-spacing: -0.02em;
-  transition: transform var(--cc-transition);
+.cc-logo__img,
+.cc-logo svg,
+.vrs-logo-badge,
+.cc-logo .brand-emblem-svg {
+  width: 42px !important;
+  height: 42px !important;
+  min-width: 42px !important;
+  max-width: 42px !important;
+  min-height: 42px !important;
+  max-height: 42px !important;
+  display: block !important;
+  flex-shrink: 0 !important;
+  object-fit: contain !important;
+  border-radius: 11px !important;
+  box-shadow: 0 3px 10px rgba(10, 20, 40, 0.16) !important;
+  transition: transform 0.2s ease, box-shadow 0.2s ease !important;
 }
 
-.cc-logo:hover .cc-logo__mark {
-  transform: translateY(-1px) rotate(-3deg);
+.cc-logo:hover .cc-logo__img,
+.cc-logo:hover svg,
+.cc-logo:hover .vrs-logo-badge {
+  transform: translateY(-1px) scale(1.03) !important;
+  box-shadow: 0 6px 14px rgba(37, 99, 235, 0.28) !important;
 }
 
 .cc-logo__text {
   display: flex;
   flex-direction: column;
-  line-height: 1.15;
+  justify-content: center;
+  gap: 3px;
+  line-height: 1;
 }
 
 .cc-logo__name {
+  font-family: 'Outfit', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   font-weight: 800;
-  font-size: 19px;
-  color: var(--cc-navy-900);
-  letter-spacing: -0.01em;
+  font-size: 20px;
+  color: var(--cc-navy-900, #0a1428);
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.cc-logo__name .accent {
+  color: #2563eb;
+  font-weight: 800;
 }
 
 .cc-logo__tag {
-  font-size: 12px;
-  color: var(--cc-muted);
+  font-family: 'Inter', -apple-system, sans-serif;
+  font-size: 11px;
+  color: #64748b;
   font-weight: 500;
+  letter-spacing: 0.15px;
+  white-space: nowrap;
+  line-height: 1.2;
 }
 
 /* Search */
