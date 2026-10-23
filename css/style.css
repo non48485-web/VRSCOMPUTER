@@ -4403,6 +4403,303 @@ html, body {
   }
 }
 
+/* ==========================================================================
+   ONE UNIVERSAL QR SCAN CODE MODAL & FLOATING WIDGET
+   ========================================================================== */
+.cc-qr-trigger-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #f1f5f9;
+  border: 1px solid #cbd5e1;
+  color: #0f172a;
+  padding: 7px 12px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
 
+.cc-qr-trigger-btn:hover {
+  background: #2563eb;
+  border-color: #2563eb;
+  color: #ffffff;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 10px rgba(37, 99, 235, 0.25);
+}
 
+.floating-button.qr-code {
+  background: linear-gradient(135deg, #0ea5e9, #2563eb);
+  color: #ffffff;
+  border: 2px solid #ffffff;
+  box-shadow: 0 4px 14px rgba(37, 99, 235, 0.35);
+}
 
+.floating-button.qr-code:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 20px rgba(37, 99, 235, 0.5);
+}
+
+/* Modal Backdrop */
+.one-qr-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(10, 20, 40, 0.75);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.25s ease, visibility 0.25s ease;
+}
+
+.one-qr-modal-backdrop.is-open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.one-qr-card {
+  background: #ffffff;
+  border-radius: 20px;
+  width: 100%;
+  max-width: 440px;
+  box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.35);
+  overflow: hidden;
+  transform: translateY(20px) scale(0.96);
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  text-align: center;
+}
+
+.one-qr-modal-backdrop.is-open .one-qr-card {
+  transform: translateY(0) scale(1);
+}
+
+.one-qr-header {
+  padding: 20px 24px 14px;
+  position: relative;
+  border-bottom: 1px solid #e2e8f0;
+  background: #f8fafc;
+}
+
+.one-qr-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 1px solid #cbd5e1;
+  background: #ffffff;
+  color: #64748b;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.one-qr-close:hover {
+  background: #ef4444;
+  border-color: #ef4444;
+  color: #ffffff;
+}
+
+.one-qr-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background: rgba(37, 99, 235, 0.1);
+  border: 1px solid rgba(37, 99, 235, 0.25);
+  color: #2563eb;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+
+.one-qr-title-box h3 {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #0f172a;
+  margin: 0 0 4px;
+}
+
+.one-qr-title-box p {
+  font-size: 0.8rem;
+  color: #64748b;
+  margin: 0;
+}
+
+/* Tabs */
+.one-qr-tabs {
+  display: flex;
+  padding: 8px 16px;
+  background: #f1f5f9;
+  border-bottom: 1px solid #e2e8f0;
+  gap: 8px;
+}
+
+.one-qr-tab-btn {
+  flex: 1;
+  padding: 9px 12px;
+  border-radius: 10px;
+  border: 1px solid transparent;
+  background: transparent;
+  color: #64748b;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.one-qr-tab-btn:hover {
+  color: #0f172a;
+  background: rgba(255, 255, 255, 0.6);
+}
+
+.one-qr-tab-btn.is-active {
+  background: #ffffff;
+  color: #2563eb;
+  border-color: #cbd5e1;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+.one-qr-pane {
+  display: none;
+  padding: 22px 24px;
+}
+
+.one-qr-pane.is-active {
+  display: block;
+  animation: fadeInPane 0.2s ease;
+}
+
+.one-qr-image-frame {
+  background: #ffffff;
+  padding: 12px;
+  border-radius: 16px;
+  border: 1.5px solid #cbd5e1;
+  display: inline-block;
+  box-shadow: 0 8px 20px -4px rgba(0, 0, 0, 0.08);
+  margin-bottom: 14px;
+}
+
+.one-qr-image-frame.pay-frame {
+  max-width: 250px;
+  padding: 8px;
+}
+
+.one-qr-main-img {
+  width: 210px;
+  height: 210px;
+  display: block;
+  border-radius: 8px;
+}
+
+.one-qr-pay-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 8px;
+}
+
+.one-qr-info-text {
+  font-size: 0.82rem;
+  color: #475569;
+  line-height: 1.45;
+  margin-bottom: 14px;
+}
+
+.one-qr-url-box {
+  display: flex;
+  gap: 8px;
+  background: #f8fafc;
+  padding: 6px;
+  border-radius: 10px;
+  border: 1px solid #e2e8f0;
+}
+
+.one-qr-url-box input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  font-size: 12px;
+  color: #0f172a;
+  font-family: inherit;
+  padding-left: 8px;
+  outline: none;
+}
+
+.btn-copy-url {
+  background: #2563eb;
+  border: none;
+  color: #ffffff;
+  padding: 6px 14px;
+  border-radius: 7px;
+  font-size: 11px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-copy-url:hover {
+  background: #1d4ed8;
+}
+
+.one-qr-bank-details {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  padding: 10px 14px;
+  margin-bottom: 12px;
+  text-align: left;
+  font-size: 0.8rem;
+}
+
+.one-qr-bank-details .bank-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 3px 0;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.one-qr-bank-details .bank-row:last-child {
+  border-bottom: none;
+}
+
+.one-qr-badges-row {
+  display: flex;
+  gap: 6px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 14px;
+}
+
+.bank-pill {
+  background: #eff6ff;
+  border: 1px solid #bfdbfe;
+  color: #1e40af;
+  font-size: 10px;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 999px;
+}
+
+.one-qr-footer {
+  padding: 14px 20px;
+  background: #f8fafc;
+  border-top: 1px solid #e2e8f0;
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}

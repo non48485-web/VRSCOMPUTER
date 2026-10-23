@@ -12393,8 +12393,9 @@
       closeBtn?.addEventListener('click', closeDrawer);
       scrim?.addEventListener('click', closeDrawer);
 
-      // Hero Slider (if present)
-      const heroImages = [
+      // Hero Slider (Dynamic from Admin Controller)
+      const bannersList = typeof loadHeroBanners === 'function' ? loadHeroBanners() : [];
+      const heroImages = bannersList.length > 0 ? bannersList.map(b => b.image) : [
         "https://cccomputerkh.com/slidshow/CC 1920x625-01.jpg",
         "https://cccomputerkh.com/slidshow/CC 1920x625-02.jpg",
         "https://cccomputerkh.com/slidshow/CC 1920x625-03.jpg",

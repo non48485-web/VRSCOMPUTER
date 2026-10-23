@@ -258,53 +258,42 @@
       </div>
     </div>
 
-    <!-- ==================== NATIONAL BANKING & KHQR PAYMENT MATRIX ==================== -->
-    <div class="payment-qr-section">
-      <div style="text-align: center; max-width: 600px; margin: 0 auto 10px;">
-        <span class="hero-badge" style="margin-bottom: 8px;">💳 OFFICIAL PAYMENT GATEWAYS</span>
-        <h3 style="font-size: 1.5rem; font-weight: 800; color: #fff;">Accepted Payment QR Codes &amp; Bank Accounts</h3>
-        <p style="color: var(--text-secondary); font-size: 0.86rem;">We accept instant Bakong KHQR cross-bank payments with zero transaction fees from all Cambodian banking applications.</p>
+    <!-- ==================== ONE UNIVERSAL OFFICIAL QR SCANNER & KHQR MATRIX ==================== -->
+    <div class="payment-qr-section" id="oneQrShowcase">
+      <div style="text-align: center; max-width: 650px; margin: 0 auto 20px;">
+        <span class="hero-badge" style="margin-bottom: 8px;">📱 ONE OFFICIAL QR HUB</span>
+        <h3 style="font-size: 1.6rem; font-weight: 800; color: #fff;">Scan to Browse on Mobile or Pay with KHQR</h3>
+        <p style="color: var(--text-secondary); font-size: 0.88rem;">One single universal QR code system for our customers. Scan with any phone camera to view our store on mobile, or scan with any banking app to pay via Bakong KHQR with 0% fee.</p>
       </div>
 
-      <div class="payment-qr-grid">
-        <!-- ABA Bank KHQR (Official) -->
-        <div class="qr-bank-card">
-          <div class="qr-bank-img-wrap">
-            <img src="assets/images/aba-khqr.png" alt="ABA Bank KHQR - VISAL SOUN">
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px; max-width: 820px; margin: 0 auto;">
+        <!-- ONE QR 1: Browse Website on Mobile -->
+        <div class="qr-bank-card" style="background: rgba(15, 23, 42, 0.85); border: 1.5px solid rgba(56, 189, 248, 0.3); border-radius: 20px; padding: 24px; text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.4);">
+          <div style="display: inline-block; background: #ffffff; padding: 10px; border-radius: 14px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin-bottom: 12px;">
+            <img src="assets/images/vrs-website-qr.png" alt="Scan to open VRS Computer on Mobile" style="width: 190px; height: 190px; display: block; border-radius: 6px;">
           </div>
-          <strong style="display:block; color:#fff; font-size: 0.95rem;">ABA' PAY • KHQR</strong>
-          <div style="font-size: 0.8rem; color: #60a5fa; margin: 4px 0;">Account: VISAL SOUN</div>
-          <div style="font-size: 0.76rem; color: var(--text-muted); font-family: monospace;">USD: 013 997 388<br>KHR: 013 997 391</div>
+          <strong style="display: block; color: #fff; font-size: 1.1rem; margin-bottom: 4px;">📱 Scan to View on Mobile</strong>
+          <p style="font-size: 0.82rem; color: var(--text-secondary); line-height: 1.4; margin-bottom: 12px;">Point any iPhone or Android camera at this QR code to browse all laptops &amp; PC parts instantly on your phone.</p>
+          <div style="display: flex; gap: 8px; justify-content: center;">
+            <a href="assets/images/vrs-website-qr.png" download="VRS-Website-QR.png" class="btn-hero-primary" style="padding: 8px 16px; font-size: 0.8rem; text-decoration: none;">💾 Save Web QR</a>
+            <button type="button" class="btn-hero-secondary" onclick="copyWebsiteUrl()" style="padding: 8px 16px; font-size: 0.8rem;">📋 Copy Link</button>
+          </div>
         </div>
 
-        <!-- ACLEDA Mobile -->
-        <div class="qr-bank-card">
-          <div class="qr-bank-img-wrap" style="display:flex; align-items:center; justify-content:center; height:170px;">
-            <div style="font-size: 3rem;">🏦</div>
+        <!-- ONE QR 2: Official Bakong KHQR Pay -->
+        <div class="qr-bank-card" style="background: rgba(15, 23, 42, 0.85); border: 1.5px solid rgba(37, 99, 235, 0.35); border-radius: 20px; padding: 24px; text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.4);">
+          <div style="display: inline-block; background: #ffffff; padding: 10px; border-radius: 14px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin-bottom: 12px;">
+            <img src="assets/images/aba-khqr.png" alt="ABA Bank & Bakong KHQR - VISAL SOUN" style="width: 190px; height: auto; display: block; border-radius: 6px;">
           </div>
-          <strong style="display:block; color:#fff; font-size: 0.95rem;">ACLEDA Mobile</strong>
-          <div style="font-size: 0.8rem; color: #60a5fa; margin: 4px 0;">Account: VISAL SOUN</div>
-          <div style="font-size: 0.76rem; color: var(--text-muted);">Bakong KHQR Supported</div>
-        </div>
-
-        <!-- Wing Bank -->
-        <div class="qr-bank-card">
-          <div class="qr-bank-img-wrap" style="display:flex; align-items:center; justify-content:center; height:170px;">
-            <div style="font-size: 3rem;">⚡</div>
+          <strong style="display: block; color: #fff; font-size: 1.1rem; margin-bottom: 4px;">💳 Official Bakong KHQR</strong>
+          <div style="font-size: 0.84rem; color: #60a5fa; font-weight: 700; margin: 4px 0;">Account: VISAL SOUN</div>
+          <div style="font-size: 0.8rem; color: var(--text-muted); font-family: monospace; background: rgba(255,255,255,0.05); padding: 6px; border-radius: 8px; margin-bottom: 12px;">
+            USD: 013 997 388 &nbsp;|&nbsp; KHR: 013 997 391
           </div>
-          <strong style="display:block; color:#fff; font-size: 0.95rem;">Wing Bank</strong>
-          <div style="font-size: 0.8rem; color: #60a5fa; margin: 4px 0;">Account: VISAL SOUN</div>
-          <div style="font-size: 0.76rem; color: var(--text-muted);">Bakong KHQR Supported</div>
-        </div>
-
-        <!-- Cash on Delivery -->
-        <div class="qr-bank-card">
-          <div class="qr-bank-img-wrap" style="display:flex; align-items:center; justify-content:center; height:170px;">
-            <div style="font-size: 3rem;">🛵</div>
+          <div style="display: flex; gap: 8px; justify-content: center;">
+            <a href="assets/images/aba-khqr.png" download="VRS-ABA-KHQR.png" class="btn-hero-primary" style="padding: 8px 16px; font-size: 0.8rem; text-decoration: none;">💾 Download KHQR</a>
+            <a href="qr.html" target="_blank" class="btn-hero-secondary" style="padding: 8px 16px; font-size: 0.8rem; text-decoration: none;">🖨️ Standee View</a>
           </div>
-          <strong style="display:block; color:#fff; font-size: 0.95rem;">Cash on Delivery</strong>
-          <div style="font-size: 0.8rem; color: #10b981; margin: 4px 0;">Phnom Penh &amp; Kandal</div>
-          <div style="font-size: 0.76rem; color: var(--text-muted);">Inspect before paying</div>
         </div>
       </div>
     </div>

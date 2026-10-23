@@ -220,6 +220,7 @@ function switchTab(tabId) {
     products: 'Products & Inventory Manager',
     categories: 'Store Categories & Navigation Manager',
     builder: 'PC Builder Hardware & Compatibility',
+    banners: 'Hero Slideshow Banners Manager',
     payment: 'ABA Bank KHQR & Payment Settings',
     orders: 'Customer Orders & Invoices Record',
     coupons: 'Promotional Coupons & Vouchers',
@@ -240,11 +241,13 @@ function refreshAllData() {
   PRODUCTS_DATA = loadProductsData();
   CATEGORIES_DATA = typeof loadCategoriesData === 'function' ? loadCategoriesData() : [];
   BUILDER_COMPONENTS = loadBuilderComponents();
+  HERO_BANNERS_DATA = typeof loadHeroBanners === 'function' ? loadHeroBanners() : [];
   VRS_SETTINGS = getStoreSettings();
 
   updateDashboardStats();
   renderAdminCategories();
   populateCategoryDropdowns();
+  renderAdminBanners();
   renderAdminProductsTable();
   renderAdminBuilderTable();
   renderAdminOrdersTable();
@@ -595,6 +598,195 @@ function resetCategoriesToDefault() {
   populateCategoryDropdowns();
   updateDashboardStats();
   showAdminToast('Categories restored to official store defaults!', 'success');
+}
+
+/* --------------------------------------------------------------------------
+   HERO SLIDESHOW BANNERS CONTROLLER
+   -------------------------------------------------------------------------- */
+let activeEditingBannerId = null;
+
+function renderAdminBanners() {
+  const tbody = document.getElementById('adminBannersTableBody');
+  const countEl = document.getElementById('sidebarBannerCount');
+  if (!tbody) return;
+
+  HERO_BANNERS_DATA = typeof loadHeroBanners === 'function' ? loadHeroBanners() : [];
+  if (countEl) countEl.textContent = HERO_BANNERS_DATA.length;
+
+  if (HERO_BANNERS_DATA.length === 0) {
+    tbody.innerHTML = `<tr><td colspan="5" style="text-align: center; padding: 24px; color: var(--admin-text-muted);">No banners found. Click "+ Add Banner Slide" or "Reset Default Banners" to load slides.</td></tr>`;
+    return;
+  }
+
+  tbody.innerHTML = HERO_BANNERS_DATA.map((b, idx) => `
+    <tr>
+      <td>
+        <div style="display: flex; align-items: center; gap: 4px;">
+          <span style="font-weight: 800; font-size: 0.88rem; width: 22px;">#${b.order || (idx + 1)}</span>
+          <div style="display: flex; flex-direction: column; gap: 2px;">
+            <button type="button" class="btn-icon" style="width: 20px; height: 18px; font-size: 0.65rem;" title="Move Up" onclick="moveBannerOrder('${b.id}', -1)">▲</button>
+            <button type="button" class="btn-icon" style="width: 20px; height: 18px; font-size: 0.65rem;" title="Move Down" onclick="moveBannerOrder('${b.id}', 1)">▼</button>
+          </div>
+        </div>
+      </td>
+      <td>
+        <img src="${b.image}" alt="${b.title || 'Banner'}" style="width: 150px; height: 50px; object-fit: cover; border-radius: 6px; border: 1px solid var(--admin-border-subtle); display: block;" onerror="this.src='assets/images/hero-gaming.jpg'">
+      </td>
+      <td>
+        <strong style="display: block; font-size: 0.9rem; color: var(--admin-text-main);">${b.title || 'Promotional Slide'}</strong>
+        <span style="font-size: 0.74rem; color: var(--admin-text-muted);">Slide ID: ${b.id}</span>
+      </td>
+      <td>
+        <code style="background: var(--admin-bg-elevated); padding: 3px 8px; border-radius: 4px; font-size: 0.78rem; border: 1px solid var(--admin-border-subtle); color: var(--admin-blue);">${b.link || '#'}</code>
+      </td>
+      <td style="text-align: right;">
+        <div class="action-btns" style="justify-content: flex-end;">
+          <button class="btn-icon" title="Edit Banner" onclick="openBannerModal('${b.id}')">✏️</button>
+          <button class="btn-icon btn-icon-danger" title="Delete Banner" onclick="deleteBanner('${b.id}')">🗑️</button>
+        </div>
+      </td>
+    </tr>
+  `).join('');
+}
+
+function openBannerModal(bannerId = null) {
+  activeEditingBannerId = bannerId;
+  const modal = document.getElementById('bannerModal');
+  const title = document.getElementById('bannerModalTitle');
+  const previewWrap = document.getElementById('bannerImagePreviewWrap');
+  const previewImg = document.getElementById('bannerImagePreview');
+
+  if (bannerId) {
+    const b = HERO_BANNERS_DATA.find(x => x.id === bannerId);
+    if (!b) return;
+    title.textContent = `Edit Banner: ${b.title || 'Slide'}`;
+    document.getElementById('bannerTitle').value = b.title || '';
+    document.getElementById('bannerImageUrl').value = b.image || '';
+    document.getElementById('bannerLink').value = b.link || '';
+    document.getElementById('bannerOrder').value = b.order || 1;
+    if (b.image && previewWrap && previewImg) {
+      previewImg.src = b.image;
+      previewWrap.style.display = 'block';
+    }
+  } else {
+    title.textContent = 'Add New Banner Slide to Homepage';
+    document.getElementById('bannerForm')?.reset();
+    document.getElementById('bannerOrder').value = HERO_BANNERS_DATA.length + 1;
+    if (previewWrap) previewWrap.style.display = 'none';
+  }
+
+  modal?.classList.add('is-open');
+}
+
+function closeBannerModal() {
+  document.getElementById('bannerModal')?.classList.remove('is-open');
+  activeEditingBannerId = null;
+}
+
+function handleBannerImageFile(event) {
+  const file = event.target.files[0];
+  if (!file) return;
+
+  const reader = new FileReader();
+  reader.onload = function(e) {
+    const dataUrl = e.target.result;
+    document.getElementById('bannerImageUrl').value = dataUrl;
+    const previewWrap = document.getElementById('bannerImagePreviewWrap');
+    const previewImg = document.getElementById('bannerImagePreview');
+    if (previewWrap && previewImg) {
+      previewImg.src = dataUrl;
+      previewWrap.style.display = 'block';
+    }
+  };
+  reader.readAsDataURL(file);
+}
+
+function saveBannerFromModal() {
+  const title = document.getElementById('bannerTitle').value.trim();
+  const image = document.getElementById('bannerImageUrl').value.trim();
+  const link = document.getElementById('bannerLink').value.trim() || '#';
+  const order = parseInt(document.getElementById('bannerOrder').value, 10) || 1;
+
+  if (!title) {
+    showAdminToast('Please provide a banner title!', 'error');
+    return;
+  }
+  if (!image) {
+    showAdminToast('Please provide a banner image URL or upload an image!', 'error');
+    return;
+  }
+
+  if (activeEditingBannerId) {
+    const idx = HERO_BANNERS_DATA.findIndex(b => b.id === activeEditingBannerId);
+    if (idx !== -1) {
+      HERO_BANNERS_DATA[idx] = {
+        ...HERO_BANNERS_DATA[idx],
+        title,
+        image,
+        link,
+        order
+      };
+      showAdminToast(`Banner "${title}" updated successfully!`, 'success');
+    }
+  } else {
+    const newBanner = {
+      id: 'banner-' + Date.now(),
+      title,
+      image,
+      link,
+      order
+    };
+    HERO_BANNERS_DATA.push(newBanner);
+    showAdminToast(`New banner slide "${title}" added!`, 'success');
+  }
+
+  HERO_BANNERS_DATA.sort((a, b) => (Number(a.order) || 99) - (Number(b.order) || 99));
+  saveHeroBanners(HERO_BANNERS_DATA);
+  closeBannerModal();
+  renderAdminBanners();
+}
+
+function deleteBanner(bannerId) {
+  const b = HERO_BANNERS_DATA.find(x => x.id === bannerId);
+  if (!b) return;
+  if (!confirm(`Are you sure you want to delete banner "${b.title || 'Slide'}"?`)) return;
+
+  HERO_BANNERS_DATA = HERO_BANNERS_DATA.filter(x => x.id !== bannerId);
+  saveHeroBanners(HERO_BANNERS_DATA);
+  renderAdminBanners();
+  showAdminToast('Banner deleted successfully.', 'info');
+}
+
+function moveBannerOrder(bannerId, direction) {
+  const idx = HERO_BANNERS_DATA.findIndex(b => b.id === bannerId);
+  if (idx === -1) return;
+
+  const targetIdx = idx + direction;
+  if (targetIdx < 0 || targetIdx >= HERO_BANNERS_DATA.length) return;
+
+  const currentOrder = HERO_BANNERS_DATA[idx].order || (idx + 1);
+  const targetOrder = HERO_BANNERS_DATA[targetIdx].order || (targetIdx + 1);
+
+  HERO_BANNERS_DATA[idx].order = targetOrder;
+  HERO_BANNERS_DATA[targetIdx].order = currentOrder;
+
+  const temp = HERO_BANNERS_DATA[idx];
+  HERO_BANNERS_DATA[idx] = HERO_BANNERS_DATA[targetIdx];
+  HERO_BANNERS_DATA[targetIdx] = temp;
+
+  HERO_BANNERS_DATA.sort((a, b) => (Number(a.order) || 99) - (Number(b.order) || 99));
+  saveHeroBanners(HERO_BANNERS_DATA);
+  renderAdminBanners();
+  showAdminToast('Banner order updated!', 'info');
+}
+
+function resetBannersToDefault() {
+  if (!confirm('Reset hero banners back to official store defaults?')) return;
+  localStorage.removeItem(STORAGE_KEYS.HERO_BANNERS);
+  HERO_BANNERS_DATA = loadHeroBanners();
+  saveHeroBanners(HERO_BANNERS_DATA);
+  renderAdminBanners();
+  showAdminToast('Hero banners restored to defaults!', 'success');
 }
 
 function populateCategoryDropdowns() {
@@ -1422,6 +1614,7 @@ function exportStoreData() {
     categories: loadCategoriesData(),
     products: loadProductsData(),
     builderParts: loadBuilderComponents(),
+    heroBanners: typeof loadHeroBanners === 'function' ? loadHeroBanners() : [],
     coupons: JSON.parse(localStorage.getItem(STORAGE_KEYS.COUPONS) || '[]'),
     orders: JSON.parse(localStorage.getItem(STORAGE_KEYS.ORDERS) || '[]')
   };
@@ -1437,7 +1630,7 @@ function exportStoreData() {
   document.body.removeChild(a);
   URL.revokeObjectURL(url);
 
-  showAdminToast('Store backup (with categories) successfully downloaded!', 'success');
+  showAdminToast('Store backup (with categories & banners) successfully downloaded!', 'success');
 }
 
 function importStoreData(e) {
@@ -1456,6 +1649,7 @@ function importStoreData(e) {
       if (Array.isArray(data.categories)) localStorage.setItem(STORAGE_KEYS.CATEGORIES, JSON.stringify(data.categories));
       if (Array.isArray(data.products)) localStorage.setItem(STORAGE_KEYS.PRODUCTS, JSON.stringify(data.products));
       if (data.builderParts && typeof data.builderParts === 'object') localStorage.setItem(STORAGE_KEYS.BUILDER_PARTS, JSON.stringify(data.builderParts));
+      if (Array.isArray(data.heroBanners)) localStorage.setItem(STORAGE_KEYS.HERO_BANNERS, JSON.stringify(data.heroBanners));
       if (Array.isArray(data.coupons)) localStorage.setItem(STORAGE_KEYS.COUPONS, JSON.stringify(data.coupons));
       if (Array.isArray(data.orders)) localStorage.setItem(STORAGE_KEYS.ORDERS, JSON.stringify(data.orders));
 
@@ -1479,6 +1673,7 @@ function resetFactoryDefaults() {
   localStorage.removeItem(STORAGE_KEYS.PRODUCTS);
   localStorage.removeItem(STORAGE_KEYS.CATEGORIES);
   localStorage.removeItem(STORAGE_KEYS.BUILDER_PARTS);
+  localStorage.removeItem(STORAGE_KEYS.HERO_BANNERS);
   localStorage.removeItem(STORAGE_KEYS.SETTINGS);
   localStorage.removeItem(STORAGE_KEYS.COUPONS);
 

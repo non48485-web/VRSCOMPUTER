@@ -1844,3 +1844,198 @@ function openPopup() {
 window.closePopup = closePopup;
 window.openPopup = openPopup;
 
+/* --------------------------------------------------------------------------
+   ONE UNIVERSAL QR SCAN CONTROLLER
+   Unified single QR system for easy mobile web browsing & Bakong KHQR payments
+   -------------------------------------------------------------------------- */
+function initOneUniversalQrModal() {
+  // 1. Inject ONE QR Trigger into Header if not already present
+  const headerActions = document.querySelector('.cc-actions');
+  if (headerActions && !document.querySelector('.cc-qr-trigger-btn')) {
+    const qrBtn = document.createElement('button');
+    qrBtn.type = 'button';
+    qrBtn.className = 'cc-qr-trigger-btn';
+    qrBtn.setAttribute('title', 'Scan QR Code to View on Phone or Pay');
+    qrBtn.setAttribute('aria-label', 'Open QR Code modal');
+    qrBtn.innerHTML = `
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+        <rect x="3" y="3" width="7" height="7" rx="1.5"></rect>
+        <rect x="14" y="3" width="7" height="7" rx="1.5"></rect>
+        <rect x="14" y="14" width="7" height="7" rx="1.5"></rect>
+        <rect x="3" y="14" width="7" height="7" rx="1.5"></rect>
+      </svg>
+      <span>ONE QR</span>
+    `;
+    qrBtn.onclick = () => openOneUniversalQrModal('web');
+    // Insert before the hotline phone button
+    const ctaPhone = headerActions.querySelector('.cc-cta');
+    if (ctaPhone) {
+      headerActions.insertBefore(qrBtn, ctaPhone);
+    } else {
+      headerActions.appendChild(qrBtn);
+    }
+  }
+
+  // 2. Inject floating QR button into .floating-buttons if present
+  const floatingWrap = document.querySelector('.floating-buttons');
+  if (floatingWrap && !floatingWrap.querySelector('.floating-button.qr-code')) {
+    const floatQr = document.createElement('button');
+    floatQr.type = 'button';
+    floatQr.className = 'floating-button qr-code';
+    floatQr.setAttribute('title', 'Scan QR to View on Phone or Pay');
+    floatQr.setAttribute('aria-label', 'Open QR Code modal');
+    floatQr.innerHTML = `
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" width="20" height="20">
+        <rect x="3" y="3" width="7" height="7" rx="1.5"></rect>
+        <rect x="14" y="3" width="7" height="7" rx="1.5"></rect>
+        <rect x="14" y="14" width="7" height="7" rx="1.5"></rect>
+        <rect x="3" y="14" width="7" height="7" rx="1.5"></rect>
+      </svg>
+    `;
+    floatQr.onclick = () => openOneUniversalQrModal('web');
+    floatingWrap.insertBefore(floatQr, floatingWrap.firstChild);
+  }
+
+  // 3. Inject Modal Container if not already in DOM
+  if (!document.getElementById('oneUniversalQrModal')) {
+    const settings = typeof getStoreSettings === 'function' ? getStoreSettings() : {};
+    const accountName = settings.abaAccountName || 'VISAL SOUN';
+    const usdAcc = settings.abaUsdAccount || '013 997 388';
+    const khrAcc = settings.abaKhrAccount || '013 997 391';
+    const payImg = settings.abaQrImage || 'assets/images/aba-khqr.png';
+
+    const modalDiv = document.createElement('div');
+    modalDiv.id = 'oneUniversalQrModal';
+    modalDiv.className = 'one-qr-modal-backdrop';
+    modalDiv.setAttribute('role', 'dialog');
+    modalDiv.setAttribute('aria-modal', 'true');
+    modalDiv.onclick = (e) => {
+      if (e.target === modalDiv) closeOneUniversalQrModal();
+    };
+
+    modalDiv.innerHTML = `
+      <div class="one-qr-card">
+        <div class="one-qr-header">
+          <div class="one-qr-title-box">
+            <div class="one-qr-badge">📱 OFFICIAL VRS SCAN CODE</div>
+            <h3>Scan to Browse or Pay</h3>
+            <p>Scan with your phone camera or any banking app</p>
+          </div>
+          <button type="button" class="one-qr-close" onclick="closeOneUniversalQrModal()" aria-label="Close">✕</button>
+        </div>
+
+        <div class="one-qr-tabs">
+          <button type="button" class="one-qr-tab-btn is-active" id="qrTabWebBtn" onclick="switchOneQrTab('web')">
+            📱 View Website on Mobile
+          </button>
+          <button type="button" class="one-qr-tab-btn" id="qrTabPayBtn" onclick="switchOneQrTab('pay')">
+            💳 Pay with Bakong KHQR
+          </button>
+        </div>
+
+        <!-- Tab 1: Web QR -->
+        <div class="one-qr-pane is-active" id="oneQrPaneWeb">
+          <div class="one-qr-image-frame">
+            <img src="assets/images/vrs-website-qr.png" alt="Scan to open VRS Computer Website on Mobile" class="one-qr-main-img">
+          </div>
+          <div class="one-qr-info-text">
+            Point your smartphone camera at this QR code to immediately view all laptops, PC parts, and real-time prices on your mobile device.
+          </div>
+          <div class="one-qr-url-box">
+            <input type="text" id="oneQrWebUrlInput" value="${window.location.origin + window.location.pathname}" readonly>
+            <button type="button" class="btn-copy-url" onclick="copyWebsiteUrl()">Copy Link</button>
+          </div>
+        </div>
+
+        <!-- Tab 2: Bakong KHQR Pay -->
+        <div class="one-qr-pane" id="oneQrPanePay">
+          <div class="one-qr-image-frame pay-frame">
+            <img id="oneQrPayImg" src="${payImg}" alt="VRS Computer ABA KHQR Standee" class="one-qr-pay-img">
+          </div>
+          <div class="one-qr-bank-details">
+            <div class="bank-row"><span>Account Name:</span> <strong id="oneQrAccountName">${accountName}</strong></div>
+            <div class="bank-row"><span>USD Account:</span> <strong id="oneQrUsdAcc">${usdAcc}</strong></div>
+            <div class="bank-row"><span>KHR Account:</span> <strong id="oneQrKhrAcc">${khrAcc}</strong></div>
+          </div>
+          <div class="one-qr-badges-row">
+            <span class="bank-pill">ABA Bank</span>
+            <span class="bank-pill">Bakong KHQR</span>
+            <span class="bank-pill">All 30+ Banks Accepted</span>
+          </div>
+        </div>
+
+        <div class="one-qr-footer">
+          <button type="button" class="btn-admin btn-admin-secondary" onclick="closeOneUniversalQrModal()">Close</button>
+          <a href="qr.html" target="_blank" class="btn-admin btn-admin-primary">Full Standee Page ↗</a>
+        </div>
+      </div>
+    `;
+    document.body.appendChild(modalDiv);
+  }
+}
+
+function openOneUniversalQrModal(tab = 'web') {
+  initOneUniversalQrModal();
+  const modal = document.getElementById('oneUniversalQrModal');
+  if (modal) {
+    switchOneQrTab(tab);
+    modal.classList.add('is-open');
+  }
+}
+
+function closeOneUniversalQrModal() {
+  const modal = document.getElementById('oneUniversalQrModal');
+  if (modal) modal.classList.remove('is-open');
+}
+
+function switchOneQrTab(tab) {
+  const webBtn = document.getElementById('qrTabWebBtn');
+  const payBtn = document.getElementById('qrTabPayBtn');
+  const webPane = document.getElementById('oneQrPaneWeb');
+  const payPane = document.getElementById('oneQrPanePay');
+
+  if (tab === 'pay') {
+    webBtn?.classList.remove('is-active');
+    payBtn?.classList.add('is-active');
+    webPane?.classList.remove('is-active');
+    payPane?.classList.add('is-active');
+  } else {
+    webBtn?.classList.add('is-active');
+    payBtn?.classList.remove('is-active');
+    webPane?.classList.add('is-active');
+    payPane?.classList.remove('is-active');
+  }
+}
+
+function copyWebsiteUrl() {
+  const input = document.getElementById('oneQrWebUrlInput');
+  if (!input) return;
+  input.select();
+  input.setSelectionRange(0, 99999);
+  navigator.clipboard.writeText(input.value).then(() => {
+    if (typeof showToast === 'function') {
+      showToast('Website link copied to clipboard!', 'success');
+    } else {
+      alert('Website link copied to clipboard!');
+    }
+  }).catch(() => {
+    document.execCommand('copy');
+    if (typeof showToast === 'function') {
+      showToast('Website link copied to clipboard!', 'success');
+    }
+  });
+}
+
+window.openOneUniversalQrModal = openOneUniversalQrModal;
+window.closeOneUniversalQrModal = closeOneUniversalQrModal;
+window.switchOneQrTab = switchOneQrTab;
+window.copyWebsiteUrl = copyWebsiteUrl;
+
+// Auto initialize on DOM ready
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initOneUniversalQrModal);
+} else {
+  initOneUniversalQrModal();
+}
+
+

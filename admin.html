@@ -18,7 +18,7 @@
       <div style="width: 54px; height: 54px; margin: 0 auto 16px; background: linear-gradient(135deg, var(--admin-cyan) 0%, var(--admin-blue) 100%); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.6rem; color: #000;">
         🔐
       </div>
-      <h2 style="font-size: 1.35rem; font-weight: 800; color: #fff;">VRS COMPUTER</h2>
+      <h2 style="font-size: 1.35rem; font-weight: 800; color: var(--admin-text-main);">VRS COMPUTER</h2>
       <p style="font-size: 0.82rem; color: var(--admin-text-muted); margin-top: 4px;">Staff &amp; Store Management Controller</p>
       
       <div class="passcode-dots" id="passcodeDots">
@@ -88,6 +88,11 @@
         <span class="nav-icon">🛠️</span>
         <span>PC Builder Parts</span>
         <span class="nav-badge" id="sidebarBuilderCount">0</span>
+      </a>
+      <a class="nav-item" data-tab="banners">
+        <span class="nav-icon">🖼️</span>
+        <span>Hero Banners</span>
+        <span class="nav-badge" id="sidebarBannerCount">4</span>
       </a>
       <a class="nav-item" data-tab="payment">
         <span class="nav-icon">💳</span>
@@ -439,6 +444,43 @@
         </div>
       </section>
 
+      <!-- ==================== TAB: HERO SLIDESHOW BANNERS ==================== -->
+      <section id="tab-banners" class="tab-pane">
+        <div class="admin-card">
+          <div class="card-top">
+            <div>
+              <h3>🖼️ Hero Slideshow Banners Manager</h3>
+              <div class="card-top-desc">Add, edit, reorder or remove promotional banners on the homepage top slideshow. All updates sync live to the storefront.</div>
+            </div>
+            <div style="display: flex; gap: 8px;">
+              <button onclick="resetBannersToDefault()" class="btn-admin btn-admin-secondary" style="font-size: 0.78rem;" title="Reset banners to official defaults">
+                <span>↺ Default Banners</span>
+              </button>
+              <button onclick="openBannerModal()" class="btn-admin btn-admin-primary">
+                <span>+ Add Banner Slide</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="admin-table-wrap">
+            <table class="admin-table">
+              <thead>
+                <tr>
+                  <th style="width: 70px;">Order</th>
+                  <th style="width: 170px;">Banner Preview</th>
+                  <th>Title &amp; Campaign Info</th>
+                  <th>Click Destination Link</th>
+                  <th style="width: 120px; text-align: right;">Actions</th>
+                </tr>
+              </thead>
+              <tbody id="adminBannersTableBody">
+                <!-- Rendered dynamically -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
       <!-- ==================== TAB 4: ABA BANK KHQR & PAYMENT ==================== -->
       <section id="tab-payment" class="tab-pane">
         <div class="admin-card">
@@ -674,24 +716,24 @@
               <span class="form-help">Interactive map iframe source URL</span>
             </div>
 
-            <div class="form-group" style="grid-column: 1 / -1; background: rgba(15, 23, 42, 0.4); border: 1px solid var(--admin-border); border-radius: 12px; padding: 16px; display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap;">
+            <div class="form-group" style="grid-column: 1 / -1; background: #f8fafc; border: 1.5px solid var(--admin-border-subtle); border-radius: 14px; padding: 18px 20px; display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap;">
               <div style="display: flex; align-items: center; gap: 16px;">
-                <div style="background: #fff; padding: 6px; border-radius: 8px; border: 1px solid #cbd5e1; flex-shrink: 0;">
-                  <img src="assets/images/vrs-maps-qr.png" alt="Google Maps QR Code" style="width: 76px; height: 76px; display: block;">
+                <div style="background: #ffffff; padding: 6px; border-radius: 10px; border: 1px solid #cbd5e1; box-shadow: 0 2px 6px rgba(0,0,0,0.05); flex-shrink: 0;">
+                  <img src="assets/images/vrs-website-qr.png" alt="VRS Universal Web QR" style="width: 72px; height: 72px; display: block; border-radius: 4px;">
                 </div>
                 <div>
-                  <h4 style="margin: 0 0 4px; font-size: 0.95rem; color: #fff;">📱 Public Location QR Code</h4>
-                  <div style="font-size: 0.8rem; color: var(--admin-text-dim); line-height: 1.4;">
-                    Customers scan this QR code with their mobile phone cameras to open Google Maps &amp; GPS navigation to VRS Computer Shop in Krong Chbar Mon.
+                  <h4 style="margin: 0 0 4px; font-size: 0.98rem; font-weight: 800; color: var(--admin-text-main);">📱 ONE Universal QR Code Hub</h4>
+                  <div style="font-size: 0.82rem; color: var(--admin-text-muted); line-height: 1.4;">
+                    Enables customers to scan from any phone camera to immediately open &amp; browse VRS Computer, or scan to pay with Bakong KHQR.
                   </div>
                 </div>
               </div>
-              <div style="display: flex; gap: 8px; flex-shrink: 0;">
-                <a href="qr.html" target="_blank" class="btn-admin" style="font-size: 0.82rem; text-decoration: none;">
-                  🖨️ Printable Stand Card
+              <div style="display: flex; gap: 8px; flex-shrink: 0; flex-wrap: wrap;">
+                <a href="qr.html" target="_blank" class="btn-admin btn-admin-secondary" style="font-size: 0.82rem; text-decoration: none;">
+                  🖨️ Full QR Page ↗
                 </a>
-                <a href="assets/images/vrs-maps-qr.png" download="VRS-Maps-QR.png" class="btn-admin btn-admin-primary" style="font-size: 0.82rem; text-decoration: none;">
-                  💾 Download QR (PNG)
+                <a href="assets/images/vrs-website-qr.png" download="VRS-Website-QR.png" class="btn-admin btn-admin-primary" style="font-size: 0.82rem; text-decoration: none;">
+                  💾 Download Web QR
                 </a>
               </div>
             </div>
@@ -837,7 +879,7 @@
             <div class="form-group" style="justify-content: center;">
               <label style="display: flex; align-items: center; gap: 8px; cursor: pointer; margin-top: 18px;">
                 <input type="checkbox" id="catActive" checked style="width: 18px; height: 18px;">
-                <strong style="font-size: 0.86rem; color: #fff;">Show on Customer Navbar</strong>
+                <strong style="font-size: 0.86rem; color: var(--admin-text-main);">Show on Customer Navbar</strong>
               </label>
             </div>
           </div>
@@ -944,7 +986,7 @@
               <div id="prodImagePreviewWrap" class="upload-preview-wrap" style="display: none;">
                 <img id="prodImagePreviewImg" src="" class="upload-preview-thumb" alt="Preview">
                 <div>
-                  <div style="font-size: 0.82rem; font-weight: 700; color: #fff;">Image Preview Ready</div>
+                  <div style="font-size: 0.82rem; font-weight: 700; color: var(--admin-text-main);">Image Preview Ready</div>
                   <div style="font-size: 0.74rem; color: var(--admin-emerald);">✓ Successfully loaded into memory</div>
                 </div>
               </div>
@@ -1051,6 +1093,61 @@
       <div class="admin-modal-footer">
         <button onclick="closeBuilderPartModal()" class="btn-admin btn-admin-secondary">Cancel</button>
         <button onclick="saveBuilderPartFromModal()" class="btn-admin btn-admin-primary">Save Component</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== MODAL: ADD / EDIT BANNER SLIDE ==================== -->
+  <div id="bannerModal" class="admin-modal-backdrop">
+    <div class="admin-modal-card" style="max-width: 580px;">
+      <div class="admin-modal-header">
+        <h3 id="bannerModalTitle">Add New Banner Slide</h3>
+        <button onclick="closeBannerModal()" class="btn-icon" aria-label="Close Modal">✕</button>
+      </div>
+
+      <div class="admin-modal-body">
+        <form id="bannerForm" onsubmit="event.preventDefault(); saveBannerFromModal();">
+          <div class="form-group">
+            <label class="form-label">Banner Title / Campaign Name *</label>
+            <input type="text" id="bannerTitle" class="form-input" placeholder="e.g. Back to School Gaming Promo" required>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Banner Image (URL or Upload) *</label>
+            <div style="display: flex; gap: 8px;">
+              <input type="text" id="bannerImageUrl" class="form-input" placeholder="https://... or upload" style="flex:1;" required>
+              <label class="btn-admin btn-admin-secondary" style="cursor: pointer; font-size: 0.78rem;">
+                <span>Upload</span>
+                <input type="file" id="bannerImageFileInput" accept="image/*" style="display: none;" onchange="handleBannerImageFile(event)">
+              </label>
+            </div>
+            <span class="form-help">Recommended size: 1920 × 625 px for widescreen hero slider</span>
+          </div>
+
+          <!-- Preview -->
+          <div id="bannerImagePreviewWrap" style="margin: 10px 0; display: none;">
+            <div class="form-label">Image Preview:</div>
+            <img id="bannerImagePreview" src="" alt="Banner Preview" style="width: 100%; max-height: 140px; object-fit: cover; border-radius: 8px; border: 1px solid var(--admin-border-subtle); margin-top: 4px;">
+          </div>
+
+          <div class="form-grid">
+            <div class="form-group">
+              <label class="form-label">Destination Link / Anchor</label>
+              <input type="text" id="bannerLink" class="form-input" placeholder="e.g. #msi, #asus, or newpc.html">
+              <span class="form-help">Jumps user directly when banner is clicked</span>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Slide Display Order</label>
+              <input type="number" id="bannerOrder" class="form-input" value="1" min="1" max="20">
+            </div>
+          </div>
+        </form>
+      </div>
+
+      <div class="admin-modal-footer">
+        <button onclick="closeBannerModal()" class="btn-admin btn-admin-secondary">Cancel</button>
+        <button onclick="saveBannerFromModal()" class="btn-admin btn-admin-primary">Save Banner Slide</button>
       </div>
     </div>
   </div>

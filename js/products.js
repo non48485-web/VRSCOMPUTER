@@ -9,6 +9,7 @@ const STORAGE_KEYS = {
   PRODUCTS: 'vrs_custom_products',
   CATEGORIES: 'vrs_store_categories',
   BUILDER_PARTS: 'vrs_custom_builder_parts',
+  HERO_BANNERS: 'vrs_hero_banners',
   ORDERS: 'vrs_store_orders',
   COUPONS: 'vrs_store_coupons',
   PIN: 'vrs_admin_pin'
@@ -61,6 +62,40 @@ function saveStoreSettings(settings) {
 
 let VRS_SETTINGS = getStoreSettings();
 let EXCHANGE_RATE_KHR = VRS_SETTINGS.exchangeRateKHR || 4100;
+
+// Official Default Hero Slideshow Banners
+const DEFAULT_HERO_BANNERS = [
+  { id: 'banner-1', image: 'https://cccomputerkh.com/slidshow/CC 1920x625-01.jpg', title: 'MSI Gaming Back to School Promotion', link: '#msi', order: 1 },
+  { id: 'banner-2', image: 'https://cccomputerkh.com/slidshow/CC 1920x625-02.jpg', title: 'ASUS ROG & Zenbook Intel Core Ultra Showcase', link: '#asus', order: 2 },
+  { id: 'banner-3', image: 'https://cccomputerkh.com/slidshow/CC 1920x625-03.jpg', title: 'Lenovo Legion 7 & LOQ Series', link: '#lenovo', order: 3 },
+  { id: 'banner-4', image: 'https://cccomputerkh.com/slidshow/CC 1920x625-04.jpg', title: 'HP Omen & Victus Gaming Laptops', link: '#hp', order: 4 }
+];
+
+function loadHeroBanners() {
+  try {
+    const raw = localStorage.getItem(STORAGE_KEYS.HERO_BANNERS);
+    if (raw) {
+      const parsed = JSON.parse(raw);
+      if (Array.isArray(parsed) && parsed.length > 0) {
+        return parsed.sort((a, b) => (Number(a.order) || 99) - (Number(b.order) || 99));
+      }
+    }
+  } catch (e) {
+    console.warn('Error reading hero banners:', e);
+  }
+  return [...DEFAULT_HERO_BANNERS];
+}
+
+function saveHeroBanners(banners) {
+  try {
+    localStorage.setItem(STORAGE_KEYS.HERO_BANNERS, JSON.stringify(banners));
+    window.HERO_BANNERS_DATA = banners;
+  } catch (e) {
+    console.error('Error saving hero banners:', e);
+  }
+}
+
+var HERO_BANNERS_DATA = loadHeroBanners();
 
 // Default Seed Products (Cambodian Market Hardware)
 const DEFAULT_PRODUCTS_DATA = [
