@@ -8,6 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Kantumruy+Pro:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/cc-theme.css">
   <link rel="stylesheet" href="css/theme.css?v=3.5">
   <link rel="stylesheet" href="css/style.css?v=3.5">
   <style>
@@ -116,135 +117,87 @@
 </head>
 <body class="cc-scope">
 
-  <!-- ==================== TOP ANNOUNCEMENT TICKER ==================== -->
-  <div class="ticker-bar">
-    <div class="container ticker-inner">
-      <div class="ticker-scroll">
-        <div class="ticker-item">
-          <span class="ticker-badge" style="background:#FFD700; color:#000;">⚡ CC PROMO</span>
-          <span>VRS COMPUTER - មានលក់កុំព្យូទ័រថ្មី មួយទឹក | ទំនុកចិត្តខ្ពស់ សេវាកម្ម គុណភាព | YOUR TRUSTED TECHNOLOGY PARTNER, HIGH QUALITY PRODUCT, AFTER SALES SUPPORT : 098 871 314 / 013 997 388</span>
-        </div>
-        <div class="ticker-item">
-          <span class="ticker-badge">🚀 DELIVERY</span>
-          <span>Express 2-Hour Delivery in Phnom Penh &amp; Krong Chbar Mon | Nationwide Delivery via Virak Buntham &amp; J&amp;T Express</span>
-        </div>
-      </div>
-      <div class="ticker-hotline">
-        <span>Hotline:</span>
-        <a href="tel:+85598871314">098 871 314</a>
-      </div>
-    </div>
-  </div>
-
-  <!-- ==================== MAIN HEADER ==================== -->
-  <header class="vrs-header" id="vrsHeader">
-    <div class="container header-inner">
-      <a href="index.html" class="brand-logo" aria-label="VRS Computer Home">
-        <div class="brand-emblem-wrap">
-          <svg class="brand-emblem-svg" viewBox="0 0 44 44" fill="none">
-            <rect width="44" height="44" rx="11" fill="#0a1428"/>
-            <rect x="0.5" y="0.5" width="43" height="43" rx="10.5" stroke="rgba(255,255,255,0.15)"/>
-            <path d="M12 13 L22 35 L32 13 L26.2 13 L22 23 L17.8 13 Z" fill="#2563eb"/>
-            <circle cx="22" cy="18" r="2.2" fill="#FFD700"/>
-          </svg>
-        </div>
-        <div class="brand-text">
-          <div class="brand-title-row">
-            <span class="brand-name">VRS</span>
-            <span class="brand-name-accent" style="color: #2563eb;">COMPUTER</span>
-          </div>
-          <span class="brand-tagline">Laptop &amp; PC Store, Krong Chbar Mon • Phnom Penh</span>
-        </div>
+  <!-- ==================== HEADER ==================== -->
+  <header class="cc-header" data-cc-header id="vrsHeader">
+    <div class="cc-container cc-header__row">
+      <a href="index.html" class="cc-logo" aria-label="VRS Computer home">
+        <svg class="brand-emblem-svg" width="40" height="40" viewBox="0 0 44 44" fill="none">
+          <rect width="44" height="44" rx="11" fill="#0a1428"/>
+          <path d="M12 13 L22 35 L32 13 L26.2 13 L22 23 L17.8 13 Z" fill="#2563eb"/>
+          <circle cx="22" cy="18" r="2.2" fill="#FFD700"/>
+        </svg>
+        <span class="cc-logo__text">
+          <span class="cc-logo__name">VRS COMPUTER</span>
+          <span class="cc-logo__tag">Laptop &amp; PC Store, Krong Chbar Mon • Phnom Penh</span>
+        </span>
       </a>
 
-      <div class="search-wrapper">
-        <div class="search-bar">
-          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
-            <circle cx="11" cy="11" r="8"></circle>
-            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-          </svg>
-          <input type="search" id="globalSearchInput" class="search-input" placeholder="Search laptops, PCs, parts..." autocomplete="off">
-        </div>
+      <div class="cc-search" role="search">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="11" cy="11" r="7"/>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+        </svg>
+        <input type="search" placeholder="Search laptops, PCs, parts..." aria-label="Search products" autocomplete="off" />
       </div>
 
-      <div class="header-actions">
-        <div class="cc-header-socials">
-          <a class="cc-icon-btn cc-icon-btn--fb" href="https://www.facebook.com" target="_blank" rel="noopener" aria-label="Facebook" title="Facebook Page">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M13.5 21v-8h2.7l.4-3.1h-3.1V8c0-.9.25-1.5 1.55-1.5H16.7V3.7c-.28-.04-1.25-.12-2.37-.12-2.34 0-3.94 1.43-3.94 4.05v2.26H8v3.1h2.4V21h3.1z"/></svg>
-          </a>
-          <a class="cc-icon-btn cc-icon-btn--tg" href="https://t.me/Sounvisal" target="_blank" rel="noopener" aria-label="Telegram" title="Telegram Channel &amp; Support">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 4.5 2.8 11.9c-1.2.5-1.2 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.2-2.1 4.6 3.4c.8.5 1.4.2 1.6-.8l3-14c.3-1.2-.4-1.7-1.9-1.8zM8.9 14.5l9-5.6c.4-.3.8-.1.5.2l-7.4 6.7-.3 3.1z"/></svg>
-          </a>
-          <a class="cc-icon-btn cc-icon-btn--wa" href="https://api.whatsapp.com/send/?phone=85598871314" target="_blank" rel="noopener" aria-label="WhatsApp" title="WhatsApp (+855 98 871 314)">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3a9 9 0 0 0-7.8 13.5L3 21l4.6-1.2A9 9 0 1 0 12 3zm0 16.3a7.3 7.3 0 0 1-3.7-1l-.3-.2-2.7.7.7-2.6-.2-.3A7.3 7.3 0 1 1 12 19.3zm4-5.4c-.2-.1-1.3-.6-1.5-.7-.2-.1-.4-.1-.5.1-.2.2-.6.7-.7.9-.1.2-.3.2-.5.1-.2-.1-1-.4-2-1.2-.7-.6-1.2-1.4-1.4-1.6-.1-.2 0-.4.1-.5l.4-.4c.1-.1.2-.3.2-.4 0-.2 0-.3-.1-.5-.1-.1-.5-1.2-.7-1.7-.2-.4-.4-.4-.5-.4h-.5c-.2 0-.4.1-.6.3-.2.2-.8.8-.8 1.9 0 1.1.8 2.2.9 2.3.1.2 1.6 2.5 3.9 3.5.6.2 1 .4 1.3.5.5.2 1 .1 1.4.1.4-.1 1.3-.5 1.5-1 .2-.5.2-.9.1-1z"/></svg>
-          </a>
-          <a class="cc-icon-btn cc-icon-btn--wc" href="weixin://dl/chat?cc015646581" target="_blank" rel="noopener" aria-label="WeChat" title="WeChat Support">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8.691 2.188C3.891 2.188 0 5.476 0 9.53c0 2.212 1.17 4.203 3.002 5.55a.59.59 0 0 1 .213.665l-.39 1.48c-.019.07-.048.141-.048.213 0 .163.13.295.292.295a.326.326 0 0 0 .167-.046l1.906-1.103a.72.72 0 0 1 .593-.075c.875.244 1.802.378 2.76.378.232 0 .461-.009.689-.023a6.83 6.83 0 0 1-.225-1.724c0-4.053 3.891-7.341 8.691-7.341.282 0 .56.015.836.038C17.478 5.2 13.513 2.188 8.691 2.188zm-2.89 4.316c.52 0 .942.422.942.942 0 .52-.422.942-.942.942a.944.944 0 0 1-.943-.942c0-.52.423-.942.943-.942zm5.781 0c.52 0 .943.422.943.942 0 .52-.423.942-.943.942a.944.944 0 0 1-.942-.942c0-.52.422-.942.942-.942zm4.729 4.145c-4.001 0-7.245 2.74-7.245 6.12 0 3.38 3.244 6.12 7.245 6.12.8 0 1.572-.112 2.301-.315a.598.598 0 0 1 .495.063l1.589.92a.272.272 0 0 0 .139.038c.135 0 .244-.11.244-.245 0-.06-.024-.119-.04-.177l-.325-1.234a.49.49 0 0 1 .177-.555c1.527-1.123 2.502-2.781 2.502-4.622 0-3.38-3.244-6.12-7.245-6.12zm-2.415 3.597c.433 0 .785.352.785.785 0 .433-.352.785-.785.785a.787.787 0 0 1-.785-.785c0-.433.352-.785.785-.785zm4.83 0c.433 0 .785.352.785.785 0 .433-.352.785-.785.785a.787.787 0 0 1-.785-.785c0-.433.352-.785.785-.785z"/></svg>
-          </a>
-        </div>
-
+      <div class="cc-actions">
+        <a class="cc-icon-btn cc-icon-btn--fb" href="https://www.facebook.com" target="_blank" rel="noopener" aria-label="Facebook">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M13.5 21v-8h2.7l.4-3.1h-3.1V8c0-.9.25-1.5 1.55-1.5H16.7V3.7c-.28-.04-1.25-.12-2.37-.12-2.34 0-3.94 1.43-3.94 4.05v2.26H8v3.1h2.4V21h3.1z"/></svg>
+        </a>
+        <a class="cc-icon-btn cc-icon-btn--tg" href="https://t.me/Sounvisal" target="_blank" rel="noopener" aria-label="Telegram">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 4.5 2.8 11.9c-1.2.5-1.2 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.2-2.1 4.6 3.4c.8.5 1.4.2 1.6-.8l3-14c.3-1.2-.4-1.7-1.9-1.8zM8.9 14.5l9-5.6c.4-.3.8-.1.5.2l-7.4 6.7-.3 3.1z"/></svg>
+        </a>
+        <a class="cc-icon-btn cc-icon-btn--wa" href="https://api.whatsapp.com/send/?phone=85598871314" target="_blank" rel="noopener" aria-label="WhatsApp">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3a9 9 0 0 0-7.8 13.5L3 21l4.6-1.2A9 9 0 1 0 12 3zm0 16.3a7.3 7.3 0 0 1-3.7-1l-.3-.2-2.7.7.7-2.6-.2-.3A7.3 7.3 0 1 1 12 19.3zm4-5.4c-.2-.1-1.3-.6-1.5-.7-.2-.1-.4-.1-.5.1-.2.2-.6.7-.7.9-.1.2-.3.2-.5.1-.2-.1-1-.4-2-1.2-.7-.6-1.2-1.4-1.4-1.6-.1-.2 0-.4.1-.5l.4-.4c.1-.1.2-.3.2-.4 0-.2 0-.3-.1-.5-.1-.1-.5-1.2-.7-1.7-.2-.4-.4-.4-.5-.4h-.5c-.2 0-.4.1-.6.3-.2.2-.8.8-.8 1.9 0 1.1.8 2.2.9 2.3.1.2 1.6 2.5 3.9 3.5.6.2 1 .4 1.3.5.5.2 1 .1 1.4.1.4-.1 1.3-.5 1.5-1 .2-.5.2-.9.1-1z"/></svg>
+        </a>
+        <a class="cc-icon-btn cc-icon-btn--wc" href="https://t.me/Sounvisal" target="_blank" rel="noopener" aria-label="WeChat">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8.691 2.188C3.891 2.188 0 5.476 0 9.53c0 2.212 1.17 4.203 3.002 5.55a.59.59 0 0 1 .213.665l-.39 1.48c-.019.07-.048.141-.048.213 0 .163.13.295.292.295a.326.326 0 0 0 .167-.046l1.906-1.103a.72.72 0 0 1 .593-.075c.875.244 1.802.378 2.76.378.232 0 .461-.009.689-.023a6.83 6.83 0 0 1-.225-1.724c0-4.053 3.891-7.341 8.691-7.341.282 0 .56.015.836.038C17.478 5.2 13.513 2.188 8.691 2.188zm-2.89 4.316c.52 0 .942.422.942.942 0 .52-.422.942-.942.942a.944.944 0 0 1-.943-.942c0-.52.423-.942.943-.942zm5.781 0c.52 0 .943.422.943.942 0 .52-.423.942-.943.942a.944.944 0 0 1-.942-.942c0-.52.422-.942.942-.942zm4.729 4.145c-4.001 0-7.245 2.74-7.245 6.12 0 3.38 3.244 6.12 7.245 6.12.8 0 1.572-.112 2.301-.315a.598.598 0 0 1 .495.063l1.589.92a.272.272 0 0 0 .139.038c.135 0 .244-.11.244-.245 0-.06-.024-.119-.04-.177l-.325-1.234a.49.49 0 0 1 .177-.555c1.527-1.123 2.502-2.781 2.502-4.622 0-3.38-3.244-6.12-7.245-6.12zm-2.415 3.597c.433 0 .785.352.785.785 0 .433-.352.785-.785.785a.787.787 0 0 1-.785-.785c0-.433.352-.785.785-.785zm4.83 0c.433 0 .785.352.785.785 0 .433-.352.785-.785.785a.787.787 0 0 1-.785-.785c0-.433.352-.785.785-.785z"/></svg>
+        </a>
         <a class="cc-cta" href="tel:+85598871314">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .3 2 .7 2.9a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.5c.9.4 1.9.6 2.9.7a2 2 0 0 1 1.8 2z"/></svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .3 2 .7 2.9a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.5c.9.4 1.9.6 2.9.7a2 2 0 0 1 1.8 2z"/>
+          </svg>
           <span class="cc-cta__label">098 871 314</span>
         </a>
-
-        <button class="cc-burger" id="mobileNavToggleBtn" aria-label="Open mobile category menu">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        <button class="cc-burger" data-cc-burger-open aria-label="Open menu" aria-expanded="false">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="3" y1="6" x2="21" y2="6"/>
+            <line x1="3" y1="12" x2="21" y2="12"/>
+            <line x1="3" y1="18" x2="21" y2="18"/>
+          </svg>
         </button>
       </div>
     </div>
   </header>
 
   <!-- ==================== CATEGORY NAVIGATION BAR ==================== -->
-  <nav class="category-nav-bar" aria-label="Product Categories">
-    <div class="container">
-      <ul class="category-nav-list" id="categoryNavList">
-        <li><a class="category-nav-item" href="index.html">ALL PRODUCTS</a></li>
-        <li><a class="category-nav-item" href="index.html?cat=laptop">LAPTOP</a></li>
-        <li><a class="category-nav-item" href="newpc.html">DESKTOP</a></li>
-        <li><a class="category-nav-item" href="pcpart.html">PC PART</a></li>
-        <li><a class="category-nav-item" href="oldcomputer.html">SECOND HAND</a></li>
-        <li><a class="category-nav-item" href="peripherals.html">PERIPHERALS</a></li>
-        <li><a class="category-nav-item" href="storage.html">STORAGE</a></li>
-        <li><a class="category-nav-item" href="network.html">NETWORK</a></li>
-        <li><a class="category-nav-item" href="speaker.html">SPEAKER</a></li>
-        <li><a class="category-nav-item" href="printer.html">PRINTER</a></li>
-        <li><a class="category-nav-item" href="accessories.html">ACCESSORIES</a></li>
-        <li><a class="category-nav-item" href="index.html#builder"><span class="nav-tag-highlight">PRO</span> PC BUILDER</a></li>
-        <li><a class="category-nav-item is-active" href="contactus.html">CONTACT US</a></li>
+  <nav class="cc-nav-bar" aria-label="Product categories">
+    <div class="cc-container">
+      <ul class="cc-nav" id="categoryNavList">
+        <li><a class="cc-nav__link" href="index.html">LAPTOP</a></li>
+        <li><a class="cc-nav__link" href="newpc.html">DESKTOP</a></li>
+        <li><a class="cc-nav__link" href="pcpart.html">PC Part</a></li>
+        <li><a class="cc-nav__link" href="oldcomputer.html">second hand</a></li>
+        <li><a class="cc-nav__link" href="peripherals.html">Peripherals</a></li>
+        <li><a class="cc-nav__link" href="storage.html">Storage</a></li>
+        <li><a class="cc-nav__link" href="network.html">Network</a></li>
+        <li><a class="cc-nav__link" href="speaker.html">Speaker</a></li>
+        <li><a class="cc-nav__link" href="printer.html">Printer</a></li>
+        <li><a class="cc-nav__link" href="accessories.html">Accessories</a></li>
+        <li><a class="cc-nav__link" href="index.html#builder"><span style="background:#ff7a1a;color:#fff;font-size:10px;padding:2px 6px;border-radius:4px;margin-right:4px;">PRO</span> PC Builder</a></li>
+        <li><a class="cc-nav__link is-active" href="contactus.html">Contact Us</a></li>
       </ul>
     </div>
   </nav>
 
-  <!-- CC Mobile Navigation Drawer -->
-  <div class="cc-nav-scrim" id="mobileNavScrim"></div>
-  <aside class="cc-nav-drawer" id="mobileNavDrawer" aria-label="Mobile Navigation Menu">
-    <div class="cc-nav-drawer__head">
-      <div class="cc-nav-drawer__title">💻 Store Menu</div>
-      <button class="cc-nav-drawer__close" id="mobileNavCloseBtn">✕</button>
+  <div class="ticker-bar">
+    <div class="ticker-track">
+      <span>VRS COMPUTER - មានលក់កុំព្យូទ័រថ្មី មួយទឹក | ទំនុកចិត្តខ្ពស់ សេវាកម្ម គុណភាព | YOUR TRUSTED TECHNOLOGY PARTNER, HIGH QUALITY PRODUCT, AFTER SALES SUPPORT : 098 871 314 / 013 997 388</span>
+      <span>VRS COMPUTER - មានលក់កុំព្យូទ័រថ្មី មួយទឹក | ទំនុកចិត្តខ្ពស់ សេវាកម្ម គុណភាព | YOUR TRUSTED TECHNOLOGY PARTNER, HIGH QUALITY PRODUCT, AFTER SALES SUPPORT : 098 871 314 / 013 997 388</span>
     </div>
-    <ul>
-      <li><a class="category-nav-item" href="index.html">🌟 ALL PRODUCTS</a></li>
-      <li><a class="category-nav-item" href="index.html?cat=laptop">💻 LAPTOP</a></li>
-      <li><a class="category-nav-item" href="newpc.html">🖥️ DESKTOP</a></li>
-      <li><a class="category-nav-item" href="pcpart.html">⚙️ PC PART</a></li>
-      <li><a class="category-nav-item" href="oldcomputer.html">🔄 SECOND HAND</a></li>
-      <li><a class="category-nav-item" href="peripherals.html">⌨️ PERIPHERALS</a></li>
-      <li><a class="category-nav-item" href="storage.html">💾 STORAGE</a></li>
-      <li><a class="category-nav-item" href="network.html">📡 NETWORK</a></li>
-      <li><a class="category-nav-item" href="speaker.html">🔊 SPEAKER</a></li>
-      <li><a class="category-nav-item" href="printer.html">🖨️ PRINTER</a></li>
-      <li><a class="category-nav-item" href="accessories.html">🎒 ACCESSORIES</a></li>
-      <li><a class="category-nav-item is-active" href="contactus.html">📍 CONTACT US</a></li>
-    </ul>
-    <div style="margin-top:auto; padding-top:20px; border-top:1px solid var(--border-subtle); display:flex; flex-direction:column; gap:10px;">
-      <a class="cc-cta" href="tel:+85598871314" style="justify-content:center; width:100%;">📞 Hotline: 098 871 314</a>
-      <a href="https://t.me/Sounvisal" target="_blank" class="btn-hero-secondary" style="justify-content:center; width:100%; font-size:0.82rem; padding:10px; border-radius:var(--border-radius-full); text-align:center;">✈️ Telegram: @Sounvisal</a>
-    </div>
-  </aside>
+  </div>
 
-  <!-- ==================== HERO HEADER ==================== -->
-  <section class="contact-hero-banner">
+<section class="contact-hero-banner">
     <div class="container">
       <span class="hero-badge" style="margin-bottom: 12px;">🏪 OFFICIAL STORE &amp; HARDWARE HEADQUARTERS</span>
       <h1 class="contact-hero-title">CONTACT US • ទំនាក់ទំនងយើងខ្ញុំ</h1>

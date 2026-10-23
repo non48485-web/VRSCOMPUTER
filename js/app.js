@@ -463,9 +463,11 @@ function renderStorefrontCategories() {
   const categories = typeof loadCategoriesData === 'function' ? loadCategoriesData() : [];
   const activeCats = categories.filter(c => c.active !== false);
   const isKhmer = window.VRS_CURRENT_LANG === 'KH';
+  let currentPage = (window.location.pathname.split('/').pop() || 'index.html').toLowerCase().split('?')[0];
+  if (!currentPage || currentPage === '/') currentPage = 'index.html';
 
   const catPageMap = {
-    laptop: 'index.html?cat=laptop',
+    laptop: 'index.html',
     desktop: 'newpc.html',
     pcpart: 'pcpart.html',
     secondhand: 'oldcomputer.html',
@@ -480,17 +482,17 @@ function renderStorefrontCategories() {
   // 1. Desktop Sticky Category Nav (#categoryNavList)
   const navList = document.getElementById('categoryNavList');
   if (navList) {
-    let allLabel = isKhmer ? 'ទំនិញទាំងអស់' : 'ALL PRODUCTS';
-    let html = `<li><a class="category-nav-item cc-nav__link ${currentCategory === 'all' ? 'is-active' : ''}" data-category-filter="all" href="#catalog">${allLabel}</a></li>`;
+    let html = '';
     activeCats.forEach(cat => {
-      const isAct = currentCategory === cat.slug;
-      const label = isKhmer && cat.nameKh ? cat.nameKh : cat.name.toUpperCase();
       const pageHref = catPageMap[cat.slug] || `index.html?cat=${cat.slug}`;
-      html += `<li><a class="category-nav-item cc-nav__link ${isAct ? 'is-active' : ''}" data-category-filter="${cat.slug}" href="${pageHref}">${label}</a></li>`;
+      const isAct = (currentPage === pageHref.toLowerCase()) || 
+                    (currentPage === 'index.html' && cat.slug === 'laptop');
+      const label = isKhmer && cat.nameKh ? cat.nameKh : cat.name;
+      html += `<li><a class="cc-nav__link ${isAct ? 'is-active' : ''}" href="${pageHref}">${label}</a></li>`;
     });
     html += `
-      <li><a class="category-nav-item cc-nav__link" href="#builder"><span class="nav-tag-highlight">PRO</span> ${isKhmer ? 'ស្ទូឌីយោផ្គុំ PC' : 'PC BUILDER'}</a></li>
-      <li><a class="category-nav-item cc-nav__link" href="contactus.html">${isKhmer ? 'ទំនាក់ទំនង' : 'CONTACT US'}</a></li>
+      <li><a class="cc-nav__link ${window.location.hash === '#builder' ? 'is-active' : ''}" href="index.html#builder"><span style="background:#ff7a1a;color:#fff;font-size:10px;padding:2px 6px;border-radius:4px;margin-right:4px;">PRO</span> PC Builder</a></li>
+      <li><a class="cc-nav__link ${currentPage === 'contactus.html' ? 'is-active' : ''}" href="contactus.html">Contact Us</a></li>
     `;
     navList.innerHTML = html;
   }
@@ -498,24 +500,24 @@ function renderStorefrontCategories() {
   // 2. Mobile Drawer Navigation (#mobileDrawerNavList)
   const mobileList = document.getElementById('mobileDrawerNavList');
   if (mobileList) {
-    let allLabel = isKhmer ? '🌟 ទំនិញទាំងអស់' : '🌟 ALL PRODUCTS';
-    let mHtml = `<li><a class="category-nav-item cc-nav__link ${currentCategory === 'all' ? 'is-active' : ''}" data-category-filter="all" href="#catalog">${allLabel}</a></li>`;
+    let mHtml = '';
     activeCats.forEach(cat => {
-      const isAct = currentCategory === cat.slug;
-      const icon = cat.icon || '📦';
-      const label = isKhmer && cat.nameKh ? cat.nameKh : cat.name.toUpperCase();
-      const khLabel = !isKhmer && cat.nameKh ? `<span style="font-size: 0.76rem; color: var(--text-muted); margin-left: 6px;">(${cat.nameKh})</span>` : '';
       const pageHref = catPageMap[cat.slug] || `index.html?cat=${cat.slug}`;
-      mHtml += `<li><a class="category-nav-item cc-nav__link ${isAct ? 'is-active' : ''}" data-category-filter="${cat.slug}" href="${pageHref}">${icon} ${label} ${khLabel}</a></li>`;
+      const isAct = (currentPage === pageHref.toLowerCase()) || 
+                    (currentPage === 'index.html' && cat.slug === 'laptop');
+      const icon = cat.icon || '💻';
+      const label = isKhmer && cat.nameKh ? cat.nameKh : cat.name;
+      const khLabel = !isKhmer && cat.nameKh ? `<span style="font-size: 0.76rem; color: var(--text-muted); margin-left: 6px;">(${cat.nameKh})</span>` : '';
+      mHtml += `<li><a class="cc-nav__link ${isAct ? 'is-active' : ''}" href="${pageHref}">${icon} ${label} ${khLabel}</a></li>`;
     });
     mHtml += `
-      <li><a class="category-nav-item cc-nav__link" href="#builder">⚙️ <span class="nav-tag-highlight">PRO</span> ${isKhmer ? 'ស្ទូឌីយោផ្គុំ PC' : 'PC BUILDER'}</a></li>
-      <li><a class="category-nav-item cc-nav__link" href="contactus.html">📍 ${isKhmer ? 'ទីតាំងហាង & ផែនទី' : 'SHOWROOM & MAP'}</a></li>
+      <li><a class="cc-nav__link" href="index.html#builder">⚙️ <span style="background:#ff7a1a;color:#fff;font-size:10px;padding:2px 6px;border-radius:4px;margin-right:4px;">PRO</span> PC Builder</a></li>
+      <li><a class="cc-nav__link ${currentPage === 'contactus.html' ? 'is-active' : ''}" href="contactus.html">📍 Contact Us</a></li>
     `;
     mobileList.innerHTML = mHtml;
   }
 
-  // 3. Catalog Filter Tags Bar (#catalogFilterTagsBar)
+  // 3. Catalog Filter Tags Bar (#catalogFilterTagsBar) if present on legacy pages
   const catalogFilterBar = document.getElementById('catalogFilterTagsBar');
   if (catalogFilterBar) {
     let allLabel = isKhmer ? 'ទំនិញទាំងអស់' : 'All Inventory';
@@ -532,7 +534,7 @@ function renderStorefrontCategories() {
 }
 
 function wireCategoryFilterEvents() {
-  document.querySelectorAll('[data-category-filter]').forEach(el => {
+  document.querySelectorAll('button[data-category-filter]').forEach(el => {
     el.onclick = (e) => {
       e.preventDefault();
       const cat = el.getAttribute('data-category-filter');

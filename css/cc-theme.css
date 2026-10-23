@@ -1,0 +1,2628 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Kantumruy+Pro:wght@400;500;600;700&display=swap');
+
+/* -------------------------------------------------------------------------
+   1. DESIGN TOKENS
+   ------------------------------------------------------------------------- */
+:root {
+  /* Color: deep tech-navy + blue, warm amber accent */
+  --cc-navy-950: #0a1428;
+  --cc-navy-900: #0f1f3d;
+  --cc-navy-800: #16305c;
+  --cc-blue-600: #190ee9;
+  --cc-blue-500: #2563ac;
+  --cc-blue-100: #e7eefb;
+  --cc-accent-500: #ff7a1a;
+  --cc-accent-600: #e8650a;
+  --cc-accent-100: #fff1e5;
+  --cc-yellow-500: #FFD700;
+  --cc-yellow-100: #ffffff;
+
+  --cc-ink: #101828;
+  --cc-body: #1b1c1d;
+  --cc-muted: #8a94a6;
+  --cc-white: #ffffff;
+  --cc-surface: #ffffff;
+  --cc-surface-alt: #ffffff;
+  --cc-border: #e3e7ee;
+
+  /* Typography — Latin renders in Inter; Khmer glyphs fall back to Kantumruy Pro automatically */
+  --cc-font: 'Inter', 'Kantumruy Pro', system-ui, -apple-system, sans-serif;
+
+  /* Scale */
+  --cc-space-1: 4px;
+  --cc-space-2: 8px;
+  --cc-space-3: 12px;
+  --cc-space-4: 16px;
+  --cc-space-5: 20px;
+  --cc-space-6: 24px;
+  --cc-space-8: 32px;
+  --cc-space-10: 40px;
+  --cc-space-12: 48px;
+  --cc-space-16: 64px;
+
+  --cc-radius-sm: 8px;
+  --cc-radius-md: 14px;
+  --cc-radius-lg: 24px;
+  --cc-radius-full: 999px;
+
+  --cc-shadow-sm: 0 1px 2px rgba(16, 24, 40, 0.06), 0 1px 3px rgba(16, 24, 40, 0.08);
+  --cc-shadow-md: 0 4px 10px rgba(16, 24, 40, 0.06), 0 8px 24px rgba(16, 24, 40, 0.08);
+  --cc-shadow-lg: 0 12px 24px rgba(16, 24, 40, 0.10), 0 24px 48px rgba(16, 24, 40, 0.12);
+
+  --cc-container: 1280px;
+  --cc-header-h: 88px;
+  --cc-header-h-scrolled: 68px;
+  --cc-nav-h: 52px;
+  --cc-ease: cubic-bezier(0.4, 0, 0.2, 1);
+  --cc-transition: 220ms var(--cc-ease);
+}
+
+
+/* 1. ដោះរំដោះ Overflow លើ HTML/Body/Wrapper ដើម្បីឱ្យ Sticky ដើរ 100% */
+html, body, .cc-scope, main, header, #wrapper, #inner, #body {
+  overflow: visible !important;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+/* 2. បង្ខំ Header ឱ្យ Sticky ជាប់លើ */
+.cc-scope header,
+.cc-scope .main-header,
+.cc-scope .header,
+
+/* 3. Keep legacy sub-navigation selectors below the main header */
+.cc-scope .sub-nav,
+.cc-scope .brand-nav,
+.cc-scope .category-bar,
+.cc-scope .filter-bar {
+  position: -webkit-sticky !important;
+  position: sticky !important;
+  top: 60px !important;
+  z-index: 999 !important;
+  background-color: #ffffff !important;
+}
+
+/* -------------------------------------------------------------------------
+   2. RESET (scoped lightly — safe to keep alongside legacy rules)
+   ------------------------------------------------------------------------- */
+.cc-scope,
+.cc-scope *,
+.cc-scope *::before,
+.cc-scope *::after {
+  box-sizing: border-box;
+}
+
+.cc-scope {
+  font-family: var(--cc-font);
+  color: var(--cc-ink);
+  -webkit-font-smoothing: antialiased;
+}
+
+.cc-scope ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.cc-scope a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.cc-scope img {
+  display: block;
+  max-width: 100%;
+}
+
+.cc-scope button {
+  font-family: inherit;
+  cursor: pointer;
+}
+
+.cc-container {
+  width: 100%;
+  max-width: var(--cc-container);
+  margin-inline: auto;
+  padding-inline: var(--cc-space-6);
+}
+
+/* Skip link for keyboard users */
+.cc-skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  background: var(--cc-navy-900);
+  color: var(--cc-white);
+  padding: var(--cc-space-3) var(--cc-space-5);
+  border-radius: var(--cc-radius-sm);
+  z-index: 999;
+}
+
+.cc-skip-link:focus {
+  left: var(--cc-space-4);
+  top: var(--cc-space-4);
+}
+
+/* Visible focus ring everywhere in this scope */
+.cc-scope :focus-visible {
+  outline: 2px solid var(--cc-yellow-500);
+  outline-offset: 2px;
+  border-radius: var(--cc-radius-sm);
+}
+
+.cc-header__row {
+  display: flex;
+  align-items: center;
+  gap: var(--cc-space-8);
+  height: var(--cc-header-h);
+  transition: height var(--cc-transition);
+}
+
+.cc-header.is-scrolled .cc-header__row {
+  height: var(--cc-header-h-scrolled);
+}
+
+/* Logo (wordmark built in CSS — swap for <img> if you have a vector logo) */
+.cc-logo {
+  display: flex;
+  align-items: center;
+  gap: var(--cc-space-3);
+  flex-shrink: 0;
+}
+
+.cc-logo__mark {
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  border-radius: var(--cc-radius-md);
+  background: linear-gradient(135deg, var(--cc-blue-600), var(--cc-navy-900));
+  color: var(--cc-white);
+  font-weight: 800;
+  font-size: 16px;
+  letter-spacing: -0.02em;
+  transition: transform var(--cc-transition);
+}
+
+.cc-logo:hover .cc-logo__mark {
+  transform: translateY(-1px) rotate(-3deg);
+}
+
+.cc-logo__text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.15;
+}
+
+.cc-logo__name {
+  font-weight: 800;
+  font-size: 19px;
+  color: var(--cc-navy-900);
+  letter-spacing: -0.01em;
+}
+
+.cc-logo__tag {
+  font-size: 12px;
+  color: var(--cc-muted);
+  font-weight: 500;
+}
+
+/* Search */
+.cc-search {
+  flex: 1 1 auto;
+  max-width: 480px;
+  margin-inline: auto;
+  position: relative;
+}
+
+.cc-search input {
+  width: 100%;
+  height: 44px;
+  padding: 0 var(--cc-space-5) 0 var(--cc-space-10);
+  border-radius: var(--cc-radius-full);
+  border: 1px solid var(--cc-border);
+  background: var(--cc-surface-alt);
+  font: 500 14px/1 var(--cc-font);
+  color: var(--cc-ink);
+  transition: border-color var(--cc-transition), background var(--cc-transition), box-shadow var(--cc-transition);
+}
+
+.cc-search input::placeholder {
+  color: var(--cc-muted);
+}
+
+.cc-search input:focus {
+  outline: none;
+  background: var(--cc-white);
+  border-color: var(--cc-blue-500);
+  box-shadow: 0 0 0 4px var(--cc-blue-100);
+}
+
+.cc-search svg {
+  position: absolute;
+  left: var(--cc-space-4);
+  top: 50%;
+  transform: translateY(-50%);
+  width: 18px;
+  height: 18px;
+  color: var(--cc-muted);
+  pointer-events: none;
+}
+
+/* Actions */
+.cc-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--cc-space-2);
+  flex-shrink: 0;
+}
+
+.cc-icon-btn {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--cc-radius-full);
+  color: var(--cc-navy-900);
+  background: transparent;
+  border: 1px solid transparent;
+  transition: background var(--cc-transition), color var(--cc-transition), transform var(--cc-transition);
+}
+
+.cc-icon-btn svg {
+  width: 19px;
+  height: 19px;
+}
+
+.cc-icon-btn:hover {
+  background: var(--cc-surface-alt);
+  transform: translateY(-1px);
+}
+
+.cc-icon-btn--fb:hover {
+  color: #1877f2;
+}
+
+.cc-icon-btn--tg:hover {
+  color: #2aabee;
+}
+
+.cc-icon-btn--wa:hover {
+  color: #25d366;
+}
+
+.cc-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--cc-space-2);
+  padding: 0 var(--cc-space-5);
+  height: 40px;
+  border-radius: var(--cc-radius-full);
+  background: var(--cc-yellow-500);
+  color: var(--cc-white);
+  font-weight: 700;
+  font-size: 14px;
+  white-space: nowrap;
+  box-shadow: var(--cc-shadow-sm);
+  transition: background var(--cc-transition), transform var(--cc-transition), box-shadow var(--cc-transition);
+}
+
+.cc-cta:hover {
+  background: var(--cc-yellow-100);
+  transform: translateY(-1px);
+  box-shadow: var(--cc-shadow-md);
+}
+
+.cc-cta svg {
+  width: 16px;
+  height: 16px;
+}
+
+.cc-burger {
+  display: none;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--cc-radius-sm);
+  border: 1px solid var(--cc-border);
+  background: var(--cc-white);
+  place-items: center;
+}
+
+.cc-burger svg {
+  width: 20px;
+  height: 20px;
+}
+
+/* -------------------------------------------------------------------------
+   4. NAVIGATION
+   ------------------------------------------------------------------------- */
+.cc-nav-bar {
+  border-bottom: 1px solid var(--cc-border);
+  background: var(--cc-white);
+}
+
+.cc-nav {
+  display: flex;
+  align-items: stretch;
+  gap: var(--cc-space-2);
+  height: var(--cc-nav-h);
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.cc-nav::-webkit-scrollbar {
+  display: none;
+}
+
+.cc-nav>li {
+  display: flex;
+}
+
+.cc-nav__link {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  height: var(--cc-nav-h);
+  padding-inline: var(--cc-space-3);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--cc-body);
+  white-space: nowrap;
+  transition: color var(--cc-transition);
+  text-transform: uppercase !important;
+  letter-spacing: 0.5px !important;
+}
+
+.cc-nav__link::after {
+  content: '';
+  position: absolute;
+  left: var(--cc-space-3);
+  right: var(--cc-space-3);
+  bottom: 6px;
+  height: 2px;
+  border-radius: var(--cc-radius-full);
+  background: var(--cc-yellow-500);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--cc-transition);
+}
+
+.cc-nav__link:hover {
+  color: var(--cc-navy-900);
+}
+
+.cc-nav__link:hover::after {
+  transform: scaleX(1);
+}
+
+.cc-nav__link.is-active {
+  color: var(--cc-blue-600);
+}
+
+.cc-nav__link.is-active::after {
+  transform: scaleX(1);
+  background: var(--cc-yellow-500);
+}
+
+/* Mobile drawer */
+.cc-nav-scrim {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 31, 61, 0.45);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--cc-transition);
+  z-index: 600;
+}
+
+.cc-nav-scrim.is-open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.cc-nav-drawer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: min(320px, 84vw);
+  background: var(--cc-white);
+  box-shadow: var(--cc-shadow-lg);
+  transform: translateX(100%);
+  transition: transform var(--cc-transition);
+  z-index: 601;
+  display: flex;
+  flex-direction: column;
+  padding: var(--cc-space-6);
+}
+
+.cc-nav-drawer.is-open {
+  transform: translateX(0);
+}
+
+.cc-nav-drawer__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--cc-space-6);
+}
+
+.cc-nav-drawer__close {
+  width: 36px;
+  height: 36px;
+  border-radius: var(--cc-radius-full);
+  border: 1px solid var(--cc-border);
+  display: grid;
+  place-items: center;
+}
+
+.cc-nav-drawer .cc-nav__link {
+  height: auto;
+  padding: var(--cc-space-3) 0;
+  width: 100%;
+}
+
+.cc-nav-drawer .cc-nav__link::after {
+  left: 0;
+  right: auto;
+  width: 24px;
+}
+
+.cc-nav-drawer ul {
+  display: flex;
+  flex-direction: column;
+}
+
+/* -------------------------------------------------------------------------
+   5. HERO SLIDESHOW
+   ------------------------------------------------------------------------- */
+.cc-hero {
+  padding-block: var(--cc-space-8);
+  background: var(--cc-surface-alt);
+}
+
+.cc-hero__frame {
+  position: relative;
+  border-radius: var(--cc-radius-lg);
+  overflow: hidden;
+  box-shadow: var(--cc-shadow-lg);
+  aspect-ratio: 1920 / 720;
+  background: var(--cc-navy-950);
+}
+
+@media (max-width: 720px) {
+  .cc-hero__frame {
+    aspect-ratio: 4 / 3;
+    border-radius: var(--cc-radius-md);
+  }
+
+/* -------------------------------------------------------------------------
+   CONTACT PAGE — replace legacy fixed-width QR/map layout
+   ------------------------------------------------------------------------- */
+.cc-contact-page #wrapper,
+.cc-contact-page #inner,
+.cc-contact-page #body,
+.cc-contact-page #body > .inner {
+  width: 100% !important;
+  max-width: none !important;
+  left: auto !important;
+  right: auto !important;
+  transform: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  position: relative !important;
+}
+
+.cc-contact-page #body > .inner {
+  display: block !important;
+}
+
+.cc-contact-page #body > .inner > p {
+  max-width: 960px;
+  margin: 0 auto 24px !important;
+  padding: 24px !important;
+  border: 1px solid var(--cc-border);
+  border-radius: 14px;
+  background: var(--cc-white);
+  box-shadow: var(--cc-shadow-sm);
+  color: var(--cc-body) !important;
+  line-height: 1.55 !important;
+}
+
+.cc-contact-page .text_qr {
+  max-width: 960px;
+  margin: 28px auto 12px !important;
+  padding-inline: 24px;
+  color: var(--cc-navy-900);
+  font-size: 24px;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+}
+
+.cc-contact-page .container {
+  display: block !important;
+  width: min(960px, calc(100% - 32px)) !important;
+  max-width: 960px !important;
+  margin: 0 auto !important;
+  padding: 0 !important;
+  text-align: left !important;
+}
+
+.cc-contact-page .col-6.rqcode {
+  display: block !important;
+  width: 100% !important;
+  float: none !important;
+  margin: 0 !important;
+}
+
+.cc-contact-page .footerbox {
+  width: 100% !important;
+  margin: 0 !important;
+  padding: 18px !important;
+  border: 1px solid var(--cc-border);
+  border-radius: 14px;
+  background: var(--cc-white);
+  box-shadow: var(--cc-shadow-sm);
+}
+
+.cc-contact-page .coderq {
+  display: grid !important;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 16px;
+  align-items: start;
+}
+
+.cc-contact-page .rqcode-image {
+  display: flex !important;
+  min-width: 0;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 0 !important;
+  text-align: center;
+}
+
+.cc-contact-page .rqcode-image a {
+  display: grid;
+  place-items: center;
+  width: 100%;
+  aspect-ratio: 1;
+  overflow: hidden;
+  border: 1px solid var(--cc-border);
+  border-radius: 12px;
+  background: #f8fafc;
+  transition: transform 180ms var(--cc-ease), box-shadow 180ms var(--cc-ease);
+}
+
+.cc-contact-page .rqcode-image a:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--cc-shadow-md);
+}
+
+.cc-contact-page .rqcode-image img {
+  display: block !important;
+  width: 100% !important;
+  height: 100% !important;
+  max-width: none !important;
+  object-fit: cover;
+}
+
+.cc-contact-page .rqcode-image > img {
+  display: block !important;
+  width: 100% !important;
+  height: 100% !important;
+  min-height: 120px;
+  object-fit: contain;
+}
+
+.cc-contact-page .rqcode-image .text_qr {
+  margin: 0 !important;
+  padding: 0;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.cc-contact-page iframe {
+  display: block;
+  width: min(960px, calc(100% - 32px)) !important;
+  height: 450px;
+  margin: 28px auto 48px;
+  border: 0;
+  border-radius: 14px;
+  box-shadow: var(--cc-shadow-md);
+}
+
+.cc-contact-page .coderq .rqcode-image:has(> img[src^="QR/"]) {
+  min-height: 120px;
+  justify-content: center;
+  border: 1px solid var(--cc-border);
+  border-radius: 12px;
+  background: linear-gradient(145deg, #f8fafc, #eef2f7);
+  color: var(--cc-navy-900);
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+.cc-contact-page .coderq .rqcode-image:has(> img[src^="QR/"]) > img {
+  display: none !important;
+}
+
+.cc-contact-page .coderq .rqcode-image:has(> img[src*="ABA1"])::after { content: 'ABA'; }
+.cc-contact-page .coderq .rqcode-image:has(> img[src*="AC1"])::after { content: 'ACLEDA'; }
+.cc-contact-page .coderq .rqcode-image:has(> img[src*="Visa"])::after { content: 'VISA'; }
+.cc-contact-page .coderq .rqcode-image:has(> img[src*="mastercard"])::after { content: 'MASTERCARD'; }
+.cc-contact-page .coderq .rqcode-image:has(> img[src*="Khqr"])::after { content: 'KHQR'; }
+.cc-contact-page .coderq .rqcode-image:has(> img[src*="Aeon"])::after { content: 'AEON'; }
+
+@media (max-width: 760px) {
+  .cc-contact-page .coderq {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .cc-contact-page #body > .inner > p,
+  .cc-contact-page .text_qr {
+    padding-inline: 16px !important;
+  }
+}
+
+@media (max-width: 440px) {
+  .cc-contact-page .coderq {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+}
+
+.cc-hero__slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 700ms var(--cc-ease);
+}
+
+.cc-hero__slide.is-active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.cc-hero__slide img {
+  width: 100%;
+  height: 100%;
+}
+
+.cc-hero__scrim {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(0deg, rgba(10, 20, 40, 0.55) 0%, rgba(10, 20, 40, 0) 42%);
+  pointer-events: none;
+}
+
+.cc-hero__caption {
+  position: absolute;
+  left: var(--cc-space-8);
+  bottom: var(--cc-space-8);
+  right: var(--cc-space-8);
+  max-width: 560px;
+  color: var(--cc-white);
+}
+
+.cc-hero__eyebrow {
+  display: inline-flex;
+  align-items: center;
+  padding: var(--cc-space-1) var(--cc-space-3);
+  border-radius: var(--cc-radius-full);
+  background: rgba(255, 255, 255, 0.16);
+  backdrop-filter: blur(6px);
+  font-size: 12px;
+  font-weight: 600;
+  margin-bottom: var(--cc-space-3);
+}
+
+.cc-hero__title {
+  font-size: clamp(18px, 2.4vw, 26px);
+  font-weight: 700;
+  margin: 0 0 var(--cc-space-4);
+  line-height: 1.3;
+}
+
+@media (max-width: 720px) {
+  .cc-hero__caption {
+    left: var(--cc-space-4);
+    right: var(--cc-space-4);
+    bottom: var(--cc-space-4);
+  }
+}
+
+/* =========================================================================
+   GLASSMORPHISM HERO SLIDER ARROWS (PREV & NEXT)
+   ========================================================================= */
+
+.cc-hero__arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 44px;
+  height: 44px;
+  border-radius: var(--cc-radius-full);
+  
+  /* បន្ថែម Blur & Glassmorphism Background */
+  background: rgba(255, 255, 255, 0.45) !important;
+  -webkit-backdrop-filter: blur(12px) saturate(180%) !important;
+  backdrop-filter: blur(12px) saturate(180%) !important;
+  
+  /* គែមរេចរ៉ៃ និង Shadow ប្រៀបដូចកញ្ចក់ថ្លា */
+  border: 1px solid rgba(255, 255, 255, 0.5) !important;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15) !important;
+  
+  display: grid;
+  place-items: center;
+  color: var(--cc-navy-900);
+  transition: all var(--cc-transition);
+  z-index: 10;
+}
+
+/* ពេល Hover លើ Arrow បង្កើន Blur និងពន្លឺកញ្ចក់ */
+.cc-hero__arrow:hover {
+  background: rgba(255, 255, 255, 0.75) !important;
+  transform: translateY(-50%) scale(1.08) !important;
+  border-color: rgba(255, 255, 255, 0.8) !important;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2) !important;
+}
+
+.cc-hero__arrow svg {
+  width: 20px;
+  height: 20px;
+}
+
+.cc-hero__arrow--prev {
+  left: var(--cc-space-4);
+}
+
+.cc-hero__arrow--next {
+  right: var(--cc-space-4);
+}
+
+@media (max-width: 560px) {
+  .cc-hero__arrow {
+    width: 36px;
+    height: 36px;
+  }
+}
+
+.cc-hero__dots,
+[data-hero-dots] {
+  position: absolute !important;
+  bottom: 16px !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  padding: 6px 14px !important;
+  background: rgba(0, 0, 0, 0.15) !important;
+  backdrop-filter: blur(10px) !important;
+  -webkit-backdrop-filter: blur(10px) !important;
+  border-radius: 20px !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  z-index: 10 !important;
+}
+
+.cc-hero__dot {
+  width: 8px !important;
+  height: 8px !important;
+  border-radius: 50% !important;
+  background: rgba(255, 255, 255, 0.45) !important;
+  border: none !important;
+  padding: 0 !important;
+  cursor: pointer !important;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+.cc-hero__dot.is-active {
+  background: #ffffff !important;
+  transform: scale(1.3) !important;
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.8) !important;
+}
+
+/* -------------------------------------------------------------------------
+   BRANDS SECTION — FIX OVERLAP & STICKY ISSUE
+   ------------------------------------------------------------------------- */
+.cc-brands {
+  position: relative !important; /* បង្ខំឱ្យនៅតាមលំដាប់ Normal Flow មិនអណ្តែត */
+  top: auto !important;
+  bottom: auto !important;
+  left: auto !important;
+  right: auto !important;
+  z-index: 1 !important; /* ឱ្យនៅក្រោម Sticky Header (Header មាន z-index: 500) */
+
+  width: 100%;
+  padding-block: var(--cc-space-4);
+  background: var(--cc-surface-alt);
+  border-bottom: 1px solid var(--cc-border);
+  clear: both;
+}
+
+.cc-brands__grid {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: var(--cc-space-2) var(--cc-space-3);
+}
+
+.cc-brand {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 14px;
+  border: 1px solid #d1d5db;
+  border-radius: var(--cc-radius-sm);
+  background-color: var(--cc-white);
+  
+  font-family: var(--cc-font);
+  font-size: 13px;
+  font-weight: 700;
+  color: #374151;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  user-select: none;
+  cursor: pointer;
+  transition: all var(--cc-transition);
+}
+
+.cc-brand:hover {
+  border-color: var(--cc-blue-600);
+  color: var(--cc-blue-600);
+  background-color: var(--cc-blue-100);
+  box-shadow: var(--cc-shadow-sm);
+}
+
+
+/* -------------------------------------------------------------------------
+   6. FOOTER
+   ------------------------------------------------------------------------- */
+.cc-footer {
+  background: var(--cc-navy-950);
+  color: rgba(255, 255, 255, 0.72);
+  padding-block: var(--cc-space-16) var(--cc-space-6);
+}
+
+.cc-footer a {
+  color: rgba(255, 255, 255, 0.72);
+  transition: color var(--cc-transition);
+}
+
+.cc-footer a:hover {
+  color: var(--cc-white);
+}
+
+.cc-footer__grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr 1.1fr;
+  gap: var(--cc-space-10);
+  padding-bottom: var(--cc-space-12);
+}
+
+@media (max-width: 900px) {
+  .cc-footer__grid {
+    grid-template-columns: 1fr 1fr;
+    row-gap: var(--cc-space-10);
+  }
+}
+
+@media (max-width: 560px) {
+  .cc-footer__grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.cc-footer__brand .cc-logo__name {
+  color: var(--cc-white);
+}
+
+.cc-footer__brand .cc-logo__tag {
+  color: rgba(255, 255, 255, 0.55);
+}
+
+.cc-footer__desc {
+  margin-top: var(--cc-space-4);
+  font-size: 14px;
+  line-height: 1.7;
+  max-width: 34ch;
+}
+
+.cc-footer__social {
+  display: flex;
+  gap: var(--cc-space-2);
+  margin-top: var(--cc-space-5);
+}
+
+.cc-footer__social a {
+  width: 38px;
+  height: 38px;
+  border-radius: var(--cc-radius-full);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  display: grid;
+  place-items: center;
+  transition: background var(--cc-transition), border-color var(--cc-transition), transform var(--cc-transition);
+}
+
+.cc-footer__social a:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.3);
+  transform: translateY(-2px);
+}
+
+.cc-footer__social svg {
+  width: 17px;
+  height: 17px;
+}
+
+.cc-footer__heading {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: var(--cc-white);
+  margin-bottom: var(--cc-space-5);
+}
+
+.cc-footer__links {
+  display: flex;
+  flex-direction: column;
+  gap: var(--cc-space-3);
+}
+
+.cc-footer__links a {
+  font-size: 14px;
+}
+
+.cc-footer__contact {
+  display: flex;
+  flex-direction: column;
+  gap: var(--cc-space-4);
+}
+
+.cc-footer__contact-item {
+  display: flex;
+  gap: var(--cc-space-3);
+  align-items: flex-start;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.cc-footer__contact-item svg {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  margin-top: 2px;
+  color: var(--cc-yellow-500);
+}
+
+.cc-footer__bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  padding-top: var(--cc-space-6);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--cc-space-3);
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.cc-footer__bottom a {
+  font-size: 13px;
+}
+
+.cc-footer__legal {
+  display: flex;
+  gap: var(--cc-space-5);
+}
+
+/* -------------------------------------------------------------------------
+   7. RESPONSIVE BREAKPOINTS — HEADER/NAV
+   ------------------------------------------------------------------------- */
+@media (max-width: 860px) {
+  .cc-search {
+    display: none;
+  }
+
+  .cc-header__row {
+    gap: var(--cc-space-4);
+  }
+}
+
+@media (max-width: 760px) {
+  .cc-nav-bar {
+    display: none;
+  }
+
+  .cc-burger {
+    display: grid;
+  }
+
+  .cc-actions .cc-icon-btn--fb,
+  .cc-actions .cc-icon-btn--tg,
+  .cc-actions .cc-icon-btn--wa {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .cc-cta {
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    border-radius: var(--cc-radius-full);
+  }
+
+  .cc-cta__label {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cc-scope * {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}
+
+/* =========================================================================
+   8. PRODUCT AREA — GLOBAL LAYOUT OVERRIDES
+   Reskins legacy #wrapper / #inner / #body / .inner structure
+   ========================================================================= */
+
+/* -- Remove old wrapper chrome & let new grid breathe (Centered with 300% Width) -- */
+.cc-scope #wrapper,
+.cc-scope #inner,
+.cc-scope #body,
+.cc-scope #body>.inner {
+  width: 300% !important;
+  max-width: var(--cc-container);
+  
+  /* --- បច្ចេកទេសទាញ 300% ឱ្យមកចំកណ្តាលអេក្រង់ស្អាត --- */
+  position: relative !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+
+  padding-inline: var(--cc-space-6);
+  float: none !important;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  box-sizing: border-box !important;
+}
+
+.cc-scope #body>.inner {
+  padding-block: var(--cc-space-8);
+}
+
+/* Kill all legacy float clearing divs — grid handles gaps */
+.cc-scope .clear,
+.cc-scope .clear.br {
+  display: none !important;
+}
+
+/* Remove legacy spacing paragraphs near top */
+.cc-scope>p:has(> strong:empty),
+.cc-scope>p:empty,
+.cc-scope>p:has(> br) {
+  display: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* =========================================================================
+   9. PRODUCT GRID — 4-COLUMN RESPONSIVE GRID
+   Replaces float-based leftbox / centerbox1 / centerbox2 / rightbox layout
+   ========================================================================= */
+
+/* Product cards share a common base via these legacy selectors */
+.cc-scope .leftbox,
+.cc-scope .centerbox1,
+.cc-scope .centerbox2,
+.cc-scope .rightbox {
+  /* Reset legacy float layout */
+  float: none !important;
+  width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: none !important;
+
+  /* Card design */
+  background: var(--cc-white);
+  border-radius: var(--cc-radius-md);
+  box-shadow: var(--cc-shadow-sm);
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.cc-scope .leftbox.cc-visible,
+.cc-scope .centerbox1.cc-visible,
+.cc-scope .centerbox2.cc-visible,
+.cc-scope .rightbox.cc-visible {
+  opacity: 1;
+  transform: translateY(0);
+  transition:
+    opacity 600ms var(--cc-ease),
+    transform 600ms var(--cc-ease);
+  transition:
+    transform 380ms var(--cc-ease),
+    box-shadow 380ms var(--cc-ease);
+}
+
+/* Stagger reveal for cards in the same row */
+.cc-scope .centerbox1.cc-visible {
+  transition-delay: 80ms;
+}
+
+.cc-scope .centerbox2.cc-visible {
+  transition-delay: 160ms;
+}
+
+.cc-scope .rightbox.cc-visible {
+  transition-delay: 240ms;
+}
+
+/* Hover lift */
+.cc-scope .leftbox:hover,
+.cc-scope .centerbox1:hover,
+.cc-scope .centerbox2:hover,
+.cc-scope .rightbox:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--cc-shadow-lg);
+}
+
+/* -- The .inner container becomes the grid parent -- */
+.cc-scope #body>.inner {
+  display: grid !important;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--cc-space-6);
+  align-items: start;
+}
+
+@media (max-width: 1100px) {
+  .cc-scope #body>.inner {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 800px) {
+  .cc-scope #body>.inner {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--cc-space-4);
+  }
+}
+
+@media (max-width: 520px) {
+  .cc-scope #body>.inner {
+    grid-template-columns: 1fr;
+    gap: var(--cc-space-4);
+  }
+}
+
+/* =========================================================================
+   10. PRODUCT CARD — INTERNALS (FIXED: BIGGER LAPTOP & COMPACT PADDING)
+   ========================================================================= */
+
+/* 1. បង្រួម Padding របស់ Card ឱ្យតូច និងកំណត់ Hover លើតែ Box Grid */
+.cc-scope .leftbox,
+.cc-scope .centerbox1,
+.cc-scope .centerbox2,
+.cc-scope .rightbox {
+  padding: 8px 8px 12px 8px !important;
+  background-color: #ffffff !important;
+  border: 1px solid var(--cc-border, #e5e7eb) !important;
+  border-radius: 8px !important;
+  transition: box-shadow 250ms ease, transform 250ms ease !important;
+}
+
+.cc-scope .leftbox:hover,
+.cc-scope .centerbox1:hover,
+.cc-scope .centerbox2:hover,
+.cc-scope .rightbox:hover {
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08) !important;
+  transform: translateY(-2px) !important;
+}
+
+/* 2. រូបភាព Laptop — រីកធំពេញ Box & លុប Hover Zoom លើរូបចោល */
+.cc-scope .pro4 {
+  width: 100% !important;
+  height: auto !important;        /* បង្កើនកម្ពស់ឱ្យរូបភាព Laptop រីកធំច្បាស់ */
+  max-height: 280px !important;
+  object-fit: contain !important;
+  background: transparent !important;
+  padding: 0 !important;           /* លុប Padding សជុំវិញរូបចោល */
+  border-bottom: none !important;
+  transition: none !important;
+  display: block !important;
+  margin: 0 auto 6px auto !important;
+  transform: none !important;      /* បិទ Hover Zoom លើរូប */
+}
+
+/* បិទ Hover Zoom Effect លើរូបថត */
+.cc-scope .leftbox:hover .pro4,
+.cc-scope .centerbox1:hover .pro4,
+.cc-scope .centerbox2:hover .pro4,
+.cc-scope .rightbox:hover .pro4 {
+  transform: none !important;
+}
+
+/* -- ORI / VI badge -- */
+.cc-scope .leftbox>center,
+.cc-scope .centerbox1>center,
+.cc-scope .centerbox2>center,
+.cc-scope .rightbox>center {
+  display: flex;
+  justify-content: center;
+  padding: 2px 0 !important;
+}
+
+.cc-scope .leftbox>center img,
+.cc-scope .centerbox1>center img,
+.cc-scope .centerbox2>center img,
+.cc-scope .rightbox>center img {
+  height: 18px !important;
+  width: auto;
+  opacity: 0.9;
+}
+
+/* -- Product Title -- */
+.cc-scope .title2 {
+  font-family: var(--cc-font) !important;
+  font-size: 13.5px !important;
+  font-weight: 700 !important;
+  color: var(--cc-navy-900) !important;
+  line-height: 1.35 !important;
+  padding: var(--cc-space-2) var(--cc-space-4) 0 !important;
+  margin: 0 !important;
+  letter-spacing: -0.01em;
+  min-height: 2.7em;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* -- Price Block -- */
+.cc-scope .sp {
+  font-family: var(--cc-font) !important;
+  padding: var(--cc-space-1) var(--cc-space-4) !important;
+  margin: 0 !important;
+  font-size: 18px !important;
+  font-weight: 800 !important;
+  color: #d50e0e !important;
+  letter-spacing: -0.02em;
+  line-height: 1.4 !important;
+}
+
+.cc-scope .price2 {
+  font-size: 13px !important;
+  font-weight: 500 !important;
+  color: var(--cc-muted) !important;
+  text-decoration: line-through !important;
+  margin-right: 4px !important;
+}
+
+/* -- Spec Text -- */
+.cc-scope .txt {
+  font-family: var(--cc-font) !important;
+  font-size: 11.5px !important;
+  line-height: 1.65 !important;
+  color: var(--cc-body) !important;
+  padding: var(--cc-space-2) var(--cc-space-4) var(--cc-space-4) !important;
+  margin: 0 !important;
+  flex: 1;
+  border-top: 1px solid var(--cc-border);
+}
+
+.cc-scope .txt b {
+  font-weight: 600;
+  color: var(--cc-ink);
+}
+
+.cc-scope .txt b.blue {
+  color: var(--cc-blue-600) !important;
+}
+
+.cc-scope .txt b.price,
+.cc-scope .txt b.price1 {
+  color: #d61a1a !important;
+}
+
+/* =========================================================================
+   11. PROMOTION / BRAND NAV BARS (FIXED NO WHITE GAP)
+   ========================================================================= */
+
+.cc-scope .promotion {
+  grid-column: 1 / -1;
+  float: none !important;
+
+  margin: var(--cc-space-4) 0 !important;
+  padding: 10 !important;
+  border: none !important;
+  border-radius: var(--cc-radius-md);
+  overflow: hidden;
+  background: transparent !important; /* លុប background ពណ៌សចេញ */
+  box-shadow: var(--cc-shadow-sm);
+
+  /* បំបាត់ White gap/line spacing ខាងក្រោមរូប */
+  line-height: 0 !important;
+  font-size: 0 !important;
+
+  /* Reveal animation */
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 500ms var(--cc-ease), transform 500ms var(--cc-ease);
+}
+
+.cc-scope .promotion.cc-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Promotion image (banner-only type) */
+.cc-scope .promotion>img {
+  width: 100% !important;
+  height: auto;
+  display: block !important;
+  vertical-align: bottom !important;
+  border-radius: var(--cc-radius-md);
+}
+
+/* Promotion with nav links (.imlink wrapper) */
+.cc-scope .imlink {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+  background: transparent !important;
+  line-height: 0 !important;
+}
+
+.cc-scope .imlink>img {
+  width: 100% !important;
+  height: auto;
+  display: block !important;
+  vertical-align: bottom !important;
+}
+
+.cc-scope .txtlink {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--cc-space-2);
+  padding: var(--cc-space-3) var(--cc-space-4);
+  justify-content: center;
+  width: 100%;
+  background: linear-gradient(135deg, var(--cc-navy-950), var(--cc-blue-600));
+  line-height: normal !important; /* កំណត់ line-height ឱ្យអក្សរលើប៊ូតុងបង្ហាញធម្មតាវិញ */
+  font-size: 14px !important;
+}
+
+.cc-scope .myButton {
+  display: inline-flex !important;
+  align-items: center;
+  padding: var(--cc-space-2) var(--cc-space-4) !important;
+  border-radius: var(--cc-radius-full) !important;
+  background: rgba(255, 255, 255, 0.12) !important;
+  color: var(--cc-white) !important;
+  font-family: var(--cc-font) !important;
+  font-size: 12.5px !important;
+  font-weight: 600 !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  cursor: pointer;
+  transition: background 220ms var(--cc-ease), transform 220ms var(--cc-ease), border-color 220ms var(--cc-ease);
+  text-decoration: none !important;
+  white-space: nowrap;
+}
+
+.cc-scope .myButton:hover {
+  background: rgba(255, 255, 255, 0.22) !important;
+  border-color: rgba(255, 255, 255, 0.4) !important;
+  transform: translateY(-2px);
+}
+
+/* =========================================================================
+   12. FULL-WIDTH BANNER
+   ========================================================================= */
+
+.cc-scope .banner {
+  grid-column: 1 / -1;
+  float: none !important;
+  width: 100% !important;
+  margin: var(--cc-space-4) 0 !important;
+  padding: 0 !important;
+  border: none !important;
+  border-radius: var(--cc-radius-md);
+  overflow: hidden;
+  box-shadow: var(--cc-shadow-md);
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 500ms var(--cc-ease), transform 500ms var(--cc-ease);
+}
+
+.cc-scope .banner.cc-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.cc-scope .banner img {
+  width: 100% !important;
+  height: auto;
+  display: block;
+}
+
+/* =========================================================================
+   13. FLOATING CONTACT BUTTONS (FAB STYLE)
+   ========================================================================= */
+
+.cc-scope .floating-buttons {
+  position: fixed !important;
+  right: var(--cc-space-5);
+  bottom: var(--cc-space-6);
+  z-index: 400;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: var(--cc-space-3) !important;
+  float: none !important;
+  width: auto !important;
+  padding: 0 !important;
+  margin: 0 !important;
+
+  /* Slide-in from bottom-right */
+  animation: cc-fab-in 700ms var(--cc-ease) 1s both;
+}
+
+@keyframes cc-fab-in {
+  from {
+    opacity: 0;
+    transform: translateY(40px) scale(0.8);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.cc-scope .floating-button {
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  width: 48px !important;
+  height: 48px !important;
+  border-radius: var(--cc-radius-full) !important;
+  box-shadow: var(--cc-shadow-md);
+  transition: transform 280ms var(--cc-ease), box-shadow 280ms var(--cc-ease);
+  background-size: 24px 24px !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+}
+
+.cc-scope .floating-button:hover {
+  transform: scale(1.12) translateY(-2px);
+  box-shadow: var(--cc-shadow-lg);
+}
+
+/* Scroll to Top Button (Icon positioned center-top inside circle) */
+.cc-scope .floating-button.back-to-top {
+  background-color: var(--cc-navy-900, #0f1f3d) !important;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M18 15l-6-6-6 6'/%3E%3C/svg%3E") !important;
+  background-position: center 30% !important; /* Moves arrow toward top-center */
+  background-size: 22px 22px !important;
+}
+
+.cc-scope .floating-button.facebook {
+  background-color: #1877f2 !important;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M13.5 21v-8h2.7l.4-3.1h-3.1V8c0-.9.25-1.5 1.55-1.5H16.7V3.7c-.28-.04-1.25-.12-2.37-.12-2.34 0-3.94 1.43-3.94 4.05v2.26H8v3.1h2.4V21h3.1z'/%3E%3C/svg%3E") !important;
+}
+
+.cc-scope .floating-button.telegram {
+  background-color: #2aabee !important;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M21.5 4.5 2.8 11.9c-1.2.5-1.2 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.2-2.1 4.6 3.4c.8.5 1.4.2 1.6-.8l3-14c.3-1.2-.4-1.7-1.9-1.8zM8.9 14.5l9-5.6c.4-.3.8-.1.5.2l-7.4 6.7-.3 3.1z'/%3E%3C/svg%3E") !important;
+}
+
+.cc-scope .floating-button.whatapp {
+  background-color: #25d366 !important;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M12 3a9 9 0 0 0-7.8 13.5L3 21l4.6-1.2A9 9 0 1 0 12 3zm0 16.3a7.3 7.3 0 0 1-3.7-1l-.3-.2-2.7.7.7-2.6-.2-.3A7.3 7.3 0 1 1 12 19.3zm4-5.4c-.2-.1-1.3-.6-1.5-.7-.2-.1-.4-.1-.5.1-.2.2-.6.7-.7.9-.1.2-.3.2-.5.1-.2-.1-1-.4-2-1.2-.7-.6-1.2-1.4-1.4-1.6-.1-.2 0-.4.1-.5l.4-.4c.1-.1.2-.3.2-.4 0-.2 0-.3-.1-.5-.1-.1-.5-1.2-.7-1.7-.2-.4-.4-.4-.5-.4h-.5c-.2 0-.4.1-.6.3-.2.2-.8.8-.8 1.9 0 1.1.8 2.2.9 2.3.1.2 1.6 2.5 3.9 3.5.6.2 1 .4 1.3.5.5.2 1 .1 1.4.1.4-.1 1.3-.5 1.5-1 .2-.5.2-.9.1-1z'/%3E%3C/svg%3E") !important;
+}
+.cc-scope .floating-button--wechat {
+  background-color: #07c160 !important;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23ffffff'%3E%3Cpath d='M8.691 2.188C3.891 2.188 0 5.476 0 9.53c0 2.212 1.17 4.203 3.002 5.55a.59.59 0 0 1 .213.665l-.39 1.48c-.019.07-.048.141-.048.213 0 .163.13.295.292.295a.326.326 0 0 0 .167-.046l1.906-1.103a.72.72 0 0 1 .593-.075c.875.244 1.802.378 2.76.378.232 0 .461-.009.689-.023a6.83 6.83 0 0 1-.225-1.724c0-4.053 3.891-7.341 8.691-7.341.282 0 .56.015.836.038C17.478 5.2 13.513 2.188 8.691 2.188zm-2.89 4.316c.52 0 .942.422.942.942 0 .52-.422.942-.942.942a.944.944 0 0 1-.943-.942c0-.52.423-.942.943-.942zm5.781 0c.52 0 .943.422.943.942 0 .52-.423.942-.943.942a.944.944 0 0 1-.942-.942c0-.52.422-.942.942-.942zm4.729 4.145c-4.001 0-7.245 2.74-7.245 6.12 0 3.38 3.244 6.12 7.245 6.12.8 0 1.572-.112 2.301-.315a.598.598 0 0 1 .495.063l1.589.92a.272.272 0 0 0 .139.038c.135 0 .244-.11.244-.245 0-.06-.024-.119-.04-.177l-.325-1.234a.49.49 0 0 1 .177-.555c1.527-1.123 2.502-2.781 2.502-4.622 0-3.38-3.244-6.12-7.245-6.12zm-2.415 3.597c.433 0 .785.352.785.785 0 .433-.352.785-.785.785a.787.787 0 0 1-.785-.785c0-.433.352-.785.785-.785zm4.83 0c.433 0 .785.352.785.785 0 .433-.352.785-.785.785a.787.787 0 0 1-.785-.785c0-.433.352-.785.785-.785z'/%3E%3C/svg%3E") !important;
+  background-size: 26px 26px !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+}
+
+/* Hide legacy <br> and <i> elements inside floating buttons */
+.cc-scope .floating-buttons br,
+.cc-scope .floating-buttons i {
+  display: none !important;
+}
+
+/* =========================================================================
+   14. MISCELLANEOUS LEGACY OVERRIDES
+   ========================================================================= */
+
+.cc-scope .popup-overlay {
+  position: fixed !important;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.7); /* បាតក្រោយពណ៌ខ្មៅស្រអាប់ */
+  z-index: 999999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cc-scope .popup-content {
+  position: relative;
+  max-width: 90%;
+  width: 500px;
+  background: none;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+.cc-scope .popup-close {
+  position: absolute;
+    letter-spacing: 0.5px !important;
+  }
+
+  /* Final contact-page cascade: keep legacy product rules from overriding it. */
+  .cc-contact-page #wrapper,
+  .cc-contact-page #inner,
+  .cc-contact-page #body,
+  .cc-contact-page #body > .inner {
+    width: 100vw !important;
+    max-width: 100vw !important;
+    margin: 0 !important;
+    left: 0 !important;
+    transform: none !important;
+  }
+
+  .cc-contact-page .coderq {
+    display: grid !important;
+    grid-template-columns: repeat(6, minmax(0, 1fr)) !important;
+    width: 100% !important;
+  }
+
+  .cc-contact-page .rqcode-image {
+    display: flex !important;
+    min-height: 120px !important;
+    height: auto !important;
+    align-items: center !important;
+    justify-content: center !important;
+    flex-direction: column !important;
+    border: 1px solid var(--cc-border) !important;
+    border-radius: 12px !important;
+    background: linear-gradient(145deg, #f8fafc, #eef2f7) !important;
+  }
+
+  .cc-contact-page .rqcode-image > img[src^="QR/"] {
+    display: none !important;
+  }
+
+  .cc-contact-page iframe {
+    display: block !important;
+    width: min(960px, calc(100% - 32px)) !important;
+    max-width: calc(100% - 32px) !important;
+  }
+
+  @media (max-width: 760px) {
+    .cc-contact-page .coderq {
+      grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    }
+  }
+
+  @media (max-width: 440px) {
+    .cc-contact-page .coderq {
+      grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    }
+  }
+
+.cc-contact-page section.container {
+  width: calc(100vw - 32px) !important;
+  max-width: 960px !important;
+  margin-inline: auto !important;
+}
+
+.cc-contact-page section.container > div,
+.cc-contact-page section.container > div > div,
+.cc-contact-page section.container > div > div > div {
+  width: 100% !important;
+  max-width: none !important;
+  float: none !important;
+  margin-inline: 0 !important;
+}
+
+/* =========================================================================
+   15. SMOOTH SCROLL & GLOBAL ENHANCEMENTS
+   ========================================================================= */
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Elegant scrollbar for the page */
+@media (min-width: 769px) {
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: var(--cc-surface-alt);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: var(--cc-border);
+    border-radius: var(--cc-radius-full);
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--cc-muted);
+  }
+}
+
+/* =========================================================================
+   16. CALL-TO-ACTION BUTTON REFINEMENT
+   ========================================================================= */
+
+.cc-cta {
+  background: linear-gradient(135deg, var(--cc-accent-500), var(--cc-accent-600)) !important;
+  color: var(--cc-white) !important;
+}
+
+.cc-cta:hover {
+  background: linear-gradient(135deg, var(--cc-accent-600), #d45800) !important;
+  color: var(--cc-white) !important;
+}
+/* -------------------------------------------------------------------------
+   3. HEADER — FULL WIDTH WHITE BACKGROUND
+   ------------------------------------------------------------------------- */
+.cc-header {
+  position: sticky !important;
+  top: 0 !important;
+  z-index: 1000 !important;
+  width: 100% !important;
+  background-color: #ffffff !important;
+  border-bottom: 1px solid var(--cc-border) !important;
+  box-shadow: var(--cc-shadow-sm) !important;
+}
+
+/* ==========================================
+   CLEAN APPLE GLASSMORPHIC HEADER
+   ========================================== */
+.cc-scope header,
+.cc-scope .main-header,
+.cc-scope .header,
+.cc-header {
+  position: sticky !important;
+  top: 0 !important;
+  z-index: 1000 !important;
+  width: 100% !important;
+  background: rgba(255, 255, 255, 0.72) !important;
+  backdrop-filter: blur(20px) saturate(180%) !important;
+  -webkit-backdrop-filter: blur(20px) saturate(180%) !important;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08) !important;
+  transition: background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease !important;
+}
+
+/* ពេល Scroll ចុះក្រោម (is-scrolled class) */
+.cc-header.is-scrolled {
+  background: rgba(255, 255, 255, 0.85) !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06) !important;
+}
+/* -------------------------------------------------------------------------
+   4. NAVIGATION — FULL WIDTH WHITE BACKGROUND
+   ------------------------------------------------------------------------- */
+.cc-nav-bar {
+  position: sticky !important;
+  top: calc(var(--cc-header-h-scrolled, 68px) + 1px) !important;
+  z-index: 999 !important;
+  width: 100% !important;
+  background-color: #ffffff !important;
+  border-bottom: 1px solid var(--cc-border) !important;
+}
+
+.cc-nav {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: var(--cc-space-2);
+  height: var(--cc-nav-h);
+  max-width: var(--cc-container);
+  margin-inline: auto;
+  padding-inline: var(--cc-space-6);
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+/* -------------------------------------------------------------------------
+   BRANDS SECTION — FULL WIDTH WHITE BACKGROUND
+   ------------------------------------------------------------------------- */
+.cc-brands {
+  position: sticky !important;
+  top: calc(var(--cc-header-h-scrolled, 68px) + var(--cc-nav-h, 52px) + 2px) !important;
+  z-index: 998 !important;
+  width: 100% !important;
+  background: #ffffff !important;
+  padding-block: var(--cc-space-3) !important;
+  border-bottom: 1px solid var(--cc-border) !important;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.03) !important;
+  clear: both !important;
+}
+
+.cc-brands__grid {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: var(--cc-space-2) var(--cc-space-3) !important;
+  max-width: var(--cc-container);
+  margin-inline: auto;
+  padding-inline: var(--cc-space-6);
+}
+/* Enable smooth scrolling natively for the page */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Scroll to Top FAB Button (Pure CSS) */
+.cc-scope .floating-button.back-to-top {
+  background-color: var(--cc-navy-900, #0f1f3d) !important;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M18 15l-6-6-6 6'/%3E%3C/svg%3E") !important;
+  transition: transform 220ms var(--cc-ease), background-color 220ms var(--cc-ease) !important;
+}
+
+.cc-scope .floating-button.back-to-top:hover {
+  background-color: var(--cc-blue-600, #1b4d8c) !important;
+  transform: scale(1.12) translateY(-2px) !important;
+}
+
+/* Prevent ALL brand hero slideshows and sections from being cut off by sticky headers */
+.cc-hero-slideshow,
+.hero-slider,
+.promotion,
+#asus,
+#tuf,
+#rog,
+#acer,
+#apple,
+#dell,
+#alienware,
+#lenovo,
+#legion,
+#predator,
+#razer,
+#hp,
+[id^="brand-"] {
+  scroll-margin-top: 180px !important;
+}
+/* បើកឱ្យ <br> នៅក្នុង Product Spec (.txt) ដំណើរការចុះបន្ទាត់ធម្មតាវិញ */
+.cc-scope .txt br {
+  display: inline !important;
+}
+
+/* =========================================================================
+   COMPACT FOOTER BG & PAYMENT BADGES (ABA, ACLEDA, KHQR)
+   ========================================================================= */
+
+/* 1. បង្រួម Padding របស់ Footer Background ឱ្យតូចស្អាត */
+footer,
+.cc-footer,
+.site-footer {
+  padding: 24px 0 16px 0 !important; /* បង្រួមចន្លោះលើ-ក្រោម ពីធំមកត្រឹម 24px */
+}
+
+/* 2. រៀបចំ Bottom Bar ឱ្យនៅជួរតែមួយ */
+.footer-bottom-content {
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  flex-wrap: wrap !important;
+  gap: 12px !important;
+  padding-top: 12px !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+/* =========================================================================
+   FOOTER BOTTOM: SOCIAL ICONS & PAYMENT BADGES BEAUTIFUL LAYOUT
+   ========================================================================= */
+
+/* Main Container (រៀបតាមជួរឈរ ស្មើជួរខាងឆ្វេង) */
+.footer-bottom-container {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: flex-start !important;
+  margin-top: 20px !important;
+  width: 100% !important;
+}
+
+/* 1. ផ្នែក Social Icons (ជួរលើ) */
+.cc-footer__social {
+  display: flex !important;
+  align-items: center !important;
+  gap: 12px !important;
+}
+
+.cc-footer__social a {
+  width: 44px !important;
+  height: 44px !important;
+  border-radius: 50% !important;
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  color: #9ca3af !important;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+.cc-footer__social a:hover {
+  border-color: rgba(255, 255, 255, 0.5) !important;
+  color: #ffffff !important;
+  transform: translateY(-2px) !important;
+}
+
+.cc-footer__social svg {
+  width: 20px !important;
+  height: 20px !important;
+}
+
+/* 2. អក្សរ We Accept: (នៅចំកណ្តាល មាន Gap លើ-ក្រោមស្មើគ្នា) */
+.pay-title {
+  display: block !important;
+  font-size: 13px !important;
+  color: #9ca3af !important;
+  margin-top: 14px !important;    /* គម្លាតឃ្លាតពី Social Icons ខាងលើ */
+  margin-bottom: 12px !important; /* គម្លាតឃ្លាតពី Payment Icons ខាងក្រោម */
+  line-height: 1.4 !important;
+  letter-spacing: 0.3px !important;
+}
+
+/* 3. ផ្នែក Payment Circle Icons (ជួរក្រោម) */
+.pay-circles-wrap,
+.cc-footer__payments {
+  display: flex !important;
+  align-items: center !important;
+  gap: 12px !important;
+  flex-wrap: wrap !important;
+}
+
+.pay-circle {
+  width: 44px !important;
+  height: 44px !important;
+  border-radius: 50% !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  font-size: 9px !important;
+  font-weight: 800 !important;
+  color: #ffffff !important;
+  text-align: center !important;
+  letter-spacing: -0.3px !important;
+  box-sizing: border-box !important;
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+  cursor: pointer !important;
+  
+  /* បន្ថែម Animation Smooth Transition */
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+/* =========================================================================
+   HOVER EFFECTS FOR PAYMENT CIRCLES
+   ========================================================================= */
+.pay-circle:hover {
+  border-color: rgba(255, 255, 255, 0.6) !important; /* ភ្លឺ Border ដូច Social Icons */
+  transform: translateY(-3px) scale(1.05) !important; /* រំកិលឡើងលើ និង រីកធំតិចៗ */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3) !important; /* បន្ថែមស្រមោល */
+}
+
+/* ពណ៌ Base តាមធនាគារនីមួយៗ */
+.pay-circle.aba { 
+  background-color: #005a9c !important; 
+}
+
+.pay-circle.ac { 
+  background-color: #1b365d !important; 
+  border-color: rgba(212, 175, 55, 0.4) !important; 
+  color: #d4af37 !important; 
+}
+
+.pay-circle.ac:hover {
+  border-color: #d4af37 !important; /* ភ្លឺពណ៌មាសពិសេសសម្រាប់ ACLEDA */
+}
+
+.pay-circle.khqr { 
+  background-color: #e11d48 !important; 
+  font-size: 8px !important; 
+}
+
+.pay-circle.visa { 
+  background-color: #1a1f71 !important; 
+}
+
+/* =========================================================================
+   DELIVERY OPTIONS STYLING
+   ========================================================================= */
+
+.cc-footer__delivery {
+  margin-top: 16px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 10px !important;
+}
+
+.cc-footer__delivery-title {
+  font-size: 13px !important;
+  color: #9ca3af !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.3px !important;
+}
+
+.cc-footer__delivery-list {
+  display: flex !important;
+  align-items: center !important;
+  gap: 10px !important;
+  flex-wrap: wrap !important;
+}
+
+/* Base Style សម្រាប់ Delivery Icon (រង្វង់មូល) */
+.delivery-circle {
+  width: 44px !important;
+  height: 44px !important;
+  border-radius: 50% !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  font-size: 9px !important;
+  font-weight: 800 !important;
+  color: #ffffff !important;
+  text-align: center !important;
+  box-sizing: border-box !important;
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+  cursor: pointer !important;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+/* Hover Effect Border Bounce */
+.delivery-circle:hover {
+  border-color: rgba(255, 255, 255, 0.6) !important;
+  transform: translateY(-3px) scale(1.05) !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3) !important;
+}
+
+/*  Background  Brand */
+.delivery-circle.vet { 
+  background-color: #d9531f !important; 
+}
+
+.delivery-circle.zto { 
+  background-color: #0b5cab !important; 
+}
+
+.delivery-circle.jt { 
+  background-color: #d32f2f !important; 
+}
+
+.delivery-circle.capitol { 
+  background-color: #1b4332 !important; 
+  font-size: 7px !important; 
+}
+
+/* =========================================================================
+   FIX FOOTER ROUNDED CORNERS & ALIGN WITH CONTENT (NO HTML CHANGE)
+   ========================================================================= */
+
+.cc-footer {
+  background-color: #0b132b !important; /* ពណ៌ខៀវ Dark Blue របស់ Footer */
+  border-radius: 24px !important;       /* កម្រិតជ្រុងកោង */
+  
+  /* 1. កែប្រែ Margin ឱ្យនៅចំកណ្តាល និងស្មើជួរ Container ខាងលើ */
+  width: 100% !important;
+  max-width: 1280px !important;         /* ដាក់តម្លៃនេះឱ្យស្មើ width របស់ Container/Grid ខាងលើ */
+  margin: 40px auto 20px auto !important;/* auto ឆ្វេង-ស្តាំ ធ្វើឱ្យ Footer រំកិលមកចំកណ្តាលស្មើគ្នា */
+  
+  padding: 40px 32px 24px 32px !important; /* Spacing ខាងក្នុង មិនឱ្យបុក Text */
+  overflow: hidden !important;          /* ការពារ Background ជ្រោយចេញ */
+  position: relative !important;
+  box-sizing: border-box !important;
+}
+
+/* 2. កែសម្រួលគម្លាតខាងស្តាំ ដើម្បីកុំឱ្យបុកជាមួយ Floating Buttons */
+.cc-footer__container,
+.footer-bottom-container {
+  max-width: calc(100% - 40px) !important; /* ទុកចន្លោះខាងស្តាំសម្រាប់ Floating Icons */
+}
+
+/* 3. Responsive សម្រាប់ Mobile អេក្រង់តូច */
+@media (max-width: 768px) {
+  .cc-footer {
+    border-radius: 16px !important;
+    margin: 20px auto !important;
+    width: calc(100% - 24px) !important; /* ទុក Gap 12px អមសងខាងលើ Mobile */
+    padding: 24px 16px !important;
+  }
+  
+  .cc-footer__container,
+  .footer-bottom-container {
+    max-width: 100% !important;
+  }
+}
+
+/* 1. SPECS ORI-VIP */
+.cc-scope .default-tag,
+.cc-scope button.btn,
+.cc-scope .badge-condition {
+  position: relative !important;
+  top: auto !important;
+  left: auto !important;
+  bottom: auto !important;
+  transform: none !important;
+  
+
+  display: block !important;
+  margin: 10px auto 6px auto !important;
+  width: fit-content !important;
+  z-index: 1 !important;
+}
+
+.cc-scope .default-tag,
+.cc-scope button.btn .special {
+  background-color: #3543ff !important;
+  color: #ffffff !important;
+  font-size: 11px !important;
+  font-weight: 800 !important;
+  text-align: center !important;
+  padding: 4px 14px !important;
+  border-radius: 30px !important;
+  box-shadow: 0 3px 8px rgba(53, 67, 255, 0.3) !important;
+  display: inline-block !important;
+  line-height: 1.2 !important;
+  text-transform: uppercase !important;
+}
+
+/* Final product status badge styling */
+.cc-scope .leftbox,
+.cc-scope .centerbox1,
+.cc-scope .centerbox2,
+.cc-scope .rightbox {
+  position: relative !important;
+}
+
+/* ==========================================
+   CENTERED BADGE BUTTON (NEW ARRIVED)
+   ========================================== */
+.cc-scope button.btn {
+position: absolute !important;
+top: 14px !important;
+left: 50% !important;
+bottom: auto !important;
+transform: translateX(-50%) !important;
+display: block !important;
+width: max-content !important;
+max-width: calc(100% - 24px) !important;
+margin: 0 !important;
+padding: 4px 12px !important;
+border: 0 !important;
+background: transparent !important;
+z-index: 4 !important;
+}
+
+/* 2. Reset Button Container */
+.cc-scope button.btn {
+position: absolute !important;
+top: 10px !important;
+left: 50px !important;
+z-index: 10 !important;
+background: transparent !important;
+border: none !important;
+padding: 0 !important;
+margin: 0 !important;
+cursor: pointer !important;
+}
+/* 3. Style .special ( Style ) */
+.cc-scope button.btn .special {
+display: inline-block !important;
+padding: 4px 12px !important;
+border: 0 !important;
+border-radius: 999px !important;
+background: #ef3340 !important;
+color: #ffffff !important;
+font-size: 12px !important;
+font-weight: 800 !important;
+line-height: 1.2 !important;
+white-space: nowrap !important;
+box-shadow: 0 6px 14px rgba(239, 51, 64, 0.3) !important;
+transition: transform 180ms var(--cc-ease), box-shadow 180ms var(--cc-ease), background-color 180ms var(--cc-ease) !important;
+}
+/* 4. Hover Effect */
+.cc-scope button.btn:hover .special {
+background: #d92535 !important;
+box-shadow: 0 8px 18px rgba(239, 51, 64, 0.4) !important;
+transform: translateY(-2px) !important;
+}
+.cc-scope .vip-tag {
+  position: relative !important;
+  top: auto !important;
+  left: auto !important;
+  bottom: auto !important;
+  transform: none !important;
+
+  display: inline-block !important;
+  width: fit-content !important;
+  margin: 10px auto 6px auto !important;
+  
+  background-color: #ff2a2a !important; 
+  color: #ffffff !important;          
+  font-size: 11px !important;
+  font-weight: 800 !important;
+  text-align: center !important;
+  padding: 4px 14px !important;
+  border-radius: 30px !important;     
+  
+  box-shadow: 0 3px 10px rgba(255, 42, 42, 0.5) !important;
+  line-height: 1.2 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.5px !important;
+}
+/* ==========================================
+   HOT-SALE BADGE WITH MOTION EFFECT
+   ========================================== */
+
+/* 1. Animation បង្កើត Pulse Glow & Motion */
+@keyframes hotSalePulse {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 4px 12px rgba(255, 69, 0, 0.4), 0 0 0 0 rgba(255, 69, 0, 0.7);
+  }
+  50% {
+    transform: scale(1.05); /* រំញើពង្រីកបន្តិច */
+    box-shadow: 0 6px 18px rgba(255, 69, 0, 0.6), 0 0 0 8px rgba(255, 69, 0, 0); /* Glow រីកចេញ */
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 4px 12px rgba(255, 69, 0, 0.4), 0 0 0 0 rgba(255, 69, 0, 0);
+  }
+}
+
+/* 2. Position Container សម្រាប់ Button Badge */
+.cc-scope button.btn:has(.sale) {
+  position: absolute !important;
+  top: 9px !important;
+  left: 50px !important;
+  z-index: 10 !important;
+  background: transparent !important;
+  border: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  cursor: pointer !important;
+}
+
+/* 3. Style & Motion លើ class .sale */
+.cc-scope button.btn .sale {
+  display: inline-block !important;
+  padding: 5px 14px !important;
+  border-radius: 999px !important;
+  
+  /* ពណ៌ Gradient ក្រហមលាយទឹកក្រូច (Fire Hot) */
+  background: linear-gradient(135deg, #ff2a2a 0%, #ff6b00 100%) !important;
+  color: #ffffff !important;
+  font-size: 11px !important;
+  font-weight: 900 !important;
+  line-height: 1.2 !important;
+  letter-spacing: 0.6px !important;
+  text-transform: uppercase !important;
+  white-space: nowrap !important;
+  
+  /* ដាក់ Motion Animation (ដើរ 2s មួយជុំ រត់រហូត) */
+  animation: hotSalePulse 2s infinite ease-in-out !important;
+  transition: all 0.2s ease !important;
+}
+
+/* 4. Hover Effect ពេលយក Mouse ទៅដាក់ពីលើ */
+.cc-scope button.btn:hover .sale {
+  animation-play-state: paused !important; /* បញ្ឈប់ motion ពេល hover */
+  transform: scale(1.1) translateY(-2px) !important;
+  background: linear-gradient(135deg, #ff0000 0%, #ff4500 100%) !important;
+  box-shadow: 0 8px 22px rgba(255, 42, 42, 0.7) !important;
+}
+/* ==========================================
+   ALIGN FOOTER WITH PRODUCT GRID CONTAINER
+   ========================================== */
+
+/* 1. បង្ខំ Outer Footer Wrapper ឱ្យស្មើ Container មេ */
+.cc-scope footer,
+.cc-scope .footer,
+.cc-scope .cc-footer {
+  width: 100% !important;
+  max-width: var(--cc-container-width, 1235px) !important; /* កំណត់ទំហំស្មើ container របស់ Product */
+  margin-left: auto !important;
+  margin-right: auto !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  box-sizing: border-box !important;
+}
+
+/* 2. កែសម្រួល Inner Card របស់ Footer ឱ្យរៀបស្មើគែមឆ្វេង-ស្តាំ Product Card */
+.cc-scope .footer-card,
+.cc-scope .footer-container,
+.cc-scope .footer__inner {
+  width: 100% !important;
+  margin: 0 !important;
+  box-sizing: border-box !important;
+}
+/* Styling សម្រាប់ Logo ជា Image */
+.cc-scope .cc-logo__img {
+  width: 40px !important;       /* កម្ពស់/ទទឹង Logo */
+  height: 40px !important;
+  object-fit: contain !important; /* ការពារមិនឱ្យរូបភាពរីករញ៉េរញ៉ៃ */
+  border-radius: 12px !important; /* រក្សារាង Rounded Squircle បើ Logo គ្មាន Background */
+  display: inline-block !important;
+  vertical-align: middle !important;
+}
+/* ==========================================
+   MODERN GLASSMARQUEE TICKER BAR
+   ========================================== */
+.ticker-bar {
+  width: 100%;
+  max-width: 1235px; /* តម្រឹមទំហំឱ្យស្មើ Slideshow & Grid */
+  margin: 16px auto; /* ទុកចន្លោះលើក្រោមឱ្យមាន Space ស្អាត */
+  background: rgba(87, 87, 255, 0.063); /* ខ្មៅស្រទន់បែប Premium Theme */
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  color: #000000;
+  overflow: hidden;
+  white-space: nowrap;
+  padding: 10px 0;
+  border-radius: 10px; /* ធ្វើជ្រុងមូល Pill Shape ឱ្យស៊ីជាមួយ Button Brands */
+  border: 1px solid rgba(89, 155, 255, 0.12);
+  box-shadow: 0 2px 1px rgba(95, 100, 255, 0.026);
+}
+.ticker-bar {
+  width: calc(100% - 8px) !important; /* បន្ថយ 8px ឱ្យថយចូលក្នុងស្មើ Slideshow */
+  margin: 16px auto !important; /* Center ឱ្យរត់ចំកណ្តាល */
+}
+
+.ticker-track {
+  display: inline-flex;
+  align-items: center;
+  white-space: nowrap;
+  will-change: transform;
+  animation: marquee-scroll 28s linear infinite;
+}
+
+.ticker-track span {
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+  padding-right: 60px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Pause animation ពេល User យក Mouse ទៅ Hover លើ */
+.ticker-bar:hover .ticker-track {
+  animation-play-state: paused;
+  cursor: pointer;
+}
+
+@keyframes marquee-scroll {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+/* =========================================================================
+   VIDEO-ONLY STYLING (DOES NOT AFFECT IMAGES)
+   ========================================================================= */
+
+.cc-hero__slide video,
+.cc-hero__slide video.cc-slide {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;       /* ពង្រីក Video ឱ្យពេញ Frame គ្មានសល់ប្រអប់ខ្មៅ */
+  object-position: center center !important; /* តម្រឹម Video មកចំកណ្តាលស្មើ */
+  display: block !important;
+}
+    .cc-contact-page #wrapper,
+    .cc-contact-page #inner,
+    .cc-contact-page #body,
+    .cc-contact-page #body > .inner {
+      width: 100vw !important;
+      max-width: 100vw !important;
+      margin: 0 !important;
+      left: 0 !important;
+      transform: none !important;
+    }
+
+    /* Contact Page Container */
+    .cc-contact-page section.container {
+      display: block !important;
+      width: min(960px, calc(100vw - 32px)) !important;
+      max-width: 960px !important;
+      margin: 0 auto !important;
+      padding: 0 !important;
+    }
+
+    .cc-contact-page section.container > div {
+      width: 100% !important;
+      max-width: none !important;
+      float: none !important;
+      margin: 0 !important;
+    }
+
+    .cc-contact-page .coderq {
+      display: grid !important;
+      grid-template-columns: repeat(6, minmax(0, 1fr)) !important;
+      width: 100% !important;
+    }
+
+    .cc-contact-page iframe {
+      display: block !important;
+      width: 100% !important;
+      max-width: 100% !important;
+      height: 450px;
+      margin: 28px 0 48px;
+    }
+
+    .cc-contact-page .rqcode-image > img[src^="QR/"] {
+      display: none !important;
+    }
+
+    .cc-contact-page > .cc-scope:not(:has(footer)) {
+      display: none !important;
+    }
+
+    .cc-contact-modern {
+      width: min(1120px, calc(100% - 40px));
+      margin: 0 auto;
+      padding: 72px 0 88px;
+      color: #101828;
+    }
+
+    .cc-contact-modern__intro {
+      max-width: 680px;
+      animation: cc-contact-rise 650ms var(--cc-ease) both;
+    }
+
+    .cc-contact-modern__eyebrow,
+    .cc-contact-modern__label {
+      margin: 0 0 10px;
+      color: #1b4d8c;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+
+    .cc-contact-modern h1,
+    .cc-contact-modern h2,
+    .cc-contact-modern p {
+      margin-top: 0;
+    }
+
+    .cc-contact-modern h1 {
+      margin-bottom: 14px;
+      font-size: clamp(38px, 6vw, 72px);
+      line-height: .98;
+      letter-spacing: -.04em;
+    }
+
+    .cc-contact-modern__intro > p:last-child {
+      max-width: 520px;
+      color: #667085;
+      font-size: 17px;
+      line-height: 1.6;
+    }
+
+    .cc-contact-modern__grid {
+      display: grid;
+      grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr);
+      gap: 18px;
+      margin-top: 48px;
+    }
+
+    .cc-contact-modern__panel,
+    .cc-contact-modern__map-wrap,
+    .cc-contact-modern__payments {
+      border: 1px solid #e3e8f0;
+      border-radius: 18px;
+      background: rgba(255,255,255,.92);
+      box-shadow: 0 12px 30px rgba(16,24,40,.07);
+    }
+
+    .cc-contact-modern__panel {
+      padding: 28px;
+      animation: cc-contact-rise 650ms var(--cc-ease) 100ms both;
+    }
+
+    .cc-contact-modern__panel--channels { animation-delay: 180ms; }
+
+    .cc-contact-modern h2 {
+      margin-bottom: 18px;
+      font-size: 25px;
+      letter-spacing: -.02em;
+    }
+
+    .cc-contact-modern address,
+    .cc-contact-modern__hours {
+      color: #667085;
+      font-size: 14px;
+      font-style: normal;
+      line-height: 1.7;
+    }
+
+    .cc-contact-modern__phone {
+      display: inline-flex;
+      margin-top: 22px;
+      color: #e8650a;
+      font-size: 22px;
+      font-weight: 800;
+    }
+
+    .cc-contact-modern__actions {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0,1fr));
+      gap: 10px;
+    }
+
+    .cc-contact-modern__actions a {
+      display: flex;
+      min-height: 70px;
+      flex-direction: column;
+      justify-content: center;
+      padding: 12px 14px;
+      border: 1px solid #e3e8f0;
+      border-radius: 12px;
+      color: #101828;
+      transition: transform 180ms var(--cc-ease), border-color 180ms var(--cc-ease), box-shadow 180ms var(--cc-ease);
+    }
+
+    .cc-contact-modern__actions a:hover {
+      border-color: rgba(37,99,172,.35);
+      box-shadow: 0 6px 14px rgba(27,77,140,.1);
+      transform: translateY(-2px);
+    }
+
+    .cc-contact-modern__actions strong { font-size: 14px; }
+    .cc-contact-modern__actions span { margin-top: 4px; color: #8a94a6; font-size: 11px; }
+
+    .cc-contact-modern__map-wrap {
+      display: grid;
+      grid-template-columns: .7fr 1.3fr;
+      gap: 24px;
+      align-items: center;
+      margin-top: 18px;
+      padding: 24px;
+      animation: cc-contact-rise 650ms var(--cc-ease) 260ms both;
+    }
+
+    .cc-contact-modern__map-wrap iframe {
+      width: 100% !important;
+      height: 300px;
+      border: 0;
+      border-radius: 12px;
+    }
+
+    .cc-contact-modern__payments {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      margin-top: 18px;
+      padding: 24px 28px;
+      animation: cc-contact-rise 650ms var(--cc-ease) 340ms both;
+    }
+
+    .cc-contact-modern__payment-list {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 8px;
+    }
+
+    .cc-contact-modern__payment-list span {
+      padding: 9px 12px;
+      border: 1px solid #d8dee8;
+      border-radius: 9px;
+      color: #344054;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: .04em;
+    }
+
+    @keyframes cc-contact-rise {
+      from { opacity: 0; transform: translateY(16px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 760px) {
+      .cc-contact-modern { width: min(100% - 24px, 600px); padding: 48px 0 64px; }
+      .cc-contact-modern__grid,
+      .cc-contact-modern__map-wrap { grid-template-columns: 1fr; }
+      .cc-contact-modern__actions { grid-template-columns: 1fr; }
+      .cc-contact-modern__payments { align-items: flex-start; flex-direction: column; }
+      .cc-contact-modern__payment-list { justify-content: flex-start; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .cc-contact-modern * { animation: none !important; transition: none !important; }
+    }
+    /* Clean Visitor Text under Shop Column */
+.cc-shop-visitor, 
+.cc-visitor-bar,
+.cc-visitor-card {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  margin-top: 12px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: flex-start !important; /* តម្រឹមឱ្យស្មើជួរឆ្វេងជាមួយ Shop List */
+  gap: 6px !important;
+}
+
+.cc-visitor-row,
+.cc-visitor-item {
+  display: flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+  font-size: 13px !important;
+  line-height: 1.4 !important;
+}
+
+.cc-v-label,
+.cc-visitor-label {
+  color: #9ca3af !important; /* ពណ៌អក្សរប្រផេះដូច Menu Link */
+  font-weight: 400 !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+}
+
+.cc-v-num,
+.cc-visitor-num {
+  color: #ffffff !important;
+  font-weight: 600 !important;
+}
+
+.cc-v-live-num {
+  color: #10b981 !important; /* ពណ៌បៃតង */
+}
+
+.cc-v-divider {
+  display: none !important; /* លុបសញ្ញា | ចោល */
+}
+
+/* Red Pulse Dot */
+.cc-live-pulse-dot,
+.cc-live-dot {
+  width: 6px !important;
+  height: 6px !important;
+  background-color: #ef4444 !important;
+  border-radius: 50% !important;
+  display: inline-block !important;
+  box-shadow: 0 0 6px #ef4444 !important;
+  animation: ccPulse 1.5s infinite ease-in-out !important;
+}
+
+@keyframes ccPulse {
+  0% { opacity: 0.4; transform: scale(0.8); }
+  50% { opacity: 1; transform: scale(1.2); }
+  100% { opacity: 0.4; transform: scale(0.8); }
+}
