@@ -293,8 +293,112 @@
 .header-actions {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 8px;
   flex-shrink: 0;
+}
+
+/* CC Computer Social Icon Action Buttons */
+.cc-header-socials {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.cc-icon-btn {
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  border-radius: var(--border-radius-full);
+  color: var(--text-secondary);
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border-subtle);
+  transition: all var(--transition-fast);
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+.cc-icon-btn svg {
+  width: 17px;
+  height: 17px;
+}
+
+.cc-icon-btn:hover {
+  background: var(--bg-surface-elevated);
+  transform: translateY(-2px);
+  color: #fff;
+}
+
+.cc-icon-btn--fb:hover {
+  color: #1877f2;
+  border-color: #1877f2;
+  box-shadow: 0 0 12px rgba(24, 119, 242, 0.4);
+}
+
+.cc-icon-btn--tg:hover {
+  color: #2aabee;
+  border-color: #2aabee;
+  box-shadow: 0 0 12px rgba(42, 171, 238, 0.4);
+}
+
+.cc-icon-btn--wa:hover {
+  color: #25d366;
+  border-color: #25d366;
+  box-shadow: 0 0 12px rgba(37, 211, 102, 0.4);
+}
+
+.cc-icon-btn--wc:hover {
+  color: #07c160;
+  border-color: #07c160;
+  box-shadow: 0 0 12px rgba(7, 193, 96, 0.4);
+}
+
+/* CC Computer Hotline CTA Button */
+.cc-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 0 14px;
+  height: 38px;
+  border-radius: var(--border-radius-full);
+  background: linear-gradient(135deg, #FFD700 0%, #ffae00 100%);
+  color: #0a1428 !important;
+  font-weight: 800;
+  font-size: 0.82rem;
+  white-space: nowrap;
+  box-shadow: 0 2px 8px rgba(255, 215, 0, 0.35);
+  transition: all var(--transition-fast);
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+.cc-cta:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 14px rgba(255, 215, 0, 0.55);
+}
+
+.cc-cta svg {
+  width: 15px;
+  height: 15px;
+}
+
+.cc-burger {
+  display: none;
+  width: 38px;
+  height: 38px;
+  border-radius: var(--border-radius-sm);
+  border: 1px solid var(--border-subtle);
+  background: var(--bg-tertiary);
+  color: var(--text-primary);
+  place-items: center;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+@media (max-width: 1024px) {
+  .cc-burger {
+    display: grid;
+  }
 }
 
 /* Currency Segmented Switcher */
@@ -443,15 +547,17 @@
 }
 
 /* --------------------------------------------------------------------------
-   STICKY CATEGORY NAV (PROFESSIONAL SVG ICONS)
+   STICKY CATEGORY NAV (CC COMPUTER KH SIGNATURE DESIGN)
    -------------------------------------------------------------------------- */
 .category-nav-bar {
   background: var(--bg-secondary);
   border-bottom: 1px solid var(--border-subtle);
   overflow-x: auto;
   scrollbar-width: none;
-  position: relative;
-  z-index: 90;
+  position: sticky;
+  top: var(--header-height);
+  z-index: 95;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
 }
 
 .category-nav-bar::-webkit-scrollbar {
@@ -460,62 +566,187 @@
 
 .category-nav-list {
   display: flex;
-  align-items: center;
-  gap: 8px;
-  padding: 8px 0;
+  align-items: stretch;
+  gap: 2px;
+  height: 52px;
+  padding: 0;
+  margin: 0;
+  list-style: none;
   white-space: nowrap;
 }
 
 .category-nav-item {
-  color: var(--text-secondary);
-  font-size: 0.84rem;
-  font-weight: 600;
-  padding: 7px 14px;
-  border-radius: var(--border-radius-full);
-  display: flex;
+  position: relative;
+  display: inline-flex;
   align-items: center;
   gap: 7px;
-  transition: all var(--transition-fast);
+  height: 52px;
+  padding: 0 16px;
+  font-size: 0.86rem;
+  font-weight: 700;
+  color: var(--text-secondary);
+  white-space: nowrap;
+  transition: color var(--transition-fast);
+  text-transform: uppercase !important;
+  letter-spacing: 0.6px !important;
   cursor: pointer;
-  border: 1px solid transparent;
+  text-decoration: none;
+  border: none;
+  background: transparent;
+}
+
+.category-nav-item::after {
+  content: '';
+  position: absolute;
+  left: 12px;
+  right: 12px;
+  bottom: 0px;
+  height: 3px;
+  border-radius: 999px;
+  background: var(--cc-yellow-500, #FFD700);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--transition-fast);
+}
+
+.category-nav-item:hover {
+  color: var(--text-primary);
+}
+
+.category-nav-item:hover::after {
+  transform: scaleX(1);
+}
+
+.category-nav-item.is-active {
+  color: var(--accent-blue, #2563eb);
+}
+
+.category-nav-item.is-active::after {
+  transform: scaleX(1);
+  background: var(--cc-yellow-500, #FFD700);
+}
+
+.category-nav-item .cat-icon {
+  font-size: 1rem;
 }
 
 .category-nav-item svg {
   width: 16px;
   height: 16px;
   flex-shrink: 0;
-  opacity: 0.75;
-  transition: opacity var(--transition-fast);
-}
-
-.category-nav-item:hover {
-  color: var(--text-primary);
-  background: var(--bg-tertiary);
-}
-
-.category-nav-item:hover svg {
-  opacity: 1;
-}
-
-.category-nav-item.is-active {
-  background: var(--bg-surface-elevated);
-  color: var(--accent-cyan);
-  border-color: var(--border-accent);
-}
-
-.category-nav-item.is-active svg {
-  opacity: 1;
-  stroke: var(--accent-cyan);
+  opacity: 0.8;
 }
 
 .nav-tag-highlight {
-  background: var(--grad-fire);
+  background: linear-gradient(135deg, #e8650a 0%, #ff7a1a 100%);
   color: #fff;
   font-size: 0.62rem;
   font-weight: 800;
-  padding: 1px 6px;
+  padding: 2px 7px;
   border-radius: 4px;
   letter-spacing: 0.5px;
+  margin-left: 4px;
+}
+
+/* Mobile Drawer Menu (CC Computer Layout) */
+.cc-nav-scrim {
+  position: fixed;
+  inset: 0;
+  background: rgba(10, 20, 40, 0.65);
+  backdrop-filter: blur(5px);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  z-index: 998;
+}
+
+.cc-nav-scrim.is-open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.cc-nav-drawer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: min(320px, 86vw);
+  background: var(--bg-secondary);
+  border-left: 1px solid var(--border-subtle);
+  box-shadow: -10px 0 30px rgba(0, 0, 0, 0.6);
+  transform: translateX(100%);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 999;
+  display: flex;
+  flex-direction: column;
+  padding: 24px 20px;
+  overflow-y: auto;
+}
+
+.cc-nav-drawer.is-open {
+  transform: translateX(0);
+}
+
+.cc-nav-drawer__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.cc-nav-drawer__title {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.cc-nav-drawer__close {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid var(--border-subtle);
+  background: var(--bg-tertiary);
+  color: var(--text-primary);
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  font-size: 1.1rem;
+  transition: all var(--transition-fast);
+}
+
+.cc-nav-drawer__close:hover {
+  background: var(--bg-surface-elevated);
+  color: var(--accent-cyan);
+}
+
+.cc-nav-drawer ul {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.cc-nav-drawer .category-nav-item {
+  height: 44px;
+  border-radius: var(--border-radius-sm);
+  padding: 0 12px;
+  width: 100%;
+}
+
+.cc-nav-drawer .category-nav-item::after {
+  left: 0;
+  right: auto;
+  width: 4px;
+  height: 24px;
+  top: 10px;
+  bottom: auto;
 }
 
 /* --------------------------------------------------------------------------
@@ -3220,5 +3451,299 @@ html, body {
     font-size: 1.35rem;
   }
 }
+
+/* ==========================================================================
+   CC COMPUTER KH SIGNATURE PRODUCT CARDS & FLOATING WIDGET
+   ========================================================================== */
+.cc-card-spec-box {
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--border-radius-sm);
+  padding: 10px 12px;
+  margin: 10px 0 14px;
+  font-size: 0.82rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+  flex: 1;
+}
+
+.cc-card-spec-line {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-bottom: 2px;
+}
+
+.cc-card-spec-line b {
+  color: var(--text-primary);
+  font-weight: 700;
+}
+
+.cc-card-spec-line b.blue {
+  color: var(--accent-blue, #2563eb);
+}
+
+.cc-spec-hr {
+  border: none;
+  border-top: 1px dashed var(--border-medium);
+  margin: 7px 0;
+}
+
+.cc-free-gift {
+  color: #10b981;
+  font-weight: 600;
+}
+
+.default-tag {
+  background: #005696;
+  color: #ffffff;
+  font-size: 0.64rem;
+  font-weight: 800;
+  padding: 3px 8px;
+  border-radius: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  display: inline-block;
+}
+
+.vip-tag {
+  background: #e8650a;
+  color: #ffffff;
+  font-size: 0.64rem;
+  font-weight: 800;
+  padding: 3px 8px;
+  border-radius: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  display: inline-block;
+}
+
+.hot-deal-tag {
+  background: #ef4444;
+  color: #ffffff;
+  font-size: 0.64rem;
+  font-weight: 800;
+  padding: 3px 8px;
+  border-radius: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  display: inline-block;
+}
+
+/* Pricing CC Computer KH format */
+.cc-price-row {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  margin: 8px 0;
+  flex-wrap: wrap;
+}
+
+.cc-price-row .price2 {
+  text-decoration: line-through;
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.cc-price-row .current-price {
+  font-size: 1.45rem;
+  font-weight: 900;
+  color: #e60012;
+  font-family: var(--font-display);
+}
+
+.cc-price-row .khr-badge {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+/* Subcategory Model Filter Bar */
+.subcat-pills-bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  overflow-x: auto;
+  padding: 6px 0 16px;
+  scrollbar-width: none;
+  margin-bottom: 22px;
+}
+
+.subcat-pills-bar::-webkit-scrollbar {
+  display: none;
+}
+
+.subcat-pill-btn {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-secondary);
+  font-size: 0.82rem;
+  font-weight: 700;
+  padding: 7px 18px;
+  border-radius: var(--border-radius-full);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all var(--transition-fast);
+  text-decoration: none;
+}
+
+.subcat-pill-btn:hover {
+  background: var(--bg-surface-elevated);
+  color: var(--text-primary);
+  border-color: var(--border-medium);
+  transform: translateY(-1px);
+}
+
+.subcat-pill-btn.is-active {
+  background: var(--accent-blue, #2563eb);
+  color: #ffffff;
+  border-color: var(--accent-blue, #2563eb);
+  box-shadow: 0 2px 10px rgba(37, 99, 235, 0.35);
+}
+
+/* CC Computer KH Floating Buttons Widget */
+.floating-buttons {
+  position: fixed;
+  right: 18px;
+  bottom: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  z-index: 990;
+}
+
+.floating-button {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  text-decoration: none;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+  border: none;
+}
+
+.floating-button svg {
+  width: 20px;
+  height: 20px;
+}
+
+.floating-button:hover {
+  transform: translateY(-3px) scale(1.08);
+}
+
+.floating-button.facebook { background: #1877f2; }
+.floating-button.telegram { background: #2aabee; }
+.floating-button.whatapp { background: #25d366; }
+.floating-button.wechat { background: #07c160; }
+.floating-button.back-to-top { background: var(--bg-surface-elevated); color: var(--text-primary); border: 1px solid var(--border-medium); }
+
+/* CC Computer KH Native Buttons (.myButton & .txtlink) */
+.txtlink {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.myButton {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: 6px;
+  display: inline-block;
+  cursor: pointer;
+  color: var(--text-secondary);
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 700;
+  padding: 7px 18px;
+  text-decoration: none;
+  transition: all var(--transition-fast);
+}
+
+.myButton:hover {
+  background: var(--bg-surface-elevated);
+  color: var(--text-primary);
+  border-color: var(--border-medium);
+  transform: translateY(-1px);
+}
+
+.myButton.is-active {
+  background: var(--accent-blue, #2563eb);
+  color: #ffffff;
+  border-color: var(--accent-blue, #2563eb);
+  box-shadow: 0 2px 10px rgba(37, 99, 235, 0.35);
+}
+
+/* CC Computer KH Promo Popup Overlay */
+.popup-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: 1200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+}
+
+.popup-overlay.is-open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.popup-content {
+  position: relative;
+  max-width: 580px;
+  width: 100%;
+  background: #0f1523;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  transform: scale(0.95);
+  transition: transform 0.3s ease;
+}
+
+.popup-overlay.is-open .popup-content {
+  transform: scale(1);
+}
+
+.popup-close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.65);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  cursor: pointer;
+  z-index: 10;
+  transition: all 0.2s;
+}
+
+.popup-close:hover {
+  background: #ef4444;
+  transform: scale(1.08);
+}
+
+
 
 

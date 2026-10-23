@@ -3,9 +3,22 @@
    Modern, Authentic, Trustworthy Tech Retailer Architecture
    ========================================================================== */
 
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&family=Kantumruy+Pro:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Kantumruy+Pro:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap');
 
 :root {
+  /* CC COMPUTER KH OFFICIAL TOKENS */
+  --cc-navy-950: #0a1428;
+  --cc-navy-900: #0f1f3d;
+  --cc-navy-800: #16305c;
+  --cc-blue-600: #190ee9;
+  --cc-blue-500: #2563ac;
+  --cc-blue-100: #e7eefb;
+  --cc-yellow-500: #FFD700;
+  --cc-yellow-100: #fff4b8;
+  --cc-accent-500: #ff7a1a;
+  --cc-accent-600: #e8650a;
+  --cc-border: #e3e7ee;
+
   /* Dark Mode Palette (Authentic High-End Tech Retailer) */
   --bg-primary: #0a0e17;
   --bg-secondary: #0f1523;
@@ -23,7 +36,7 @@
   --accent-cyan-glow: rgba(37, 99, 235, 0.25);
   --accent-primary: #2563eb;
   --accent-primary-hover: #1d4ed8;
-  --accent-blue: #3b82f6;
+  --accent-blue: #2563eb;
   --accent-purple: #7c3aed;
   --accent-neon-green: #10b981;
   --accent-amber: #f59e0b;

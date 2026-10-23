@@ -7,6 +7,7 @@
 const STORAGE_KEYS = {
   SETTINGS: 'vrs_store_settings',
   PRODUCTS: 'vrs_custom_products',
+  CATEGORIES: 'vrs_store_categories',
   BUILDER_PARTS: 'vrs_custom_builder_parts',
   ORDERS: 'vrs_store_orders',
   COUPONS: 'vrs_store_coupons',
@@ -822,6 +823,52 @@ function loadProductsData() {
 
 var PRODUCTS_DATA = loadProductsData();
 
+// ==================== STORE CATEGORIES SYSTEM (CC COMPUTER KH STRUCTURE) ====================
+const DEFAULT_CATEGORIES = [
+  { id: "cat-laptop", slug: "laptop", name: "LAPTOP", nameKh: "កុំព្យូទ័រយួរដៃ (Laptop)", icon: "💻", order: 1, active: true, desc: "Gaming, Ultrabooks & Apple MacBooks" },
+  { id: "cat-desktop", slug: "desktop", name: "DESKTOP", nameKh: "កុំព្យូទ័រលើតុ (Desktop)", icon: "🖥️", order: 2, active: true, desc: "Custom Water-Cooled & Pre-Built Gaming PCs" },
+  { id: "cat-pcpart", slug: "pcpart", name: "PC Part", nameKh: "គ្រឿងបន្លាស់ (PC Part)", icon: "⚙️", order: 3, active: true, desc: "CPUs, GPUs, Motherboards, RAM & Coolers" },
+  { id: "cat-secondhand", slug: "secondhand", name: "second hand", nameKh: "មួយទឹក (Second Hand)", icon: "🔄", order: 4, active: true, desc: "Certified 99% Pre-Owned PCs & Laptops" },
+  { id: "cat-peripherals", slug: "peripherals", name: "Peripherals", nameKh: "គ្រឿងបរិក្ខារ (Peripherals)", icon: "⌨️", order: 5, active: true, desc: "Gaming Mice, Mechanical Keyboards & Headsets" },
+  { id: "cat-storage", slug: "storage", name: "Storage", nameKh: "អង្គចងចាំ (Storage SSD/HDD)", icon: "💾", order: 6, active: true, desc: "NVMe M.2 Gen4 SSDs & External Drives" },
+  { id: "cat-network", slug: "network", name: "Network", nameKh: "ប្រព័ន្ធណេតវើក (Network/WiFi)", icon: "📡", order: 7, active: true, desc: "WiFi 6E/7 Routers, Mesh & Network Cards" },
+  { id: "cat-speaker", slug: "speaker", name: "Speaker", nameKh: "បាស & កាស (Speaker/Audio)", icon: "🔊", order: 8, active: true, desc: "Hi-Fi Studio Monitors, Soundbars & Speakers" },
+  { id: "cat-printer", slug: "printer", name: "Printer", nameKh: "ម៉ាស៊ីនព្រីន (Printer)", icon: "🖨️", order: 9, active: true, desc: "Laser, Ink Tank & Office Photo Printers" },
+  { id: "cat-accessories", slug: "accessories", name: "Accessories", nameKh: "គ្រឿងបន្ថែម (Accessories)", icon: "🎒", order: 10, active: true, desc: "Bags, Sleeves, Hubs, Cables & Cleaners" }
+];
+
+function loadCategoriesData() {
+  try {
+    const raw = localStorage.getItem(STORAGE_KEYS.CATEGORIES);
+    if (raw) {
+      const parsed = JSON.parse(raw);
+      if (Array.isArray(parsed) && parsed.length > 0) {
+        return parsed.sort((a, b) => (Number(a.order) || 99) - (Number(b.order) || 99));
+      }
+    }
+  } catch (e) {
+    console.warn('Error loading custom categories:', e);
+  }
+  return [...DEFAULT_CATEGORIES];
+}
+
+function saveCategoriesData(categories) {
+  try {
+    localStorage.setItem(STORAGE_KEYS.CATEGORIES, JSON.stringify(categories));
+    window.CATEGORIES_DATA = categories;
+  } catch (e) {
+    console.error('Error saving categories:', e);
+  }
+}
+
+var CATEGORIES_DATA = loadCategoriesData();
+
+function getCategoryBySlug(slug) {
+  if (!slug) return null;
+  const s = slug.toLowerCase().trim();
+  return CATEGORIES_DATA.find(c => c.slug.toLowerCase() === s) || null;
+}
+
 // Helper functions for Currency formatting
 function formatPrice(usdPrice, currency = 'USD') {
   if (currency === 'KHR') {
@@ -835,3 +882,4 @@ function calculateSavings(original, current) {
   if (!original || original <= current) return 0;
   return original - current;
 }
+

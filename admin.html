@@ -79,6 +79,11 @@
         <span>Products Catalog</span>
         <span class="nav-badge" id="sidebarProductCount">0</span>
       </a>
+      <a class="nav-item" data-tab="categories">
+        <span class="nav-icon">🏷️</span>
+        <span>Categories</span>
+        <span class="nav-badge" id="sidebarCategoryCount">0</span>
+      </a>
       <a class="nav-item" data-tab="builder">
         <span class="nav-icon">🛠️</span>
         <span>PC Builder Parts</span>
@@ -212,6 +217,13 @@
                 <span style="font-size: 0.74rem; color: var(--admin-text-muted);">Upload photo, set price USD/KHR &amp; specs</span>
               </div>
             </button>
+            <button onclick="switchTab('categories');" class="btn-admin btn-admin-secondary" style="padding: 16px; justify-content: flex-start; text-align: left; height: auto;">
+              <span style="font-size: 1.4rem;">🏷️</span>
+              <div>
+                <strong style="display: block; font-size: 0.9rem;">Manage Categories</strong>
+                <span style="font-size: 0.74rem; color: var(--admin-text-muted);">Edit, reorder or delete store categories</span>
+              </div>
+            </button>
             <button onclick="switchTab('payment');" class="btn-admin btn-admin-secondary" style="padding: 16px; justify-content: flex-start; text-align: left; height: auto;">
               <span style="font-size: 1.4rem;">💳</span>
               <div>
@@ -318,6 +330,61 @@
                 </tr>
               </thead>
               <tbody id="adminProductsTableBody">
+                <!-- Rendered dynamically -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== TAB: STORE CATEGORIES MANAGER ==================== -->
+      <section id="tab-categories" class="tab-pane">
+        <div class="admin-card">
+          <div class="card-top">
+            <div>
+              <h3>🏷️ Store Categories &amp; Navigation Manager</h3>
+              <div class="card-top-desc">Add new categories, edit category names &amp; icons, reorder navigation items, or delete categories. All updates sync live to the storefront.</div>
+            </div>
+            <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+              <button onclick="openCategoryModal()" class="btn-admin btn-admin-primary">
+                <span>➕ Add New Category</span>
+              </button>
+              <button onclick="resetCategoriesToDefault()" class="btn-admin btn-admin-secondary" style="font-size: 0.78rem;" title="Reset categories to official CC Computer defaults">
+                <span>↺ Default Categories</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Search & Filter Controls -->
+          <div class="filter-row">
+            <div class="search-input-wrap">
+              <span class="search-icon">🔍</span>
+              <input type="text" id="adminCategorySearch" placeholder="Search categories by name, slug, or Khmer title...">
+            </div>
+
+            <select id="adminCategoryStatusFilter" class="select-admin">
+              <option value="all">All Category Statuses</option>
+              <option value="active">Active on Store Navbar</option>
+              <option value="hidden">Hidden from Navbar</option>
+            </select>
+          </div>
+
+          <!-- Categories Table -->
+          <div class="admin-table-wrap">
+            <table class="admin-table">
+              <thead>
+                <tr>
+                  <th style="width: 70px;">Order</th>
+                  <th style="width: 50px; text-align: center;">Icon</th>
+                  <th>Category Name (EN)</th>
+                  <th>Khmer Name (KH)</th>
+                  <th>Slug / Filter Key</th>
+                  <th style="text-align: center;">Products</th>
+                  <th>Navbar Status</th>
+                  <th style="width: 150px; text-align: right;">Actions</th>
+                </tr>
+              </thead>
+              <tbody id="adminCategoriesTableBody">
                 <!-- Rendered dynamically -->
               </tbody>
             </table>
@@ -723,6 +790,71 @@
 
     </div>
   </main>
+
+  <!-- ==================== CATEGORY ADD / EDIT MODAL ==================== -->
+  <div id="categoryModal" class="admin-modal-backdrop">
+    <div class="admin-modal-card" style="max-width: 580px;">
+      <div class="admin-modal-header">
+        <h3 id="categoryModalTitle" style="font-size: 1.15rem; font-weight: 800; color: var(--admin-cyan);">Add New Category</h3>
+        <button onclick="closeCategoryModal()" class="btn-icon">✕</button>
+      </div>
+
+      <div class="admin-modal-body">
+        <form id="categoryForm" onsubmit="event.preventDefault(); saveCategoryFromModal();">
+          <input type="hidden" id="catEditId" value="">
+
+          <div class="form-group">
+            <label class="form-label">Category Name (English) *</label>
+            <input type="text" id="catName" class="form-input" placeholder="e.g. LAPTOP or Gaming Desktops" required oninput="autoGenerateCategorySlug()">
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Category Name (Khmer ភាសាខ្មែរ)</label>
+            <input type="text" id="catNameKh" class="form-input" placeholder="e.g. កុំព្យូទ័រយួរដៃ (Laptop)">
+          </div>
+
+          <div class="form-grid">
+            <div class="form-group">
+              <label class="form-label">Category Slug / Filter Key *</label>
+              <input type="text" id="catSlug" class="form-input" placeholder="e.g. laptop or monitors" required>
+              <span class="form-help">Lowercase key used for filtering products (e.g. laptop, desktop, pcpart)</span>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Icon / Emoji</label>
+              <input type="text" id="catIcon" class="form-input" placeholder="e.g. 💻, 🖥️, ⚙️, 🔊, 🖨️">
+              <span class="form-help">Single emoji or symbol shown in navbar</span>
+            </div>
+          </div>
+
+          <div class="form-grid">
+            <div class="form-group">
+              <label class="form-label">Navbar Display Order</label>
+              <input type="number" id="catOrder" class="form-input" placeholder="1" min="1" value="1">
+              <span class="form-help">Lower numbers appear first on the menu</span>
+            </div>
+
+            <div class="form-group" style="justify-content: center;">
+              <label style="display: flex; align-items: center; gap: 8px; cursor: pointer; margin-top: 18px;">
+                <input type="checkbox" id="catActive" checked style="width: 18px; height: 18px;">
+                <strong style="font-size: 0.86rem; color: #fff;">Show on Customer Navbar</strong>
+              </label>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Description / Subtitle</label>
+            <textarea id="catDesc" class="form-textarea" rows="2" placeholder="Brief category description (optional)"></textarea>
+          </div>
+        </form>
+      </div>
+
+      <div class="admin-modal-footer">
+        <button onclick="closeCategoryModal()" class="btn-admin btn-admin-secondary">Cancel</button>
+        <button onclick="saveCategoryFromModal()" class="btn-admin btn-admin-primary">Save Category</button>
+      </div>
+    </div>
+  </div>
 
   <!-- ==================== PRODUCT ADD / EDIT MODAL ==================== -->
   <div id="productModal" class="admin-modal-backdrop">

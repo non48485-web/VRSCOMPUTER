@@ -21,6 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initSidebar();
   initSettingsForm();
   initPaymentForm();
+  initCategoriesTab();
   initProductsTab();
   initBuilderTab();
   initCouponsTab();
@@ -217,6 +218,7 @@ function switchTab(tabId) {
   const titles = {
     dashboard: 'Store Overview & Metrics',
     products: 'Products & Inventory Manager',
+    categories: 'Store Categories & Navigation Manager',
     builder: 'PC Builder Hardware & Compatibility',
     payment: 'ABA Bank KHQR & Payment Settings',
     orders: 'Customer Orders & Invoices Record',
@@ -234,12 +236,15 @@ function switchTab(tabId) {
    DATA REFRESH & STATS
    -------------------------------------------------------------------------- */
 function refreshAllData() {
-  // Update live products and parts from storage
+  // Update live products, categories, and parts from storage
   PRODUCTS_DATA = loadProductsData();
+  CATEGORIES_DATA = typeof loadCategoriesData === 'function' ? loadCategoriesData() : [];
   BUILDER_COMPONENTS = loadBuilderComponents();
   VRS_SETTINGS = getStoreSettings();
 
   updateDashboardStats();
+  renderAdminCategories();
+  populateCategoryDropdowns();
   renderAdminProductsTable();
   renderAdminBuilderTable();
   renderAdminOrdersTable();
@@ -271,6 +276,9 @@ function updateDashboardStats() {
   const sideProd = document.getElementById('sidebarProductCount');
   if (sideProd) sideProd.textContent = totalProducts;
 
+  const sideCat = document.getElementById('sidebarCategoryCount');
+  if (sideCat) sideCat.textContent = (typeof loadCategoriesData === 'function' ? loadCategoriesData().length : 0);
+
   const sideBuild = document.getElementById('sidebarBuilderCount');
   if (sideBuild) sideBuild.textContent = builderPartsCount;
 
@@ -299,6 +307,318 @@ function updateDashboardStats() {
           </tr>
         `;
       }).join('');
+    }
+  }
+}
+
+/* --------------------------------------------------------------------------
+   STORE CATEGORIES & NAVIGATION MANAGER
+   Allows editing, deleting, reordering and creating categories
+   -------------------------------------------------------------------------- */
+let activeEditingCategoryId = null;
+
+function initCategoriesTab() {
+  document.getElementById('adminCategorySearch')?.addEventListener('input', renderAdminCategories);
+  document.getElementById('adminCategoryStatusFilter')?.addEventListener('change', renderAdminCategories);
+}
+
+function renderAdminCategories() {
+  const tbody = document.getElementById('adminCategoriesTableBody');
+  if (!tbody) return;
+
+  CATEGORIES_DATA = typeof loadCategoriesData === 'function' ? loadCategoriesData() : [];
+  const search = (document.getElementById('adminCategorySearch')?.value || '').toLowerCase().trim();
+  const status = document.getElementById('adminCategoryStatusFilter')?.value || 'all';
+
+  let filtered = [...CATEGORIES_DATA];
+
+  if (status === 'active') {
+    filtered = filtered.filter(c => c.active !== false);
+  } else if (status === 'hidden') {
+    filtered = filtered.filter(c => c.active === false);
+  }
+
+  if (search) {
+    filtered = filtered.filter(c => 
+      c.name.toLowerCase().includes(search) ||
+      (c.nameKh && c.nameKh.toLowerCase().includes(search)) ||
+      c.slug.toLowerCase().includes(search)
+    );
+  }
+
+  // Update sidebar badge
+  const badge = document.getElementById('sidebarCategoryCount');
+  if (badge) badge.textContent = CATEGORIES_DATA.length;
+
+  if (filtered.length === 0) {
+    tbody.innerHTML = `<tr><td colspan="8" style="text-align:center; padding: 36px; color: var(--admin-text-muted);">No categories match your search or filter. Click <strong>➕ Add New Category</strong> above to create one.</td></tr>`;
+    return;
+  }
+
+  tbody.innerHTML = filtered.map((cat, idx) => {
+    // Live product count
+    const assignedCount = PRODUCTS_DATA.filter(p => {
+      const pCat = (p.category || '').toLowerCase();
+      const cSlug = cat.slug.toLowerCase();
+      if (pCat === cSlug) return true;
+      if (cSlug === 'pcpart' && pCat === 'component') return true;
+      if (cSlug === 'peripherals' && (pCat === 'peripheral' || pCat === 'monitor')) return true;
+      return false;
+    }).length;
+
+    const statusBadge = cat.active !== false
+      ? `<span class="badge-pill badge-in-stock" style="cursor:pointer;" title="Click to hide from navbar" onclick="toggleCategoryActive('${cat.id}')">✓ Shown on Navbar</span>`
+      : `<span class="badge-pill badge-out-of-stock" style="cursor:pointer;" title="Click to show on navbar" onclick="toggleCategoryActive('${cat.id}')">✕ Hidden</span>`;
+
+    return `
+      <tr>
+        <td style="font-weight: 800; color: var(--admin-cyan);">
+          <div style="display: flex; align-items: center; gap: 4px;">
+            <span>#${cat.order || (idx + 1)}</span>
+            <div style="display: flex; flex-direction: column; gap: 2px; margin-left: 6px;">
+              <button type="button" class="btn-icon" style="width: 20px; height: 18px; font-size: 0.65rem;" title="Move Up in Storefront Navbar" onclick="moveCategoryOrder('${cat.id}', -1)">▲</button>
+              <button type="button" class="btn-icon" style="width: 20px; height: 18px; font-size: 0.65rem;" title="Move Down in Storefront Navbar" onclick="moveCategoryOrder('${cat.id}', 1)">▼</button>
+            </div>
+          </div>
+        </td>
+        <td style="text-align: center; font-size: 1.35rem;">
+          ${cat.icon || '📦'}
+        </td>
+        <td>
+          <strong style="color: #fff; font-size: 0.95rem; text-transform: uppercase;">${cat.name}</strong>
+          ${cat.desc ? `<div style="font-size: 0.74rem; color: var(--admin-text-dim); margin-top: 2px;">${cat.desc}</div>` : ''}
+        </td>
+        <td>
+          <span style="font-size: 0.86rem; color: var(--admin-text-muted); font-family: var(--font-khmer, inherit);">${cat.nameKh || '—'}</span>
+        </td>
+        <td>
+          <code style="background: rgba(0,242,254,0.08); color: var(--admin-cyan); padding: 3px 8px; border-radius: 4px; font-size: 0.78rem; font-family: monospace;">${cat.slug}</code>
+        </td>
+        <td style="text-align: center;">
+          <span class="badge-pill" style="background: var(--admin-bg-elevated); color: #fff; border: 1px solid var(--admin-border-subtle);">${assignedCount} products</span>
+        </td>
+        <td>
+          ${statusBadge}
+        </td>
+        <td>
+          <div class="action-btns" style="justify-content: flex-end;">
+            <button class="btn-icon" title="Edit Category" onclick="openCategoryModal('${cat.id}')">✏️</button>
+            <button class="btn-icon btn-icon-danger" title="Delete Category" onclick="deleteCategory('${cat.id}')">🗑️</button>
+          </div>
+        </td>
+      </tr>
+    `;
+  }).join('');
+}
+
+function openCategoryModal(categoryId = null) {
+  activeEditingCategoryId = categoryId;
+  const modal = document.getElementById('categoryModal');
+  const title = document.getElementById('categoryModalTitle');
+  if (!modal) return;
+
+  if (categoryId) {
+    const cat = CATEGORIES_DATA.find(c => c.id === categoryId);
+    if (!cat) return;
+    title.textContent = `Edit Category: ${cat.name}`;
+    document.getElementById('catEditId').value = cat.id;
+    document.getElementById('catName').value = cat.name;
+    document.getElementById('catNameKh').value = cat.nameKh || '';
+    document.getElementById('catSlug').value = cat.slug;
+    document.getElementById('catIcon').value = cat.icon || '💻';
+    document.getElementById('catOrder').value = cat.order || 1;
+    document.getElementById('catActive').checked = cat.active !== false;
+    document.getElementById('catDesc').value = cat.desc || '';
+  } else {
+    title.textContent = 'Add New Category to Storefront';
+    document.getElementById('categoryForm')?.reset();
+    document.getElementById('catEditId').value = '';
+    document.getElementById('catOrder').value = CATEGORIES_DATA.length + 1;
+    document.getElementById('catActive').checked = true;
+    document.getElementById('catIcon').value = '💻';
+  }
+
+  modal.classList.add('is-open');
+}
+
+function closeCategoryModal() {
+  document.getElementById('categoryModal')?.classList.remove('is-open');
+  activeEditingCategoryId = null;
+}
+
+function autoGenerateCategorySlug() {
+  const editId = document.getElementById('catEditId')?.value;
+  if (editId) return; // Don't overwrite existing slug on edit unless user explicitly types it
+  const name = document.getElementById('catName')?.value || '';
+  const slugInput = document.getElementById('catSlug');
+  if (slugInput) {
+    slugInput.value = name.toLowerCase().trim().replace(/[^a-z0-9]/g, '-').replace(/-+/g, '-');
+  }
+}
+
+function saveCategoryFromModal() {
+  const name = document.getElementById('catName')?.value.trim();
+  const nameKh = document.getElementById('catNameKh')?.value.trim();
+  let slug = (document.getElementById('catSlug')?.value || '').toLowerCase().trim().replace(/[^a-z0-9_-]/g, '-');
+  const icon = document.getElementById('catIcon')?.value.trim() || '💻';
+  const order = parseInt(document.getElementById('catOrder')?.value, 10) || 1;
+  const active = document.getElementById('catActive')?.checked ?? true;
+  const desc = document.getElementById('catDesc')?.value.trim();
+  const editId = document.getElementById('catEditId')?.value;
+
+  if (!name) {
+    showAdminToast('Please provide a category name!', 'error');
+    return;
+  }
+
+  if (!slug) {
+    slug = name.toLowerCase().replace(/[^a-z0-9]/g, '-').replace(/-+/g, '-');
+  }
+
+  // Check unique slug
+  const duplicate = CATEGORIES_DATA.find(c => c.slug.toLowerCase() === slug && c.id !== editId);
+  if (duplicate) {
+    showAdminToast(`A category with slug "${slug}" already exists! Please use a unique slug.`, 'error');
+    return;
+  }
+
+  if (editId) {
+    const idx = CATEGORIES_DATA.findIndex(c => c.id === editId);
+    if (idx !== -1) {
+      CATEGORIES_DATA[idx] = {
+        ...CATEGORIES_DATA[idx],
+        name,
+        nameKh,
+        slug,
+        icon,
+        order,
+        active,
+        desc
+      };
+      showAdminToast(`Category "${name}" updated successfully!`, 'success');
+    }
+  } else {
+    const newCat = {
+      id: 'cat-' + Date.now().toString(36),
+      slug,
+      name,
+      nameKh,
+      icon,
+      order,
+      active,
+      desc
+    };
+    CATEGORIES_DATA.push(newCat);
+    showAdminToast(`New category "${name}" added to store!`, 'success');
+  }
+
+  // Re-sort by order
+  CATEGORIES_DATA.sort((a, b) => (Number(a.order) || 99) - (Number(b.order) || 99));
+
+  saveCategoriesData(CATEGORIES_DATA);
+  closeCategoryModal();
+  renderAdminCategories();
+  populateCategoryDropdowns();
+  updateDashboardStats();
+}
+
+function deleteCategory(categoryId) {
+  const cat = CATEGORIES_DATA.find(c => c.id === categoryId);
+  if (!cat) return;
+
+  const assignedCount = PRODUCTS_DATA.filter(p => {
+    const pCat = (p.category || '').toLowerCase();
+    const cSlug = cat.slug.toLowerCase();
+    return pCat === cSlug || (cSlug === 'pcpart' && pCat === 'component') || (cSlug === 'peripherals' && (pCat === 'peripheral' || pCat === 'monitor'));
+  }).length;
+
+  let confirmMsg = `Are you sure you want to permanently delete category "${cat.name}"?`;
+  if (assignedCount > 0) {
+    confirmMsg += `\n\n⚠️ ${assignedCount} products are currently assigned to this category. They will remain in your database, but this category will be removed from your customer storefront navigation bar.`;
+  }
+
+  if (!confirm(confirmMsg)) {
+    return;
+  }
+
+  CATEGORIES_DATA = CATEGORIES_DATA.filter(c => c.id !== categoryId);
+  saveCategoriesData(CATEGORIES_DATA);
+  renderAdminCategories();
+  populateCategoryDropdowns();
+  updateDashboardStats();
+  showAdminToast(`Category "${cat.name}" deleted successfully.`, 'info');
+}
+
+function toggleCategoryActive(categoryId) {
+  const cat = CATEGORIES_DATA.find(c => c.id === categoryId);
+  if (!cat) return;
+  cat.active = (cat.active === false);
+  saveCategoriesData(CATEGORIES_DATA);
+  renderAdminCategories();
+  showAdminToast(`Category "${cat.name}" is now ${cat.active ? 'visible on navbar' : 'hidden from navbar'}.`, 'info');
+}
+
+function moveCategoryOrder(categoryId, direction) {
+  const idx = CATEGORIES_DATA.findIndex(c => c.id === categoryId);
+  if (idx === -1) return;
+
+  const targetIdx = idx + direction;
+  if (targetIdx < 0 || targetIdx >= CATEGORIES_DATA.length) return;
+
+  // Swap order values
+  const currentOrder = CATEGORIES_DATA[idx].order || (idx + 1);
+  const targetOrder = CATEGORIES_DATA[targetIdx].order || (targetIdx + 1);
+
+  CATEGORIES_DATA[idx].order = targetOrder;
+  CATEGORIES_DATA[targetIdx].order = currentOrder;
+
+  // Swap in array
+  const temp = CATEGORIES_DATA[idx];
+  CATEGORIES_DATA[idx] = CATEGORIES_DATA[targetIdx];
+  CATEGORIES_DATA[targetIdx] = temp;
+
+  CATEGORIES_DATA.sort((a, b) => (Number(a.order) || 99) - (Number(b.order) || 99));
+  saveCategoriesData(CATEGORIES_DATA);
+  renderAdminCategories();
+  showAdminToast('Category order updated!', 'info');
+}
+
+function resetCategoriesToDefault() {
+  if (!confirm('Reset all categories back to the official 10 default store categories (LAPTOP, DESKTOP, PC Part, Second Hand, etc.)?')) {
+    return;
+  }
+
+  localStorage.removeItem(STORAGE_KEYS.CATEGORIES);
+  CATEGORIES_DATA = loadCategoriesData();
+  saveCategoriesData(CATEGORIES_DATA);
+  renderAdminCategories();
+  populateCategoryDropdowns();
+  updateDashboardStats();
+  showAdminToast('Categories restored to official store defaults!', 'success');
+}
+
+function populateCategoryDropdowns() {
+  const prodCatSelect = document.getElementById('prodCategory');
+  const filterCatSelect = document.getElementById('adminCategoryFilter');
+
+  if (prodCatSelect && Array.isArray(CATEGORIES_DATA)) {
+    const currentVal = prodCatSelect.value;
+    prodCatSelect.innerHTML = CATEGORIES_DATA.map(c => `
+      <option value="${c.slug}">${c.name} ${c.icon ? '(' + c.icon + ')' : ''}</option>
+    `).join('');
+    if (currentVal && CATEGORIES_DATA.some(c => c.slug === currentVal)) {
+      prodCatSelect.value = currentVal;
+    }
+  }
+
+  if (filterCatSelect && Array.isArray(CATEGORIES_DATA)) {
+    const currentFilter = filterCatSelect.value;
+    filterCatSelect.innerHTML = `
+      <option value="all">All Categories</option>
+      ${CATEGORIES_DATA.map(c => `<option value="${c.slug}">${c.name} (${c.icon || '💻'})</option>`).join('')}
+    `;
+    if (currentFilter && (currentFilter === 'all' || CATEGORIES_DATA.some(c => c.slug === currentFilter))) {
+      filterCatSelect.value = currentFilter;
     }
   }
 }
@@ -1097,8 +1417,9 @@ function exportStoreData() {
   const exportPayload = {
     storeName: "VRS COMPUTER",
     exportedAt: new Date().toISOString(),
-    version: "3.4",
+    version: "3.5",
     settings: getStoreSettings(),
+    categories: loadCategoriesData(),
     products: loadProductsData(),
     builderParts: loadBuilderComponents(),
     coupons: JSON.parse(localStorage.getItem(STORAGE_KEYS.COUPONS) || '[]'),
@@ -1116,7 +1437,7 @@ function exportStoreData() {
   document.body.removeChild(a);
   URL.revokeObjectURL(url);
 
-  showAdminToast('Store backup successfully downloaded!', 'success');
+  showAdminToast('Store backup (with categories) successfully downloaded!', 'success');
 }
 
 function importStoreData(e) {
@@ -1132,6 +1453,7 @@ function importStoreData(e) {
       }
 
       if (data.settings) localStorage.setItem(STORAGE_KEYS.SETTINGS, JSON.stringify(data.settings));
+      if (Array.isArray(data.categories)) localStorage.setItem(STORAGE_KEYS.CATEGORIES, JSON.stringify(data.categories));
       if (Array.isArray(data.products)) localStorage.setItem(STORAGE_KEYS.PRODUCTS, JSON.stringify(data.products));
       if (data.builderParts && typeof data.builderParts === 'object') localStorage.setItem(STORAGE_KEYS.BUILDER_PARTS, JSON.stringify(data.builderParts));
       if (Array.isArray(data.coupons)) localStorage.setItem(STORAGE_KEYS.COUPONS, JSON.stringify(data.coupons));
@@ -1150,11 +1472,12 @@ function importStoreData(e) {
 }
 
 function resetFactoryDefaults() {
-  if (!confirm('⚠️ WARNING: This will reset all products, hardware builder parts, and store settings to initial factory defaults. Are you sure you want to proceed?')) {
+  if (!confirm('⚠️ WARNING: This will reset all products, categories, hardware builder parts, and store settings to initial factory defaults. Are you sure you want to proceed?')) {
     return;
   }
 
   localStorage.removeItem(STORAGE_KEYS.PRODUCTS);
+  localStorage.removeItem(STORAGE_KEYS.CATEGORIES);
   localStorage.removeItem(STORAGE_KEYS.BUILDER_PARTS);
   localStorage.removeItem(STORAGE_KEYS.SETTINGS);
   localStorage.removeItem(STORAGE_KEYS.COUPONS);

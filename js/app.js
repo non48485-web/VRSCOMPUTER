@@ -348,45 +348,8 @@ function applyLanguage(lang) {
     }
   });
 
-  const catItems = document.querySelectorAll('.category-nav-item');
-  if (catItems.length >= 8) {
-    if (lang === 'KH') {
-      const khLabels = [
-        'ទំនិញបច្ចេកវិទ្យាទាំងអស់',
-        'កុំព្យូទ័រយួរដៃហ្គេម',
-        'កុំព្យូទ័រការងារ & ស្ដើង',
-        'Apple MacBooks',
-        'កុំព្យូទ័រលើតុ Pre-Built',
-        'PC Builder Studio',
-        'គ្រឿងបន្លាស់ & ក្រាហ្វិក',
-        'មួយទឹកធានាគុណភាព (99%)',
-        'អេក្រង់ 4K / OLED',
-        'គ្រឿងបរិក្ខាហ្គេម & សំឡេង',
-        'ទីតាំងហាង & ផែនទី'
-      ];
-      catItems.forEach((item, idx) => {
-        const textNode = Array.from(item.childNodes).find(n => n.nodeType === 3 && n.textContent.trim().length > 0);
-        if (textNode && khLabels[idx]) textNode.textContent = ' ' + khLabels[idx];
-      });
-    } else {
-      const enLabels = [
-        'All Tech Inventory',
-        'Gaming Laptops',
-        'Ultrabooks & Business',
-        'Apple MacBooks',
-        'Pre-Built Gaming PCs',
-        'PC Builder Studio',
-        'GPUs & Components',
-        'Certified Pre-Owned (99%)',
-        '4K / OLED Displays',
-        'Gaming Gear & Audio',
-        'Showroom & Map'
-      ];
-      catItems.forEach((item, idx) => {
-        const textNode = Array.from(item.childNodes).find(n => n.nodeType === 3 && n.textContent.trim().length > 0);
-        if (textNode && enLabels[idx]) textNode.textContent = ' ' + enLabels[idx];
-      });
-    }
+  if (typeof renderStorefrontCategories === 'function') {
+    renderStorefrontCategories();
   }
 
   const catalogTitle = document.querySelector('.catalog-section .section-title');
@@ -464,18 +427,253 @@ function initHeroSlider() {
 }
 
 /* --------------------------------------------------------------------------
+   CC COMPUTER KH MOBILE DRAWER & NAVIGATION CONTROLLER
+   -------------------------------------------------------------------------- */
+function initMobileNavDrawer() {
+  const toggleBtn = document.getElementById('mobileNavToggleBtn');
+  const closeBtn = document.getElementById('mobileNavCloseBtn');
+  const scrim = document.getElementById('mobileNavScrim');
+  const drawer = document.getElementById('mobileNavDrawer');
+
+  function openDrawer() {
+    drawer?.classList.add('is-open');
+    scrim?.classList.add('is-open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeDrawer() {
+    drawer?.classList.remove('is-open');
+    scrim?.classList.remove('is-open');
+    document.body.style.overflow = '';
+  }
+
+  toggleBtn?.addEventListener('click', openDrawer);
+  closeBtn?.addEventListener('click', closeDrawer);
+  scrim?.addEventListener('click', closeDrawer);
+
+  window.closeMobileNavDrawer = closeDrawer;
+}
+
+/* --------------------------------------------------------------------------
+   DYNAMIC CATEGORIES STOREFRONT SYNCHRONIZER
+   -------------------------------------------------------------------------- */
+let currentSubCategory = 'all';
+
+function renderStorefrontCategories() {
+  const categories = typeof loadCategoriesData === 'function' ? loadCategoriesData() : [];
+  const activeCats = categories.filter(c => c.active !== false);
+  const isKhmer = window.VRS_CURRENT_LANG === 'KH';
+
+  const catPageMap = {
+    laptop: 'index.html?cat=laptop',
+    desktop: 'newpc.html',
+    pcpart: 'pcpart.html',
+    secondhand: 'oldcomputer.html',
+    peripherals: 'peripherals.html',
+    storage: 'storage.html',
+    network: 'network.html',
+    speaker: 'speaker.html',
+    printer: 'printer.html',
+    accessories: 'accessories.html'
+  };
+
+  // 1. Desktop Sticky Category Nav (#categoryNavList)
+  const navList = document.getElementById('categoryNavList');
+  if (navList) {
+    let allLabel = isKhmer ? 'ទំនិញទាំងអស់' : 'ALL PRODUCTS';
+    let html = `<li><a class="category-nav-item cc-nav__link ${currentCategory === 'all' ? 'is-active' : ''}" data-category-filter="all" href="#catalog">${allLabel}</a></li>`;
+    activeCats.forEach(cat => {
+      const isAct = currentCategory === cat.slug;
+      const label = isKhmer && cat.nameKh ? cat.nameKh : cat.name.toUpperCase();
+      const pageHref = catPageMap[cat.slug] || `index.html?cat=${cat.slug}`;
+      html += `<li><a class="category-nav-item cc-nav__link ${isAct ? 'is-active' : ''}" data-category-filter="${cat.slug}" href="${pageHref}">${label}</a></li>`;
+    });
+    html += `
+      <li><a class="category-nav-item cc-nav__link" href="#builder"><span class="nav-tag-highlight">PRO</span> ${isKhmer ? 'ស្ទូឌីយោផ្គុំ PC' : 'PC BUILDER'}</a></li>
+      <li><a class="category-nav-item cc-nav__link" href="contactus.html">${isKhmer ? 'ទំនាក់ទំនង' : 'CONTACT US'}</a></li>
+    `;
+    navList.innerHTML = html;
+  }
+
+  // 2. Mobile Drawer Navigation (#mobileDrawerNavList)
+  const mobileList = document.getElementById('mobileDrawerNavList');
+  if (mobileList) {
+    let allLabel = isKhmer ? '🌟 ទំនិញទាំងអស់' : '🌟 ALL PRODUCTS';
+    let mHtml = `<li><a class="category-nav-item cc-nav__link ${currentCategory === 'all' ? 'is-active' : ''}" data-category-filter="all" href="#catalog">${allLabel}</a></li>`;
+    activeCats.forEach(cat => {
+      const isAct = currentCategory === cat.slug;
+      const icon = cat.icon || '📦';
+      const label = isKhmer && cat.nameKh ? cat.nameKh : cat.name.toUpperCase();
+      const khLabel = !isKhmer && cat.nameKh ? `<span style="font-size: 0.76rem; color: var(--text-muted); margin-left: 6px;">(${cat.nameKh})</span>` : '';
+      const pageHref = catPageMap[cat.slug] || `index.html?cat=${cat.slug}`;
+      mHtml += `<li><a class="category-nav-item cc-nav__link ${isAct ? 'is-active' : ''}" data-category-filter="${cat.slug}" href="${pageHref}">${icon} ${label} ${khLabel}</a></li>`;
+    });
+    mHtml += `
+      <li><a class="category-nav-item cc-nav__link" href="#builder">⚙️ <span class="nav-tag-highlight">PRO</span> ${isKhmer ? 'ស្ទូឌីយោផ្គុំ PC' : 'PC BUILDER'}</a></li>
+      <li><a class="category-nav-item cc-nav__link" href="contactus.html">📍 ${isKhmer ? 'ទីតាំងហាង & ផែនទី' : 'SHOWROOM & MAP'}</a></li>
+    `;
+    mobileList.innerHTML = mHtml;
+  }
+
+  // 3. Catalog Filter Tags Bar (#catalogFilterTagsBar)
+  const catalogFilterBar = document.getElementById('catalogFilterTagsBar');
+  if (catalogFilterBar) {
+    let allLabel = isKhmer ? 'ទំនិញទាំងអស់' : 'All Inventory';
+    let fHtml = `<button class="filter-tag-btn ${currentCategory === 'all' ? 'is-active' : ''}" data-category-filter="all">${allLabel}</button>`;
+    activeCats.forEach(cat => {
+      const isAct = currentCategory === cat.slug;
+      const label = isKhmer && cat.nameKh ? cat.nameKh : cat.name;
+      fHtml += `<button class="filter-tag-btn ${isAct ? 'is-active' : ''}" data-category-filter="${cat.slug}">${cat.icon ? cat.icon + ' ' : ''}${label}</button>`;
+    });
+    catalogFilterBar.innerHTML = fHtml;
+  }
+
+  wireCategoryFilterEvents();
+}
+
+function wireCategoryFilterEvents() {
+  document.querySelectorAll('[data-category-filter]').forEach(el => {
+    el.onclick = (e) => {
+      e.preventDefault();
+      const cat = el.getAttribute('data-category-filter');
+      setStorefrontCategory(cat);
+      if (typeof window.closeMobileNavDrawer === 'function') {
+        window.closeMobileNavDrawer();
+      }
+    };
+  });
+}
+
+function setStorefrontCategory(categorySlug) {
+  currentCategory = categorySlug || 'all';
+  currentSubCategory = 'all';
+
+  document.querySelectorAll('[data-category-filter]').forEach(item => {
+    if (item.getAttribute('data-category-filter') === currentCategory) {
+      item.classList.add('is-active');
+    } else {
+      item.classList.remove('is-active');
+    }
+  });
+
+  renderSubcategoryPills();
+  renderCatalog();
+
+  const catalogSec = document.getElementById('catalog');
+  if (catalogSec && window.scrollY > 350) {
+    catalogSec.scrollIntoView({ behavior: 'smooth' });
+  }
+}
+
+/* --------------------------------------------------------------------------
+   SUBCATEGORY & BRAND MODEL PILLS BAR (CC COMPUTER KH FEATURE)
+   -------------------------------------------------------------------------- */
+function renderSubcategoryPills() {
+  const container = document.getElementById('subcatPillsBar');
+  if (!container) return;
+
+  container.className = 'subcat-pills-bar txtlink';
+
+  let pills = [{ label: 'All Models', value: 'all' }];
+
+  if (currentCategory === 'laptop') {
+    pills = [
+      { label: 'All Laptops', value: 'all' },
+      { label: 'Vivobook', value: 'ASUS' },
+      { label: 'ZenBook', value: 'ZenBook' },
+      { label: 'ROG GAMING', value: 'ROG' },
+      { label: 'TUF GAMING', value: 'TUF' },
+      { label: 'Zephyrus', value: 'Zephyrus' },
+      { label: 'Apple MacBook', value: 'APPLE' },
+      { label: 'Lenovo Legion', value: 'LENOVO' },
+      { label: 'MSI Gaming', value: 'MSI' },
+      { label: 'Alienware / Dell', value: 'DELL' }
+    ];
+  } else if (currentCategory === 'desktop') {
+    pills = [
+      { label: 'All Desktops', value: 'all' },
+      { label: 'Titan RTX 4090', value: 'titan' },
+      { label: 'Apex 7800X3D', value: 'apex' },
+      { label: 'Esports 1080p', value: 'esports' },
+      { label: 'Creator Studio', value: 'creator' }
+    ];
+  } else if (currentCategory === 'pcpart' || currentCategory === 'component') {
+    pills = [
+      { label: 'All PC Parts', value: 'all' },
+      { label: 'RTX GPUs', value: 'gpu' },
+      { label: 'Ryzen / Intel CPUs', value: 'cpu' },
+      { label: 'Motherboards', value: 'motherboard' },
+      { label: 'DDR5 RAM', value: 'ram' },
+      { label: 'Power Supply', value: 'psu' }
+    ];
+  } else if (currentCategory === 'secondhand') {
+    pills = [
+      { label: 'All 99% Pre-Owned', value: 'all' },
+      { label: 'MacBook Pro 99%', value: 'macbook' },
+      { label: 'RTX 3080 Ti Pre-Owned', value: 'gpu' },
+      { label: 'Used Desktops', value: 'desktop' }
+    ];
+  } else {
+    let baseList = [...PRODUCTS_DATA];
+    if (currentCategory !== 'all') {
+      baseList = baseList.filter(p => matchCategory(p, currentCategory));
+    }
+    const brands = Array.from(new Set(baseList.map(p => p.brand).filter(Boolean)));
+    brands.forEach(b => pills.push({ label: b, value: b }));
+  }
+
+  container.innerHTML = pills.map(p => `
+    <button class="myButton subcat-pill-btn ${currentSubCategory === p.value ? 'is-active' : ''}" onclick="setStorefrontSubCategory('${p.value}')">
+      ${p.label}
+    </button>
+  `).join('');
+}
+
+function setStorefrontSubCategory(val) {
+  currentSubCategory = val;
+  renderSubcategoryPills();
+  renderCatalog();
+}
+
+window.setStorefrontSubCategory = setStorefrontSubCategory;
+window.setStorefrontCategory = setStorefrontCategory;
+
+function matchCategory(product, catSlug) {
+  if (!catSlug || catSlug === 'all') return true;
+  const s = catSlug.toLowerCase().trim();
+  const pCat = (product.category || '').toLowerCase().trim();
+  const pSub = (product.subCategory || '').toLowerCase().trim();
+
+  if (pCat === s || pSub === s) return true;
+  if (s === 'pcpart' && (pCat === 'component' || pCat === 'pcpart')) return true;
+  if (s === 'peripherals' && (pCat === 'peripheral' || pCat === 'peripherals' || pCat === 'monitor')) return true;
+  return false;
+}
+
+/* --------------------------------------------------------------------------
+   URL QUERY & HASH ROUTING (CC COMPUTER KH COMPATIBILITY)
+   -------------------------------------------------------------------------- */
+function handleUrlCategoryRouting() {
+  const urlParams = new URLSearchParams(window.location.search);
+  const cat = urlParams.get('cat') || urlParams.get('category');
+  if (cat) {
+    setStorefrontCategory(cat);
+    return;
+  }
+  const hash = window.location.hash.replace('#', '').toLowerCase();
+  const known = ['laptop', 'desktop', 'pcpart', 'secondhand', 'peripherals', 'storage', 'network', 'speaker', 'printer', 'accessories'];
+  if (known.includes(hash)) {
+    setStorefrontCategory(hash);
+  }
+}
+
+/* --------------------------------------------------------------------------
    CATALOG RENDERING & FILTERING
    -------------------------------------------------------------------------- */
 function initCatalog() {
-  document.querySelectorAll('[data-category-filter]').forEach(tab => {
-    tab.addEventListener('click', (e) => {
-      e.preventDefault();
-      document.querySelectorAll('[data-category-filter]').forEach(t => t.classList.remove('is-active'));
-      tab.classList.add('is-active');
-      currentCategory = tab.getAttribute('data-category-filter');
-      renderCatalog();
-    });
-  });
+  initMobileNavDrawer();
+  renderStorefrontCategories();
+  handleUrlCategoryRouting();
 
   document.querySelectorAll('[data-brand-filter]').forEach(chip => {
     chip.addEventListener('click', () => {
@@ -500,20 +698,35 @@ function initCatalog() {
     });
   }
 
+  renderSubcategoryPills();
   renderCatalog();
 }
 
 function getFilteredProducts() {
   let list = [...PRODUCTS_DATA];
 
+  // Category filter
   if (currentCategory !== 'all') {
-    list = list.filter(p => p.category === currentCategory || p.subCategory === currentCategory);
+    list = list.filter(p => matchCategory(p, currentCategory));
   }
 
+  // Subcategory model pill filter
+  if (currentSubCategory !== 'all') {
+    const subQ = currentSubCategory.toLowerCase();
+    list = list.filter(p => {
+      return (p.subCategory && p.subCategory.toLowerCase() === subQ) ||
+             (p.brand && p.brand.toLowerCase() === subQ) ||
+             (p.name && p.name.toLowerCase().includes(subQ)) ||
+             (p.code && p.code.toLowerCase().includes(subQ));
+    });
+  }
+
+  // Brand chip filter
   if (currentBrand !== 'all') {
     list = list.filter(p => p.brand.toLowerCase() === currentBrand.toLowerCase());
   }
 
+  // Search query filter
   if (searchQuery.trim()) {
     const q = searchQuery.toLowerCase();
     list = list.filter(p => 
@@ -524,6 +737,7 @@ function getFilteredProducts() {
     );
   }
 
+  // Sort
   if (currentSort === 'price-low') {
     list.sort((a, b) => a.price - b.price);
   } else if (currentSort === 'price-high') {
@@ -548,7 +762,7 @@ function renderCatalog() {
       <div style="grid-column: 1 / -1; padding: 60px 20px; text-align: center;">
         <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="margin-bottom: 12px; color: var(--text-muted);"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
         <h3 style="font-size: 1.25rem; margin-bottom: 6px;">No products match your filter</h3>
-        <p style="color: var(--text-secondary); margin-bottom: 16px;">Try clearing filters or search with another model name.</p>
+        <p style="color: var(--text-secondary); margin-bottom: 16px;">Try selecting another model, clearing filters, or searching another term.</p>
         <button class="btn-hero-secondary" onclick="resetAllFilters()">Reset All Filters</button>
       </div>
     `;
@@ -558,112 +772,33 @@ function renderCatalog() {
   const dict = I18N_DICTIONARY[window.VRS_CURRENT_LANG] || I18N_DICTIONARY.EN;
 
   container.innerHTML = products.map(product => {
-    const savings = calculateSavings(product.originalPrice, product.price);
-    const savingsTag = savings > 0 ? `<span class="spec-badge badge-deal">${dict.save_prefix} $${savings}</span>` : '';
     const isWishlisted = wishlistItems.some(w => w.id === product.id);
 
-    let badgeClass = 'badge-vip';
-    if (product.badge === 'BEST SELLER' || product.badge === 'HOT DEAL') badgeClass = 'badge-deal';
-    if (product.condition && product.condition.includes('Grade-A')) badgeClass = 'badge-sh';
+    // CC Computer KH Tag Banner
+    let tagClass = 'default-tag';
+    let tagText = product.badge || 'DEFAULT COMPANY';
+    if (tagText.includes('VIP') || tagText.includes('PRO')) {
+      tagClass = 'vip-tag';
+    } else if (tagText.includes('HOT') || tagText.includes('DEAL') || tagText.includes('BEST') || tagText.includes('SALE')) {
+      tagClass = 'hot-deal-tag';
+    }
 
     const specs = product.specs || {};
-    const specItems = [];
-
     const cpuVal = specs.cpu || specs.processor || '';
-    if (cpuVal) {
-      const cleanCpu = cpuVal.split('(')[0].replace(/Processor/i, '').trim();
-      specItems.push({
-        label: 'CPU',
-        val: cleanCpu,
-        full: cpuVal,
-        icon: `<svg class="spec-cell-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><path d="M9 1v3M15 1v3M9 20v3M15 20v3M20 9h3M20 14h3M1 9h3M1 14h3"/></svg>`
-      });
-    }
-
-    const gpuVal = specs.gpu || specs.graphics || '';
-    if (gpuVal) {
-      const cleanGpu = gpuVal.split('(')[0].replace(/NVIDIA GeForce/i, '').replace(/Graphics/i, '').trim();
-      specItems.push({
-        label: 'GPU',
-        val: cleanGpu,
-        full: gpuVal,
-        icon: `<svg class="spec-cell-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="6" width="20" height="12" rx="2"/><circle cx="8" cy="12" r="2.5"/><circle cx="16" cy="12" r="2.5"/><path d="M2 10h20"/></svg>`
-      });
-    }
-
     const ramVal = specs.ram || specs.memory || '';
-    if (ramVal) {
-      const cleanRam = ramVal.split('(')[0].trim();
-      specItems.push({
-        label: 'RAM',
-        val: cleanRam,
-        full: ramVal,
-        icon: `<svg class="spec-cell-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M6 5v4M10 5v4M14 5v4M18 5v4M6 15v4M10 15v4M14 15v4M18 15v4"/></svg>`
-      });
-    }
-
-    const storageVal = specs.storage || specs.ssd || '';
     const displayVal = specs.display || specs.screen || '';
-    if (storageVal) {
-      const cleanStorage = storageVal.split('(')[0].replace(/PCIe.*SSD/i, 'SSD').trim();
-      specItems.push({
-        label: 'SSD',
-        val: cleanStorage,
-        full: storageVal,
-        icon: `<svg class="spec-cell-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="12" x2="2" y2="12"/><path d="M5.45 5.11 2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z"/><line x1="6" y1="16" x2="6.01" y2="16"/><line x1="10" y1="16" x2="10.01" y2="16"/></svg>`
-      });
-    } else if (displayVal) {
-      const cleanDisplay = displayVal.split(',')[0].trim();
-      specItems.push({
-        label: 'DISPLAY',
-        val: cleanDisplay,
-        full: displayVal,
-        icon: `<svg class="spec-cell-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>`
-      });
-    }
+    const gpuVal = specs.gpu || specs.graphics || '';
+    const osVal = specs.os || (specs.storage ? `Storage: ${specs.storage}` : '');
+    const codeVal = product.code || '';
 
-    if (specItems.length < 4) {
-      Object.entries(specs).forEach(([k, v]) => {
-        if (specItems.length < 4 && !['cpu', 'gpu', 'ram', 'storage', 'display', 'warranty'].includes(k.toLowerCase())) {
-          specItems.push({
-            label: k.toUpperCase(),
-            val: String(v).substring(0, 18),
-            full: v,
-            icon: `<svg class="spec-cell-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>`
-          });
-        }
-      });
-    }
-
-    const specsMatrixHtml = `
-      <div class="specs-matrix">
-        ${specItems.slice(0, 4).map(item => `
-          <div class="spec-cell" title="${item.label}: ${item.full}">
-            ${item.icon}
-            <div class="spec-cell-content">
-              <span class="spec-cell-label">${item.label}</span>
-              <span class="spec-cell-value">${item.val}</span>
-            </div>
-          </div>
-        `).join('')}
-      </div>
-    `;
-
-    const giftsPillHtml = product.freeGifts && product.freeGifts.length > 0 ? `
-      <div class="card-gift-pill" title="Free Gifts: ${product.freeGifts.join(' • ')}">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 12v10H4V12"/><path d="M2 7h20v5H2z"/><path d="M12 22V7"/><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg>
-        <span>${dict.free_prefix}: ${product.freeGifts[0]}${product.freeGifts.length > 1 ? ` + ${product.freeGifts.length - 1} more` : ''}</span>
-      </div>
-    ` : `<div style="height: 32px;"></div>`;
+    // Free gifts
+    const giftsList = product.freeGifts && product.freeGifts.length > 0 ? product.freeGifts.join(', ') : '';
 
     return `
-      <div class="product-card">
+      <div class="product-card cc-product-card" id="product-${product.id}">
         <div class="card-header-bar">
-          <span class="brand-badge">${product.brand}</span>
-          <div class="card-badges-group">
-            ${savingsTag}
-            <span class="spec-badge ${badgeClass}">${product.badge}</span>
-          </div>
+          <span class="${tagClass}">${tagText}</span>
+          <span class="brand-badge" style="margin-left: auto;">${product.brand}</span>
         </div>
 
         <div class="card-image-box">
@@ -684,21 +819,29 @@ function renderCatalog() {
         </div>
 
         <h3 class="card-title" title="${product.name}" onclick="openQuickView('${product.id}')" style="cursor: pointer;">${product.name}</h3>
-        <div class="card-model-code">
-          <span class="card-stock-dot"></span>
-          <span>${product.code}</span>
-          <span style="margin-left: auto; color: #10b981; font-weight: 700; font-size: 0.72rem;">${dict.ready_to_ship}</span>
+
+        <div class="cc-price-row">
+          <div>
+            ${product.originalPrice ? `<span class="price2">${formatPrice(product.originalPrice, window.VRS_CURRENT_CURRENCY)}</span>` : ''}
+            <span class="current-price">${formatPrice(product.price, window.VRS_CURRENT_CURRENCY)}</span>
+          </div>
+          <span class="khr-badge">${window.VRS_CURRENT_CURRENCY === 'USD' ? `≈ ${(Math.round(product.price * EXCHANGE_RATE_KHR)).toLocaleString()} ៛` : `≈ $${product.price}`}</span>
         </div>
 
-        <div class="card-price-box">
-          <span class="card-current-price">${formatPrice(product.price, window.VRS_CURRENT_CURRENCY)}</span>
-          ${product.originalPrice ? `<span class="card-original-price">${formatPrice(product.originalPrice, window.VRS_CURRENT_CURRENCY)}</span>` : ''}
-          <span class="card-khr-equiv">${window.VRS_CURRENT_CURRENCY === 'USD' ? `≈ ${(Math.round(product.price * EXCHANGE_RATE_KHR)).toLocaleString()} ៛` : `≈ $${product.price}`}</span>
+        <div class="cc-card-spec-box">
+          ${cpuVal ? `<div class="cc-card-spec-line"><b class="blue">- CPU :</b> <b>${cpuVal}</b></div>` : ''}
+          ${ramVal ? `<div class="cc-card-spec-line"><b class="blue">- RAM :</b> <b>${ramVal}</b></div>` : ''}
+          ${displayVal ? `<div class="cc-card-spec-line"><b class="blue">- Display :</b> <span>${displayVal}</span></div>` : ''}
+          ${gpuVal ? `<div class="cc-card-spec-line"><b class="blue">- GPU :</b> <b>${gpuVal}</b></div>` : ''}
+          ${osVal ? `<div class="cc-card-spec-line"><b class="blue">- OS :</b> <span>${osVal}</span></div>` : ''}
+          ${codeVal ? `<div class="cc-card-spec-line"><b class="blue">- Code :</b> <span style="color: var(--text-muted);">${codeVal}</span></div>` : ''}
+          ${giftsList ? `
+            <hr class="cc-spec-hr">
+            <div class="cc-free-gift" title="${giftsList}">
+              <span>🎁 <b>Free :</b> ${giftsList}</span>
+            </div>
+          ` : ''}
         </div>
-
-        ${specsMatrixHtml}
-
-        ${giftsPillHtml}
 
         <div class="card-footer-btns">
           <button class="btn-card-cart" onclick="addToCart('${product.id}')">
@@ -717,16 +860,21 @@ function renderCatalog() {
 
 function resetAllFilters() {
   currentCategory = 'all';
+  currentSubCategory = 'all';
   currentBrand = 'all';
   searchQuery = '';
   document.querySelectorAll('[data-category-filter]').forEach(t => t.classList.remove('is-active'));
-  document.querySelector('[data-category-filter="all"]')?.classList.add('is-active');
+  document.querySelectorAll('[data-category-filter="all"]').forEach(t => t.classList.add('is-active'));
   document.querySelectorAll('[data-brand-filter]').forEach(c => c.classList.remove('is-active'));
   const searchInput = document.getElementById('globalSearchInput');
   if (searchInput) searchInput.value = '';
+  renderSubcategoryPills();
   renderCatalog();
   showToast('Filters reset to default', 'info');
 }
+
+window.renderStorefrontCategories = renderStorefrontCategories;
+window.renderCatalog = renderCatalog;
 
 /* --------------------------------------------------------------------------
    LIVE SEARCH
@@ -1664,7 +1812,26 @@ function showToast(message, type = 'info') {
   clearTimeout(toast._timeout);
   toast._timeout = setTimeout(() => {
     toast.classList.remove('is-show');
-  }, 3200);
+window.showToast = showToast;
+
+/* --------------------------------------------------------------------------
+   CC COMPUTER PROMO POPUP CONTROLLER
+   -------------------------------------------------------------------------- */
+function closePopup() {
+  const popup = document.getElementById('promoPopup');
+  if (popup) {
+    popup.classList.remove('is-open');
+    sessionStorage.setItem('vrs_promo_dismissed', 'true');
+  }
 }
 
-window.showToast = showToast;
+function openPopup() {
+  const popup = document.getElementById('promoPopup');
+  if (popup) {
+    popup.classList.add('is-open');
+  }
+}
+
+window.closePopup = closePopup;
+window.openPopup = openPopup;
+
