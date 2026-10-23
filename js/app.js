@@ -6,7 +6,7 @@
 // Global State
 window.VRS_CURRENT_CURRENCY = localStorage.getItem('vrs_currency') || 'USD';
 window.VRS_CURRENT_LANG = localStorage.getItem('vrs_lang') || 'EN';
-window.VRS_THEME = localStorage.getItem('vrs_theme') || 'dark';
+window.VRS_THEME = localStorage.getItem('vrs_theme') || 'light';
 
 let currentCategory = 'all';
 let currentBrand = 'all';
@@ -687,6 +687,10 @@ function initCatalog() {
         currentBrand = brand;
       }
       renderCatalog();
+      const catSec = document.getElementById('catalog');
+      if (catSec) {
+        catSec.scrollIntoView({ behavior: 'smooth' });
+      }
     });
   });
 
@@ -1812,6 +1816,9 @@ function showToast(message, type = 'info') {
   clearTimeout(toast._timeout);
   toast._timeout = setTimeout(() => {
     toast.classList.remove('is-show');
+  }, 3500);
+}
+
 window.showToast = showToast;
 
 /* --------------------------------------------------------------------------

@@ -7,16 +7,17 @@
    ANNOUNCEMENT TICKER BAR
    -------------------------------------------------------------------------- */
 .ticker-bar {
-  background: linear-gradient(90deg, #06090e 0%, #0d1424 50%, #06090e 100%);
+  background: var(--bg-secondary, #ffffff);
+  border-top: 1px solid var(--border-subtle);
   border-bottom: 1px solid var(--border-subtle);
-  color: var(--text-secondary);
-  font-size: 0.78rem;
+  color: var(--text-primary);
+  font-size: 0.82rem;
   height: var(--ticker-height);
   display: flex;
   align-items: center;
   overflow: hidden;
   position: relative;
-  z-index: 102;
+  z-index: 90;
 }
 
 .ticker-inner {
@@ -96,9 +97,9 @@
 }
 
 .vrs-header.is-scrolled {
-  background: rgba(7, 9, 14, 0.96);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
-  border-bottom-color: var(--border-medium);
+  background: var(--bg-secondary, #ffffff);
+  box-shadow: 0 4px 16px rgba(16, 24, 40, 0.08);
+  border-bottom-color: var(--border-subtle);
 }
 
 .header-main {
@@ -1387,30 +1388,31 @@
   border: 1px solid rgba(16, 185, 129, 0.3);
 }
 
-/* Card Image Box with Ambient Studio Depth */
+/* Card Image Box (CC Computer KH Style Clean White) */
 .card-image-box {
   position: relative;
   width: 100%;
-  height: 195px;
-  background: radial-gradient(circle at 50% 60%, rgba(26, 37, 60, 0.5) 0%, rgba(11, 16, 28, 0.8) 100%);
+  height: 200px;
+  background: #ffffff;
   border-radius: var(--border-radius-md);
   overflow: hidden;
-  margin-bottom: 14px;
+  margin-bottom: 12px;
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border-subtle);
+  padding: 10px;
 }
 
 .card-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .product-card:hover .card-img {
-  transform: scale(1.07);
+  transform: scale(1.05);
 }
 
 /* Floating Quick Actions Overlay */
@@ -3559,50 +3561,236 @@ html, body {
   font-weight: 600;
 }
 
-/* Subcategory Model Filter Bar */
-.subcat-pills-bar {
+/* --------------------------------------------------------------------------
+   CC COMPUTER KH BRANDS RAIL (13 OFFICIAL PARTNER BRANDS)
+   -------------------------------------------------------------------------- */
+.brands-section, .cc-brands {
+  padding: 14px 0 18px;
+  background: var(--bg-secondary, #ffffff);
+  border-bottom: 1px solid var(--border-subtle, #e5e7eb);
+  margin-bottom: 24px;
+}
+
+.brands-header-label {
+  display: none;
+}
+
+.brands-grid, .cc-brands__grid {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.brand-chip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 6px 18px;
+  background: #ffffff;
+  border: 1px solid #dee2e6;
+  border-radius: 999px;
+  color: #101828;
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+}
+
+.brand-chip svg {
+  width: 14px;
+  height: 14px;
+  fill: currentColor;
+}
+
+.brand-chip:hover, .brand-chip.is-active {
+  background: #0f1f3d !important;
+  color: #ffffff !important;
+  border-color: #0f1f3d !important;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 10px rgba(15, 31, 61, 0.2);
+}
+
+.brand-chip.is-active svg, .brand-chip:hover svg {
+  fill: #ffffff;
+}
+
+/* --------------------------------------------------------------------------
+   CC COMPUTER KH SUBCATEGORY BAR (.txtlink & .myButton)
+   -------------------------------------------------------------------------- */
+.subcat-pills-bar.txtlink {
   display: flex;
   align-items: center;
   gap: 8px;
   overflow-x: auto;
-  padding: 6px 0 16px;
+  padding: 12px 18px;
+  background: #0b1a4a;
+  border-radius: 10px;
+  margin-bottom: 24px;
   scrollbar-width: none;
-  margin-bottom: 22px;
 }
 
-.subcat-pills-bar::-webkit-scrollbar {
+.subcat-pills-bar.txtlink::-webkit-scrollbar {
   display: none;
 }
 
-.subcat-pill-btn {
-  background: var(--bg-card);
-  border: 1px solid var(--border-subtle);
-  color: var(--text-secondary);
-  font-size: 0.82rem;
+.subcat-pills-bar.txtlink .myButton {
+  background: #192b6a;
+  border: none;
+  border-radius: 999px;
+  color: #ffffff;
+  font-size: 13px;
   font-weight: 700;
   padding: 7px 18px;
-  border-radius: var(--border-radius-full);
-  cursor: pointer;
   white-space: nowrap;
-  transition: all var(--transition-fast);
+  cursor: pointer;
+  transition: all 0.2s ease;
   text-decoration: none;
 }
 
-.subcat-pill-btn:hover {
-  background: var(--bg-surface-elevated);
-  color: var(--text-primary);
-  border-color: var(--border-medium);
+.subcat-pills-bar.txtlink .myButton:hover {
+  background: #2563eb;
+  color: #ffffff;
   transform: translateY(-1px);
 }
 
-.subcat-pill-btn.is-active {
-  background: var(--accent-blue, #2563eb);
+.subcat-pills-bar.txtlink .myButton.is-active {
+  background: #2563eb;
   color: #ffffff;
-  border-color: var(--accent-blue, #2563eb);
-  box-shadow: 0 2px 10px rgba(37, 99, 235, 0.35);
+  font-weight: 800;
+  box-shadow: 0 2px 8px rgba(37, 99, 235, 0.5);
 }
 
-/* CC Computer KH Floating Buttons Widget */
+/* Legacy fallback .myButton */
+.myButton {
+  background: #192b6a;
+  border: none;
+  border-radius: 999px;
+  display: inline-block;
+  cursor: pointer;
+  color: #ffffff;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 700;
+  padding: 7px 18px;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.myButton:hover {
+  background: #2563eb;
+  color: #ffffff;
+}
+
+.myButton.is-active {
+  background: #2563eb;
+  color: #ffffff;
+}
+
+/* --------------------------------------------------------------------------
+   CC COMPUTER KH PRODUCT CARDS (4-COL LIGHT THEME WITH SPECS)
+   -------------------------------------------------------------------------- */
+.product-card.cc-product-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s ease, border-color 0.2s ease;
+  position: relative;
+}
+
+.product-card.cc-product-card:hover {
+  transform: translateY(-4px);
+  border-color: #cbd5e1;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08);
+}
+
+.product-card.cc-product-card .card-image-box {
+  background: #ffffff;
+  border: 1px solid #f1f5f9;
+  border-radius: 10px;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+}
+
+.product-card.cc-product-card .card-img {
+  max-height: 100%;
+  max-width: 100%;
+  object-fit: contain;
+}
+
+.product-card.cc-product-card .card-title {
+  color: #101828;
+  font-size: 15px;
+  font-weight: 700;
+  margin: 10px 0 6px;
+  line-height: 1.35;
+}
+
+.product-card.cc-product-card .default-tag {
+  background: #2563eb;
+  color: #ffffff;
+  font-size: 11px;
+  font-weight: 800;
+  padding: 4px 10px;
+  border-radius: 4px;
+  letter-spacing: 0.5px;
+}
+
+.product-card.cc-product-card .vip-tag {
+  background: #e63946;
+  color: #ffffff;
+  font-size: 11px;
+  font-weight: 800;
+  padding: 4px 10px;
+  border-radius: 4px;
+  letter-spacing: 0.5px;
+}
+
+.product-card.cc-product-card .cc-price-row .price2 {
+  color: #94a3b8;
+  font-size: 14px;
+  text-decoration: line-through;
+  font-weight: 600;
+  margin-right: 6px;
+}
+
+.product-card.cc-product-card .cc-price-row .current-price {
+  color: #e63946;
+  font-size: 22px;
+  font-weight: 800;
+}
+
+.product-card.cc-product-card .cc-card-spec-box {
+  background: #fafafa;
+  border: 1px solid #f1f5f9;
+  border-radius: 8px;
+  padding: 10px 12px;
+  margin: 10px 0;
+  font-size: 12.5px;
+  line-height: 1.6;
+  color: #344054;
+  flex: 1;
+}
+
+.product-card.cc-product-card .cc-card-spec-line b.blue {
+  color: #2563eb;
+}
+
+/* --------------------------------------------------------------------------
+   CC COMPUTER KH FLOATING BUTTONS WIDGET (RIGHT STACK)
+   -------------------------------------------------------------------------- */
 .floating-buttons {
   position: fixed;
   right: 18px;
@@ -3622,7 +3810,7 @@ html, body {
   justify-content: center;
   color: #fff;
   text-decoration: none;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
   transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
   cursor: pointer;
   border: none;
@@ -3641,47 +3829,11 @@ html, body {
 .floating-button.telegram { background: #2aabee; }
 .floating-button.whatapp { background: #25d366; }
 .floating-button.wechat { background: #07c160; }
-.floating-button.back-to-top { background: var(--bg-surface-elevated); color: var(--text-primary); border: 1px solid var(--border-medium); }
+.floating-button.back-to-top { background: #070d1d; color: #ffffff; }
 
-/* CC Computer KH Native Buttons (.myButton & .txtlink) */
-.txtlink {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  flex-wrap: wrap;
-  margin-bottom: 20px;
-}
-
-.myButton {
-  background: var(--bg-card);
-  border: 1px solid var(--border-subtle);
-  border-radius: 6px;
-  display: inline-block;
-  cursor: pointer;
-  color: var(--text-secondary);
-  font-family: inherit;
-  font-size: 13px;
-  font-weight: 700;
-  padding: 7px 18px;
-  text-decoration: none;
-  transition: all var(--transition-fast);
-}
-
-.myButton:hover {
-  background: var(--bg-surface-elevated);
-  color: var(--text-primary);
-  border-color: var(--border-medium);
-  transform: translateY(-1px);
-}
-
-.myButton.is-active {
-  background: var(--accent-blue, #2563eb);
-  color: #ffffff;
-  border-color: var(--accent-blue, #2563eb);
-  box-shadow: 0 2px 10px rgba(37, 99, 235, 0.35);
-}
-
-/* CC Computer KH Promo Popup Overlay */
+/* --------------------------------------------------------------------------
+   CC COMPUTER KH PROMO POPUP OVERLAY
+   -------------------------------------------------------------------------- */
 .popup-overlay {
   position: fixed;
   inset: 0;
@@ -3707,11 +3859,11 @@ html, body {
   position: relative;
   max-width: 580px;
   width: 100%;
-  background: #0f1523;
+  background: #ffffff;
+  color: #101828;
   border-radius: 16px;
   overflow: hidden;
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8);
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
   transform: scale(0.95);
   transition: transform 0.3s ease;
 }
@@ -3742,6 +3894,234 @@ html, body {
 .popup-close:hover {
   background: #ef4444;
   transform: scale(1.08);
+}
+
+/* --------------------------------------------------------------------------
+   CC COMPUTER KH OFFICIAL FOOTER (ROUNDED NAVY CONTAINER)
+   -------------------------------------------------------------------------- */
+.cc-footer-section {
+  padding: 40px 16px 24px;
+  background: transparent;
+}
+
+.cc-footer-container {
+  background: #070d1d;
+  color: #ffffff;
+  border-radius: 24px;
+  padding: 48px 44px 32px;
+  max-width: 1280px;
+  margin: 0 auto;
+  box-shadow: 0 16px 40px rgba(7, 13, 29, 0.25);
+}
+
+.cc-footer-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1.6fr;
+  gap: 36px;
+  margin-bottom: 40px;
+}
+
+.cc-footer-col-brand .footer-brand-title {
+  font-size: 22px;
+  font-weight: 800;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 4px;
+}
+
+.cc-footer-col-brand .footer-brand-tag {
+  font-size: 12px;
+  color: #94a3b8;
+  margin-bottom: 14px;
+}
+
+.cc-footer-col-brand .footer-brand-desc {
+  font-size: 13.5px;
+  color: #cbd5e1;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  max-width: 340px;
+}
+
+.footer-social-row {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 24px;
+}
+
+.footer-social-btn {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  text-decoration: none;
+}
+
+.footer-social-btn:hover {
+  background: #2563eb;
+  color: #ffffff;
+  transform: translateY(-2px);
+}
+
+.footer-accept-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: #94a3b8;
+  margin-bottom: 10px;
+}
+
+.footer-bank-pills {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.footer-bank-pill {
+  width: 44px;
+  height: 28px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: 0.5px;
+}
+
+.footer-bank-pill.aba { background: #004b75; }
+.footer-bank-pill.acleda { background: #133966; }
+.footer-bank-pill.khqr { background: #d32f2f; }
+.footer-bank-pill.visa { background: #1a1f71; }
+
+.cc-footer-title {
+  font-size: 16px;
+  font-weight: 800;
+  color: #ffffff;
+  margin-bottom: 18px;
+  letter-spacing: 0.5px;
+}
+
+.cc-footer-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.cc-footer-links a {
+  color: #94a3b8;
+  font-size: 13.5px;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.cc-footer-links a:hover {
+  color: #FFD700;
+  padding-left: 3px;
+}
+
+.footer-stats-box {
+  margin-top: 16px;
+  padding-top: 14px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  font-size: 12.5px;
+  color: #94a3b8;
+}
+
+.footer-stats-box strong {
+  color: #ffffff;
+}
+
+.footer-live-badge {
+  color: #10b981;
+  font-weight: 700;
+  margin-top: 4px;
+}
+
+.cc-footer-contact-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 13px;
+  color: #cbd5e1;
+  line-height: 1.5;
+  margin-bottom: 14px;
+}
+
+.cc-footer-contact-item svg {
+  width: 18px;
+  height: 18px;
+  color: #FFD700;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.footer-delivery-pills {
+  display: flex;
+  gap: 6px;
+  margin-top: 8px;
+  flex-wrap: wrap;
+}
+
+.delivery-pill {
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 800;
+  color: #ffffff;
+}
+
+.delivery-pill.vet { background: #c25e00; }
+.delivery-pill.zto { background: #0070ba; }
+.delivery-pill.jnt { background: #d32f2f; }
+.delivery-pill.capitol { background: #198754; }
+
+.cc-footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 24px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  font-size: 13px;
+  color: #64748b;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.cc-footer-bottom a {
+  color: #94a3b8;
+  text-decoration: none;
+  margin-left: 16px;
+}
+
+.cc-footer-bottom a:hover {
+  color: #FFD700;
+}
+
+@media (max-width: 900px) {
+  .cc-footer-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .cc-footer-grid {
+    grid-template-columns: 1fr;
+  }
+  .cc-footer-container {
+    padding: 30px 20px 20px;
+  }
 }
 
 
