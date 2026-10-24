@@ -150,18 +150,24 @@ function initSidebar() {
   const backdrop = document.getElementById('adminSidebarBackdrop');
   const mobileToggle = document.getElementById('adminMobileToggle');
   const closeBtn = document.getElementById('adminSidebarCloseBtn');
+  const footerCloseBtn = document.getElementById('adminSidebarFooterCloseBtn');
 
   function openMobileSidebar() {
     sidebar?.classList.add('is-open');
     backdrop?.classList.add('is-open');
+    mobileToggle?.setAttribute('aria-expanded', 'true');
     document.body.style.overflow = 'hidden';
   }
 
   function closeMobileSidebar() {
     sidebar?.classList.remove('is-open');
     backdrop?.classList.remove('is-open');
+    mobileToggle?.setAttribute('aria-expanded', 'false');
     document.body.style.overflow = '';
   }
+
+  window.openMobileSidebar = openMobileSidebar;
+  window.closeMobileSidebar = closeMobileSidebar;
 
   mobileToggle?.addEventListener('click', (e) => {
     e.stopPropagation();
@@ -172,13 +178,53 @@ function initSidebar() {
     }
   });
 
-  closeBtn?.addEventListener('click', closeMobileSidebar);
-  backdrop?.addEventListener('click', closeMobileSidebar);
+  // Support both click and touch events for instantaneous response
+  ['click', 'touchend'].forEach(evt => {
+    backdrop?.addEventListener(evt, (e) => {
+      e.preventDefault();
+      closeMobileSidebar();
+    }, { passive: false });
 
+    closeBtn?.addEventListener(evt, (e) => {
+      e.preventDefault();
+      closeMobileSidebar();
+    }, { passive: false });
+
+    footerCloseBtn?.addEventListener(evt, (e) => {
+      e.preventDefault();
+      closeMobileSidebar();
+    }, { passive: false });
+  });
+
+  // Close with Escape key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && sidebar?.classList.contains('is-open')) {
+      closeMobileSidebar();
+    }
+  });
+
+  // Sidebar navigation item clicks
   document.querySelectorAll('.admin-sidebar .nav-item').forEach(item => {
     item.addEventListener('click', () => {
       const tab = item.getAttribute('data-tab');
       if (tab) switchTab(tab);
+      if (window.innerWidth <= 1024) {
+        closeMobileSidebar();
+      }
+    });
+  });
+
+  // Mobile Fast Tab Strip buttons
+  document.querySelectorAll('.mobile-tab-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const tab = btn.getAttribute('data-tab');
+      if (tab) switchTab(tab);
+    });
+  });
+
+  // Close sidebar drawer when external link is tapped
+  document.querySelectorAll('.admin-sidebar a').forEach(a => {
+    a.addEventListener('click', () => {
       if (window.innerWidth <= 1024) {
         closeMobileSidebar();
       }
@@ -204,6 +250,16 @@ function switchTab(tabId) {
       item.classList.add('is-active');
     } else {
       item.classList.remove('is-active');
+    }
+  });
+
+  // Mobile fast tab strip active states
+  document.querySelectorAll('.mobile-tab-btn').forEach(btn => {
+    if (btn.getAttribute('data-tab') === tabId) {
+      btn.classList.add('is-active');
+      btn.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+    } else {
+      btn.classList.remove('is-active');
     }
   });
 
