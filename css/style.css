@@ -4742,10 +4742,12 @@ html, body {
   .cc-logo svg,
   .vrs-logo-badge,
   .cc-logo .brand-emblem-svg {
-    width: 36px !important;
-    height: 36px !important;
-    min-width: 36px !important;
-    max-width: 36px !important;
+    height: 38px !important;
+    width: auto !important;
+    min-width: unset !important;
+    max-width: 90px !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
   }
 
   .cc-logo__name {
