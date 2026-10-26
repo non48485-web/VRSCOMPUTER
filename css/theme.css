@@ -210,6 +210,7 @@ a {
 button, input, select, textarea {
   font-family: inherit;
   font-size: inherit;
+  box-sizing: border-box;
 }
 
 button {
@@ -220,14 +221,45 @@ button {
   touch-action: manipulation;
 }
 
-/* Prevent auto-zoom on mobile inputs in iOS */
+/* Universal Cross-Platform Box Sizing & Fluid Foundation */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  box-sizing: border-box;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  scroll-behavior: smooth;
+  overflow-x: clip;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-width: 0;
+  overflow-x: clip;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  -webkit-tap-highlight-color: transparent;
+}
+
+@supports not (overflow-x: clip) {
+  html, body {
+    overflow-x: hidden;
+  }
+}
+
+/* Prevent auto-zoom on mobile inputs in iOS & improve touch areas */
 @media (max-width: 768px) {
   input, select, textarea {
     font-size: 16px !important;
   }
 }
 
-img {
+img, picture, video, canvas, svg {
   max-width: 100%;
   height: auto;
   display: block;

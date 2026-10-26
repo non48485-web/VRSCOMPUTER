@@ -4384,19 +4384,28 @@ html, body {
 }
 
 @media (max-width: 1100px) {
-  .leftbox, .centerbox1, .centerbox2, .rightbox {
+  body:not(.cc-scope) .leftbox, 
+  body:not(.cc-scope) .centerbox1, 
+  body:not(.cc-scope) .centerbox2, 
+  body:not(.cc-scope) .rightbox {
     width: 31.5%;
   }
 }
 
 @media (max-width: 820px) {
-  .leftbox, .centerbox1, .centerbox2, .rightbox {
+  body:not(.cc-scope) .leftbox, 
+  body:not(.cc-scope) .centerbox1, 
+  body:not(.cc-scope) .centerbox2, 
+  body:not(.cc-scope) .rightbox {
     width: 48%;
   }
 }
 
-@media (max-width: 540px) {
-  .leftbox, .centerbox1, .centerbox2, .rightbox {
+@media (max-width: 640px) {
+  body:not(.cc-scope) .leftbox, 
+  body:not(.cc-scope) .centerbox1, 
+  body:not(.cc-scope) .centerbox2, 
+  body:not(.cc-scope) .rightbox {
     width: 100%;
     float: none;
     margin: 8px 0;
