@@ -537,12 +537,6 @@ body {
   background: var(--cc-navy-950);
 }
 
-@media (max-width: 720px) {
-  .cc-hero__frame {
-    aspect-ratio: 4 / 3;
-    border-radius: var(--cc-radius-md);
-  }
-
 /* -------------------------------------------------------------------------
    CONTACT PAGE — replace legacy fixed-width QR/map layout
    ------------------------------------------------------------------------- */
@@ -718,7 +712,6 @@ body {
   .cc-contact-page .coderq {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
-}
 }
 
 .cc-hero__slide {
@@ -1071,181 +1064,90 @@ body {
    7. RESPONSIVE BREAKPOINTS — HEADER/NAV
    ------------------------------------------------------------------------- */
 
-/* Tablet (768px - 1024px) Header & Live Search Optimization */
-@media (max-width: 1024px) and (min-width: 769px) {
-  .cc-header__row {
-    padding-inline: 16px !important;
-    gap: 12px !important;
-    height: 68px !important;
-  }
-
-  .cc-search {
-    display: flex !important;
-    flex: 1 1 auto !important;
-    max-width: 340px !important;
-    min-width: 180px !important;
-  }
-
-  .cc-logo__tag {
-    display: none !important;
-  }
-
-  .cc-actions .cc-icon-btn {
-    display: none !important;
-  }
+/* Universal Desktop Header & Live Search for All Platforms */
+.cc-scope .cc-header {
+  position: sticky !important;
+  top: 0 !important;
+  width: 100% !important;
+  min-width: 1240px !important;
+  z-index: 1000 !important;
+  background: #ffffff !important;
+  border-bottom: 1px solid var(--cc-border, #e3e7ee) !important;
 }
 
-/* Mobile Screens (<= 768px) */
-@media (max-width: 768px) {
-  .cc-search {
-    display: none !important;
-  }
+.cc-scope .cc-header__row {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  width: 1240px !important;
+  max-width: 1240px !important;
+  margin: 0 auto !important;
+  padding-inline: 16px !important;
+  height: 68px !important;
+}
 
-  .cc-header {
-    height: auto !important;
-  }
+.cc-scope .cc-search {
+  display: flex !important;
+  flex: 1 1 420px !important;
+  max-width: 500px !important;
+  margin: 0 20px !important;
+}
 
-  .cc-header__row {
-    height: 60px !important;
-    padding-inline: 12px !important;
-    gap: 8px !important;
-    justify-content: space-between !important;
-  }
+.cc-scope .cc-burger {
+  display: none !important;
+}
 
-  .cc-logo {
-    gap: 8px !important;
-    padding: 0 !important;
-    min-width: 0 !important;
-    flex-shrink: 1 !important;
-  }
+.cc-scope .cc-nav-drawer,
+.cc-scope .cc-nav-scrim {
+  display: none !important;
+}
 
-  .cc-logo__img,
-  .cc-logo svg,
-  .vrs-logo-badge,
-  .cc-logo .brand-emblem-svg {
-    width: 36px !important;
-    height: 36px !important;
-    min-width: 36px !important;
-    max-width: 36px !important;
-    flex-shrink: 0 !important;
-  }
+.cc-scope .cc-actions {
+  display: flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+}
 
-  .cc-logo__name {
-    font-size: 16px !important;
-    letter-spacing: -0.02em !important;
-    white-space: nowrap !important;
-  }
+.cc-scope .cc-actions .cc-icon-btn {
+  display: inline-flex !important;
+}
 
-  .cc-logo__tag {
-    display: none !important;
-  }
+.cc-scope .cc-cta {
+  display: inline-flex !important;
+  width: auto !important;
+  padding: 0 16px !important;
+  border-radius: 999px !important;
+}
 
-  .cc-actions {
-    display: flex !important;
-    align-items: center !important;
-    gap: 6px !important;
-    margin-left: auto !important;
-    flex-shrink: 0 !important;
-  }
+.cc-scope .cc-cta__label {
+  display: inline !important;
+}
 
-  .cc-actions .cc-icon-btn {
-    display: none !important;
-  }
+.cc-scope .cc-nav-bar {
+  display: block !important;
+  width: 100% !important;
+  min-width: 1240px !important;
+  background: #ffffff !important;
+  border-bottom: 1px solid var(--cc-border, #e3e7ee) !important;
+}
 
-  .cc-qr-trigger-btn {
-    height: 36px !important;
-    padding: 0 10px !important;
-    font-size: 11px !important;
-    gap: 4px !important;
-    border-radius: 99px !important;
-    white-space: nowrap !important;
-  }
+.cc-scope .cc-nav {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+  flex-wrap: nowrap !important;
+  width: 1240px !important;
+  margin: 0 auto !important;
+  gap: 4px !important;
+  height: 52px !important;
+  overflow-x: auto !important;
+}
 
-  .cc-cta {
-    width: 36px !important;
-    height: 36px !important;
-    min-width: 36px !important;
-    padding: 0 !important;
-    border-radius: 50% !important;
-    display: inline-flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    background: #ff7a1a !important;
-    color: #ffffff !important;
-    flex-shrink: 0 !important;
-  }
-
-  .cc-cta__label {
-    display: none !important;
-  }
-
-  .cc-burger {
-    display: inline-flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    width: 38px !important;
-    height: 38px !important;
-    min-width: 38px !important;
-    border-radius: 9px !important;
-    border: 1px solid var(--cc-border, #e3e7ee) !important;
-    background: #ffffff !important;
-    color: var(--cc-navy-900, #0a1428) !important;
-    cursor: pointer !important;
-    flex-shrink: 0 !important;
-    touch-action: manipulation;
-  }
-
-  /* Smooth touch horizontal category nav bar */
-  .cc-nav-bar {
-    display: block !important;
-    position: -webkit-sticky !important;
-    position: sticky !important;
-    top: 60px !important;
-    z-index: 990 !important;
-    background: #ffffff !important;
-    border-bottom: 1px solid var(--cc-border, #e3e7ee) !important;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04) !important;
-  }
-
-  .cc-nav {
-    display: flex !important;
-    align-items: center !important;
-    gap: 6px !important;
-    height: 42px !important;
-    padding: 0 12px !important;
-    overflow-x: auto !important;
-    -webkit-overflow-scrolling: touch !important;
-    scrollbar-width: none !important;
-    white-space: nowrap !important;
-  }
-
-  .cc-nav::-webkit-scrollbar {
-    display: none !important;
-  }
-
-  .cc-nav__link {
-    font-size: 11.5px !important;
-    font-weight: 700 !important;
-    padding: 6px 12px !important;
-    height: auto !important;
-    border-radius: 999px !important;
-    background: #f1f5f9 !important;
-    color: #334155 !important;
-    text-transform: uppercase !important;
-    letter-spacing: 0.2px !important;
-    display: inline-flex !important;
-    align-items: center !important;
-  }
-
-  .cc-nav__link::after {
-    display: none !important;
-  }
-
-  .cc-nav__link.is-active {
-    background: #2563eb !important;
-    color: #ffffff !important;
-    box-shadow: 0 2px 6px rgba(37, 99, 235, 0.25) !important;
-  }
+.cc-scope .cc-nav__link {
+  font-size: 13px !important;
+  font-weight: 700 !important;
+  padding: 8px 14px !important;
+  white-space: nowrap !important;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -1341,57 +1243,28 @@ body {
   box-shadow: var(--cc-shadow-md, 0 8px 24px rgba(16, 24, 40, 0.08)) !important;
 }
 
-/* Responsive Grid across Desktop, Tablet Landscape, Tablet Portrait, and Mobile Phones */
-@media (min-width: 1200px) {
-  .cc-scope #body>.inner {
-    grid-template-columns: repeat(4, 1fr) !important;
-    gap: 20px !important;
-    padding-inline: 20px !important;
-  }
+/* Universal 4-Column Product Grid across All Platforms */
+.cc-scope #body>.inner {
+  display: grid !important;
+  grid-template-columns: repeat(4, 1fr) !important;
+  gap: 20px !important;
+  width: 1240px !important;
+  max-width: 1240px !important;
+  min-width: 1200px !important;
+  margin-inline: auto !important;
+  padding-inline: 16px !important;
+  padding-block: 20px !important;
 }
-
-@media (max-width: 1199px) and (min-width: 961px) {
-  .cc-scope #body>.inner {
-    grid-template-columns: repeat(3, 1fr) !important;
-    gap: 16px !important;
-    padding-inline: 16px !important;
-  }
-}
-
-@media (max-width: 960px) and (min-width: 641px) {
-  .cc-scope #body>.inner {
-    grid-template-columns: repeat(2, 1fr) !important;
-    gap: 16px !important;
-    padding-inline: 14px !important;
-  }
-}
-
-@media (max-width: 640px) {
-  .cc-scope #body>.inner {
-    grid-template-columns: 1fr !important;
-    gap: 14px !important;
-    padding-inline: 12px !important;
-  }
-}
-
-@media (max-width: 360px) {
-  .cc-scope #body>.inner {
-    grid-template-columns: 1fr !important;
-    gap: 10px !important;
-    padding-inline: 8px !important;
-  }
-}
-
-/* =========================================================================
-   10. PRODUCT CARD — INTERNALS (PROPORTIONAL FOR ALL SCREENS)
-   ========================================================================= */
 
 /* Card Container with Modern Rounded Elevation */
 .cc-scope .leftbox,
 .cc-scope .centerbox1,
 .cc-scope .centerbox2,
 .cc-scope .rightbox {
-  padding: 12px !important;
+  width: 100% !important;
+  max-width: none !important;
+  float: none !important;
+  padding: 14px !important;
   background-color: #ffffff !important;
   border: 1px solid var(--cc-border, #e5e7eb) !important;
   border-radius: 12px !important;
@@ -1401,18 +1274,7 @@ body {
   justify-content: space-between !important;
   transition: box-shadow 250ms ease, transform 250ms ease, border-color 250ms ease !important;
   box-sizing: border-box !important;
-  width: 100% !important;
   height: 100% !important;
-}
-
-@media (max-width: 640px) {
-  .cc-scope .leftbox,
-  .cc-scope .centerbox1,
-  .cc-scope .centerbox2,
-  .cc-scope .rightbox {
-    padding: 12px 14px 14px 14px !important;
-    border-radius: 12px !important;
-  }
 }
 
 .cc-scope .leftbox:hover,
@@ -1424,7 +1286,7 @@ body {
   border-color: #bfdbfe !important;
 }
 
-/* Product Image — High-DPI, proportional max-height across mobile & desktop */
+/* Product Image — High-DPI, proportional max-height across all platforms */
 .cc-scope .pro4 {
   width: 100% !important;
   height: auto !important;
@@ -1440,12 +1302,61 @@ body {
   transform: none !important;
 }
 
-@media (max-width: 640px) {
-  .cc-scope .pro4 {
-    max-height: 185px !important;
-    min-height: 130px !important;
-    margin-bottom: 6px !important;
-  }
+.cc-scope .title2 {
+  font-size: 15px !important;
+  font-weight: 700 !important;
+  line-height: 1.4 !important;
+  min-height: 42px !important;
+  margin: 6px 0 !important;
+  color: #1e293b !important;
+}
+
+.cc-scope .sp {
+  font-size: 18px !important;
+  font-weight: 800 !important;
+  color: #dc2626 !important;
+  margin: 6px 0 !important;
+}
+
+.cc-scope .sp .price2 {
+  font-size: 14px !important;
+  color: #94a3b8 !important;
+  text-decoration: line-through !important;
+  margin-right: 6px !important;
+  font-weight: 500 !important;
+}
+
+.cc-scope .txt {
+  font-size: 12px !important;
+  line-height: 1.5 !important;
+  color: #334155 !important;
+  background: #f8fafc !important;
+  padding: 10px 12px !important;
+  border-radius: 8px !important;
+  border: 1px solid #e2e8f0 !important;
+  margin: 6px 0 12px 0 !important;
+}
+
+.cc-scope .card-actions-quick {
+  display: grid !important;
+  grid-template-columns: 1fr 1fr !important;
+  gap: 8px !important;
+  margin-top: auto !important;
+}
+
+.cc-scope .btn-card-tg,
+.cc-scope .btn-card-buy {
+  width: 100% !important;
+  padding: 8px !important;
+  font-size: 12px !important;
+  font-weight: 700 !important;
+  border-radius: 8px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 4px !important;
+  text-decoration: none !important;
+  cursor: pointer !important;
 }
 
 /* បិទ Hover Zoom Effect លើរូបថត */
@@ -1975,57 +1886,7 @@ html {
   padding-inline: var(--cc-space-6);
 }
 
-/* Tablet & Mobile: Single-row horizontal swipe strip */
-@media (max-width: 900px) {
-  .cc-brands {
-    top: calc(60px + 42px) !important;
-    z-index: 989 !important;
-    padding-block: 6px !important;
-  }
 
-  .cc-brands__grid {
-    flex-wrap: nowrap !important;
-    overflow-x: auto !important;
-    overflow-y: hidden !important;
-    -webkit-overflow-scrolling: touch !important;
-    scrollbar-width: none !important;
-    justify-content: flex-start !important;
-    padding-inline: 12px !important;
-    gap: 8px !important;
-  }
-
-  .cc-brands__grid::-webkit-scrollbar {
-    display: none !important;
-  }
-
-  .cc-brand {
-    flex-shrink: 0 !important;
-  }
-
-  .cc-brand a {
-    display: inline-flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    padding: 5px 12px !important;
-    font-size: 11.5px !important;
-    font-weight: 700 !important;
-    background: #f1f5f9 !important;
-    border: 1px solid #e2e8f0 !important;
-    border-radius: 99px !important;
-    color: #334155 !important;
-    white-space: nowrap !important;
-    text-transform: uppercase !important;
-    letter-spacing: 0.3px !important;
-    transition: all 0.2s ease !important;
-  }
-
-  .cc-brand a:hover,
-  .cc-brand a:active {
-    background: #2563eb !important;
-    color: #ffffff !important;
-    border-color: #2563eb !important;
-  }
-}
 /* Enable smooth scrolling natively for the page */
 html {
   scroll-behavior: smooth;
@@ -3244,104 +3105,24 @@ transform: translateY(-2px) !important;
 }
 
 .cc-nav-scrim {
-  position: fixed !important;
-  inset: 0 !important;
-  background: rgba(10, 20, 40, 0.6) !important;
-  backdrop-filter: blur(4px) !important;
-  -webkit-backdrop-filter: blur(4px) !important;
-  opacity: 0 !important;
-  pointer-events: none !important;
-  transition: opacity 300ms ease !important;
-  z-index: 99998 !important;
-}
-
-.cc-nav-scrim.is-open {
-  opacity: 1 !important;
-  pointer-events: auto !important;
-}
-
-.cc-nav-drawer__head {
-  display: flex !important;
-  align-items: center !important;
-  justify-content: space-between !important;
-  padding-bottom: 16px !important;
-  margin-bottom: 16px !important;
-  border-bottom: 1px solid var(--cc-border, #e3e7ee) !important;
-}
-
-.cc-nav-drawer__head .cc-logo__name {
-  font-size: 18px !important;
-  font-weight: 800 !important;
-}
-
-.cc-nav-drawer__close {
-  width: 36px !important;
-  height: 36px !important;
-  border-radius: 50% !important;
-  border: 1px solid var(--cc-border, #e3e7ee) !important;
-  background: #f8fafc !important;
-  display: inline-flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  cursor: pointer !important;
-  color: #475569 !important;
-  transition: all 0.2s ease !important;
-}
-
-.cc-nav-drawer__close:hover {
-  background: #e2e8f0 !important;
-  color: #0f172a !important;
-  transform: rotate(90deg) !important;
-}
-
-.cc-nav-drawer ul {
-  display: flex !important;
-  flex-direction: column !important;
-  gap: 4px !important;
-  margin: 0 !important;
-  padding: 0 !important;
-  list-style: none !important;
-}
-
-.cc-nav-drawer .cc-nav__link {
-  display: flex !important;
-  align-items: center !important;
-  height: 44px !important;
-  padding: 0 14px !important;
-  font-size: 13.5px !important;
-  font-weight: 600 !important;
-  color: #334155 !important;
-  border-radius: 10px !important;
-  transition: all 0.18s ease !important;
-  text-transform: uppercase !important;
-  letter-spacing: 0.3px !important;
-}
-
-.cc-nav-drawer .cc-nav__link:hover,
-.cc-nav-drawer .cc-nav__link.is-active {
-  background: #eff6ff !important;
-  color: #2563eb !important;
-  font-weight: 700 !important;
-  padding-left: 18px !important;
-}
-
-.cc-nav-drawer .cc-nav__link::after {
   display: none !important;
 }
 
-/* Floating Action Buttons on Mobile */
-@media (max-width: 600px) {
-  .cc-scope .floating-buttons,
-  .floating-buttons {
-    right: 12px !important;
-    bottom: max(16px, env(safe-area-inset-bottom, 16px)) !important;
-    gap: 8px !important;
-  }
-
-  .cc-scope .floating-button,
-  .floating-button {
-    width: 42px !important;
-    height: 42px !important;
-    background-size: 20px 20px !important;
-  }
+/* Floating Action Buttons */
+.cc-scope .floating-buttons,
+.floating-buttons {
+  position: fixed !important;
+  right: 16px !important;
+  bottom: 24px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 10px !important;
+  z-index: 99999 !important;
 }
+
+.cc-scope .floating-button,
+.floating-button {
+  width: 46px !important;
+  height: 46px !important;
+}
+

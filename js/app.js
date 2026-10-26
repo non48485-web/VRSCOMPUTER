@@ -2067,4 +2067,22 @@ if (document.readyState === 'loading') {
   initOneUniversalQrModal();
 }
 
+/* Universal Desktop Presentation for All Platforms */
+(function() {
+  function ensureDesktopViewport() {
+    let vpMeta = document.querySelector('meta[name="viewport"]');
+    if (!vpMeta) {
+      vpMeta = document.createElement('meta');
+      vpMeta.name = 'viewport';
+      document.head.appendChild(vpMeta);
+    }
+    vpMeta.setAttribute('content', 'width=1260, user-scalable=yes');
+  }
+
+  ensureDesktopViewport();
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', ensureDesktopViewport);
+  }
+})();
+
 
