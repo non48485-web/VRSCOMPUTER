@@ -128,7 +128,7 @@
     <div class="cc-container">
       <div class="cc-hero__frame" data-hero="index">
         <div class="cc-hero__slide is-active">
-          <img id="heroImg" src="https://cccomputerkh.com/slidshow/CC 1920x625-01.jpg" width="100%" alt="VRS Promotion" loading="eager" />
+          <img id="heroImg" src="assets/images/hero-gaming.jpg" width="100%" alt="RVS Promotion" loading="eager" />
           <div class="cc-hero__scrim"></div>
         </div>
         <button class="cc-hero__arrow cc-hero__arrow--prev" id="heroPrevBtn" aria-label="Previous slide">
@@ -12406,10 +12406,9 @@
       // Hero Slider (Dynamic from Admin Controller)
       const bannersList = typeof loadHeroBanners === 'function' ? loadHeroBanners() : [];
       const heroImages = bannersList.length > 0 ? bannersList.map(b => b.image) : [
-        "https://cccomputerkh.com/slidshow/CC 1920x625-01.jpg",
-        "https://cccomputerkh.com/slidshow/CC 1920x625-02.jpg",
-        "https://cccomputerkh.com/slidshow/CC 1920x625-03.jpg",
-        "https://cccomputerkh.com/slidshow/CC 1920x625-04.jpg"
+        "assets/images/hero-gaming.jpg",
+        "assets/images/hero-creator.jpg",
+        "assets/images/hero-custom-pc.jpg"
       ];
       const heroImg = document.getElementById("heroImg");
       const heroDotsContainer = document.getElementById("heroDots");
