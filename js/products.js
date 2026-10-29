@@ -65,10 +65,9 @@ let EXCHANGE_RATE_KHR = VRS_SETTINGS.exchangeRateKHR || 4100;
 
 // Official Default Hero Slideshow Banners
 const DEFAULT_HERO_BANNERS = [
-  { id: 'banner-1', image: 'https://cccomputerkh.com/slidshow/CC 1920x625-01.jpg', title: 'MSI Gaming Back to School Promotion', link: '#msi', order: 1 },
-  { id: 'banner-2', image: 'https://cccomputerkh.com/slidshow/CC 1920x625-02.jpg', title: 'ASUS ROG & Zenbook Intel Core Ultra Showcase', link: '#asus', order: 2 },
-  { id: 'banner-3', image: 'https://cccomputerkh.com/slidshow/CC 1920x625-03.jpg', title: 'Lenovo Legion 7 & LOQ Series', link: '#lenovo', order: 3 },
-  { id: 'banner-4', image: 'https://cccomputerkh.com/slidshow/CC 1920x625-04.jpg', title: 'HP Omen & Victus Gaming Laptops', link: '#hp', order: 4 }
+  { id: 'banner-1', image: 'assets/images/hero-gaming.jpg', title: 'RVS Next-Gen Gaming Laptops & Desktops', link: '#asus', order: 1 },
+  { id: 'banner-2', image: 'assets/images/hero-creator.jpg', title: 'High-Performance Workstations & Creator Series', link: '#apple', order: 2 },
+  { id: 'banner-3', image: 'assets/images/hero-custom-pc.jpg', title: 'Custom Liquid-Cooled Gaming PC Builds', link: '#builder', order: 3 }
 ];
 
 function loadHeroBanners() {

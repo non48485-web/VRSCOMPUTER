@@ -559,81 +559,118 @@
 /* --------------------------------------------------------------------------
    STICKY CATEGORY NAV (CC COMPUTER KH SIGNATURE DESIGN)
    -------------------------------------------------------------------------- */
-.category-nav-bar {
-  background: var(--bg-secondary);
-  border-bottom: 1px solid var(--border-subtle);
-  overflow-x: auto;
-  scrollbar-width: none;
-  position: sticky;
-  top: var(--header-height);
-  z-index: 95;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+.category-nav-bar,
+.cc-nav-bar {
+  background: var(--bg-secondary, #ffffff) !important;
+  border-bottom: 1px solid var(--border-subtle, #e2e8f0) !important;
+  overflow-x: auto !important;
+  scrollbar-width: none !important;
+  position: sticky !important;
+  top: var(--header-height, 68px) !important;
+  z-index: 95 !important;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05) !important;
+  width: 100% !important;
 }
 
-.category-nav-bar::-webkit-scrollbar {
-  display: none;
+.category-nav-bar::-webkit-scrollbar,
+.cc-nav-bar::-webkit-scrollbar {
+  display: none !important;
 }
 
-.category-nav-list {
-  display: flex;
-  align-items: stretch;
-  gap: 2px;
-  height: 52px;
-  padding: 0;
-  margin: 0;
-  list-style: none;
-  white-space: nowrap;
+.cc-nav-bar .cc-container {
+  max-width: 1540px !important;
+  width: 100% !important;
+  margin: 0 auto !important;
+  padding-inline: 12px !important;
+  display: flex !important;
+  justify-content: center !important;
 }
 
-.category-nav-item {
-  position: relative;
-  display: inline-flex;
-  align-items: center;
-  gap: 7px;
-  height: 52px;
-  padding: 0 16px;
-  font-size: 0.86rem;
-  font-weight: 700;
-  color: var(--text-secondary);
-  white-space: nowrap;
-  transition: color var(--transition-fast);
+.category-nav-list,
+.cc-nav {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 4px !important;
+  height: 50px !important;
+  padding: 0 !important;
+  margin: 0 auto !important;
+  list-style: none !important;
+  white-space: nowrap !important;
+  width: 100% !important;
+  max-width: 100% !important;
+}
+
+/* Universal Category Nav Rounded Pill Button Architecture - All 12 items fit on 1 row */
+.category-nav-item,
+.cc-nav__link,
+.cc-scope .cc-nav__link {
+  position: relative !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 6px 11px !important;
+  height: 34px !important;
+  border-radius: 9999px !important;
+  font-size: 11.5px !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.25px !important;
   text-transform: uppercase !important;
-  letter-spacing: 0.6px !important;
-  cursor: pointer;
-  text-decoration: none;
-  border: none;
-  background: transparent;
+  white-space: nowrap !important;
+  background: #f8fafc !important;
+  color: #334155 !important;
+  border: 1px solid #e2e8f0 !important;
+  text-decoration: none !important;
+  transition: all 200ms ease !important;
+  cursor: pointer !important;
+  flex-shrink: 0 !important;
 }
 
-.category-nav-item::after {
-  content: '';
-  position: absolute;
-  left: 12px;
-  right: 12px;
-  bottom: 0px;
-  height: 3px;
-  border-radius: 999px;
-  background: var(--cc-yellow-500, #FFD700);
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform var(--transition-fast);
+@media (min-width: 1440px) {
+  .category-nav-item,
+  .cc-nav__link,
+  .cc-scope .cc-nav__link {
+    padding: 6px 13px !important;
+    font-size: 12px !important;
+  }
+  .category-nav-list,
+  .cc-nav {
+    gap: 6px !important;
+  }
 }
 
-.category-nav-item:hover {
-  color: var(--text-primary);
+.category-nav-item::after,
+.cc-nav__link::after,
+.cc-scope .cc-nav__link::after {
+  display: none !important;
+  content: none !important;
 }
 
-.category-nav-item:hover::after {
-  transform: scaleX(1);
+.category-nav-item:hover,
+.cc-nav__link:hover,
+.cc-scope .cc-nav__link:hover {
+  background: #e2e8f0 !important;
+  color: #0f172a !important;
+  border-color: #cbd5e1 !important;
+  transform: translateY(-1px) !important;
 }
 
-.category-nav-item.is-active {
-  color: var(--accent-blue, #2563eb);
+.category-nav-item.is-active,
+.cc-nav__link.is-active,
+.cc-scope .cc-nav__link.is-active {
+  background: linear-gradient(135deg, #026b48 0%, #028C67 50%, #02CC53 100%) !important;
+  color: #ffffff !important;
+  border-color: #02CC53 !important;
+  box-shadow: 0 4px 14px rgba(2, 204, 83, 0.38) !important;
+  transform: none !important;
 }
 
-.category-nav-item.is-active::after {
-  transform: scaleX(1);
-  background: var(--cc-yellow-500, #FFD700);
+.category-nav-item.is-active:hover,
+.cc-nav__link.is-active:hover,
+.cc-scope .cc-nav__link.is-active:hover {
+  background: linear-gradient(135deg, #028C67 0%, #02CC53 50%, #66FCB8 100%) !important;
+  color: #032b17 !important;
+  border-color: #66FCB8 !important;
 }
 
 .category-nav-item .cat-icon {
@@ -3633,52 +3670,62 @@ html, body {
    CC COMPUTER KH SUBCATEGORY BAR (.txtlink & .myButton)
    -------------------------------------------------------------------------- */
 .subcat-pills-bar.txtlink {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  overflow-x: auto;
-  padding: 12px 18px;
-  background: #0b1a4a;
-  border-radius: 10px;
-  margin-bottom: 24px;
-  scrollbar-width: none;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 8px !important;
+  overflow-x: auto !important;
+  padding: 12px 20px !important;
+  background: linear-gradient(135deg, #072418 0%, #02593b 35%, #028C67 70%, #02CC53 92%, #66FCB8 100%) !important;
+  border: 1px solid rgba(102, 252, 184, 0.3) !important;
+  border-radius: 14px !important;
+  margin-top: 14px !important;
+  margin-bottom: 24px !important;
+  box-shadow: 0 6px 20px rgba(2, 204, 83, 0.2), 0 2px 6px rgba(0, 0, 0, 0.12) !important;
+  scrollbar-width: none !important;
 }
 
 .subcat-pills-bar.txtlink::-webkit-scrollbar {
-  display: none;
+  display: none !important;
 }
 
 .subcat-pills-bar.txtlink .myButton {
-  background: #192b6a;
-  border: none;
-  border-radius: 999px;
-  color: #ffffff;
-  font-size: 13px;
-  font-weight: 700;
-  padding: 7px 18px;
-  white-space: nowrap;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  text-decoration: none;
+  background: rgba(255, 255, 255, 0.14) !important;
+  border: 1px solid rgba(255, 255, 255, 0.28) !important;
+  border-radius: 999px !important;
+  color: #ffffff !important;
+  font-size: 13px !important;
+  font-weight: 700 !important;
+  padding: 7px 18px !important;
+  white-space: nowrap !important;
+  cursor: pointer !important;
+  backdrop-filter: blur(8px) !important;
+  -webkit-backdrop-filter: blur(8px) !important;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15) !important;
+  transition: all 0.2s ease !important;
+  text-decoration: none !important;
 }
 
 .subcat-pills-bar.txtlink .myButton:hover {
-  background: #2563eb;
-  color: #ffffff;
-  transform: translateY(-1px);
+  background: rgba(255, 255, 255, 0.28) !important;
+  border-color: #66FCB8 !important;
+  color: #ffffff !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 4px 14px rgba(102, 252, 184, 0.4) !important;
 }
 
 .subcat-pills-bar.txtlink .myButton.is-active {
-  background: #2563eb;
-  color: #ffffff;
-  font-weight: 800;
-  box-shadow: 0 2px 8px rgba(37, 99, 235, 0.5);
+  background: linear-gradient(135deg, #02CC53 0%, #66FCB8 100%) !important;
+  color: #032b17 !important;
+  border-color: #66FCB8 !important;
+  font-weight: 800 !important;
+  box-shadow: 0 4px 16px rgba(2, 204, 83, 0.45) !important;
 }
 
 /* Legacy fallback .myButton */
 .myButton {
-  background: #192b6a;
-  border: none;
+  background: rgba(255, 255, 255, 0.14);
+  border: 1px solid rgba(255, 255, 255, 0.28);
   border-radius: 999px;
   display: inline-block;
   cursor: pointer;
@@ -4180,15 +4227,18 @@ html, body {
 }
 
 .txtlink {
-  margin-top: 10px;
-  background: #0b1a4a;
-  padding: 12px 18px;
-  border-radius: 10px;
+  margin-top: 14px;
+  margin-bottom: 20px;
+  background: linear-gradient(135deg, #072418 0%, #02593b 35%, #028C67 70%, #02CC53 92%, #66FCB8 100%) !important;
+  border: 1px solid rgba(102, 252, 184, 0.3) !important;
+  padding: 12px 20px;
+  border-radius: 14px;
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
   justify-content: center;
-  box-shadow: 0 4px 12px rgba(11,26,74,0.15);
+  align-items: center;
+  box-shadow: 0 6px 20px rgba(2, 204, 83, 0.2), 0 2px 6px rgba(0, 0, 0, 0.12);
 }
 
 .myButton {
@@ -4338,10 +4388,12 @@ html, body {
 }
 
 .card-actions-quick {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 6px;
-  margin-top: 10px;
+  display: grid !important;
+  grid-template-columns: 1fr 1fr !important;
+  gap: 8px !important;
+  margin-top: auto !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
 }
 
 .btn-card-tg {
@@ -4364,23 +4416,26 @@ html, body {
 }
 
 .btn-card-buy {
-  background: #ff7a1a;
-  color: #fff;
+  background: linear-gradient(135deg, #059669 0%, #10b981 100%) !important;
+  color: #ffffff !important;
   font-size: 11.5px;
   font-weight: 700;
   padding: 7px 4px;
-  border-radius: 6px;
+  border-radius: 8px;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 4px;
   border: none;
   cursor: pointer;
-  transition: background 0.15s;
+  transition: all 0.2s ease;
+  box-shadow: 0 3px 10px rgba(16, 185, 129, 0.25);
 }
 
 .btn-card-buy:hover {
-  background: #ea580c;
+  background: linear-gradient(135deg, #047857 0%, #059669 100%) !important;
+  transform: translateY(-1px);
+  box-shadow: 0 5px 14px rgba(5, 150, 105, 0.38);
 }
 
 @media (max-width: 1100px) {
@@ -4922,23 +4977,45 @@ svg.cc-footer__social-svg {
   align-items: center !important;
   gap: 14px !important;
   margin-bottom: 14px !important;
+  text-decoration: none !important;
 }
 
-.cc-footer__brand .brand-emblem-svg {
-  width: 40px !important;
-  height: 40px !important;
-  flex-shrink: 0 !important;
-  filter: drop-shadow(0 4px 10px rgba(37, 99, 235, 0.35));
+.cc-footer__brand .cc-logo__img {
+  width: 68px !important;
+  height: 50px !important;
+  object-fit: contain !important;
+  filter: drop-shadow(0 4px 14px rgba(37, 99, 235, 0.4)) !important;
+  transition: transform 0.2s ease !important;
 }
 
-.cc-footer__name {
-  font-family: 'Outfit', 'Inter', sans-serif !important;
+.cc-footer__brand:hover .cc-logo__img {
+  transform: scale(1.05) !important;
+}
+
+.cc-footer__brand .cc-logo__name {
+  font-family: 'Outfit', 'Inter', -apple-system, sans-serif !important;
   font-size: 20px !important;
   font-weight: 800 !important;
   color: #ffffff !important;
-  letter-spacing: 0.6px !important;
+  letter-spacing: -0.02em !important;
+  line-height: 1.1 !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 5px !important;
+}
+
+.cc-footer__brand .cc-logo__name .accent {
+  color: #38bdf8 !important;
+}
+
+.cc-footer__brand .cc-logo__tag {
+  font-family: 'Inter', -apple-system, sans-serif !important;
+  font-size: 11px !important;
+  color: #94a3b8 !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.15px !important;
   line-height: 1.2 !important;
-  display: block !important;
+  white-space: nowrap !important;
 }
 
 .cc-footer__tagline {

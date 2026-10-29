@@ -75,6 +75,21 @@ function initPCBuilder() {
   }
 }
 
+// Slot fallback images
+function getSlotFallbackImage(slotKey) {
+  const map = {
+    cpu: "https://images.unsplash.com/photo-1555680202-c86f0e12f086?auto=format&fit=crop&w=400&q=80",
+    motherboard: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=400&q=80",
+    gpu: "https://images.unsplash.com/photo-1587202372775-e229f172b9d7?auto=format&fit=crop&w=400&q=80",
+    ram: "https://images.unsplash.com/photo-1562975079-6a693b79da60?auto=format&fit=crop&w=400&q=80",
+    storage: "https://images.unsplash.com/photo-1597872200969-2b65d56bd16b?auto=format&fit=crop&w=400&q=80",
+    cooler: "https://images.unsplash.com/photo-1587202372634-32705e3bf49c?auto=format&fit=crop&w=400&q=80",
+    psu: "https://images.unsplash.com/photo-1544652478-6653e09f18a2?auto=format&fit=crop&w=400&q=80",
+    case: "https://images.unsplash.com/photo-1587202372775-e229f172b9d7?auto=format&fit=crop&w=400&q=80"
+  };
+  return map[slotKey] || "https://images.unsplash.com/photo-1591799264318-7e6ef8ddb7ea?auto=format&fit=crop&w=400&q=80";
+}
+
 // Render the 8 hardware slots
 function renderBuilderSlots() {
   const container = document.getElementById('builderSlotsContainer');
@@ -86,6 +101,10 @@ function renderBuilderSlots() {
     const selectedItem = BuilderState[slot.key];
 
     if (selectedItem) {
+      const isCustomBadge = selectedItem.isCustom 
+        ? '<span class="builder-slot__status status-custom" style="background:#fef3c7; color:#92400e; border:1px solid #fde68a;">✨ Custom Spec</span>' 
+        : '<span class="builder-slot__status status-selected">✓ Selected</span>';
+
       return `
         <div class="builder-slot is-selected" data-slot="${slot.key}">
           <div class="builder-slot__thumb">
@@ -94,7 +113,7 @@ function renderBuilderSlots() {
           <div class="builder-slot__info">
             <div class="builder-slot__header">
               <span class="builder-slot__type">${slot.title}</span>
-              <span class="builder-slot__status status-selected">✓ Selected</span>
+              ${isCustomBadge}
             </div>
             <h4 class="builder-slot__name">${selectedItem.name}</h4>
             <p class="builder-slot__meta">${selectedItem.description || ''}</p>
@@ -102,8 +121,8 @@ function renderBuilderSlots() {
           <div class="builder-slot__actions">
             <div class="builder-slot__price">${formatPrice(selectedItem.price, currentCurrency)}</div>
             <div class="builder-slot__btn-group">
-              <button class="btn-slot-change" onclick="openPartPicker('${slot.key}')">Change</button>
-              <button class="btn-slot-remove" onclick="removeBuilderPart('${slot.key}')" title="Remove part">✕</button>
+              <button type="button" class="btn-slot-change" onclick="openPartPicker('${slot.key}')">Change</button>
+              <button type="button" class="btn-slot-remove" onclick="removeBuilderPart('${slot.key}')" title="Remove part">✕</button>
             </div>
           </div>
         </div>
@@ -120,10 +139,10 @@ function renderBuilderSlots() {
               ${slot.required ? '<span class="builder-slot__status status-required">Required</span>' : '<span class="builder-slot__status status-optional">Optional</span>'}
             </div>
             <h4 class="builder-slot__placeholder">No ${slot.title} selected yet</h4>
-            <p class="builder-slot__meta">Click select to choose from compatible components</p>
+            <p class="builder-slot__meta">Click select to choose from catalog or enter custom specs</p>
           </div>
           <div class="builder-slot__actions">
-            <button class="btn-slot-select" onclick="openPartPicker('${slot.key}')">
+            <button type="button" class="btn-slot-select" onclick="openPartPicker('${slot.key}')">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
               Select ${slot.title.split(' ')[0]}
             </button>
@@ -139,6 +158,104 @@ let pickerSearchQuery = '';
 let pickerSelectedBrand = 'all';
 let pickerSortOrder = 'featured';
 
+// Switch between catalog view and custom part form
+function switchPickerTab(tab) {
+  const catView = document.getElementById('pickerCatalogView');
+  const customView = document.getElementById('pickerCustomView');
+  const catBtn = document.getElementById('tabCatalogBtn');
+  const customBtn = document.getElementById('tabCustomBtn');
+
+  if (tab === 'custom') {
+    if (catView) catView.style.display = 'none';
+    if (customView) customView.style.display = 'block';
+    if (customBtn) {
+      customBtn.style.background = '#2563eb';
+      customBtn.style.color = '#ffffff';
+      customBtn.style.border = 'none';
+    }
+    if (catBtn) {
+      catBtn.style.background = '#ffffff';
+      catBtn.style.color = '#334155';
+      catBtn.style.border = '1px solid #cbd5e1';
+    }
+    setTimeout(() => {
+      document.getElementById('customPartName')?.focus();
+    }, 60);
+  } else {
+    if (catView) catView.style.display = 'block';
+    if (customView) customView.style.display = 'none';
+    if (catBtn) {
+      catBtn.style.background = '#2563eb';
+      catBtn.style.color = '#ffffff';
+      catBtn.style.border = 'none';
+    }
+    if (customBtn) {
+      customBtn.style.background = '#ffffff';
+      customBtn.style.color = '#334155';
+      customBtn.style.border = '1px solid #cbd5e1';
+    }
+  }
+}
+
+// Submit a custom component
+function submitCustomPart(event) {
+  if (event) event.preventDefault();
+  if (!activeModalSlot) return;
+
+  const nameInput = document.getElementById('customPartName');
+  const priceInput = document.getElementById('customPartPrice');
+  const brandInput = document.getElementById('customPartBrand');
+  const wattageInput = document.getElementById('customPartWattage');
+  const socketInput = document.getElementById('customPartSocket');
+  const descInput = document.getElementById('customPartDesc');
+
+  const name = nameInput ? nameInput.value.trim() : '';
+  const price = priceInput ? parseFloat(priceInput.value) : 0;
+  if (!name || isNaN(price)) {
+    if (window.showToast) window.showToast('Please enter a component name and valid price.', 'warning');
+    return;
+  }
+
+  const brand = brandInput && brandInput.value.trim() ? brandInput.value.trim() : 'Custom';
+  const wattage = wattageInput && wattageInput.value ? parseInt(wattageInput.value) : (activeModalSlot === 'cpu' ? 125 : activeModalSlot === 'gpu' ? 250 : 25);
+  const socket = socketInput ? socketInput.value.trim() : '';
+  const desc = descInput && descInput.value.trim() ? descInput.value.trim() : `Custom ${activeModalSlot.toUpperCase()} hardware specified by customer`;
+
+  const customPart = {
+    id: 'custom-' + activeModalSlot + '-' + Date.now(),
+    name: name,
+    brand: brand,
+    price: Math.max(0, price),
+    tdp: wattage,
+    wattage: wattage,
+    socket: socket,
+    ramType: socket,
+    description: desc,
+    image: getSlotFallbackImage(activeModalSlot),
+    isCustom: true
+  };
+
+  BuilderState[activeModalSlot] = customPart;
+
+  const modal = document.getElementById('partPickerModal');
+  if (modal) modal.classList.remove('is-open');
+
+  renderBuilderSlots();
+  updateBuilderCalculations();
+
+  if (window.showToast) {
+    window.showToast(`✓ Custom ${customPart.name.substring(0, 30)} added to build!`, 'success');
+  }
+
+  // Clear form
+  if (nameInput) nameInput.value = '';
+  if (priceInput) priceInput.value = '';
+  if (brandInput) brandInput.value = '';
+  if (wattageInput) wattageInput.value = '';
+  if (socketInput) socketInput.value = '';
+  if (descInput) descInput.value = '';
+}
+
 // Open modal with available parts for chosen slot
 function openPartPicker(slotKey) {
   activeModalSlot = slotKey;
@@ -153,8 +270,25 @@ function openPartPicker(slotKey) {
   if (!modal) return;
 
   const slotDef = SLOT_DEFINITIONS.find(s => s.key === slotKey);
-  if (modalTitle) modalTitle.textContent = `Select ${slotDef ? slotDef.title : slotKey.toUpperCase()}`;
-  if (modalSubtitle) modalSubtitle.textContent = `Choose from authorized Cambodian inventory with guaranteed socket and power verification`;
+  const slotName = slotDef ? slotDef.title : slotKey.toUpperCase();
+  if (modalTitle) modalTitle.textContent = `Select ${slotName}`;
+  if (modalSubtitle) modalSubtitle.textContent = `Choose from verified catalog or enter your custom ${slotName} below`;
+
+  // Update custom form placeholders based on slotKey
+  const customNameInput = document.getElementById('customPartName');
+  if (customNameInput) {
+    if (slotKey === 'cpu') customNameInput.placeholder = 'e.g. Intel Core Ultra 9 285K or AMD Ryzen 9 9950X';
+    else if (slotKey === 'gpu') customNameInput.placeholder = 'e.g. NVIDIA GeForce RTX 5080 16GB or RTX 4090';
+    else if (slotKey === 'motherboard') customNameInput.placeholder = 'e.g. ASUS ROG Crosshair X670E HERO';
+    else if (slotKey === 'ram') customNameInput.placeholder = 'e.g. Corsair Dominator Titanium 64GB DDR5 6000MHz';
+    else if (slotKey === 'storage') customNameInput.placeholder = 'e.g. Samsung 990 PRO 4TB PCIe 4.0 NVMe';
+    else if (slotKey === 'cooler') customNameInput.placeholder = 'e.g. NZXT Kraken Elite 360 RGB LCD';
+    else if (slotKey === 'psu') customNameInput.placeholder = 'e.g. Seasonic PRIME TX-1300 Titanium';
+    else if (slotKey === 'case') customNameInput.placeholder = 'e.g. Lian Li O11 Vision Chrome';
+  }
+
+  // Always default to catalog tab
+  switchPickerTab('catalog');
 
   // Reset filter state
   pickerSearchQuery = '';
@@ -171,7 +305,7 @@ function openPartPicker(slotKey) {
       clearSlotBtn.onclick = () => {
         removeBuilderPart(slotKey);
         modal.classList.remove('is-open');
-        if (window.showToast) window.showToast(`Cleared ${slotDef ? slotDef.title : slotKey}`, 'info');
+        if (window.showToast) window.showToast(`Cleared ${slotName}`, 'info');
       };
     } else {
       clearSlotBtn.style.display = 'none';
@@ -184,8 +318,8 @@ function openPartPicker(slotKey) {
 
   if (brandChipsContainer) {
     brandChipsContainer.innerHTML = `
-      <button class="picker-chip is-active" data-picker-brand="all">All (${allParts.length})</button>
-      ${uniqueBrands.map(b => `<button class="picker-chip" data-picker-brand="${b}">${b}</button>`).join('')}
+      <button type="button" class="picker-chip is-active" data-picker-brand="all">All (${allParts.length})</button>
+      ${uniqueBrands.map(b => `<button type="button" class="picker-chip" data-picker-brand="${b}">${b}</button>`).join('')}
     `;
 
     brandChipsContainer.querySelectorAll('[data-picker-brand]').forEach(chip => {
@@ -473,7 +607,7 @@ function clearBuilder() {
 function orderBuildViaTelegram() {
   const parts = Object.entries(BuilderState).filter(([_, part]) => part !== null);
   if (parts.length === 0) {
-    if (window.showToast) window.showToast('Please select at least one component to order!', 'warning');
+    if (window.showToast) window.showToast('Please select or custom-configure at least one component to order!', 'warning');
     return;
   }
 
@@ -483,15 +617,19 @@ function orderBuildViaTelegram() {
 
   parts.forEach(([slot, part]) => {
     totalUSD += part.price;
-    text += `🔹 *${slot.toUpperCase()}*: ${part.name} - $${part.price}\n`;
+    const customTag = part.isCustom ? ' (✨ Custom Spec)' : '';
+    text += `🔹 *${slot.toUpperCase()}${customTag}*: ${part.name} - $${part.price.toLocaleString()}\n`;
+    if (part.isCustom && part.description) {
+      text += `   📝 Note: ${part.description}\n`;
+    }
   });
 
   const totalKHR = totalUSD * EXCHANGE_RATE_KHR;
   text += `===================================\n`;
-  text += `💰 *TOTAL PRICE*: $${totalUSD.toLocaleString()} USD (≈ ${totalKHR.toLocaleString()} ៛)\n`;
-  text += `🎁 *Includes*: Pro Cable Management, Thermal Paste, Windows 11 Pro Tuning, 3 Years VIP Warranty\n`;
+  text += `💰 *TOTAL ESTIMATE*: $${totalUSD.toLocaleString()} USD (≈ ${totalKHR.toLocaleString()} ៛)\n`;
+  text += `🎁 *Includes*: Professional Cable Management, Thermal Paste, Windows 11 Pro Tuning, 3 Years VIP Warranty\n`;
   text += `📍 *Store*: VRS Computer Phnom Penh (Hotline: +855 98 871 314)\n`;
-  text += `Please confirm availability and assembly schedule!`;
+  text += `Please confirm part availability and assembly quote!`;
 
   const encoded = encodeURIComponent(text);
   window.open(`https://t.me/Sounvisal?text=${encoded}`, '_blank');
@@ -511,12 +649,14 @@ function printBuilderQuotation() {
 
   const rows = parts.map(([slot, part], idx) => {
     totalUSD += part.price;
+    const customBadge = part.isCustom ? ' <span style="background:#fef3c7; color:#92400e; padding:2px 6px; border-radius:4px; font-size:10px; font-weight:bold;">CUSTOM</span>' : '';
     return `
       <tr>
         <td style="padding:10px; border-bottom:1px solid #ddd; text-align:center;">${idx + 1}</td>
         <td style="padding:10px; border-bottom:1px solid #ddd;">
-          <strong style="text-transform:uppercase; font-size:12px; color:#555;">[${slot}]</strong><br>
+          <strong style="text-transform:uppercase; font-size:12px; color:#555;">[${slot}]</strong>${customBadge}<br>
           ${part.name}
+          ${part.isCustom && part.description ? `<br><small style="color:#64748b; font-style:italic;">Note: ${part.description}</small>` : ''}
         </td>
         <td style="padding:10px; border-bottom:1px solid #ddd; text-align:center;">1</td>
         <td style="padding:10px; border-bottom:1px solid #ddd; text-align:right;">$${part.price.toLocaleString()}</td>
@@ -664,3 +804,18 @@ function getSlotIconSvg(icon) {
       return `<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>`;
   }
 }
+
+// Global window exposure
+window.initPCBuilder = initPCBuilder;
+window.renderBuilderSlots = renderBuilderSlots;
+window.openPartPicker = openPartPicker;
+window.selectBuilderPart = selectBuilderPart;
+window.removeBuilderPart = removeBuilderPart;
+window.switchPickerTab = switchPickerTab;
+window.submitCustomPart = submitCustomPart;
+window.loadBuilderPreset = loadBuilderPreset;
+window.clearBuilder = clearBuilder;
+window.orderBuildViaTelegram = orderBuildViaTelegram;
+window.printBuilderQuotation = printBuilderQuotation;
+window.addBuildToCart = addBuildToCart;
+window.BuilderState = BuilderState;

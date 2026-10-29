@@ -2085,4 +2085,109 @@ if (document.readyState === 'loading') {
   }
 })();
 
+/* ==========================================================================
+   UNIVERSAL PRODUCT CARD ACTIONS & ORDER TRIGGERS
+   Guarantees Telegram and Buy Now actions across all product cards and pages
+   ========================================================================== */
+(function() {
+  function getCardProductDetails(element) {
+    const card = element.closest('.leftbox, .centerbox1, .centerbox2, .rightbox') || element.closest('[class*="box"]');
+    if (!card) return { title: 'VRS Computer Product', price: '', code: '' };
+
+    const titleEl = card.querySelector('.title2, .title, .pro-title, h3, h4');
+    const title = titleEl ? titleEl.innerText.trim() : 'VRS Computer Product';
+
+    // Extract price cleanly
+    const spEl = card.querySelector('.sp, .price');
+    let price = '';
+    if (spEl) {
+      const clone = spEl.cloneNode(true);
+      const oldPriceEl = clone.querySelector('.price2, del, s');
+      let oldPrice = '';
+      if (oldPriceEl) {
+        oldPrice = oldPriceEl.innerText.trim();
+        oldPriceEl.remove();
+      }
+      const currentPrice = clone.innerText.trim();
+      if (oldPrice && currentPrice) {
+        price = `${currentPrice} (Discounted from ${oldPrice})`;
+      } else {
+        price = currentPrice || oldPrice;
+      }
+    }
+
+    // Extract product code if present
+    let code = '';
+    const txtEl = card.querySelector('.txt');
+    if (txtEl) {
+      const codeMatch = txtEl.innerText.match(/Code\s*:\s*([^\n\r<]+)/i);
+      if (codeMatch) code = codeMatch[1].trim();
+    }
+
+    return { title, price, code };
+  }
+
+  function triggerTgOrderFromCard(link, e) {
+    if (e && e.stopPropagation) e.stopPropagation();
+    const { title, price, code } = getCardProductDetails(link);
+    let msg = '👋 Hello VRS COMPUTER,\nI would like to order this item:\n\n' + '📌 ' + title;
+    if (code) msg += '\n🔖 Model Code: ' + code;
+    if (price) msg += '\n💰 Price: ' + price;
+    msg += '\n\nPlease confirm availability and delivery in Cambodia. Thank you!';
+
+    const text = encodeURIComponent(msg);
+    const targetUrl = 'https://t.me/Sounvisal?text=' + text;
+    if (link && link.tagName === 'A') {
+      link.href = targetUrl;
+    } else {
+      window.open(targetUrl, '_blank');
+    }
+  }
+
+  function triggerDirectOrderModal(btn, e) {
+    if (e && e.stopPropagation) e.stopPropagation();
+    const { title, price, code } = getCardProductDetails(btn);
+    let msg = '⚡ Instant Order / Fast Buy via Telegram:\n\n' + '📌 ' + title;
+    if (code) msg += '\n🔖 Model Code: ' + code;
+    if (price) msg += '\n💰 Price: ' + price;
+    msg += '\n\nPlease send ABA / Bakong KHQR payment details for fast checkout!';
+
+    const text = encodeURIComponent(msg);
+    window.open('https://t.me/Sounvisal?text=' + text, '_blank');
+  }
+
+  function ensureCardQuickActions() {
+    const cards = document.querySelectorAll('.leftbox, .centerbox1, .centerbox2, .rightbox');
+    cards.forEach(card => {
+      if (card.querySelector('.card-actions-quick')) return;
+
+      const actionsDiv = document.createElement('div');
+      actionsDiv.className = 'card-actions-quick';
+      actionsDiv.setAttribute('onclick', 'event.stopPropagation();');
+      actionsDiv.innerHTML = `
+        <a href="https://t.me/Sounvisal" target="_blank" class="btn-card-tg" onclick="triggerTgOrderFromCard(this, event)">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 4.5 2.8 11.9c-1.2.5-1.2 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.2-2.1 4.6 3.4c.8.5 1.4.2 1.6-.8l3-14c.3-1.2-.4-1.7-1.9-1.8z"/></svg>
+          Telegram
+        </a>
+        <button type="button" class="btn-card-buy" onclick="triggerDirectOrderModal(this, event)">
+          ⚡ Buy Now
+        </button>
+      `;
+      card.appendChild(actionsDiv);
+    });
+  }
+
+  // Expose to window globally
+  window.triggerTgOrderFromCard = triggerTgOrderFromCard;
+  window.triggerDirectOrderModal = triggerDirectOrderModal;
+  window.ensureCardQuickActions = ensureCardQuickActions;
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', ensureCardQuickActions);
+  } else {
+    ensureCardQuickActions();
+  }
+  window.addEventListener('load', ensureCardQuickActions);
+})();
+
 

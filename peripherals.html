@@ -13,10 +13,10 @@
   <link rel="apple-touch-icon" sizes="180x180" href="assets/icons/apple-touch-icon.png">
   
   <!-- Official CC Computer KH Theme & Layout Styles -->
-  <link rel="stylesheet" type="text/css" href="css/theme.css?v=4.2">
-  <link rel="stylesheet" type="text/css" href="css/cc-theme.css?v=4.2">
-  <link rel="stylesheet" type="text/css" href="css/style.css?v=4.2">
-  <link rel="stylesheet" type="text/css" href="css/builder.css?v=4.2">
+  <link rel="stylesheet" type="text/css" href="css/theme.css?v=5.5">
+  <link rel="stylesheet" type="text/css" href="css/cc-theme.css?v=5.5">
+  <link rel="stylesheet" type="text/css" href="css/style.css?v=5.5">
+  <link rel="stylesheet" type="text/css" href="css/builder.css?v=5.5">
 </head>
 
 <body class="cc-scope">
@@ -27,7 +27,7 @@
     <div class="cc-container cc-header__row">
       <!-- VRS COMPUTER Logo -->
       <a href="index.html" class="cc-logo" aria-label="RVS Computer home">
-        <img src="assets/images/rvs-emblem.png" alt="RVS Computer Logo" class="cc-logo__img" width="68" height="50">
+        <img src="assets/images/rvs-emblem.png" alt="RVS Computer Logo" class="cc-logo__img" width="92" height="68">
         <span class="cc-logo__text">
           <span class="cc-logo__name">RVS <span class="accent">COMPUTER</span></span>
           <span class="cc-logo__tag">Laptop &amp; PC Store • Phnom Penh &amp; Chbar Mon</span>
@@ -45,7 +45,7 @@
 
       <!-- Action Buttons -->
       <div class="cc-actions">
-        <a class="cc-icon-btn cc-icon-btn--fb" href="https://www.facebook.com" target="_blank" rel="noopener" aria-label="Facebook">
+        <a class="cc-icon-btn cc-icon-btn--fb" href="https://www.facebook.com/share/1EN8bpAQmG/?mibextid=wwXIfr" target="_blank" rel="noopener" aria-label="Facebook">
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M13.5 21v-8h2.7l.4-3.1h-3.1V8c0-.9.25-1.5 1.55-1.5H16.7V3.7c-.28-.04-1.25-.12-2.37-.12-2.34 0-3.94 1.43-3.94 4.05v2.26H8v3.1h2.4V21h3.1z"/></svg>
         </a>
         <a class="cc-icon-btn cc-icon-btn--tg" href="https://t.me/Sounvisal" target="_blank" rel="noopener" aria-label="Telegram">
@@ -138,7 +138,7 @@
 
   <!-- FLOATING CONTACT BUTTONS -->
   <div class="floating-buttons">
-    <a href="https://www.facebook.com" class="floating-button facebook" target="_blank" rel="noopener" aria-label="Facebook"></a>
+    <a href="https://www.facebook.com/share/1EN8bpAQmG/?mibextid=wwXIfr" class="floating-button facebook" target="_blank" rel="noopener" aria-label="Facebook"></a>
     <a href="https://t.me/Sounvisal" class="floating-button telegram" target="_blank" rel="noopener" aria-label="Telegram"></a>
     <a href="https://api.whatsapp.com/send/?phone=85598871314" class="floating-button whatapp" target="_blank" rel="noopener" aria-label="WhatsApp"></a>
     <a href="https://t.me/Sounvisal" class="floating-button floating-button--wechat" aria-label="WeChat" target="_blank" rel="noopener"></a>
@@ -179,6 +179,15 @@
 	- Tilt Angle: +90° ~ -90°   <br>
     ---------------------------- <br>
     - Code : SA01</p>
+      <div class="card-actions-quick" onclick="event.stopPropagation();">
+        <a href="https://t.me/Sounvisal" target="_blank" class="btn-card-tg" onclick="triggerTgOrderFromCard(this, event)">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 4.5 2.8 11.9c-1.2.5-1.2 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.2-2.1 4.6 3.4c.8.5 1.4.2 1.6-.8l3-14c.3-1.2-.4-1.7-1.9-1.8z"/></svg>
+          Telegram
+        </a>
+        <button class="btn-card-buy" onclick="triggerDirectOrderModal(this, event)">
+          ⚡ Buy Now
+        </button>
+      </div>
 </div> 
 <!-- end .leftbox -->
                   
@@ -193,6 +202,15 @@
 	- Tilt Angle: +55° ~ -55°   <br>
     ---------------------------- <br>
     - Code : T6PRO</p>
+      <div class="card-actions-quick" onclick="event.stopPropagation();">
+        <a href="https://t.me/Sounvisal" target="_blank" class="btn-card-tg" onclick="triggerTgOrderFromCard(this, event)">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 4.5 2.8 11.9c-1.2.5-1.2 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.2-2.1 4.6 3.4c.8.5 1.4.2 1.6-.8l3-14c.3-1.2-.4-1.7-1.9-1.8z"/></svg>
+          Telegram
+        </a>
+        <button class="btn-card-buy" onclick="triggerDirectOrderModal(this, event)">
+          ⚡ Buy Now
+        </button>
+      </div>
 </div> 
 <!-- end .leftbox -->
 	
@@ -207,7 +225,17 @@
 	- Tilt Angle: +55° ~ -55°   <br>
     ---------------------------- <br>
     - Code : T6PRO</p>
-	</div> 
+	
+      <div class="card-actions-quick" onclick="event.stopPropagation();">
+        <a href="https://t.me/Sounvisal" target="_blank" class="btn-card-tg" onclick="triggerTgOrderFromCard(this, event)">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 4.5 2.8 11.9c-1.2.5-1.2 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.2-2.1 4.6 3.4c.8.5 1.4.2 1.6-.8l3-14c.3-1.2-.4-1.7-1.9-1.8z"/></svg>
+          Telegram
+        </a>
+        <button class="btn-card-buy" onclick="triggerDirectOrderModal(this, event)">
+          ⚡ Buy Now
+        </button>
+      </div>
+</div> 
 <!-- end .leftbox -->
 	
 	<div class="rightbox">
@@ -221,6 +249,15 @@
 	- Tilt Angle: +60° ~ -60°   <br>
     ---------------------------- <br>
     - Code : PA01</p>
+      <div class="card-actions-quick" onclick="event.stopPropagation();">
+        <a href="https://t.me/Sounvisal" target="_blank" class="btn-card-tg" onclick="triggerTgOrderFromCard(this, event)">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 4.5 2.8 11.9c-1.2.5-1.2 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.2-2.1 4.6 3.4c.8.5 1.4.2 1.6-.8l3-14c.3-1.2-.4-1.7-1.9-1.8z"/></svg>
+          Telegram
+        </a>
+        <button class="btn-card-buy" onclick="triggerDirectOrderModal(this, event)">
+          ⚡ Buy Now
+        </button>
+      </div>
 </div> 
 <!-- end .leftbox -->
 <!-- # End # -->
@@ -237,6 +274,15 @@
 	- Tilt Angle: +55° ~ -55°   <br>
     ---------------------------- <br>
     - Code : T6PROD1</p>
+      <div class="card-actions-quick" onclick="event.stopPropagation();">
+        <a href="https://t.me/Sounvisal" target="_blank" class="btn-card-tg" onclick="triggerTgOrderFromCard(this, event)">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 4.5 2.8 11.9c-1.2.5-1.2 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.2-2.1 4.6 3.4c.8.5 1.4.2 1.6-.8l3-14c.3-1.2-.4-1.7-1.9-1.8z"/></svg>
+          Telegram
+        </a>
+        <button class="btn-card-buy" onclick="triggerDirectOrderModal(this, event)">
+          ⚡ Buy Now
+        </button>
+      </div>
 </div> 
 <!-- end .leftbox -->
                   
@@ -251,6 +297,15 @@
 	- Tilt Angle: +55° ~ -55°   <br>
     ---------------------------- <br>
     - Code : T6PROD2</p>
+      <div class="card-actions-quick" onclick="event.stopPropagation();">
+        <a href="https://t.me/Sounvisal" target="_blank" class="btn-card-tg" onclick="triggerTgOrderFromCard(this, event)">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 4.5 2.8 11.9c-1.2.5-1.2 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.2-2.1 4.6 3.4c.8.5 1.4.2 1.6-.8l3-14c.3-1.2-.4-1.7-1.9-1.8z"/></svg>
+          Telegram
+        </a>
+        <button class="btn-card-buy" onclick="triggerDirectOrderModal(this, event)">
+          ⚡ Buy Now
+        </button>
+      </div>
 </div> 
 <!-- end .leftbox -->
 	
@@ -265,7 +320,17 @@
 	- Tilt Angle: +70° ~ -45°   <br>
     ---------------------------- <br>
     - Code : T9PROIII</p>
-	</div> 
+	
+      <div class="card-actions-quick" onclick="event.stopPropagation();">
+        <a href="https://t.me/Sounvisal" target="_blank" class="btn-card-tg" onclick="triggerTgOrderFromCard(this, event)">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 4.5 2.8 11.9c-1.2.5-1.2 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.2-2.1 4.6 3.4c.8.5 1.4.2 1.6-.8l3-14c.3-1.2-.4-1.7-1.9-1.8z"/></svg>
+          Telegram
+        </a>
+        <button class="btn-card-buy" onclick="triggerDirectOrderModal(this, event)">
+          ⚡ Buy Now
+        </button>
+      </div>
+</div> 
 <!-- end .leftbox -->
 	
 	<div class="rightbox">
@@ -279,6 +344,15 @@
 	- Tilt Angle: +70° ~ -45°   <br>
     ---------------------------- <br>
     - Code : T9PROIII</p>
+      <div class="card-actions-quick" onclick="event.stopPropagation();">
+        <a href="https://t.me/Sounvisal" target="_blank" class="btn-card-tg" onclick="triggerTgOrderFromCard(this, event)">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 4.5 2.8 11.9c-1.2.5-1.2 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.2-2.1 4.6 3.4c.8.5 1.4.2 1.6-.8l3-14c.3-1.2-.4-1.7-1.9-1.8z"/></svg>
+          Telegram
+        </a>
+        <button class="btn-card-buy" onclick="triggerDirectOrderModal(this, event)">
+          ⚡ Buy Now
+        </button>
+      </div>
 </div> 
 <!-- end .leftbox -->
 <!-- # End # -->
@@ -295,6 +369,15 @@
 	- Tilt Angle: +40° ~ -50°   <br>
     ---------------------------- <br>
     - Code : T9PROD1</p>
+      <div class="card-actions-quick" onclick="event.stopPropagation();">
+        <a href="https://t.me/Sounvisal" target="_blank" class="btn-card-tg" onclick="triggerTgOrderFromCard(this, event)">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 4.5 2.8 11.9c-1.2.5-1.2 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.2-2.1 4.6 3.4c.8.5 1.4.2 1.6-.8l3-14c.3-1.2-.4-1.7-1.9-1.8z"/></svg>
+          Telegram
+        </a>
+        <button class="btn-card-buy" onclick="triggerDirectOrderModal(this, event)">
+          ⚡ Buy Now
+        </button>
+      </div>
 </div> 
 <!-- end .leftbox -->
                   
@@ -309,6 +392,15 @@
 	- Tilt Angle: +40° ~ -50°   <br>
     ---------------------------- <br>
     - Code : T9PROD2</p>
+      <div class="card-actions-quick" onclick="event.stopPropagation();">
+        <a href="https://t.me/Sounvisal" target="_blank" class="btn-card-tg" onclick="triggerTgOrderFromCard(this, event)">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 4.5 2.8 11.9c-1.2.5-1.2 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.2-2.1 4.6 3.4c.8.5 1.4.2 1.6-.8l3-14c.3-1.2-.4-1.7-1.9-1.8z"/></svg>
+          Telegram
+        </a>
+        <button class="btn-card-buy" onclick="triggerDirectOrderModal(this, event)">
+          ⚡ Buy Now
+        </button>
+      </div>
 </div> 
 <!-- end .leftbox -->
 	
@@ -323,7 +415,17 @@
 	- Tilt Angle: +90° ~ -90°   <br>
     ---------------------------- <br>
     - Code : P1D1</p>
-	</div> 
+	
+      <div class="card-actions-quick" onclick="event.stopPropagation();">
+        <a href="https://t.me/Sounvisal" target="_blank" class="btn-card-tg" onclick="triggerTgOrderFromCard(this, event)">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 4.5 2.8 11.9c-1.2.5-1.2 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.2-2.1 4.6 3.4c.8.5 1.4.2 1.6-.8l3-14c.3-1.2-.4-1.7-1.9-1.8z"/></svg>
+          Telegram
+        </a>
+        <button class="btn-card-buy" onclick="triggerDirectOrderModal(this, event)">
+          ⚡ Buy Now
+        </button>
+      </div>
+</div> 
 <!-- end .leftbox -->
 	
 	<div class="rightbox">
@@ -337,6 +439,15 @@
 	- Tilt Angle: +90° ~ -90°   <br>
     ---------------------------- <br>
     - Code : P1D2</p>
+      <div class="card-actions-quick" onclick="event.stopPropagation();">
+        <a href="https://t.me/Sounvisal" target="_blank" class="btn-card-tg" onclick="triggerTgOrderFromCard(this, event)">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 4.5 2.8 11.9c-1.2.5-1.2 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.2-2.1 4.6 3.4c.8.5 1.4.2 1.6-.8l3-14c.3-1.2-.4-1.7-1.9-1.8z"/></svg>
+          Telegram
+        </a>
+        <button class="btn-card-buy" onclick="triggerDirectOrderModal(this, event)">
+          ⚡ Buy Now
+        </button>
+      </div>
 </div> 
 <!-- end .leftbox -->
 <!-- # End # -->
@@ -365,6 +476,15 @@
 	- Load capacity : 80kg   <br>
     ---------------------------- <br>
     - Code : DK01B1</p>
+      <div class="card-actions-quick" onclick="event.stopPropagation();">
+        <a href="https://t.me/Sounvisal" target="_blank" class="btn-card-tg" onclick="triggerTgOrderFromCard(this, event)">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 4.5 2.8 11.9c-1.2.5-1.2 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.2-2.1 4.6 3.4c.8.5 1.4.2 1.6-.8l3-14c.3-1.2-.4-1.7-1.9-1.8z"/></svg>
+          Telegram
+        </a>
+        <button class="btn-card-buy" onclick="triggerDirectOrderModal(this, event)">
+          ⚡ Buy Now
+        </button>
+      </div>
 </div> 
 <!-- end .leftbox -->
                   
@@ -378,7 +498,17 @@
     - Frame Length : 103.5 cm ~ 135.5 cm  <br>
 	- Load capacity : 80kg   <br>
     ---------------------------- <br>
-    - Code : DK01B2</p></div> 
+    - Code : DK01B2</p>
+      <div class="card-actions-quick" onclick="event.stopPropagation();">
+        <a href="https://t.me/Sounvisal" target="_blank" class="btn-card-tg" onclick="triggerTgOrderFromCard(this, event)">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 4.5 2.8 11.9c-1.2.5-1.2 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.2-2.1 4.6 3.4c.8.5 1.4.2 1.6-.8l3-14c.3-1.2-.4-1.7-1.9-1.8z"/></svg>
+          Telegram
+        </a>
+        <button class="btn-card-buy" onclick="triggerDirectOrderModal(this, event)">
+          ⚡ Buy Now
+        </button>
+      </div>
+</div> 
 <!-- end .leftbox -->
 	
 	<div class="centerbox2">
@@ -392,7 +522,17 @@
 	- Load capacity : 180kg, Dual motors   <br>
     ---------------------------- <br>
     - Code : DK01B3</p>
-	</div> 
+	
+      <div class="card-actions-quick" onclick="event.stopPropagation();">
+        <a href="https://t.me/Sounvisal" target="_blank" class="btn-card-tg" onclick="triggerTgOrderFromCard(this, event)">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 4.5 2.8 11.9c-1.2.5-1.2 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.2-2.1 4.6 3.4c.8.5 1.4.2 1.6-.8l3-14c.3-1.2-.4-1.7-1.9-1.8z"/></svg>
+          Telegram
+        </a>
+        <button class="btn-card-buy" onclick="triggerDirectOrderModal(this, event)">
+          ⚡ Buy Now
+        </button>
+      </div>
+</div> 
 <!-- end .leftbox -->
 	
 	<div class="rightbox">
@@ -405,7 +545,17 @@
     - Width adjustment : 110 - 165 cm  <br>
 	- Load capacity : 180kg, Dual motors   <br>
     ---------------------------- <br>
-    - Code : DK01B4</p></div> 
+    - Code : DK01B4</p>
+      <div class="card-actions-quick" onclick="event.stopPropagation();">
+        <a href="https://t.me/Sounvisal" target="_blank" class="btn-card-tg" onclick="triggerTgOrderFromCard(this, event)">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 4.5 2.8 11.9c-1.2.5-1.2 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.2-2.1 4.6 3.4c.8.5 1.4.2 1.6-.8l3-14c.3-1.2-.4-1.7-1.9-1.8z"/></svg>
+          Telegram
+        </a>
+        <button class="btn-card-buy" onclick="triggerDirectOrderModal(this, event)">
+          ⚡ Buy Now
+        </button>
+      </div>
+</div> 
 <!-- end .leftbox -->
 <!-- # End # -->
 
@@ -420,6 +570,15 @@
 - Load capacity : 45kg  <br>
 ---------------------------- <br>
 - Code : DS01A1</p>
+      <div class="card-actions-quick" onclick="event.stopPropagation();">
+        <a href="https://t.me/Sounvisal" target="_blank" class="btn-card-tg" onclick="triggerTgOrderFromCard(this, event)">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 4.5 2.8 11.9c-1.2.5-1.2 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.2-2.1 4.6 3.4c.8.5 1.4.2 1.6-.8l3-14c.3-1.2-.4-1.7-1.9-1.8z"/></svg>
+          Telegram
+        </a>
+        <button class="btn-card-buy" onclick="triggerDirectOrderModal(this, event)">
+          ⚡ Buy Now
+        </button>
+      </div>
 </div> 
 <!-- end .leftbox -->
                   
@@ -432,7 +591,17 @@
 - Size : 23.5 x 107 x 11.1 Cm <br>
 - Load capacity : 45kg  <br>
 ---------------------------- <br>
-- Code : DS01A2</p></div> 
+- Code : DS01A2</p>
+      <div class="card-actions-quick" onclick="event.stopPropagation();">
+        <a href="https://t.me/Sounvisal" target="_blank" class="btn-card-tg" onclick="triggerTgOrderFromCard(this, event)">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 4.5 2.8 11.9c-1.2.5-1.2 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.2-2.1 4.6 3.4c.8.5 1.4.2 1.6-.8l3-14c.3-1.2-.4-1.7-1.9-1.8z"/></svg>
+          Telegram
+        </a>
+        <button class="btn-card-buy" onclick="triggerDirectOrderModal(this, event)">
+          ⚡ Buy Now
+        </button>
+      </div>
+</div> 
 <!-- end .leftbox -->
 	
 	<div class="centerbox2">
@@ -444,7 +613,17 @@
 - Size : 140 x 60 x 2.5 cm  <br>
 - Industrial wood material   <br>
 ---------------------------- <br>
-- Code : TT02A1</p></div>
+- Code : TT02A1</p>
+      <div class="card-actions-quick" onclick="event.stopPropagation();">
+        <a href="https://t.me/Sounvisal" target="_blank" class="btn-card-tg" onclick="triggerTgOrderFromCard(this, event)">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 4.5 2.8 11.9c-1.2.5-1.2 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.2-2.1 4.6 3.4c.8.5 1.4.2 1.6-.8l3-14c.3-1.2-.4-1.7-1.9-1.8z"/></svg>
+          Telegram
+        </a>
+        <button class="btn-card-buy" onclick="triggerDirectOrderModal(this, event)">
+          ⚡ Buy Now
+        </button>
+      </div>
+</div>
 <!-- end .leftbox -->
 	
 	<div class="rightbox">
@@ -456,7 +635,17 @@
 - Size : 140 x 60 x 2.5 cm  <br>
 - Industrial wood material   <br>
 ---------------------------- <br>
-- Code : TT02A2</p></div>
+- Code : TT02A2</p>
+      <div class="card-actions-quick" onclick="event.stopPropagation();">
+        <a href="https://t.me/Sounvisal" target="_blank" class="btn-card-tg" onclick="triggerTgOrderFromCard(this, event)">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 4.5 2.8 11.9c-1.2.5-1.2 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.2-2.1 4.6 3.4c.8.5 1.4.2 1.6-.8l3-14c.3-1.2-.4-1.7-1.9-1.8z"/></svg>
+          Telegram
+        </a>
+        <button class="btn-card-buy" onclick="triggerDirectOrderModal(this, event)">
+          ⚡ Buy Now
+        </button>
+      </div>
+</div>
 <!-- end .leftbox -->
 <!-- # End # -->
 
@@ -470,7 +659,17 @@
 - Surface : Multispandex Jersey <br>
 ---------------------------- <br>
 - Code : COREPADA1
-    </p></div> 
+    </p>
+      <div class="card-actions-quick" onclick="event.stopPropagation();">
+        <a href="https://t.me/Sounvisal" target="_blank" class="btn-card-tg" onclick="triggerTgOrderFromCard(this, event)">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 4.5 2.8 11.9c-1.2.5-1.2 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.2-2.1 4.6 3.4c.8.5 1.4.2 1.6-.8l3-14c.3-1.2-.4-1.7-1.9-1.8z"/></svg>
+          Telegram
+        </a>
+        <button class="btn-card-buy" onclick="triggerDirectOrderModal(this, event)">
+          ⚡ Buy Now
+        </button>
+      </div>
+</div> 
 <!-- end .leftbox -->
                   
 	<div class="centerbox1">
@@ -481,7 +680,17 @@
 - Size : 35 x 35 cm (size L)   <br>
 - Surface : Multispandex Jersey <br>
 ---------------------------- <br>
-- Code : COREPADA2</p></div> 
+- Code : COREPADA2</p>
+      <div class="card-actions-quick" onclick="event.stopPropagation();">
+        <a href="https://t.me/Sounvisal" target="_blank" class="btn-card-tg" onclick="triggerTgOrderFromCard(this, event)">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 4.5 2.8 11.9c-1.2.5-1.2 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.2-2.1 4.6 3.4c.8.5 1.4.2 1.6-.8l3-14c.3-1.2-.4-1.7-1.9-1.8z"/></svg>
+          Telegram
+        </a>
+        <button class="btn-card-buy" onclick="triggerDirectOrderModal(this, event)">
+          ⚡ Buy Now
+        </button>
+      </div>
+</div> 
 <!-- end .leftbox -->
 	
 	<div class="centerbox2">
@@ -492,7 +701,17 @@
 - Size : 90 x 40 cm (size XL)  <br>
 - Surface : Multispandex Jersey <br>
 ---------------------------- <br>
-- Code : COREPADA3</p></div> 
+- Code : COREPADA3</p>
+      <div class="card-actions-quick" onclick="event.stopPropagation();">
+        <a href="https://t.me/Sounvisal" target="_blank" class="btn-card-tg" onclick="triggerTgOrderFromCard(this, event)">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 4.5 2.8 11.9c-1.2.5-1.2 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.2-2.1 4.6 3.4c.8.5 1.4.2 1.6-.8l3-14c.3-1.2-.4-1.7-1.9-1.8z"/></svg>
+          Telegram
+        </a>
+        <button class="btn-card-buy" onclick="triggerDirectOrderModal(this, event)">
+          ⚡ Buy Now
+        </button>
+      </div>
+</div> 
 <!-- end .leftbox -->
 	
 	<div class="rightbox">
@@ -503,7 +722,17 @@
 - Size : 120 x 60 cm (size XXL)  <br>
 - Surface : Multispandex Jersey <br>
 ---------------------------- <br>
-- Code : COREPADA4</p></div> 
+- Code : COREPADA4</p>
+      <div class="card-actions-quick" onclick="event.stopPropagation();">
+        <a href="https://t.me/Sounvisal" target="_blank" class="btn-card-tg" onclick="triggerTgOrderFromCard(this, event)">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 4.5 2.8 11.9c-1.2.5-1.2 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.2-2.1 4.6 3.4c.8.5 1.4.2 1.6-.8l3-14c.3-1.2-.4-1.7-1.9-1.8z"/></svg>
+          Telegram
+        </a>
+        <button class="btn-card-buy" onclick="triggerDirectOrderModal(this, event)">
+          ⚡ Buy Now
+        </button>
+      </div>
+</div> 
 <!-- end .leftbox -->
 <!-- # End # -->
 
@@ -516,7 +745,17 @@
 - Size : 45 x 40 cm (size L) <br>
 - Material : Cordura Advance Fabric <br>
 ---------------------------- <br>
-- Code : CorduraA1</p></div> 
+- Code : CorduraA1</p>
+      <div class="card-actions-quick" onclick="event.stopPropagation();">
+        <a href="https://t.me/Sounvisal" target="_blank" class="btn-card-tg" onclick="triggerTgOrderFromCard(this, event)">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 4.5 2.8 11.9c-1.2.5-1.2 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.2-2.1 4.6 3.4c.8.5 1.4.2 1.6-.8l3-14c.3-1.2-.4-1.7-1.9-1.8z"/></svg>
+          Telegram
+        </a>
+        <button class="btn-card-buy" onclick="triggerDirectOrderModal(this, event)">
+          ⚡ Buy Now
+        </button>
+      </div>
+</div> 
 <!-- end .leftbox -->
                   
 	<div class="centerbox1">
@@ -527,7 +766,17 @@
 - Size : 90 x 40 cm (size L) <br>
 - Material : Cordura Advance Fabric <br>
 ---------------------------- <br>
-- Code : CorduraA2</p></div> 
+- Code : CorduraA2</p>
+      <div class="card-actions-quick" onclick="event.stopPropagation();">
+        <a href="https://t.me/Sounvisal" target="_blank" class="btn-card-tg" onclick="triggerTgOrderFromCard(this, event)">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 4.5 2.8 11.9c-1.2.5-1.2 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.2-2.1 4.6 3.4c.8.5 1.4.2 1.6-.8l3-14c.3-1.2-.4-1.7-1.9-1.8z"/></svg>
+          Telegram
+        </a>
+        <button class="btn-card-buy" onclick="triggerDirectOrderModal(this, event)">
+          ⚡ Buy Now
+        </button>
+      </div>
+</div> 
 <!-- end .leftbox -->
 	
 	<div class="centerbox2">
@@ -538,7 +787,17 @@
 - 2x Cleaning Power <br>
 - Spray mist, 250ml  <br>
 ---------------------------- <br>
-- Code : BOTTLEA1</p></div> 
+- Code : BOTTLEA1</p>
+      <div class="card-actions-quick" onclick="event.stopPropagation();">
+        <a href="https://t.me/Sounvisal" target="_blank" class="btn-card-tg" onclick="triggerTgOrderFromCard(this, event)">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 4.5 2.8 11.9c-1.2.5-1.2 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.2-2.1 4.6 3.4c.8.5 1.4.2 1.6-.8l3-14c.3-1.2-.4-1.7-1.9-1.8z"/></svg>
+          Telegram
+        </a>
+        <button class="btn-card-buy" onclick="triggerDirectOrderModal(this, event)">
+          ⚡ Buy Now
+        </button>
+      </div>
+</div> 
 <!-- end .leftbox -->
 	
 	<div class="rightbox">
@@ -549,7 +808,17 @@
 - 1 box - 4 products <br>
 - Spray 200ml, Lubricant 10ml,Soft <br>
 ---------------------------- <br>
-- Code : BOTTLEA2</p></div> 
+- Code : BOTTLEA2</p>
+      <div class="card-actions-quick" onclick="event.stopPropagation();">
+        <a href="https://t.me/Sounvisal" target="_blank" class="btn-card-tg" onclick="triggerTgOrderFromCard(this, event)">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 4.5 2.8 11.9c-1.2.5-1.2 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.2-2.1 4.6 3.4c.8.5 1.4.2 1.6-.8l3-14c.3-1.2-.4-1.7-1.9-1.8z"/></svg>
+          Telegram
+        </a>
+        <button class="btn-card-buy" onclick="triggerDirectOrderModal(this, event)">
+          ⚡ Buy Now
+        </button>
+      </div>
+</div> 
 <!-- end .leftbox -->
 <!-- # End # -->
 
@@ -583,7 +852,17 @@
         <p class="txt">
 - Wired Gamepad Controller <br>
 ---------------------------- <br>
-- Code : F310</p></div> 
+- Code : F310</p>
+      <div class="card-actions-quick" onclick="event.stopPropagation();">
+        <a href="https://t.me/Sounvisal" target="_blank" class="btn-card-tg" onclick="triggerTgOrderFromCard(this, event)">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 4.5 2.8 11.9c-1.2.5-1.2 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.2-2.1 4.6 3.4c.8.5 1.4.2 1.6-.8l3-14c.3-1.2-.4-1.7-1.9-1.8z"/></svg>
+          Telegram
+        </a>
+        <button class="btn-card-buy" onclick="triggerDirectOrderModal(this, event)">
+          ⚡ Buy Now
+        </button>
+      </div>
+</div> 
 <!-- end .leftbox -->
                   
 	<div class="centerbox1">
@@ -593,7 +872,17 @@
         <p class="txt">
 - Wired Gamepad Controller <br>
 ---------------------------- <br>
-- Code : F310</p></div> 
+- Code : F310</p>
+      <div class="card-actions-quick" onclick="event.stopPropagation();">
+        <a href="https://t.me/Sounvisal" target="_blank" class="btn-card-tg" onclick="triggerTgOrderFromCard(this, event)">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 4.5 2.8 11.9c-1.2.5-1.2 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.2-2.1 4.6 3.4c.8.5 1.4.2 1.6-.8l3-14c.3-1.2-.4-1.7-1.9-1.8z"/></svg>
+          Telegram
+        </a>
+        <button class="btn-card-buy" onclick="triggerDirectOrderModal(this, event)">
+          ⚡ Buy Now
+        </button>
+      </div>
+</div> 
 <!-- end .leftbox -->
 	
 	<div class="centerbox2">
@@ -603,7 +892,17 @@
         <p class="txt">
 - Wireless Gamepad Controller <br>
 ---------------------------- <br>
-- Code : F710</p></div> 
+- Code : F710</p>
+      <div class="card-actions-quick" onclick="event.stopPropagation();">
+        <a href="https://t.me/Sounvisal" target="_blank" class="btn-card-tg" onclick="triggerTgOrderFromCard(this, event)">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 4.5 2.8 11.9c-1.2.5-1.2 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.2-2.1 4.6 3.4c.8.5 1.4.2 1.6-.8l3-14c.3-1.2-.4-1.7-1.9-1.8z"/></svg>
+          Telegram
+        </a>
+        <button class="btn-card-buy" onclick="triggerDirectOrderModal(this, event)">
+          ⚡ Buy Now
+        </button>
+      </div>
+</div> 
 <!-- end .leftbox -->
 	
 	<div class="rightbox">
@@ -613,7 +912,17 @@
         <p class="txt">
 - Wireless Gamepad Controller <br>
 ---------------------------- <br>
-- Code : F710</p></div> 
+- Code : F710</p>
+      <div class="card-actions-quick" onclick="event.stopPropagation();">
+        <a href="https://t.me/Sounvisal" target="_blank" class="btn-card-tg" onclick="triggerTgOrderFromCard(this, event)">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 4.5 2.8 11.9c-1.2.5-1.2 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.2-2.1 4.6 3.4c.8.5 1.4.2 1.6-.8l3-14c.3-1.2-.4-1.7-1.9-1.8z"/></svg>
+          Telegram
+        </a>
+        <button class="btn-card-buy" onclick="triggerDirectOrderModal(this, event)">
+          ⚡ Buy Now
+        </button>
+      </div>
+</div> 
 <!-- end .leftbox -->
 <!-- # End # -->
 	
@@ -624,7 +933,17 @@
 	  <p class="title2">Logitech Wireless Presenter R400</p>
 	  <p class="sp"><span class="price2">$39</span>$35</p>
       <p class="txt">Code : E/P201023X1</p>	
-	</div>
+	
+      <div class="card-actions-quick" onclick="event.stopPropagation();">
+        <a href="https://t.me/Sounvisal" target="_blank" class="btn-card-tg" onclick="triggerTgOrderFromCard(this, event)">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 4.5 2.8 11.9c-1.2.5-1.2 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.2-2.1 4.6 3.4c.8.5 1.4.2 1.6-.8l3-14c.3-1.2-.4-1.7-1.9-1.8z"/></svg>
+          Telegram
+        </a>
+        <button class="btn-card-buy" onclick="triggerDirectOrderModal(this, event)">
+          ⚡ Buy Now
+        </button>
+      </div>
+</div>
 	<!-- end .leftbox -->
                   
 	<div class="centerbox1">
@@ -632,7 +951,17 @@
 	  <p class="title2">Logitech Wireless Presenter R500s</p>
 	  <p class="sp"><span class="price2">$59</span>$39</p>
       <p class="txt">Code : E/P201023X2</p>	
-	</div>
+	
+      <div class="card-actions-quick" onclick="event.stopPropagation();">
+        <a href="https://t.me/Sounvisal" target="_blank" class="btn-card-tg" onclick="triggerTgOrderFromCard(this, event)">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 4.5 2.8 11.9c-1.2.5-1.2 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.2-2.1 4.6 3.4c.8.5 1.4.2 1.6-.8l3-14c.3-1.2-.4-1.7-1.9-1.8z"/></svg>
+          Telegram
+        </a>
+        <button class="btn-card-buy" onclick="triggerDirectOrderModal(this, event)">
+          ⚡ Buy Now
+        </button>
+      </div>
+</div>
 	<!-- end .leftbox -->
 	
 	<div class="centerbox2">
@@ -640,7 +969,17 @@
 	  <p class="title2">Logitech Wireless Presenter R800</p>
 	  <p class="sp"><span class="price2">$79</span>$75</p>
       <p class="txt">Code : E/P201023X3</p>	
-	</div>
+	
+      <div class="card-actions-quick" onclick="event.stopPropagation();">
+        <a href="https://t.me/Sounvisal" target="_blank" class="btn-card-tg" onclick="triggerTgOrderFromCard(this, event)">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 4.5 2.8 11.9c-1.2.5-1.2 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.2-2.1 4.6 3.4c.8.5 1.4.2 1.6-.8l3-14c.3-1.2-.4-1.7-1.9-1.8z"/></svg>
+          Telegram
+        </a>
+        <button class="btn-card-buy" onclick="triggerDirectOrderModal(this, event)">
+          ⚡ Buy Now
+        </button>
+      </div>
+</div>
 	<!-- end .leftbox -->
 	
 	<div class="rightbox">
@@ -648,7 +987,17 @@
 	  <p class="title2">Logitech Wireless Presenter R800</p>
 	  <p class="sp"><span class="price2">$79</span>$75</p>
       <p class="txt">Code : E/P201023X3</p>		
-	</div>
+	
+      <div class="card-actions-quick" onclick="event.stopPropagation();">
+        <a href="https://t.me/Sounvisal" target="_blank" class="btn-card-tg" onclick="triggerTgOrderFromCard(this, event)">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 4.5 2.8 11.9c-1.2.5-1.2 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.2-2.1 4.6 3.4c.8.5 1.4.2 1.6-.8l3-14c.3-1.2-.4-1.7-1.9-1.8z"/></svg>
+          Telegram
+        </a>
+        <button class="btn-card-buy" onclick="triggerDirectOrderModal(this, event)">
+          ⚡ Buy Now
+        </button>
+      </div>
+</div>
 	<!-- end .leftbox -->
     <!-- ### End Line ### -->
 
@@ -672,7 +1021,17 @@
 	  <p class="title2">Logitech B100 Optical USB Mouse <br/></p>
 	  <p class="sp"><span class="price2"></span>$5</p>
       <p class="txt">Code: <b>CC2B100A1</b></p>	
-	</div>
+	
+      <div class="card-actions-quick" onclick="event.stopPropagation();">
+        <a href="https://t.me/Sounvisal" target="_blank" class="btn-card-tg" onclick="triggerTgOrderFromCard(this, event)">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 4.5 2.8 11.9c-1.2.5-1.2 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.2-2.1 4.6 3.4c.8.5 1.4.2 1.6-.8l3-14c.3-1.2-.4-1.7-1.9-1.8z"/></svg>
+          Telegram
+        </a>
+        <button class="btn-card-buy" onclick="triggerDirectOrderModal(this, event)">
+          ⚡ Buy Now
+        </button>
+      </div>
+</div>
 	<!-- end .leftbox -->
                   
 	<div class="centerbox1">
@@ -680,7 +1039,17 @@
 	  <p class="title2">Logitech B170 Wireless Mouse<br/></p>
 	  <p class="sp"><span class="price2"></span>$15</p>
       <p class="txt">Code: <b>CCB170C1</b></p>		
-	</div>
+	
+      <div class="card-actions-quick" onclick="event.stopPropagation();">
+        <a href="https://t.me/Sounvisal" target="_blank" class="btn-card-tg" onclick="triggerTgOrderFromCard(this, event)">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 4.5 2.8 11.9c-1.2.5-1.2 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.2-2.1 4.6 3.4c.8.5 1.4.2 1.6-.8l3-14c.3-1.2-.4-1.7-1.9-1.8z"/></svg>
+          Telegram
+        </a>
+        <button class="btn-card-buy" onclick="triggerDirectOrderModal(this, event)">
+          ⚡ Buy Now
+        </button>
+      </div>
+</div>
 	<!-- end .leftbox -->
 	
 	<div class="centerbox2">
@@ -688,7 +1057,17 @@
 	  <p class="title2">Logitech M220 Silent Wireless<br/></p>
 	  <p class="sp"><span class="price2"></span>$15</p>
       <p class="txt">Code: <b>CCM220B3</b></p>	
-	</div>
+	
+      <div class="card-actions-quick" onclick="event.stopPropagation();">
+        <a href="https://t.me/Sounvisal" target="_blank" class="btn-card-tg" onclick="triggerTgOrderFromCard(this, event)">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 4.5 2.8 11.9c-1.2.5-1.2 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.2-2.1 4.6 3.4c.8.5 1.4.2 1.6-.8l3-14c.3-1.2-.4-1.7-1.9-1.8z"/></svg>
+          Telegram
+        </a>
+        <button class="btn-card-buy" onclick="triggerDirectOrderModal(this, event)">
+          ⚡ Buy Now
+        </button>
+      </div>
+</div>
 	<!-- end .leftbox -->
 	
 	<div class="rightbox">
@@ -696,7 +1075,17 @@
 	  <p class="title2">Mouse Logitech Wireless M187<br/></p>
 	  <p class="sp"><span class="price2"></span>$15</p>
       <p class="txt">Code: <b>CCM187-A1</b></p>	
-	</div>
+	
+      <div class="card-actions-quick" onclick="event.stopPropagation();">
+        <a href="https://t.me/Sounvisal" target="_blank" class="btn-card-tg" onclick="triggerTgOrderFromCard(this, event)">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 4.5 2.8 11.9c-1.2.5-1.2 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.2-2.1 4.6 3.4c.8.5 1.4.2 1.6-.8l3-14c.3-1.2-.4-1.7-1.9-1.8z"/></svg>
+          Telegram
+        </a>
+        <button class="btn-card-buy" onclick="triggerDirectOrderModal(this, event)">
+          ⚡ Buy Now
+        </button>
+      </div>
+</div>
 	<!-- end .leftbox -->
     <!-- ### End Line ### -->
 
@@ -706,7 +1095,17 @@
 	  <p class="title2">Mouse Logitech Wireless M187<br/></p>
 	  <p class="sp"><span class="price2"></span>$15</p>
       <p class="txt">Code: <b>CCM187-A2</b></p>	
-	</div>
+	
+      <div class="card-actions-quick" onclick="event.stopPropagation();">
+        <a href="https://t.me/Sounvisal" target="_blank" class="btn-card-tg" onclick="triggerTgOrderFromCard(this, event)">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 4.5 2.8 11.9c-1.2.5-1.2 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.2-2.1 4.6 3.4c.8.5 1.4.2 1.6-.8l3-14c.3-1.2-.4-1.7-1.9-1.8z"/></svg>
+          Telegram
+        </a>
+        <button class="btn-card-buy" onclick="triggerDirectOrderModal(this, event)">
+          ⚡ Buy Now
+        </button>
+      </div>
+</div>
 	<!-- end .leftbox -->
                   
 	<div class="centerbox1">
@@ -714,7 +1113,17 @@
 	  <p class="title2">Mouse Logitech Wireless M187<br/></p>
 	  <p class="sp"><span class="price2"></span>$15</p>
       <p class="txt">Code: <b>CCM187-A3</b></p>			
-	</div>
+	
+      <div class="card-actions-quick" onclick="event.stopPropagation();">
+        <a href="https://t.me/Sounvisal" target="_blank" class="btn-card-tg" onclick="triggerTgOrderFromCard(this, event)">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 4.5 2.8 11.9c-1.2.5-1.2 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.2-2.1 4.6 3.4c.8.5 1.4.2 1.6-.8l3-14c.3-1.2-.4-1.7-1.9-1.8z"/></svg>
+          Telegram
+        </a>
+        <button class="btn-card-buy" onclick="triggerDirectOrderModal(this, event)">
+          ⚡ Buy Now
+        </button>
+      </div>
+</div>
 	<!-- end .leftbox -->
 	
 	<div class="centerbox2">
@@ -722,7 +1131,17 @@
 	  <p class="title2">Mouse Logitech Wireless M170 <br/></p>
 	  <p class="sp"><span class="price2"></span>$10</p>
       <p class="txt">Code: <b>CCM170 -A1</b></p>	
-	</div>
+	
+      <div class="card-actions-quick" onclick="event.stopPropagation();">
+        <a href="https://t.me/Sounvisal" target="_blank" class="btn-card-tg" onclick="triggerTgOrderFromCard(this, event)">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 4.5 2.8 11.9c-1.2.5-1.2 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.2-2.1 4.6 3.4c.8.5 1.4.2 1.6-.8l3-14c.3-1.2-.4-1.7-1.9-1.8z"/></svg>
+          Telegram
+        </a>
+        <button class="btn-card-buy" onclick="triggerDirectOrderModal(this, event)">
+          ⚡ Buy Now
+        </button>
+      </div>
+</div>
 	<!-- end .leftbox -->
 	
 	<div class="rightbox">
@@ -730,7 +1149,17 @@
 	  <p class="title2">Mouse Logitech Wireless M171<br/></p>
 	  <p class="sp"><span class="price2"></span>$12</p>
       <p class="txt">Code : <b>CCM171-A1</b></p>	
-	</div>
+	
+      <div class="card-actions-quick" onclick="event.stopPropagation();">
+        <a href="https://t.me/Sounvisal" target="_blank" class="btn-card-tg" onclick="triggerTgOrderFromCard(this, event)">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 4.5 2.8 11.9c-1.2.5-1.2 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.2-2.1 4.6 3.4c.8.5 1.4.2 1.6-.8l3-14c.3-1.2-.4-1.7-1.9-1.8z"/></svg>
+          Telegram
+        </a>
+        <button class="btn-card-buy" onclick="triggerDirectOrderModal(this, event)">
+          ⚡ Buy Now
+        </button>
+      </div>
+</div>
 	<!-- end .leftbox -->
     <!-- ### End Line ### -->
     
@@ -740,7 +1169,17 @@
 	  <p class="title2">Mouse Logitech Wireless M171<br/></p>
 	  <p class="sp"><span class="price2"></span>$12</p>
       <p class="txt">Code: <b>CCM171-A2</b></p>	
-	</div>
+	
+      <div class="card-actions-quick" onclick="event.stopPropagation();">
+        <a href="https://t.me/Sounvisal" target="_blank" class="btn-card-tg" onclick="triggerTgOrderFromCard(this, event)">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 4.5 2.8 11.9c-1.2.5-1.2 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.2-2.1 4.6 3.4c.8.5 1.4.2 1.6-.8l3-14c.3-1.2-.4-1.7-1.9-1.8z"/></svg>
+          Telegram
+        </a>
+        <button class="btn-card-buy" onclick="triggerDirectOrderModal(this, event)">
+          ⚡ Buy Now
+        </button>
+      </div>
+</div>
 	<!-- end .leftbox -->
                   
 	<div class="centerbox1">
@@ -748,7 +1187,17 @@
 	  <p class="title2">Mouse Logitech Wireless M171<br/></p>
 	  <p class="sp"><span class="price2"></span>$12</p>
       <p class="txt">Code : <b>CCM171-A3</b></p>		
-	</div>
+	
+      <div class="card-actions-quick" onclick="event.stopPropagation();">
+        <a href="https://t.me/Sounvisal" target="_blank" class="btn-card-tg" onclick="triggerTgOrderFromCard(this, event)">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 4.5 2.8 11.9c-1.2.5-1.2 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.2-2.1 4.6 3.4c.8.5 1.4.2 1.6-.8l3-14c.3-1.2-.4-1.7-1.9-1.8z"/></svg>
+          Telegram
+        </a>
+        <button class="btn-card-buy" onclick="triggerDirectOrderModal(this, event)">
+          ⚡ Buy Now
+        </button>
+      </div>
+</div>
 	<!-- end .leftbox -->
 	
 	<div class="centerbox2">
@@ -756,7 +1205,17 @@
 	  <p class="title2">Logitech Wireless M191 Full-Size</p>
 	  <p class="sp"><span class="price2"></span>$13</p>
       <p class="txt">Code : <b>CC271023B3</b></p>
-	</div>
+	
+      <div class="card-actions-quick" onclick="event.stopPropagation();">
+        <a href="https://t.me/Sounvisal" target="_blank" class="btn-card-tg" onclick="triggerTgOrderFromCard(this, event)">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 4.5 2.8 11.9c-1.2.5-1.2 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.2-2.1 4.6 3.4c.8.5 1.4.2 1.6-.8l3-14c.3-1.2-.4-1.7-1.9-1.8z"/></svg>
+          Telegram
+        </a>
+        <button class="btn-card-buy" onclick="triggerDirectOrderModal(this, event)">
+          ⚡ Buy Now
+        </button>
+      </div>
+</div>
 	<!-- end .leftbox -->
 	
 	<div class="rightbox">
@@ -764,7 +1223,17 @@
 	  <p class="title2">Logitech M190 Wireless - Full Size<br/></p>
 	  <p class="sp"><span class="price2"></span>$12</p>
       <p class="txt">Code : <b>CCM190A1</b></p>
-	</div>
+	
+      <div class="card-actions-quick" onclick="event.stopPropagation();">
+        <a href="https://t.me/Sounvisal" target="_blank" class="btn-card-tg" onclick="triggerTgOrderFromCard(this, event)">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 4.5 2.8 11.9c-1.2.5-1.2 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.2-2.1 4.6 3.4c.8.5 1.4.2 1.6-.8l3-14c.3-1.2-.4-1.7-1.9-1.8z"/></svg>
+          Telegram
+        </a>
+        <button class="btn-card-buy" onclick="triggerDirectOrderModal(this, event)">
+          ⚡ Buy Now
+        </button>
+      </div>
+</div>
 	<!-- end .leftbox -->
     <!-- ### End Line ### -->
     
@@ -774,7 +1243,17 @@
 	  <p class="title2">Logitech M190 Wireless - Full Size<br/></p>
 	  <p class="sp"><span class="price2"></span>$12</p>
       <p class="txt">Code: <b>CCM190A2</b></p>
-	</div>
+	
+      <div class="card-actions-quick" onclick="event.stopPropagation();">
+        <a href="https://t.me/Sounvisal" target="_blank" class="btn-card-tg" onclick="triggerTgOrderFromCard(this, event)">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 4.5 2.8 11.9c-1.2.5-1.2 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.2-2.1 4.6 3.4c.8.5 1.4.2 1.6-.8l3-14c.3-1.2-.4-1.7-1.9-1.8z"/></svg>
+          Telegram
+        </a>
+        <button class="btn-card-buy" onclick="triggerDirectOrderModal(this, event)">
+          ⚡ Buy Now
+        </button>
+      </div>
+</div>
 	<!-- end .leftbox -->
                   
 	<div class="centerbox1">
@@ -782,7 +1261,17 @@
 	  <p class="title2">Logitech M190 Wireless - Full Size<br/></p>
 	  <p class="sp"><span class="price2"></span>$12</p>
       <p class="txt">Code : <b>CCM190A3</b></p>	
-	</div>
+	
+      <div class="card-actions-quick" onclick="event.stopPropagation();">
+        <a href="https://t.me/Sounvisal" target="_blank" class="btn-card-tg" onclick="triggerTgOrderFromCard(this, event)">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 4.5 2.8 11.9c-1.2.5-1.2 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.2-2.1 4.6 3.4c.8.5 1.4.2 1.6-.8l3-14c.3-1.2-.4-1.7-1.9-1.8z"/></svg>
+          Telegram
+        </a>
+        <button class="btn-card-buy" onclick="triggerDirectOrderModal(this, event)">
+          ⚡ Buy Now
+        </button>
+      </div>
+</div>
 	<!-- end .leftbox -->
 	
 	<div class="centerbox2">
@@ -790,7 +1279,17 @@
 	  <p class="title2">Logitech M196 Bluetooth Mouse<br/></p>
 	  <p class="sp"><span class="price2"></span>$12</p>
       <p class="txt">Code : <b>CCM196A3</b></p>	
-	</div>
+	
+      <div class="card-actions-quick" onclick="event.stopPropagation();">
+        <a href="https://t.me/Sounvisal" target="_blank" class="btn-card-tg" onclick="triggerTgOrderFromCard(this, event)">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 4.5 2.8 11.9c-1.2.5-1.2 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.2-2.1 4.6 3.4c.8.5 1.4.2 1.6-.8l3-14c.3-1.2-.4-1.7-1.9-1.8z"/></svg>
+          Telegram
+        </a>
+        <button class="btn-card-buy" onclick="triggerDirectOrderModal(this, event)">
+          ⚡ Buy Now
+        </button>
+      </div>
+</div>
 	<!-- end .leftbox -->
 	
 	<div class="rightbox">
@@ -798,7 +1297,17 @@
 	  <p class="title2">Logitech M196 Bluetooth Mouse<br/></p>
 	  <p class="sp"><span class="price2"></span>$12</p>
       <p class="txt">Code : <b>CCM196A4</b></p>		
-	</div>
+	
+      <div class="card-actions-quick" onclick="event.stopPropagation();">
+        <a href="https://t.me/Sounvisal" target="_blank" class="btn-card-tg" onclick="triggerTgOrderFromCard(this, event)">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 4.5 2.8 11.9c-1.2.5-1.2 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.2-2.1 4.6 3.4c.8.5 1.4.2 1.6-.8l3-14c.3-1.2-.4-1.7-1.9-1.8z"/></svg>
+          Telegram
+        </a>
+        <button class="btn-card-buy" onclick="triggerDirectOrderModal(this, event)">
+          ⚡ Buy Now
+        </button>
+      </div>
+</div>
 	<!-- end .leftbox -->
     <!-- ### End Line ### -->
     
@@ -808,7 +1317,17 @@
 	  <p class="title2">Logitech M196 Bluetooth Mouse<br/></p>
 	  <p class="sp"><span class="price2"></span>$12</p>
       <p class="txt">Code : <b>CCM196A5</b></p>
-	</div>
+	
+      <div class="card-actions-quick" onclick="event.stopPropagation();">
+        <a href="https://t.me/Sounvisal" target="_blank" class="btn-card-tg" onclick="triggerTgOrderFromCard(this, event)">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 4.5 2.8 11.9c-1.2.5-1.2 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.2-2.1 4.6 3.4c.8.5 1.4.2 1.6-.8l3-14c.3-1.2-.4-1.7-1.9-1.8z"/></svg>
+          Telegram
+        </a>
+        <button class="btn-card-buy" onclick="triggerDirectOrderModal(this, event)">
+          ⚡ Buy Now
+        </button>
+      </div>
+</div>
 	<!-- end .leftbox -->
                   
 	<div class="centerbox1">
@@ -816,7 +1335,17 @@
 	  <p class="title2">Mouse Logitech Wireless M185<br/></p>
 	  <p class="sp"><span class="price2"></span>$15</p>
       <p class="txt">Code : <b>CCM185-A1</b></p>	
-	</div>
+	
+      <div class="card-actions-quick" onclick="event.stopPropagation();">
+        <a href="https://t.me/Sounvisal" target="_blank" class="btn-card-tg" onclick="triggerTgOrderFromCard(this, event)">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 4.5 2.8 11.9c-1.2.5-1.2 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.2-2.1 4.6 3.4c.8.5 1.4.2 1.6-.8l3-14c.3-1.2-.4-1.7-1.9-1.8z"/></svg>
+          Telegram
+        </a>
+        <button class="btn-card-buy" onclick="triggerDirectOrderModal(this, event)">
+          ⚡ Buy Now
+        </button>
+      </div>
+</div>
 	<!-- end .leftbox -->
 	
 	<div class="centerbox2">
@@ -824,7 +1353,17 @@
 	  <p class="title2">Mouse Logitech Wireless M185<br/></p>
 	  <p class="sp"><span class="price2"></span>$15</p>
       <p class="txt">Code : <b>CCM185-A2</b></p>
-	</div>
+	
+      <div class="card-actions-quick" onclick="event.stopPropagation();">
+        <a href="https://t.me/Sounvisal" target="_blank" class="btn-card-tg" onclick="triggerTgOrderFromCard(this, event)">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 4.5 2.8 11.9c-1.2.5-1.2 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.2-2.1 4.6 3.4c.8.5 1.4.2 1.6-.8l3-14c.3-1.2-.4-1.7-1.9-1.8z"/></svg>
+          Telegram
+        </a>
+        <button class="btn-card-buy" onclick="triggerDirectOrderModal(this, event)">
+          ⚡ Buy Now
+        </button>
+      </div>
+</div>
 	<!-- end .leftbox -->
 	
 	<div class="rightbox">
@@ -832,7 +1371,17 @@
 	  <p class="title2">Mouse Logitech Wireless M185<br/></p>
 	  <p class="sp"><span class="price2"></span>$15</p>
       <p class="txt">Code : <b>CCM185-A3</b></p>	
-	</div>
+	
+      <div class="card-actions-quick" onclick="event.stopPropagation();">
+        <a href="https://t.me/Sounvisal" target="_blank" class="btn-card-tg" onclick="triggerTgOrderFromCard(this, event)">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 4.5 2.8 11.9c-1.2.5-1.2 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.2-2.1 4.6 3.4c.8.5 1.4.2 1.6-.8l3-14c.3-1.2-.4-1.7-1.9-1.8z"/></svg>
+          Telegram
+        </a>
+        <button class="btn-card-buy" onclick="triggerDirectOrderModal(this, event)">
+          ⚡ Buy Now
+        </button>
+      </div>
+</div>
 	<!-- end .leftbox -->
     
     <!-- ### Start Line ### -->
@@ -841,7 +1390,17 @@
 	  <p class="title2">Logitech M221 Wireless Mouse<br/></p>
 	  <p class="sp"><span class="price2"></span>$15</p>
       <p class="txt">Code : <b>M221A1</b></p>
-	</div>
+	
+      <div class="card-actions-quick" onclick="event.stopPropagation();">
+        <a href="https://t.me/Sounvisal" target="_blank" class="btn-card-tg" onclick="triggerTgOrderFromCard(this, event)">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 4.5 2.8 11.9c-1.2.5-1.2 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.2-2.1 4.6 3.4c.8.5 1.4.2 1.6-.8l3-14c.3-1.2-.4-1.7-1.9-1.8z"/></svg>
+          Telegram
+        </a>
+        <button class="btn-card-buy" onclick="triggerDirectOrderModal(this, event)">
+          ⚡ Buy Now
+        </button>
+      </div>
+</div>
 	<!-- end .leftbox -->
                   
 	<div class="centerbox1">
@@ -849,7 +1408,17 @@
 	  <p class="title2">Logitech M221 Wireless Mouse<br/></p>
 	  <p class="sp"><span class="price2"></span>$15</p>
       <p class="txt">Code : <b>M221A2</b></p>	
-	</div>
+	
+      <div class="card-actions-quick" onclick="event.stopPropagation();">
+        <a href="https://t.me/Sounvisal" target="_blank" class="btn-card-tg" onclick="triggerTgOrderFromCard(this, event)">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 4.5 2.8 11.9c-1.2.5-1.2 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.2-2.1 4.6 3.4c.8.5 1.4.2 1.6-.8l3-14c.3-1.2-.4-1.7-1.9-1.8z"/></svg>
+          Telegram
+        </a>
+        <button class="btn-card-buy" onclick="triggerDirectOrderModal(this, event)">
+          ⚡ Buy Now
+        </button>
+      </div>
+</div>
 	<!-- end .leftbox -->
 	
 	<div class="centerbox2">
@@ -857,7 +1426,17 @@
 	  <p class="title2">Logitech M240 Silent Bluetooth<br/></p>
 	  <p class="sp"><span class="price2"></span>$14</p>
       <p class="txt">Code : <b>M240-A3</b></p>
-	</div>
+	
+      <div class="card-actions-quick" onclick="event.stopPropagation();">
+        <a href="https://t.me/Sounvisal" target="_blank" class="btn-card-tg" onclick="triggerTgOrderFromCard(this, event)">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 4.5 2.8 11.9c-1.2.5-1.2 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.2-2.1 4.6 3.4c.8.5 1.4.2 1.6-.8l3-14c.3-1.2-.4-1.7-1.9-1.8z"/></svg>
+          Telegram
+        </a>
+        <button class="btn-card-buy" onclick="triggerDirectOrderModal(this, event)">
+          ⚡ Buy Now
+        </button>
+      </div>
+</div>
 	<!-- end .leftbox -->
 	
 	<div class="rightbox">
@@ -865,7 +1444,17 @@
 	  <p class="title2">Logitech M240 Silent Bluetooth<br/></p>
 	  <p class="sp"><span class="price2"></span>$14</p>
       <p class="txt">Code : <b>M240-A1</b></p>	
-	</div>
+	
+      <div class="card-actions-quick" onclick="event.stopPropagation();">
+        <a href="https://t.me/Sounvisal" target="_blank" class="btn-card-tg" onclick="triggerTgOrderFromCard(this, event)">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 4.5 2.8 11.9c-1.2.5-1.2 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.2-2.1 4.6 3.4c.8.5 1.4.2 1.6-.8l3-14c.3-1.2-.4-1.7-1.9-1.8z"/></svg>
+          Telegram
+        </a>
+        <button class="btn-card-buy" onclick="triggerDirectOrderModal(this, event)">
+          ⚡ Buy Now
+        </button>
+      </div>
+</div>
 	<!-- end .leftbox -->
     <!-- ### End Line ### -->
 
@@ -875,7 +1464,17 @@
 	  <p class="title2">Logitech M240 Silent Bluetooth<br/></p>
 	  <p class="sp"><span class="price2"></span>$14</p>
       <p class="txt">Code : <b>M240-A2</b></p>		
-	</div>
+	
+      <div class="card-actions-quick" onclick="event.stopPropagation();">
+        <a href="https://t.me/Sounvisal" target="_blank" class="btn-card-tg" onclick="triggerTgOrderFromCard(this, event)">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 4.5 2.8 11.9c-1.2.5-1.2 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.2-2.1 4.6 3.4c.8.5 1.4.2 1.6-.8l3-14c.3-1.2-.4-1.7-1.9-1.8z"/></svg>
+          Telegram
+        </a>
+        <button class="btn-card-buy" onclick="triggerDirectOrderModal(this, event)">
+          ⚡ Buy Now
+        </button>
+      </div>
+</div>
 	<!-- end .leftbox -->
                   
 	<div class="centerbox1">
@@ -883,7 +1482,17 @@
 	  <p class="title2">Logitech Wireless Mouse M275</p>
 	  <p class="sp"><span class="price2"></span>$18</p>
       <p class="txt">Code : <b>M275A2</b></p>	
-	</div>
+	
+      <div class="card-actions-quick" onclick="event.stopPropagation();">
+        <a href="https://t.me/Sounvisal" target="_blank" class="btn-card-tg" onclick="triggerTgOrderFromCard(this, event)">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 4.5 2.8 11.9c-1.2.5-1.2 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.2-2.1 4.6 3.4c.8.5 1.4.2 1.6-.8l3-14c.3-1.2-.4-1.7-1.9-1.8z"/></svg>
+          Telegram
+        </a>
+        <button class="btn-card-buy" onclick="triggerDirectOrderModal(this, event)">
+          ⚡ Buy Now
+        </button>
+      </div>
+</div>
 	<!-- end .leftbox -->
 	
 	<div class="centerbox2">
@@ -891,7 +1500,17 @@
 	  <p class="title2">Logitech M330 Silent Plus</p>
 	  <p class="sp"><span class="price2"></span>$16</p>
       <p class="txt">Code : <b>M330A3</b></p>
-	</div>
+	
+      <div class="card-actions-quick" onclick="event.stopPropagation();">
+        <a href="https://t.me/Sounvisal" target="_blank" class="btn-card-tg" onclick="triggerTgOrderFromCard(this, event)">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 4.5 2.8 11.9c-1.2.5-1.2 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.2-2.1 4.6 3.4c.8.5 1.4.2 1.6-.8l3-14c.3-1.2-.4-1.7-1.9-1.8z"/></svg>
+          Telegram
+        </a>
+        <button class="btn-card-buy" onclick="triggerDirectOrderModal(this, event)">
+          ⚡ Buy Now
+        </button>
+      </div>
+</div>
 	<!-- end .leftbox -->
 	
 	<div class="rightbox">
@@ -899,7 +1518,17 @@
 	  <p class="title2">Logitech M331 Silent Plus</p>
 	  <p class="sp"><span class="price2"></span>$19</p>
       <p class="txt">Code : <b>M331A4</b></p>
-	</div>
+	
+      <div class="card-actions-quick" onclick="event.stopPropagation();">
+        <a href="https://t.me/Sounvisal" target="_blank" class="btn-card-tg" onclick="triggerTgOrderFromCard(this, event)">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 4.5 2.8 11.9c-1.2.5-1.2 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.2-2.1 4.6 3.4c.8.5 1.4.2 1.6-.8l3-14c.3-1.2-.4-1.7-1.9-1.8z"/></svg>
+          Telegram
+        </a>
+        <button class="btn-card-buy" onclick="triggerDirectOrderModal(this, event)">
+          ⚡ Buy Now
+        </button>
+      </div>
+</div>
 	<!-- end .leftbox -->
     <!-- ### End Line ### -->
     
@@ -909,7 +1538,17 @@
 	  <p class="title2">Logitech M331 Silent Plus</p>
 	  <p class="sp"><span class="price2"></span>$19</p>
       <p class="txt">Code : <b>M331A1</b></p>	
-	</div>
+	
+      <div class="card-actions-quick" onclick="event.stopPropagation();">
+        <a href="https://t.me/Sounvisal" target="_blank" class="btn-card-tg" onclick="triggerTgOrderFromCard(this, event)">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 4.5 2.8 11.9c-1.2.5-1.2 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.2-2.1 4.6 3.4c.8.5 1.4.2 1.6-.8l3-14c.3-1.2-.4-1.7-1.9-1.8z"/></svg>
+          Telegram
+        </a>
+        <button class="btn-card-buy" onclick="triggerDirectOrderModal(this, event)">
+          ⚡ Buy Now
+        </button>
+      </div>
+</div>
 	<!-- end .leftbox -->
                   
 	<div class="centerbox1">
@@ -917,7 +1556,17 @@
 	  <p class="title2">Logitech M331 Silent Plus</p>
 	  <p class="sp"><span class="price2"></span>$19</p>
       <p class="txt">Code : <b>M331A2</b></p>	
-	</div>
+	
+      <div class="card-actions-quick" onclick="event.stopPropagation();">
+        <a href="https://t.me/Sounvisal" target="_blank" class="btn-card-tg" onclick="triggerTgOrderFromCard(this, event)">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 4.5 2.8 11.9c-1.2.5-1.2 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.2-2.1 4.6 3.4c.8.5 1.4.2 1.6-.8l3-14c.3-1.2-.4-1.7-1.9-1.8z"/></svg>
+          Telegram
+        </a>
+        <button class="btn-card-buy" onclick="triggerDirectOrderModal(this, event)">
+          ⚡ Buy Now
+        </button>
+      </div>
+</div>
 	<!-- end .leftbox -->
 	
 	<div class="centerbox2">
@@ -925,7 +1574,17 @@
 	  <p class="title2">Logitech M331 Silent Plus</p>
 	  <p class="sp"><span class="price2"></span>$19</p>
       <p class="txt">Code : <b>M331A3</b></p>	
-	</div>
+	
+      <div class="card-actions-quick" onclick="event.stopPropagation();">
+        <a href="https://t.me/Sounvisal" target="_blank" class="btn-card-tg" onclick="triggerTgOrderFromCard(this, event)">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 4.5 2.8 11.9c-1.2.5-1.2 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.2-2.1 4.6 3.4c.8.5 1.4.2 1.6-.8l3-14c.3-1.2-.4-1.7-1.9-1.8z"/></svg>
+          Telegram
+        </a>
+        <button class="btn-card-buy" onclick="triggerDirectOrderModal(this, event)">
+          ⚡ Buy Now
+        </button>
+      </div>
+</div>
 	<!-- end .leftbox -->
 	
 	<div class="rightbox">
@@ -933,7 +1592,17 @@
 	  <p class="title2">Logitech M331 Silent Plus</p>
 	  <p class="sp"><span class="price2"></span>$19</p>
       <p class="txt">Code : <b>M331A2</b></p>
-	</div>
+	
+      <div class="card-actions-quick" onclick="event.stopPropagation();">
+        <a href="https://t.me/Sounvisal" target="_blank" class="btn-card-tg" onclick="triggerTgOrderFromCard(this, event)">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 4.5 2.8 11.9c-1.2.5-1.2 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.2-2.1 4.6 3.4c.8.5 1.4.2 1.6-.8l3-14c.3-1.2-.4-1.7-1.9-1.8z"/></svg>
+          Telegram
+        </a>
+        <button class="btn-card-buy" onclick="triggerDirectOrderModal(this, event)">
+          ⚡ Buy Now
+        </button>
+      </div>
+</div>
 	<!-- end .leftbox -->
     <!-- ### End Line ### -->
 
@@ -943,7 +1612,17 @@
 	  <p class="title2">Logitech Pebble Mouses2 M350s<br/></p>
 	  <p class="sp"><span class="price2"></span>$22</p>
       <p class="txt">Code : <b>M350S-A1</b></p>		
-	</div>
+	
+      <div class="card-actions-quick" onclick="event.stopPropagation();">
+        <a href="https://t.me/Sounvisal" target="_blank" class="btn-card-tg" onclick="triggerTgOrderFromCard(this, event)">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 4.5 2.8 11.9c-1.2.5-1.2 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.2-2.1 4.6 3.4c.8.5 1.4.2 1.6-.8l3-14c.3-1.2-.4-1.7-1.9-1.8z"/></svg>
+          Telegram
+        </a>
+        <button class="btn-card-buy" onclick="triggerDirectOrderModal(this, event)">
+          ⚡ Buy Now
+        </button>
+      </div>
+</div>
 	<!-- end .leftbox -->
                   
 	<div class="centerbox1">
@@ -951,7 +1630,17 @@
 	  <p class="title2">Logitech Pebble Mouses2 M350s<br/></p>
 	  <p class="sp"><span class="price2"></span>$22</p>
       <p class="txt">Code : <b>M350S-A2</b></p>
-	</div>
+	
+      <div class="card-actions-quick" onclick="event.stopPropagation();">
+        <a href="https://t.me/Sounvisal" target="_blank" class="btn-card-tg" onclick="triggerTgOrderFromCard(this, event)">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 4.5 2.8 11.9c-1.2.5-1.2 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.2-2.1 4.6 3.4c.8.5 1.4.2 1.6-.8l3-14c.3-1.2-.4-1.7-1.9-1.8z"/></svg>
+          Telegram
+        </a>
+        <button class="btn-card-buy" onclick="triggerDirectOrderModal(this, event)">
+          ⚡ Buy Now
+        </button>
+      </div>
+</div>
 	<!-- end .leftbox -->
 	
 	<div class="centerbox2">
@@ -959,7 +1648,17 @@
 	  <p class="title2">Logitech Pebble Mouses2 M350s<br/></p>
 	  <p class="sp"><span class="price2"></span>$22</p>
       <p class="txt">Code : <b>M350S-A3</b></p>
-	</div>
+	
+      <div class="card-actions-quick" onclick="event.stopPropagation();">
+        <a href="https://t.me/Sounvisal" target="_blank" class="btn-card-tg" onclick="triggerTgOrderFromCard(this, event)">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 4.5 2.8 11.9c-1.2.5-1.2 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.2-2.1 4.6 3.4c.8.5 1.4.2 1.6-.8l3-14c.3-1.2-.4-1.7-1.9-1.8z"/></svg>
+          Telegram
+        </a>
+        <button class="btn-card-buy" onclick="triggerDirectOrderModal(this, event)">
+          ⚡ Buy Now
+        </button>
+      </div>
+</div>
 	<!-- end .leftbox -->
 	
 	<div class="rightbox">
@@ -967,7 +1666,17 @@
 	  <p class="title2">Logitech M720 Triathlon </p>
 	  <p class="sp"><span class="price2"></span>$55</p>
       <p class="txt">Code : <b>M720A1</b></p>
-	</div>
+	
+      <div class="card-actions-quick" onclick="event.stopPropagation();">
+        <a href="https://t.me/Sounvisal" target="_blank" class="btn-card-tg" onclick="triggerTgOrderFromCard(this, event)">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 4.5 2.8 11.9c-1.2.5-1.2 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.2-2.1 4.6 3.4c.8.5 1.4.2 1.6-.8l3-14c.3-1.2-.4-1.7-1.9-1.8z"/></svg>
+          Telegram
+        </a>
+        <button class="btn-card-buy" onclick="triggerDirectOrderModal(this, event)">
+          ⚡ Buy Now
+        </button>
+      </div>
+</div>
 	<!-- end .leftbox -->
     <!-- ### End Line ### -->
 
@@ -977,7 +1686,17 @@
 	  <p class="title2">Logitech M650 Signature<br/></p>
 	  <p class="sp"><span class="price2"></span>$30</p>
       <p class="txt">Code : <b>M650-A1</b></p>		
-	</div>
+	
+      <div class="card-actions-quick" onclick="event.stopPropagation();">
+        <a href="https://t.me/Sounvisal" target="_blank" class="btn-card-tg" onclick="triggerTgOrderFromCard(this, event)">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 4.5 2.8 11.9c-1.2.5-1.2 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.2-2.1 4.6 3.4c.8.5 1.4.2 1.6-.8l3-14c.3-1.2-.4-1.7-1.9-1.8z"/></svg>
+          Telegram
+        </a>
+        <button class="btn-card-buy" onclick="triggerDirectOrderModal(this, event)">
+          ⚡ Buy Now
+        </button>
+      </div>
+</div>
 	<!-- end .leftbox -->
                   
 	<div class="centerbox1">
@@ -985,7 +1704,17 @@
 	  <p class="title2">Logitech M650 Signature<br/></p>
 	  <p class="sp"><span class="price2"></span>$30</p>
       <p class="txt">Code : <b>M650-A2</b></p>
-	</div>
+	
+      <div class="card-actions-quick" onclick="event.stopPropagation();">
+        <a href="https://t.me/Sounvisal" target="_blank" class="btn-card-tg" onclick="triggerTgOrderFromCard(this, event)">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 4.5 2.8 11.9c-1.2.5-1.2 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.2-2.1 4.6 3.4c.8.5 1.4.2 1.6-.8l3-14c.3-1.2-.4-1.7-1.9-1.8z"/></svg>
+          Telegram
+        </a>
+        <button class="btn-card-buy" onclick="triggerDirectOrderModal(this, event)">
+          ⚡ Buy Now
+        </button>
+      </div>
+</div>
 	<!-- end .leftbox -->
 	
 	<div class="centerbox2">
@@ -993,7 +1722,17 @@
 	  <p class="title2">Logitech Lift Vertical Ergonomic<br/></p>
 	  <p class="sp"><span class="price2"></span>$69</p>
       <p class="txt">Code : <b>M350S-A3</b></p>
-	</div>
+	
+      <div class="card-actions-quick" onclick="event.stopPropagation();">
+        <a href="https://t.me/Sounvisal" target="_blank" class="btn-card-tg" onclick="triggerTgOrderFromCard(this, event)">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 4.5 2.8 11.9c-1.2.5-1.2 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.2-2.1 4.6 3.4c.8.5 1.4.2 1.6-.8l3-14c.3-1.2-.4-1.7-1.9-1.8z"/></svg>
+          Telegram
+        </a>
+        <button class="btn-card-buy" onclick="triggerDirectOrderModal(this, event)">
+          ⚡ Buy Now
+        </button>
+      </div>
+</div>
 	<!-- end .leftbox -->
 	
 	<div class="rightbox">
@@ -1001,7 +1740,17 @@
 	  <p class="title2">Logitech Lift Vertical Ergonomic<br/></p>
 	  <p class="sp"><span class="price2"></span>$69</p>
       <p class="txt">Code : <b>M350S-A4</b></p>
-	</div>
+	
+      <div class="card-actions-quick" onclick="event.stopPropagation();">
+        <a href="https://t.me/Sounvisal" target="_blank" class="btn-card-tg" onclick="triggerTgOrderFromCard(this, event)">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 4.5 2.8 11.9c-1.2.5-1.2 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.2-2.1 4.6 3.4c.8.5 1.4.2 1.6-.8l3-14c.3-1.2-.4-1.7-1.9-1.8z"/></svg>
+          Telegram
+        </a>
+        <button class="btn-card-buy" onclick="triggerDirectOrderModal(this, event)">
+          ⚡ Buy Now
+        </button>
+      </div>
+</div>
 	<!-- end .leftbox -->
     <!-- ### End Line ### -->
     
@@ -1013,7 +1762,17 @@
 	  <p class="sp"><span class="price2"></span>$69</p>
       <p class="txt">
 	- Code : <b>M350S-A5</b></p>
-	</div>
+	
+      <div class="card-actions-quick" onclick="event.stopPropagation();">
+        <a href="https://t.me/Sounvisal" target="_blank" class="btn-card-tg" onclick="triggerTgOrderFromCard(this, event)">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 4.5 2.8 11.9c-1.2.5-1.2 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.2-2.1 4.6 3.4c.8.5 1.4.2 1.6-.8l3-14c.3-1.2-.4-1.7-1.9-1.8z"/></svg>
+          Telegram
+        </a>
+        <button class="btn-card-buy" onclick="triggerDirectOrderModal(this, event)">
+          ⚡ Buy Now
+        </button>
+      </div>
+</div>
 	<!-- end .leftbox -->
                   
 	<div class="centerbox1">
@@ -1082,7 +1841,17 @@
 	  <p class="sp"><span class="price2"></span>$45</p>
       <p class="txt">
 	- Code : <b>G403-A1</b></p>
-	</div>
+	
+      <div class="card-actions-quick" onclick="event.stopPropagation();">
+        <a href="https://t.me/Sounvisal" target="_blank" class="btn-card-tg" onclick="triggerTgOrderFromCard(this, event)">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 4.5 2.8 11.9c-1.2.5-1.2 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.2-2.1 4.6 3.4c.8.5 1.4.2 1.6-.8l3-14c.3-1.2-.4-1.7-1.9-1.8z"/></svg>
+          Telegram
+        </a>
+        <button class="btn-card-buy" onclick="triggerDirectOrderModal(this, event)">
+          ⚡ Buy Now
+        </button>
+      </div>
+</div>
 	<!-- end .leftbox -->
                   
 	<div class="centerbox1">
@@ -1151,7 +1920,17 @@
 	  <p class="txt">
 		--------------------- <br>
 	- Code : <b>G304A1</b></p>	
-	</div>
+	
+      <div class="card-actions-quick" onclick="event.stopPropagation();">
+        <a href="https://t.me/Sounvisal" target="_blank" class="btn-card-tg" onclick="triggerTgOrderFromCard(this, event)">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 4.5 2.8 11.9c-1.2.5-1.2 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.2-2.1 4.6 3.4c.8.5 1.4.2 1.6-.8l3-14c.3-1.2-.4-1.7-1.9-1.8z"/></svg>
+          Telegram
+        </a>
+        <button class="btn-card-buy" onclick="triggerDirectOrderModal(this, event)">
+          ⚡ Buy Now
+        </button>
+      </div>
+</div>
 	<!-- end .leftbox -->
                   
 	<div class="centerbox1">
@@ -1224,7 +2003,17 @@
 	  <p class="txt">
 		--------------------- <br>
 	- Code : <b>G304XB1</b></p>	
-	</div>
+	
+      <div class="card-actions-quick" onclick="event.stopPropagation();">
+        <a href="https://t.me/Sounvisal" target="_blank" class="btn-card-tg" onclick="triggerTgOrderFromCard(this, event)">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 4.5 2.8 11.9c-1.2.5-1.2 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.2-2.1 4.6 3.4c.8.5 1.4.2 1.6-.8l3-14c.3-1.2-.4-1.7-1.9-1.8z"/></svg>
+          Telegram
+        </a>
+        <button class="btn-card-buy" onclick="triggerDirectOrderModal(this, event)">
+          ⚡ Buy Now
+        </button>
+      </div>
+</div>
 	<!-- end .leftbox -->
                   
 	<div class="centerbox1">
@@ -1296,7 +2085,17 @@
 	  <p class="txt">
 		--------------------- <br>
 	- Code : <b>G502A1</b></p>	
-	</div>
+	
+      <div class="card-actions-quick" onclick="event.stopPropagation();">
+        <a href="https://t.me/Sounvisal" target="_blank" class="btn-card-tg" onclick="triggerTgOrderFromCard(this, event)">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 4.5 2.8 11.9c-1.2.5-1.2 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.2-2.1 4.6 3.4c.8.5 1.4.2 1.6-.8l3-14c.3-1.2-.4-1.7-1.9-1.8z"/></svg>
+          Telegram
+        </a>
+        <button class="btn-card-buy" onclick="triggerDirectOrderModal(this, event)">
+          ⚡ Buy Now
+        </button>
+      </div>
+</div>
 	<!-- end .leftbox -->
                   
 	<div class="centerbox1">
@@ -1368,7 +2167,17 @@
 	  <p class="txt">
 		--------------------- <br>
 	- Code : <b>ASG703-E1</b></p>	
-	</div>
+	
+      <div class="card-actions-quick" onclick="event.stopPropagation();">
+        <a href="https://t.me/Sounvisal" target="_blank" class="btn-card-tg" onclick="triggerTgOrderFromCard(this, event)">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 4.5 2.8 11.9c-1.2.5-1.2 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.2-2.1 4.6 3.4c.8.5 1.4.2 1.6-.8l3-14c.3-1.2-.4-1.7-1.9-1.8z"/></svg>
+          Telegram
+        </a>
+        <button class="btn-card-buy" onclick="triggerDirectOrderModal(this, event)">
+          ⚡ Buy Now
+        </button>
+      </div>
+</div>
 	<!-- end .leftbox -->
                   
 	<div class="centerbox1">
@@ -1378,7 +2187,17 @@
 	  <p class="txt">
 		--------------------- <br>
 	- Code : <b>ASG903-E1</b></p>	
-	</div>
+	
+      <div class="card-actions-quick" onclick="event.stopPropagation();">
+        <a href="https://t.me/Sounvisal" target="_blank" class="btn-card-tg" onclick="triggerTgOrderFromCard(this, event)">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 4.5 2.8 11.9c-1.2.5-1.2 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.2-2.1 4.6 3.4c.8.5 1.4.2 1.6-.8l3-14c.3-1.2-.4-1.7-1.9-1.8z"/></svg>
+          Telegram
+        </a>
+        <button class="btn-card-buy" onclick="triggerDirectOrderModal(this, event)">
+          ⚡ Buy Now
+        </button>
+      </div>
+</div>
 	<!-- end .leftbox -->
 	
 	<div class="centerbox2">
@@ -1388,7 +2207,17 @@
       <p class="txt">
 	--------------------- <br>
 	- Code : <b>CC271023F3</b></p>	
-	</div>
+	
+      <div class="card-actions-quick" onclick="event.stopPropagation();">
+        <a href="https://t.me/Sounvisal" target="_blank" class="btn-card-tg" onclick="triggerTgOrderFromCard(this, event)">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 4.5 2.8 11.9c-1.2.5-1.2 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.2-2.1 4.6 3.4c.8.5 1.4.2 1.6-.8l3-14c.3-1.2-.4-1.7-1.9-1.8z"/></svg>
+          Telegram
+        </a>
+        <button class="btn-card-buy" onclick="triggerDirectOrderModal(this, event)">
+          ⚡ Buy Now
+        </button>
+      </div>
+</div>
 	<!-- end .leftbox -->
 	
 	<div class="rightbox">
@@ -1398,7 +2227,17 @@
       <p class="txt">
 	--------------------- <br>
 	- Code: <b>G603-E4</b></p>	
-	</div>
+	
+      <div class="card-actions-quick" onclick="event.stopPropagation();">
+        <a href="https://t.me/Sounvisal" target="_blank" class="btn-card-tg" onclick="triggerTgOrderFromCard(this, event)">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 4.5 2.8 11.9c-1.2.5-1.2 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.2-2.1 4.6 3.4c.8.5 1.4.2 1.6-.8l3-14c.3-1.2-.4-1.7-1.9-1.8z"/></svg>
+          Telegram
+        </a>
+        <button class="btn-card-buy" onclick="triggerDirectOrderModal(this, event)">
+          ⚡ Buy Now
+        </button>
+      </div>
+</div>
 	<!-- end .leftbox -->
 	<div class="clear br"></div> 
     <!-- ### End Line ### -->
@@ -1411,7 +2250,17 @@
       <p class="txt">
 	--------------------- <br>
 	- Code : <b>ASGPRO-E1</b></p>	
-	</div>
+	
+      <div class="card-actions-quick" onclick="event.stopPropagation();">
+        <a href="https://t.me/Sounvisal" target="_blank" class="btn-card-tg" onclick="triggerTgOrderFromCard(this, event)">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 4.5 2.8 11.9c-1.2.5-1.2 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.2-2.1 4.6 3.4c.8.5 1.4.2 1.6-.8l3-14c.3-1.2-.4-1.7-1.9-1.8z"/></svg>
+          Telegram
+        </a>
+        <button class="btn-card-buy" onclick="triggerDirectOrderModal(this, event)">
+          ⚡ Buy Now
+        </button>
+      </div>
+</div>
 	<!-- end .leftbox -->
                   
 	<div class="centerbox1">
@@ -1421,7 +2270,17 @@
       <p class="txt">
 	--------------------- <br>
 	- Code : <b>ASGPROX-E2</b></p>
-	</div>
+	
+      <div class="card-actions-quick" onclick="event.stopPropagation();">
+        <a href="https://t.me/Sounvisal" target="_blank" class="btn-card-tg" onclick="triggerTgOrderFromCard(this, event)">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 4.5 2.8 11.9c-1.2.5-1.2 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.2-2.1 4.6 3.4c.8.5 1.4.2 1.6-.8l3-14c.3-1.2-.4-1.7-1.9-1.8z"/></svg>
+          Telegram
+        </a>
+        <button class="btn-card-buy" onclick="triggerDirectOrderModal(this, event)">
+          ⚡ Buy Now
+        </button>
+      </div>
+</div>
 	<!-- end .leftbox -->
 	
 	<div class="centerbox2">
@@ -1431,7 +2290,17 @@
       <p class="txt">
 	--------------------- <br>
 	- Code : <b>ASGPROX-E3</b></p>	
-	</div>
+	
+      <div class="card-actions-quick" onclick="event.stopPropagation();">
+        <a href="https://t.me/Sounvisal" target="_blank" class="btn-card-tg" onclick="triggerTgOrderFromCard(this, event)">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 4.5 2.8 11.9c-1.2.5-1.2 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.2-2.1 4.6 3.4c.8.5 1.4.2 1.6-.8l3-14c.3-1.2-.4-1.7-1.9-1.8z"/></svg>
+          Telegram
+        </a>
+        <button class="btn-card-buy" onclick="triggerDirectOrderModal(this, event)">
+          ⚡ Buy Now
+        </button>
+      </div>
+</div>
 	<!-- end .leftbox -->
 	
 	<div class="rightbox">
@@ -1441,7 +2310,17 @@
       <p class="txt">
 	--------------------- <br>
 	- Code : <b>ASGPROX-E4</b></p>		
-	</div>
+	
+      <div class="card-actions-quick" onclick="event.stopPropagation();">
+        <a href="https://t.me/Sounvisal" target="_blank" class="btn-card-tg" onclick="triggerTgOrderFromCard(this, event)">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 4.5 2.8 11.9c-1.2.5-1.2 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.2-2.1 4.6 3.4c.8.5 1.4.2 1.6-.8l3-14c.3-1.2-.4-1.7-1.9-1.8z"/></svg>
+          Telegram
+        </a>
+        <button class="btn-card-buy" onclick="triggerDirectOrderModal(this, event)">
+          ⚡ Buy Now
+        </button>
+      </div>
+</div>
 	<!-- end .leftbox -->
     <!-- ### End Line ### -->
     
@@ -1453,7 +2332,17 @@
       <p class="txt">
 	--------------------- <br>
 	- Code : <b>ASGPROX-E4</b></p>		
-	</div>
+	
+      <div class="card-actions-quick" onclick="event.stopPropagation();">
+        <a href="https://t.me/Sounvisal" target="_blank" class="btn-card-tg" onclick="triggerTgOrderFromCard(this, event)">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 4.5 2.8 11.9c-1.2.5-1.2 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.2-2.1 4.6 3.4c.8.5 1.4.2 1.6-.8l3-14c.3-1.2-.4-1.7-1.9-1.8z"/></svg>
+          Telegram
+        </a>
+        <button class="btn-card-buy" onclick="triggerDirectOrderModal(this, event)">
+          ⚡ Buy Now
+        </button>
+      </div>
+</div>
 	<!-- end .leftbox -->
                   
 	<div class="centerbox1">
@@ -1463,7 +2352,17 @@
       <p class="txt">
 	--------------------- <br>
 	- Code : <b>GPRO2A2</b></p>		
-	</div>
+	
+      <div class="card-actions-quick" onclick="event.stopPropagation();">
+        <a href="https://t.me/Sounvisal" target="_blank" class="btn-card-tg" onclick="triggerTgOrderFromCard(this, event)">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 4.5 2.8 11.9c-1.2.5-1.2 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.2-2.1 4.6 3.4c.8.5 1.4.2 1.6-.8l3-14c.3-1.2-.4-1.7-1.9-1.8z"/></svg>
+          Telegram
+        </a>
+        <button class="btn-card-buy" onclick="triggerDirectOrderModal(this, event)">
+          ⚡ Buy Now
+        </button>
+      </div>
+</div>
 	<!-- end .leftbox -->
 	
 	<div class="centerbox2">
@@ -1473,7 +2372,17 @@
       <p class="txt">
 	--------------------- <br>
 	- Code : <b>GPRO2A3</b></p>	
-	</div>
+	
+      <div class="card-actions-quick" onclick="event.stopPropagation();">
+        <a href="https://t.me/Sounvisal" target="_blank" class="btn-card-tg" onclick="triggerTgOrderFromCard(this, event)">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 4.5 2.8 11.9c-1.2.5-1.2 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.2-2.1 4.6 3.4c.8.5 1.4.2 1.6-.8l3-14c.3-1.2-.4-1.7-1.9-1.8z"/></svg>
+          Telegram
+        </a>
+        <button class="btn-card-buy" onclick="triggerDirectOrderModal(this, event)">
+          ⚡ Buy Now
+        </button>
+      </div>
+</div>
 	<!-- end .leftbox -->
 	
 	<div class="rightbox">
@@ -1483,7 +2392,17 @@
       <p class="txt">
 	--------------------- <br>
 	- Code : <b>ASGPROX2-E4</b></p>	
-	</div>
+	
+      <div class="card-actions-quick" onclick="event.stopPropagation();">
+        <a href="https://t.me/Sounvisal" target="_blank" class="btn-card-tg" onclick="triggerTgOrderFromCard(this, event)">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 4.5 2.8 11.9c-1.2.5-1.2 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.2-2.1 4.6 3.4c.8.5 1.4.2 1.6-.8l3-14c.3-1.2-.4-1.7-1.9-1.8z"/></svg>
+          Telegram
+        </a>
+        <button class="btn-card-buy" onclick="triggerDirectOrderModal(this, event)">
+          ⚡ Buy Now
+        </button>
+      </div>
+</div>
 	<!-- end .leftbox -->
     <!-- ### End Line ### -->
     
@@ -1495,7 +2414,17 @@
       <p class="txt">
 	--------------------- <br>
 	- Code : <b>ASGPROX2-E5</b></p>
-	</div>
+	
+      <div class="card-actions-quick" onclick="event.stopPropagation();">
+        <a href="https://t.me/Sounvisal" target="_blank" class="btn-card-tg" onclick="triggerTgOrderFromCard(this, event)">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 4.5 2.8 11.9c-1.2.5-1.2 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.2-2.1 4.6 3.4c.8.5 1.4.2 1.6-.8l3-14c.3-1.2-.4-1.7-1.9-1.8z"/></svg>
+          Telegram
+        </a>
+        <button class="btn-card-buy" onclick="triggerDirectOrderModal(this, event)">
+          ⚡ Buy Now
+        </button>
+      </div>
+</div>
 	<!-- end .leftbox -->
                   
 	<div class="centerbox1">
@@ -1505,7 +2434,17 @@
       <p class="txt">
 	--------------------- <br>
 	- Code : <b>ASGPROX2-E6</b></p>		
-	</div>
+	
+      <div class="card-actions-quick" onclick="event.stopPropagation();">
+        <a href="https://t.me/Sounvisal" target="_blank" class="btn-card-tg" onclick="triggerTgOrderFromCard(this, event)">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 4.5 2.8 11.9c-1.2.5-1.2 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.2-2.1 4.6 3.4c.8.5 1.4.2 1.6-.8l3-14c.3-1.2-.4-1.7-1.9-1.8z"/></svg>
+          Telegram
+        </a>
+        <button class="btn-card-buy" onclick="triggerDirectOrderModal(this, event)">
+          ⚡ Buy Now
+        </button>
+      </div>
+</div>
 	<!-- end .leftbox -->
 	
 	<div class="centerbox2">
@@ -1515,7 +2454,17 @@
       <p class="txt">
 	--------------------- <br>
 	- Code : <b>ASGPROX2-E6</b></p>	
-	</div>
+	
+      <div class="card-actions-quick" onclick="event.stopPropagation();">
+        <a href="https://t.me/Sounvisal" target="_blank" class="btn-card-tg" onclick="triggerTgOrderFromCard(this, event)">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 4.5 2.8 11.9c-1.2.5-1.2 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.2-2.1 4.6 3.4c.8.5 1.4.2 1.6-.8l3-14c.3-1.2-.4-1.7-1.9-1.8z"/></svg>
+          Telegram
+        </a>
+        <button class="btn-card-buy" onclick="triggerDirectOrderModal(this, event)">
+          ⚡ Buy Now
+        </button>
+      </div>
+</div>
 	<!-- end .leftbox -->
 	
 	<div class="rightbox">
@@ -1525,7 +2474,17 @@
       <p class="txt">
 	--------------------- <br>
 	- Code : <b>ASGPROX2-E7</b></p>		
-	</div>
+	
+      <div class="card-actions-quick" onclick="event.stopPropagation();">
+        <a href="https://t.me/Sounvisal" target="_blank" class="btn-card-tg" onclick="triggerTgOrderFromCard(this, event)">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 4.5 2.8 11.9c-1.2.5-1.2 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.2-2.1 4.6 3.4c.8.5 1.4.2 1.6-.8l3-14c.3-1.2-.4-1.7-1.9-1.8z"/></svg>
+          Telegram
+        </a>
+        <button class="btn-card-buy" onclick="triggerDirectOrderModal(this, event)">
+          ⚡ Buy Now
+        </button>
+      </div>
+</div>
 	<!-- end .leftbox -->
     <!-- ### End Line ### -->
     
@@ -1537,7 +2496,17 @@
       <p class="txt">
 	--------------------- <br>
 	- Code : <b>ASGPROX2-E8</b></p>			
-	</div>
+	
+      <div class="card-actions-quick" onclick="event.stopPropagation();">
+        <a href="https://t.me/Sounvisal" target="_blank" class="btn-card-tg" onclick="triggerTgOrderFromCard(this, event)">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 4.5 2.8 11.9c-1.2.5-1.2 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.2-2.1 4.6 3.4c.8.5 1.4.2 1.6-.8l3-14c.3-1.2-.4-1.7-1.9-1.8z"/></svg>
+          Telegram
+        </a>
+        <button class="btn-card-buy" onclick="triggerDirectOrderModal(this, event)">
+          ⚡ Buy Now
+        </button>
+      </div>
+</div>
 	<!-- end .leftbox -->
                   
 	<div class="centerbox1">
@@ -1547,7 +2516,17 @@
       <p class="txt">
 	--------------------- <br>
 	- Code : <b>GPROX2-E8</b></p>
-	</div>
+	
+      <div class="card-actions-quick" onclick="event.stopPropagation();">
+        <a href="https://t.me/Sounvisal" target="_blank" class="btn-card-tg" onclick="triggerTgOrderFromCard(this, event)">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 4.5 2.8 11.9c-1.2.5-1.2 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.2-2.1 4.6 3.4c.8.5 1.4.2 1.6-.8l3-14c.3-1.2-.4-1.7-1.9-1.8z"/></svg>
+          Telegram
+        </a>
+        <button class="btn-card-buy" onclick="triggerDirectOrderModal(this, event)">
+          ⚡ Buy Now
+        </button>
+      </div>
+</div>
 	<!-- end .leftbox -->
 	
 	<div class="centerbox2">
@@ -1557,7 +2536,17 @@
       <p class="txt">
 	--------------------- <br>
 	- Code : <b>GPROX2-E9</b></p>
-	</div>
+	
+      <div class="card-actions-quick" onclick="event.stopPropagation();">
+        <a href="https://t.me/Sounvisal" target="_blank" class="btn-card-tg" onclick="triggerTgOrderFromCard(this, event)">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 4.5 2.8 11.9c-1.2.5-1.2 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.2-2.1 4.6 3.4c.8.5 1.4.2 1.6-.8l3-14c.3-1.2-.4-1.7-1.9-1.8z"/></svg>
+          Telegram
+        </a>
+        <button class="btn-card-buy" onclick="triggerDirectOrderModal(this, event)">
+          ⚡ Buy Now
+        </button>
+      </div>
+</div>
 	<!-- end .leftbox -->
 	
 	<div class="rightbox">
@@ -1567,7 +2556,17 @@
       <p class="txt">
 	--------------------- <br>
 	- Code : <b>GPROX2-E1</b></p>
-	</div>
+	
+      <div class="card-actions-quick" onclick="event.stopPropagation();">
+        <a href="https://t.me/Sounvisal" target="_blank" class="btn-card-tg" onclick="triggerTgOrderFromCard(this, event)">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 4.5 2.8 11.9c-1.2.5-1.2 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.2-2.1 4.6 3.4c.8.5 1.4.2 1.6-.8l3-14c.3-1.2-.4-1.7-1.9-1.8z"/></svg>
+          Telegram
+        </a>
+        <button class="btn-card-buy" onclick="triggerDirectOrderModal(this, event)">
+          ⚡ Buy Now
+        </button>
+      </div>
+</div>
 	<!-- end .leftbox -->
     <!-- ### End Line ### -->
     
@@ -1579,7 +2578,17 @@
       <p class="txt">
 	--------------------- <br>
 	- Code : <b>GPROX2-E2</b></p>		
-	</div>
+	
+      <div class="card-actions-quick" onclick="event.stopPropagation();">
+        <a href="https://t.me/Sounvisal" target="_blank" class="btn-card-tg" onclick="triggerTgOrderFromCard(this, event)">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 4.5 2.8 11.9c-1.2.5-1.2 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.2-2.1 4.6 3.4c.8.5 1.4.2 1.6-.8l3-14c.3-1.2-.4-1.7-1.9-1.8z"/></svg>
+          Telegram
+        </a>
+        <button class="btn-card-buy" onclick="triggerDirectOrderModal(this, event)">
+          ⚡ Buy Now
+        </button>
+      </div>
+</div>
 	<!-- end .leftbox -->
                   
 	<div class="centerbox1">
@@ -1589,7 +2598,17 @@
       <p class="txt">
 	--------------------- <br>
 	- Code : <b>GPROX2-E2</b></p>
-	</div>
+	
+      <div class="card-actions-quick" onclick="event.stopPropagation();">
+        <a href="https://t.me/Sounvisal" target="_blank" class="btn-card-tg" onclick="triggerTgOrderFromCard(this, event)">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 4.5 2.8 11.9c-1.2.5-1.2 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.2-2.1 4.6 3.4c.8.5 1.4.2 1.6-.8l3-14c.3-1.2-.4-1.7-1.9-1.8z"/></svg>
+          Telegram
+        </a>
+        <button class="btn-card-buy" onclick="triggerDirectOrderModal(this, event)">
+          ⚡ Buy Now
+        </button>
+      </div>
+</div>
 	<!-- end .leftbox -->
 	
 	<div class="centerbox2">
@@ -1599,7 +2618,17 @@
       <p class="txt">
 	--------------------- <br>
 	- Code : <b>GPROX2-E3</b></p>
-	</div>
+	
+      <div class="card-actions-quick" onclick="event.stopPropagation();">
+        <a href="https://t.me/Sounvisal" target="_blank" class="btn-card-tg" onclick="triggerTgOrderFromCard(this, event)">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 4.5 2.8 11.9c-1.2.5-1.2 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.2-2.1 4.6 3.4c.8.5 1.4.2 1.6-.8l3-14c.3-1.2-.4-1.7-1.9-1.8z"/></svg>
+          Telegram
+        </a>
+        <button class="btn-card-buy" onclick="triggerDirectOrderModal(this, event)">
+          ⚡ Buy Now
+        </button>
+      </div>
+</div>
 	<!-- end .leftbox -->
 	
 	<div class="rightbox">
@@ -1609,7 +2638,17 @@
       <p class="txt">
 	--------------------- <br>
 	- Code : <b>GPROX2-E4</b></p>
-	</div>
+	
+      <div class="card-actions-quick" onclick="event.stopPropagation();">
+        <a href="https://t.me/Sounvisal" target="_blank" class="btn-card-tg" onclick="triggerTgOrderFromCard(this, event)">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 4.5 2.8 11.9c-1.2.5-1.2 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.2-2.1 4.6 3.4c.8.5 1.4.2 1.6-.8l3-14c.3-1.2-.4-1.7-1.9-1.8z"/></svg>
+          Telegram
+        </a>
+        <button class="btn-card-buy" onclick="triggerDirectOrderModal(this, event)">
+          ⚡ Buy Now
+        </button>
+      </div>
+</div>
 	<!-- end .leftbox -->
     <!-- ### End Line ### -->
     
@@ -1621,7 +2660,17 @@
       <p class="txt">
       - Note : Not include receiver <br> 
       Code : <b>AWECPT2SA1</b></p>	
-	</div>
+	
+      <div class="card-actions-quick" onclick="event.stopPropagation();">
+        <a href="https://t.me/Sounvisal" target="_blank" class="btn-card-tg" onclick="triggerTgOrderFromCard(this, event)">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 4.5 2.8 11.9c-1.2.5-1.2 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.2-2.1 4.6 3.4c.8.5 1.4.2 1.6-.8l3-14c.3-1.2-.4-1.7-1.9-1.8z"/></svg>
+          Telegram
+        </a>
+        <button class="btn-card-buy" onclick="triggerDirectOrderModal(this, event)">
+          ⚡ Buy Now
+        </button>
+      </div>
+</div>
 	<!-- end .Leftbox -->
                   
 	<div class="centerbox1">
@@ -1691,7 +2740,17 @@
 	  <p class="title2">Logitech MX Master 3S | Space Grey <br/>For Mac Performance Bluetooth</p>
 	  <p class="sp"><span class="price2"></span>$109</p>
       <p class="txt">Code: <b>AWECPT2SB1</b></p>	
-	</div>
+	
+      <div class="card-actions-quick" onclick="event.stopPropagation();">
+        <a href="https://t.me/Sounvisal" target="_blank" class="btn-card-tg" onclick="triggerTgOrderFromCard(this, event)">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 4.5 2.8 11.9c-1.2.5-1.2 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.2-2.1 4.6 3.4c.8.5 1.4.2 1.6-.8l3-14c.3-1.2-.4-1.7-1.9-1.8z"/></svg>
+          Telegram
+        </a>
+        <button class="btn-card-buy" onclick="triggerDirectOrderModal(this, event)">
+          ⚡ Buy Now
+        </button>
+      </div>
+</div>
 	<!-- end .Leftbox -->
                   
 	<div class="centerbox1">
@@ -1768,7 +2827,17 @@
 	  <p class="title2">Logitech Keyboard | K120 for Business USB</p>
 	  <p class="sp"><span class="price2"></span>$10</p>
       <p class="txt">Code: <b>CC271023V120</b></p>	
-	</div>
+	
+      <div class="card-actions-quick" onclick="event.stopPropagation();">
+        <a href="https://t.me/Sounvisal" target="_blank" class="btn-card-tg" onclick="triggerTgOrderFromCard(this, event)">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 4.5 2.8 11.9c-1.2.5-1.2 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.2-2.1 4.6 3.4c.8.5 1.4.2 1.6-.8l3-14c.3-1.2-.4-1.7-1.9-1.8z"/></svg>
+          Telegram
+        </a>
+        <button class="btn-card-buy" onclick="triggerDirectOrderModal(this, event)">
+          ⚡ Buy Now
+        </button>
+      </div>
+</div>
 	<!-- end .leftbox -->
                   
 	<div class="centerbox1">
@@ -1776,7 +2845,17 @@
 	  <p class="title2">Logitech MK120 Corded Keyboard and Mouse Combo</p>
 	  <p class="sp"><span class="price2"></span>$13</p>
       <p class="txt">Code: <b>CC271023X2</b></p>	
-	</div>
+	
+      <div class="card-actions-quick" onclick="event.stopPropagation();">
+        <a href="https://t.me/Sounvisal" target="_blank" class="btn-card-tg" onclick="triggerTgOrderFromCard(this, event)">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 4.5 2.8 11.9c-1.2.5-1.2 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.2-2.1 4.6 3.4c.8.5 1.4.2 1.6-.8l3-14c.3-1.2-.4-1.7-1.9-1.8z"/></svg>
+          Telegram
+        </a>
+        <button class="btn-card-buy" onclick="triggerDirectOrderModal(this, event)">
+          ⚡ Buy Now
+        </button>
+      </div>
+</div>
 	<!-- end .Centertbox1 -->
 	
 	<div class="centerbox2">
@@ -1784,7 +2863,17 @@
 	  <p class="title2">Logitech MK200 Media Corded Keyboard and Mouse Combo</p>
 	  <p class="sp"><span class="price2"></span>$16</p>
       <p class="txt">Code: <b>CC271023X3</b></p>	
-	</div>
+	
+      <div class="card-actions-quick" onclick="event.stopPropagation();">
+        <a href="https://t.me/Sounvisal" target="_blank" class="btn-card-tg" onclick="triggerTgOrderFromCard(this, event)">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 4.5 2.8 11.9c-1.2.5-1.2 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.2-2.1 4.6 3.4c.8.5 1.4.2 1.6-.8l3-14c.3-1.2-.4-1.7-1.9-1.8z"/></svg>
+          Telegram
+        </a>
+        <button class="btn-card-buy" onclick="triggerDirectOrderModal(this, event)">
+          ⚡ Buy Now
+        </button>
+      </div>
+</div>
 	<!-- end .leftbox -->
 	
 	<div class="rightbox">
@@ -1792,7 +2881,17 @@
 	  <p class="title2">Logitech MK220 Compact Wireless Keyboard Mouse Combo</p>
 	  <p class="sp"><span class="price2"></span>$25</p>
       <p class="txt">Code: <b>CC271023X4</b></p>	
-	</div>
+	
+      <div class="card-actions-quick" onclick="event.stopPropagation();">
+        <a href="https://t.me/Sounvisal" target="_blank" class="btn-card-tg" onclick="triggerTgOrderFromCard(this, event)">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 4.5 2.8 11.9c-1.2.5-1.2 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.2-2.1 4.6 3.4c.8.5 1.4.2 1.6-.8l3-14c.3-1.2-.4-1.7-1.9-1.8z"/></svg>
+          Telegram
+        </a>
+        <button class="btn-card-buy" onclick="triggerDirectOrderModal(this, event)">
+          ⚡ Buy Now
+        </button>
+      </div>
+</div>
 	<!-- end .leftbox -->
     <!-- ### End Line ### -->
     
@@ -1802,7 +2901,17 @@
 	  <p class="title2">Logitech MK235 Wireless Keyboard and Mouse Combo</p>
 	  <p class="sp"><span class="price2"></span>$25</p>
       <p class="txt">Code: <b>CC271023V1</b></p>	
-	</div>
+	
+      <div class="card-actions-quick" onclick="event.stopPropagation();">
+        <a href="https://t.me/Sounvisal" target="_blank" class="btn-card-tg" onclick="triggerTgOrderFromCard(this, event)">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 4.5 2.8 11.9c-1.2.5-1.2 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.2-2.1 4.6 3.4c.8.5 1.4.2 1.6-.8l3-14c.3-1.2-.4-1.7-1.9-1.8z"/></svg>
+          Telegram
+        </a>
+        <button class="btn-card-buy" onclick="triggerDirectOrderModal(this, event)">
+          ⚡ Buy Now
+        </button>
+      </div>
+</div>
 	<!-- end .leftbox -->
                   
 	<div class="centerbox1">
@@ -1810,7 +2919,17 @@
 	  <p class="title2">MK270r Wireless Keyboard and Mouse Combo</p>
 	  <p class="sp"><span class="price2"></span>$27</p>
       <p class="txt">Code: <b>CC271023X3</b></p>	
-	</div>
+	
+      <div class="card-actions-quick" onclick="event.stopPropagation();">
+        <a href="https://t.me/Sounvisal" target="_blank" class="btn-card-tg" onclick="triggerTgOrderFromCard(this, event)">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 4.5 2.8 11.9c-1.2.5-1.2 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.2-2.1 4.6 3.4c.8.5 1.4.2 1.6-.8l3-14c.3-1.2-.4-1.7-1.9-1.8z"/></svg>
+          Telegram
+        </a>
+        <button class="btn-card-buy" onclick="triggerDirectOrderModal(this, event)">
+          ⚡ Buy Now
+        </button>
+      </div>
+</div>
 	<!-- end .leftbox -->
 	
 	<div class="centerbox2">
@@ -1818,7 +2937,17 @@
 	  <p class="title2">Logitech Keyboard K270</p>
 	  <p class="sp"><span class="price2"></span>$29</p>
       <p class="txt">Code: <b>CC271023V3</b></p>	
-	</div>
+	
+      <div class="card-actions-quick" onclick="event.stopPropagation();">
+        <a href="https://t.me/Sounvisal" target="_blank" class="btn-card-tg" onclick="triggerTgOrderFromCard(this, event)">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 4.5 2.8 11.9c-1.2.5-1.2 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.2-2.1 4.6 3.4c.8.5 1.4.2 1.6-.8l3-14c.3-1.2-.4-1.7-1.9-1.8z"/></svg>
+          Telegram
+        </a>
+        <button class="btn-card-buy" onclick="triggerDirectOrderModal(this, event)">
+          ⚡ Buy Now
+        </button>
+      </div>
+</div>
 	<!-- end .leftbox -->
 	
 	<div class="rightbox">
@@ -1827,7 +2956,17 @@
 	  <p class="sp"><span class="price2"></span>$30</p>
       <p class="txt">
 		Code: <b>CC271023V4</b></p>	
-	</div>
+	
+      <div class="card-actions-quick" onclick="event.stopPropagation();">
+        <a href="https://t.me/Sounvisal" target="_blank" class="btn-card-tg" onclick="triggerTgOrderFromCard(this, event)">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 4.5 2.8 11.9c-1.2.5-1.2 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.2-2.1 4.6 3.4c.8.5 1.4.2 1.6-.8l3-14c.3-1.2-.4-1.7-1.9-1.8z"/></svg>
+          Telegram
+        </a>
+        <button class="btn-card-buy" onclick="triggerDirectOrderModal(this, event)">
+          ⚡ Buy Now
+        </button>
+      </div>
+</div>
 	<!-- end .leftbox -->
     <!-- ### End Line ### -->
 	
@@ -1842,7 +2981,17 @@
 - 2.4 GHz wireless <br>
 ---------------------------- <br>
 - <b>Code: SP261124A1</b><br>	
-    </p></div> 
+    </p>
+      <div class="card-actions-quick" onclick="event.stopPropagation();">
+        <a href="https://t.me/Sounvisal" target="_blank" class="btn-card-tg" onclick="triggerTgOrderFromCard(this, event)">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 4.5 2.8 11.9c-1.2.5-1.2 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.2-2.1 4.6 3.4c.8.5 1.4.2 1.6-.8l3-14c.3-1.2-.4-1.7-1.9-1.8z"/></svg>
+          Telegram
+        </a>
+        <button class="btn-card-buy" onclick="triggerDirectOrderModal(this, event)">
+          ⚡ Buy Now
+        </button>
+      </div>
+</div> 
 <!-- end .leftbox -->
 
 <!-- ### Start centerbox Line ### -->
@@ -1855,7 +3004,17 @@
 - 2.4 GHz wireless <br>
 ---------------------------- <br>
 - <b>Code: SP261124A2</b><br>	
-    </p></div> 
+    </p>
+      <div class="card-actions-quick" onclick="event.stopPropagation();">
+        <a href="https://t.me/Sounvisal" target="_blank" class="btn-card-tg" onclick="triggerTgOrderFromCard(this, event)">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 4.5 2.8 11.9c-1.2.5-1.2 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.2-2.1 4.6 3.4c.8.5 1.4.2 1.6-.8l3-14c.3-1.2-.4-1.7-1.9-1.8z"/></svg>
+          Telegram
+        </a>
+        <button class="btn-card-buy" onclick="triggerDirectOrderModal(this, event)">
+          ⚡ Buy Now
+        </button>
+      </div>
+</div> 
 <!-- end .leftbox -->
 		
 	<!-- ### Start centerbox Line ### -->
@@ -1868,7 +3027,17 @@
 	- Comfortable wireless combo palm rest<br>
 		---------------------------- <br>
 		Code: <b>CC271023V2</b></p>
-	</div> 
+	
+      <div class="card-actions-quick" onclick="event.stopPropagation();">
+        <a href="https://t.me/Sounvisal" target="_blank" class="btn-card-tg" onclick="triggerTgOrderFromCard(this, event)">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 4.5 2.8 11.9c-1.2.5-1.2 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.2-2.1 4.6 3.4c.8.5 1.4.2 1.6-.8l3-14c.3-1.2-.4-1.7-1.9-1.8z"/></svg>
+          Telegram
+        </a>
+        <button class="btn-card-buy" onclick="triggerDirectOrderModal(this, event)">
+          ⚡ Buy Now
+        </button>
+      </div>
+</div> 
 <!-- end .leftbox -->
 
 	<!-- ### Start rightbox Line ### -->
@@ -1881,7 +3050,17 @@
 - Supported Windows® and macOS <br><br>
 ---------------------------- <br>
 - <b>Code: SP261124A4</b><br>	
-    </p></div> 
+    </p>
+      <div class="card-actions-quick" onclick="event.stopPropagation();">
+        <a href="https://t.me/Sounvisal" target="_blank" class="btn-card-tg" onclick="triggerTgOrderFromCard(this, event)">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 4.5 2.8 11.9c-1.2.5-1.2 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.2-2.1 4.6 3.4c.8.5 1.4.2 1.6-.8l3-14c.3-1.2-.4-1.7-1.9-1.8z"/></svg>
+          Telegram
+        </a>
+        <button class="btn-card-buy" onclick="triggerDirectOrderModal(this, event)">
+          ⚡ Buy Now
+        </button>
+      </div>
+</div> 
 <!-- end .leftbox -->
 <!-- ### End Line ### -->
 
@@ -1896,7 +3075,17 @@
 - Bluetooth classic (3.0) connection <br>
 ---------------------------- <br>
 - <b>- Code:SP261124F1</b>
-    </p></div> 
+    </p>
+      <div class="card-actions-quick" onclick="event.stopPropagation();">
+        <a href="https://t.me/Sounvisal" target="_blank" class="btn-card-tg" onclick="triggerTgOrderFromCard(this, event)">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 4.5 2.8 11.9c-1.2.5-1.2 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.2-2.1 4.6 3.4c.8.5 1.4.2 1.6-.8l3-14c.3-1.2-.4-1.7-1.9-1.8z"/></svg>
+          Telegram
+        </a>
+        <button class="btn-card-buy" onclick="triggerDirectOrderModal(this, event)">
+          ⚡ Buy Now
+        </button>
+      </div>
+</div> 
 <!-- end .leftbox -->
 
 <!-- ### Start centerbox Line ### -->
@@ -1909,7 +3098,17 @@
 - 2.4 GHz stable wireless connection <br>
 ---------------------------- <br>
 - <b>Code: SP261124H2</b>
-    </p></div> 
+    </p>
+      <div class="card-actions-quick" onclick="event.stopPropagation();">
+        <a href="https://t.me/Sounvisal" target="_blank" class="btn-card-tg" onclick="triggerTgOrderFromCard(this, event)">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 4.5 2.8 11.9c-1.2.5-1.2 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.2-2.1 4.6 3.4c.8.5 1.4.2 1.6-.8l3-14c.3-1.2-.4-1.7-1.9-1.8z"/></svg>
+          Telegram
+        </a>
+        <button class="btn-card-buy" onclick="triggerDirectOrderModal(this, event)">
+          ⚡ Buy Now
+        </button>
+      </div>
+</div> 
 <!-- end .leftbox -->
 	
 	<!-- ### Start centerbox Line ### -->
@@ -1922,7 +3121,17 @@
 - Bluetooth connection <br>
 ---------------------------- <br>
 - <b>Code: SP261124O3</b>
-    </p></div> 
+    </p>
+      <div class="card-actions-quick" onclick="event.stopPropagation();">
+        <a href="https://t.me/Sounvisal" target="_blank" class="btn-card-tg" onclick="triggerTgOrderFromCard(this, event)">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 4.5 2.8 11.9c-1.2.5-1.2 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.2-2.1 4.6 3.4c.8.5 1.4.2 1.6-.8l3-14c.3-1.2-.4-1.7-1.9-1.8z"/></svg>
+          Telegram
+        </a>
+        <button class="btn-card-buy" onclick="triggerDirectOrderModal(this, event)">
+          ⚡ Buy Now
+        </button>
+      </div>
+</div> 
 <!-- end .leftbox -->
 	
 	<!-- ### Start rightbox Line ### -->
@@ -1935,7 +3144,17 @@
 - Bluetooth connection <br>
 ---------------------------- <br>
 - <b>Code: SP261124O4</b>
-    </p></div> 
+    </p>
+      <div class="card-actions-quick" onclick="event.stopPropagation();">
+        <a href="https://t.me/Sounvisal" target="_blank" class="btn-card-tg" onclick="triggerTgOrderFromCard(this, event)">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 4.5 2.8 11.9c-1.2.5-1.2 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.2-2.1 4.6 3.4c.8.5 1.4.2 1.6-.8l3-14c.3-1.2-.4-1.7-1.9-1.8z"/></svg>
+          Telegram
+        </a>
+        <button class="btn-card-buy" onclick="triggerDirectOrderModal(this, event)">
+          ⚡ Buy Now
+        </button>
+      </div>
+</div> 
 <!-- end .leftbox -->
 <!-- ### End Line ### -->
 
@@ -1949,7 +3168,17 @@
 - Silent touch technology <br>
 ---------------------------- <br>
 - <b>Code: SP261124D1</b>	
-    </p></div> 
+    </p>
+      <div class="card-actions-quick" onclick="event.stopPropagation();">
+        <a href="https://t.me/Sounvisal" target="_blank" class="btn-card-tg" onclick="triggerTgOrderFromCard(this, event)">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 4.5 2.8 11.9c-1.2.5-1.2 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.2-2.1 4.6 3.4c.8.5 1.4.2 1.6-.8l3-14c.3-1.2-.4-1.7-1.9-1.8z"/></svg>
+          Telegram
+        </a>
+        <button class="btn-card-buy" onclick="triggerDirectOrderModal(this, event)">
+          ⚡ Buy Now
+        </button>
+      </div>
+</div> 
 <!-- end .leftbox -->
 
 <!-- ### Start centerbox Line ### -->
@@ -1962,7 +3191,17 @@
 - Silent touch technology <br>
 ---------------------------- <br>
 - <b>Code: SP261124D2</b>	
-    </p></div> 
+    </p>
+      <div class="card-actions-quick" onclick="event.stopPropagation();">
+        <a href="https://t.me/Sounvisal" target="_blank" class="btn-card-tg" onclick="triggerTgOrderFromCard(this, event)">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 4.5 2.8 11.9c-1.2.5-1.2 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.2-2.1 4.6 3.4c.8.5 1.4.2 1.6-.8l3-14c.3-1.2-.4-1.7-1.9-1.8z"/></svg>
+          Telegram
+        </a>
+        <button class="btn-card-buy" onclick="triggerDirectOrderModal(this, event)">
+          ⚡ Buy Now
+        </button>
+      </div>
+</div> 
 <!-- end .leftbox -->
 	
 	<!-- ### Start centerbox Line ### -->
@@ -2022,7 +3261,17 @@
 - Silent touch technology <br>
 ---------------------------- <br>
 - <b>Code: SP261124C5</b>	
-    </p></div> 
+    </p>
+      <div class="card-actions-quick" onclick="event.stopPropagation();">
+        <a href="https://t.me/Sounvisal" target="_blank" class="btn-card-tg" onclick="triggerTgOrderFromCard(this, event)">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 4.5 2.8 11.9c-1.2.5-1.2 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.2-2.1 4.6 3.4c.8.5 1.4.2 1.6-.8l3-14c.3-1.2-.4-1.7-1.9-1.8z"/></svg>
+          Telegram
+        </a>
+        <button class="btn-card-buy" onclick="triggerDirectOrderModal(this, event)">
+          ⚡ Buy Now
+        </button>
+      </div>
+</div> 
 <!-- end .leftbox -->
 
 <!-- ### Start centerbox Line ### -->
@@ -2035,7 +3284,17 @@
 - Silent touch technology <br>
 ---------------------------- <br>
 - <b>Code: SP261124C6</b>	
-    </p></div> 
+    </p>
+      <div class="card-actions-quick" onclick="event.stopPropagation();">
+        <a href="https://t.me/Sounvisal" target="_blank" class="btn-card-tg" onclick="triggerTgOrderFromCard(this, event)">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 4.5 2.8 11.9c-1.2.5-1.2 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.2-2.1 4.6 3.4c.8.5 1.4.2 1.6-.8l3-14c.3-1.2-.4-1.7-1.9-1.8z"/></svg>
+          Telegram
+        </a>
+        <button class="btn-card-buy" onclick="triggerDirectOrderModal(this, event)">
+          ⚡ Buy Now
+        </button>
+      </div>
+</div> 
 <!-- end .leftbox -->
 	
 	
@@ -2049,7 +3308,17 @@
 - Dual 2.4Ghz wireless and Bluetooth <br>
 ---------------------------- <br>
 - <b>Code: SP261124I4</b>
-    </p></div> 
+    </p>
+      <div class="card-actions-quick" onclick="event.stopPropagation();">
+        <a href="https://t.me/Sounvisal" target="_blank" class="btn-card-tg" onclick="triggerTgOrderFromCard(this, event)">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 4.5 2.8 11.9c-1.2.5-1.2 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.2-2.1 4.6 3.4c.8.5 1.4.2 1.6-.8l3-14c.3-1.2-.4-1.7-1.9-1.8z"/></svg>
+          Telegram
+        </a>
+        <button class="btn-card-buy" onclick="triggerDirectOrderModal(this, event)">
+          ⚡ Buy Now
+        </button>
+      </div>
+</div> 
 <!-- end .leftbox -->
 
 	<!-- ### Start rightbox Line ### -->
@@ -2062,7 +3331,17 @@
 - Logi Bolt receiver and Bluetooth input <br>
 ---------------------------- <br>
 - <b>Code: SP261124I2</b>
-    </p></div> 
+    </p>
+      <div class="card-actions-quick" onclick="event.stopPropagation();">
+        <a href="https://t.me/Sounvisal" target="_blank" class="btn-card-tg" onclick="triggerTgOrderFromCard(this, event)">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 4.5 2.8 11.9c-1.2.5-1.2 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.2-2.1 4.6 3.4c.8.5 1.4.2 1.6-.8l3-14c.3-1.2-.4-1.7-1.9-1.8z"/></svg>
+          Telegram
+        </a>
+        <button class="btn-card-buy" onclick="triggerDirectOrderModal(this, event)">
+          ⚡ Buy Now
+        </button>
+      </div>
+</div> 
 <!-- end .leftbox -->
 <!-- ### End Line ### -->
 
@@ -2077,7 +3356,17 @@
 - very solid typing experience <br>
 ---------------------------- <br>
 - <b>Code: SP261124K1</b>
-    </p></div> 
+    </p>
+      <div class="card-actions-quick" onclick="event.stopPropagation();">
+        <a href="https://t.me/Sounvisal" target="_blank" class="btn-card-tg" onclick="triggerTgOrderFromCard(this, event)">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 4.5 2.8 11.9c-1.2.5-1.2 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.2-2.1 4.6 3.4c.8.5 1.4.2 1.6-.8l3-14c.3-1.2-.4-1.7-1.9-1.8z"/></svg>
+          Telegram
+        </a>
+        <button class="btn-card-buy" onclick="triggerDirectOrderModal(this, event)">
+          ⚡ Buy Now
+        </button>
+      </div>
+</div> 
 <!-- end .leftbox -->
 
 <!-- ### Start centerbox Line ### -->
@@ -2090,7 +3379,17 @@
 - very solid typing experience <br>
 ---------------------------- <br>
 - <b>Code: SP261124K2</b>
-    </p></div> 
+    </p>
+      <div class="card-actions-quick" onclick="event.stopPropagation();">
+        <a href="https://t.me/Sounvisal" target="_blank" class="btn-card-tg" onclick="triggerTgOrderFromCard(this, event)">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 4.5 2.8 11.9c-1.2.5-1.2 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.2-2.1 4.6 3.4c.8.5 1.4.2 1.6-.8l3-14c.3-1.2-.4-1.7-1.9-1.8z"/></svg>
+          Telegram
+        </a>
+        <button class="btn-card-buy" onclick="triggerDirectOrderModal(this, event)">
+          ⚡ Buy Now
+        </button>
+      </div>
+</div> 
 <!-- end .leftbox -->
 	
 	
@@ -2104,7 +3403,17 @@
 - very solid typing experience <br>
 ---------------------------- <br>
 - <b>Code: SP261124K3</b>
-    </p></div> 
+    </p>
+      <div class="card-actions-quick" onclick="event.stopPropagation();">
+        <a href="https://t.me/Sounvisal" target="_blank" class="btn-card-tg" onclick="triggerTgOrderFromCard(this, event)">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 4.5 2.8 11.9c-1.2.5-1.2 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.2-2.1 4.6 3.4c.8.5 1.4.2 1.6-.8l3-14c.3-1.2-.4-1.7-1.9-1.8z"/></svg>
+          Telegram
+        </a>
+        <button class="btn-card-buy" onclick="triggerDirectOrderModal(this, event)">
+          ⚡ Buy Now
+        </button>
+      </div>
+</div> 
 <!-- end .leftbox -->
 
 	<!-- ### Start rightbox Line ### -->
@@ -2117,7 +3426,17 @@
 - very solid typing experience <br>
 ---------------------------- <br>
 - <b>Code: SP261124K4</b>
-    </p></div> 
+    </p>
+      <div class="card-actions-quick" onclick="event.stopPropagation();">
+        <a href="https://t.me/Sounvisal" target="_blank" class="btn-card-tg" onclick="triggerTgOrderFromCard(this, event)">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 4.5 2.8 11.9c-1.2.5-1.2 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.2-2.1 4.6 3.4c.8.5 1.4.2 1.6-.8l3-14c.3-1.2-.4-1.7-1.9-1.8z"/></svg>
+          Telegram
+        </a>
+        <button class="btn-card-buy" onclick="triggerDirectOrderModal(this, event)">
+          ⚡ Buy Now
+        </button>
+      </div>
+</div> 
 <!-- end .leftbox -->
 <!-- ### End Line ### -->
 
@@ -2132,7 +3451,17 @@
 - tablet and phone with the Signature Slim <br>
 ---------------------------- <br>
 - <b>Code: SP261124L1</b>	
-    </p></div> 
+    </p>
+      <div class="card-actions-quick" onclick="event.stopPropagation();">
+        <a href="https://t.me/Sounvisal" target="_blank" class="btn-card-tg" onclick="triggerTgOrderFromCard(this, event)">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 4.5 2.8 11.9c-1.2.5-1.2 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.2-2.1 4.6 3.4c.8.5 1.4.2 1.6-.8l3-14c.3-1.2-.4-1.7-1.9-1.8z"/></svg>
+          Telegram
+        </a>
+        <button class="btn-card-buy" onclick="triggerDirectOrderModal(this, event)">
+          ⚡ Buy Now
+        </button>
+      </div>
+</div> 
 <!-- end .leftbox -->
 
 
@@ -2146,7 +3475,17 @@
 - tablet and phone with the Signature Slim <br>
 ---------------------------- <br>
 - <b>Code: SP261124L2</b>	
-    </p></div> 
+    </p>
+      <div class="card-actions-quick" onclick="event.stopPropagation();">
+        <a href="https://t.me/Sounvisal" target="_blank" class="btn-card-tg" onclick="triggerTgOrderFromCard(this, event)">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 4.5 2.8 11.9c-1.2.5-1.2 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.2-2.1 4.6 3.4c.8.5 1.4.2 1.6-.8l3-14c.3-1.2-.4-1.7-1.9-1.8z"/></svg>
+          Telegram
+        </a>
+        <button class="btn-card-buy" onclick="triggerDirectOrderModal(this, event)">
+          ⚡ Buy Now
+        </button>
+      </div>
+</div> 
 <!-- end .leftbox -->
 	
 	
@@ -2160,7 +3499,17 @@
 - Mental panel durable build quality <br>
 ---------------------------- <br>
 - <b>Code: SP261124M1</b>
-    </p></div> 
+    </p>
+      <div class="card-actions-quick" onclick="event.stopPropagation();">
+        <a href="https://t.me/Sounvisal" target="_blank" class="btn-card-tg" onclick="triggerTgOrderFromCard(this, event)">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 4.5 2.8 11.9c-1.2.5-1.2 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.2-2.1 4.6 3.4c.8.5 1.4.2 1.6-.8l3-14c.3-1.2-.4-1.7-1.9-1.8z"/></svg>
+          Telegram
+        </a>
+        <button class="btn-card-buy" onclick="triggerDirectOrderModal(this, event)">
+          ⚡ Buy Now
+        </button>
+      </div>
+</div> 
 <!-- end .leftbox -->
 
 	<!-- ### Start rightbox Line ### -->
@@ -2173,7 +3522,17 @@
 - Mental panel very durable built quality <br>
 ---------------------------- <br>
 - <b>Code: SP261124L4</b>
-    </p></div> 
+    </p>
+      <div class="card-actions-quick" onclick="event.stopPropagation();">
+        <a href="https://t.me/Sounvisal" target="_blank" class="btn-card-tg" onclick="triggerTgOrderFromCard(this, event)">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 4.5 2.8 11.9c-1.2.5-1.2 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.2-2.1 4.6 3.4c.8.5 1.4.2 1.6-.8l3-14c.3-1.2-.4-1.7-1.9-1.8z"/></svg>
+          Telegram
+        </a>
+        <button class="btn-card-buy" onclick="triggerDirectOrderModal(this, event)">
+          ⚡ Buy Now
+        </button>
+      </div>
+</div> 
 <!-- end .leftbox -->
 <!-- ### End Line ### -->
 
@@ -2186,7 +3545,17 @@
 - natural, precise-perfect strokes keys <br>
 ---------------------------- <br>
 - <b>Code: HG-P261124N1</b>
-    </p></div> 
+    </p>
+      <div class="card-actions-quick" onclick="event.stopPropagation();">
+        <a href="https://t.me/Sounvisal" target="_blank" class="btn-card-tg" onclick="triggerTgOrderFromCard(this, event)">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 4.5 2.8 11.9c-1.2.5-1.2 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.2-2.1 4.6 3.4c.8.5 1.4.2 1.6-.8l3-14c.3-1.2-.4-1.7-1.9-1.8z"/></svg>
+          Telegram
+        </a>
+        <button class="btn-card-buy" onclick="triggerDirectOrderModal(this, event)">
+          ⚡ Buy Now
+        </button>
+      </div>
+</div> 
 <!-- end .leftbox -->
 
 <!-- ### Start centerbox Line ### -->
@@ -2199,7 +3568,17 @@
 - natural, precise-perfect strokes keys <br>
 ---------------------------- <br>
 - <b>Code: HG-P261124N2</b>
-    </p></div> 
+    </p>
+      <div class="card-actions-quick" onclick="event.stopPropagation();">
+        <a href="https://t.me/Sounvisal" target="_blank" class="btn-card-tg" onclick="triggerTgOrderFromCard(this, event)">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 4.5 2.8 11.9c-1.2.5-1.2 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.2-2.1 4.6 3.4c.8.5 1.4.2 1.6-.8l3-14c.3-1.2-.4-1.7-1.9-1.8z"/></svg>
+          Telegram
+        </a>
+        <button class="btn-card-buy" onclick="triggerDirectOrderModal(this, event)">
+          ⚡ Buy Now
+        </button>
+      </div>
+</div> 
 <!-- end .leftbox -->
 	
 	<!-- ### Start centerbox Line ### -->
@@ -2212,7 +3591,17 @@
 - Wireless with Palm Rest- Graphite <br>
 ---------------------------- <br>
 - <b>Code: HG-P261124N3</b>
-    </p></div> 
+    </p>
+      <div class="card-actions-quick" onclick="event.stopPropagation();">
+        <a href="https://t.me/Sounvisal" target="_blank" class="btn-card-tg" onclick="triggerTgOrderFromCard(this, event)">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 4.5 2.8 11.9c-1.2.5-1.2 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.2-2.1 4.6 3.4c.8.5 1.4.2 1.6-.8l3-14c.3-1.2-.4-1.7-1.9-1.8z"/></svg>
+          Telegram
+        </a>
+        <button class="btn-card-buy" onclick="triggerDirectOrderModal(this, event)">
+          ⚡ Buy Now
+        </button>
+      </div>
+</div> 
 <!-- end .leftbox -->
 
 	<!-- ### Start rightbox Line ### -->
@@ -2225,7 +3614,17 @@
 - Ultra fluid mechanical typing with profile <br>
 ---------------------------- <br>
 - <b>Code: SP261124N4</b>
-    </p></div> 
+    </p>
+      <div class="card-actions-quick" onclick="event.stopPropagation();">
+        <a href="https://t.me/Sounvisal" target="_blank" class="btn-card-tg" onclick="triggerTgOrderFromCard(this, event)">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 4.5 2.8 11.9c-1.2.5-1.2 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.2-2.1 4.6 3.4c.8.5 1.4.2 1.6-.8l3-14c.3-1.2-.4-1.7-1.9-1.8z"/></svg>
+          Telegram
+        </a>
+        <button class="btn-card-buy" onclick="triggerDirectOrderModal(this, event)">
+          ⚡ Buy Now
+        </button>
+      </div>
+</div> 
 <!-- end .leftbox -->
 <!-- ### End Line ### -->
 
@@ -2239,7 +3638,17 @@
 - 6-Key rollover anti-ghosting performance <br>
 ---------------------------- <br>
 - <b>Code: SP261124R3</b>
-    </p></div> 
+    </p>
+      <div class="card-actions-quick" onclick="event.stopPropagation();">
+        <a href="https://t.me/Sounvisal" target="_blank" class="btn-card-tg" onclick="triggerTgOrderFromCard(this, event)">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 4.5 2.8 11.9c-1.2.5-1.2 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.2-2.1 4.6 3.4c.8.5 1.4.2 1.6-.8l3-14c.3-1.2-.4-1.7-1.9-1.8z"/></svg>
+          Telegram
+        </a>
+        <button class="btn-card-buy" onclick="triggerDirectOrderModal(this, event)">
+          ⚡ Buy Now
+        </button>
+      </div>
+</div> 
 <!-- end .leftbox -->
 
 
@@ -2253,7 +3662,17 @@
 - 6-Key rollover anti-ghosting performance <br>
 ---------------------------- <br>
 - <b>Code: SP261124R2</b>
-    </p></div> 
+    </p>
+      <div class="card-actions-quick" onclick="event.stopPropagation();">
+        <a href="https://t.me/Sounvisal" target="_blank" class="btn-card-tg" onclick="triggerTgOrderFromCard(this, event)">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 4.5 2.8 11.9c-1.2.5-1.2 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.2-2.1 4.6 3.4c.8.5 1.4.2 1.6-.8l3-14c.3-1.2-.4-1.7-1.9-1.8z"/></svg>
+          Telegram
+        </a>
+        <button class="btn-card-buy" onclick="triggerDirectOrderModal(this, event)">
+          ⚡ Buy Now
+        </button>
+      </div>
+</div> 
 <!-- end .leftbox -->
 	
 	<!-- ### Start centerbox Line ### -->
@@ -2266,7 +3685,17 @@
 - USB Protocol : USB 2.0 <br>
 ---------------------------- <br>
 - <b>Code: SP261124R4</b>
-    </p></div> 
+    </p>
+      <div class="card-actions-quick" onclick="event.stopPropagation();">
+        <a href="https://t.me/Sounvisal" target="_blank" class="btn-card-tg" onclick="triggerTgOrderFromCard(this, event)">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 4.5 2.8 11.9c-1.2.5-1.2 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.2-2.1 4.6 3.4c.8.5 1.4.2 1.6-.8l3-14c.3-1.2-.4-1.7-1.9-1.8z"/></svg>
+          Telegram
+        </a>
+        <button class="btn-card-buy" onclick="triggerDirectOrderModal(this, event)">
+          ⚡ Buy Now
+        </button>
+      </div>
+</div> 
 <!-- end .leftbox -->
 
 	<!-- ### Start rightbox Line ### -->
@@ -2279,7 +3708,17 @@
 -  USB Protocol : USB 2.0<br>
 ---------------------------- <br>
 - <b>Code: G213A4</b>
-    </p></div> 
+    </p>
+      <div class="card-actions-quick" onclick="event.stopPropagation();">
+        <a href="https://t.me/Sounvisal" target="_blank" class="btn-card-tg" onclick="triggerTgOrderFromCard(this, event)">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 4.5 2.8 11.9c-1.2.5-1.2 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.2-2.1 4.6 3.4c.8.5 1.4.2 1.6-.8l3-14c.3-1.2-.4-1.7-1.9-1.8z"/></svg>
+          Telegram
+        </a>
+        <button class="btn-card-buy" onclick="triggerDirectOrderModal(this, event)">
+          ⚡ Buy Now
+        </button>
+      </div>
+</div> 
 <!-- end .leftbox -->
 <!-- ### End Line ### -->
 
@@ -2293,7 +3732,17 @@
 - Low-Carbon Aluminum <br>
 ---------------------------- <br>
 - <b>Code: G413AR1</b>
-    </p></div> 
+    </p>
+      <div class="card-actions-quick" onclick="event.stopPropagation();">
+        <a href="https://t.me/Sounvisal" target="_blank" class="btn-card-tg" onclick="triggerTgOrderFromCard(this, event)">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 4.5 2.8 11.9c-1.2.5-1.2 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.2-2.1 4.6 3.4c.8.5 1.4.2 1.6-.8l3-14c.3-1.2-.4-1.7-1.9-1.8z"/></svg>
+          Telegram
+        </a>
+        <button class="btn-card-buy" onclick="triggerDirectOrderModal(this, event)">
+          ⚡ Buy Now
+        </button>
+      </div>
+</div> 
 <!-- end .leftbox -->
 
 <!-- ### Start centerbox Line ### -->
@@ -2306,7 +3755,17 @@
 - Low-Carbon Aluminum <br>
 ---------------------------- <br>
 - <b>Code: G413AR2</b>
-    </p></div> 
+    </p>
+      <div class="card-actions-quick" onclick="event.stopPropagation();">
+        <a href="https://t.me/Sounvisal" target="_blank" class="btn-card-tg" onclick="triggerTgOrderFromCard(this, event)">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 4.5 2.8 11.9c-1.2.5-1.2 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.2-2.1 4.6 3.4c.8.5 1.4.2 1.6-.8l3-14c.3-1.2-.4-1.7-1.9-1.8z"/></svg>
+          Telegram
+        </a>
+        <button class="btn-card-buy" onclick="triggerDirectOrderModal(this, event)">
+          ⚡ Buy Now
+        </button>
+      </div>
+</div> 
 <!-- end .leftbox -->
 	
 	<!-- ### Start centerbox Line ### -->
@@ -2319,7 +3778,17 @@
 - Per Key RGB lighting <br>
 ---------------------------- <br>
 - <b>Code: G316XA3</b>
-    </p></div> 
+    </p>
+      <div class="card-actions-quick" onclick="event.stopPropagation();">
+        <a href="https://t.me/Sounvisal" target="_blank" class="btn-card-tg" onclick="triggerTgOrderFromCard(this, event)">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 4.5 2.8 11.9c-1.2.5-1.2 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.2-2.1 4.6 3.4c.8.5 1.4.2 1.6-.8l3-14c.3-1.2-.4-1.7-1.9-1.8z"/></svg>
+          Telegram
+        </a>
+        <button class="btn-card-buy" onclick="triggerDirectOrderModal(this, event)">
+          ⚡ Buy Now
+        </button>
+      </div>
+</div> 
 <!-- end .leftbox -->
 
 	<!-- ### Start rightbox Line ### -->
@@ -2332,7 +3801,17 @@
 - Per Key RGB lighting <br>
 ---------------------------- <br>
 - <b>Code: G316XA4</b>
-    </p></div> 
+    </p>
+      <div class="card-actions-quick" onclick="event.stopPropagation();">
+        <a href="https://t.me/Sounvisal" target="_blank" class="btn-card-tg" onclick="triggerTgOrderFromCard(this, event)">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 4.5 2.8 11.9c-1.2.5-1.2 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.2-2.1 4.6 3.4c.8.5 1.4.2 1.6-.8l3-14c.3-1.2-.4-1.7-1.9-1.8z"/></svg>
+          Telegram
+        </a>
+        <button class="btn-card-buy" onclick="triggerDirectOrderModal(this, event)">
+          ⚡ Buy Now
+        </button>
+      </div>
+</div> 
 <!-- end .leftbox -->
 <!-- ### End Line ### -->
 	 
@@ -2347,7 +3826,17 @@
 - Lightspeed wireless lag free connection<br>
 ---------------------------- <br>
 -<b> Code : G613A1</b>
-    </p></div> 
+    </p>
+      <div class="card-actions-quick" onclick="event.stopPropagation();">
+        <a href="https://t.me/Sounvisal" target="_blank" class="btn-card-tg" onclick="triggerTgOrderFromCard(this, event)">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 4.5 2.8 11.9c-1.2.5-1.2 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.2-2.1 4.6 3.4c.8.5 1.4.2 1.6-.8l3-14c.3-1.2-.4-1.7-1.9-1.8z"/></svg>
+          Telegram
+        </a>
+        <button class="btn-card-buy" onclick="triggerDirectOrderModal(this, event)">
+          ⚡ Buy Now
+        </button>
+      </div>
+</div> 
 <!-- end .leftbox -->
 
 
@@ -2361,7 +3850,17 @@
 - Aircraft-grade aluminum alloy<br>
 ---------------------------- <br>
 -<b> Code : G613A2</b>	
-    </p></div> 
+    </p>
+      <div class="card-actions-quick" onclick="event.stopPropagation();">
+        <a href="https://t.me/Sounvisal" target="_blank" class="btn-card-tg" onclick="triggerTgOrderFromCard(this, event)">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 4.5 2.8 11.9c-1.2.5-1.2 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.2-2.1 4.6 3.4c.8.5 1.4.2 1.6-.8l3-14c.3-1.2-.4-1.7-1.9-1.8z"/></svg>
+          Telegram
+        </a>
+        <button class="btn-card-buy" onclick="triggerDirectOrderModal(this, event)">
+          ⚡ Buy Now
+        </button>
+      </div>
+</div> 
 <!-- end .leftbox -->
 	
 	
@@ -2375,7 +3874,17 @@
 - Aircraft-grade aluminum alloy<br>
 ---------------------------- <br>
 -<b> Code : G613A3</b>	
-    </p></div> 
+    </p>
+      <div class="card-actions-quick" onclick="event.stopPropagation();">
+        <a href="https://t.me/Sounvisal" target="_blank" class="btn-card-tg" onclick="triggerTgOrderFromCard(this, event)">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 4.5 2.8 11.9c-1.2.5-1.2 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.2-2.1 4.6 3.4c.8.5 1.4.2 1.6-.8l3-14c.3-1.2-.4-1.7-1.9-1.8z"/></svg>
+          Telegram
+        </a>
+        <button class="btn-card-buy" onclick="triggerDirectOrderModal(this, event)">
+          ⚡ Buy Now
+        </button>
+      </div>
+</div> 
 <!-- end .leftbox -->
 
 	<!-- ### Start rightbox Line ### -->
@@ -2388,7 +3897,17 @@
 - Pro-inspired tenkeyless design <br>
 ---------------------------- <br>
 - <b>Code: SP261124R4</b><br>	
-    </p></div> 
+    </p>
+      <div class="card-actions-quick" onclick="event.stopPropagation();">
+        <a href="https://t.me/Sounvisal" target="_blank" class="btn-card-tg" onclick="triggerTgOrderFromCard(this, event)">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 4.5 2.8 11.9c-1.2.5-1.2 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.2-2.1 4.6 3.4c.8.5 1.4.2 1.6-.8l3-14c.3-1.2-.4-1.7-1.9-1.8z"/></svg>
+          Telegram
+        </a>
+        <button class="btn-card-buy" onclick="triggerDirectOrderModal(this, event)">
+          ⚡ Buy Now
+        </button>
+      </div>
+</div> 
 <!-- end .leftbox -->
 <!-- ### End Line ### -->
 
@@ -2403,7 +3922,17 @@
 - wireless tri-mode connectivity <br>
 ---------------------------- <br>
 - <b>Code: SP261124Q1</b>
-    </p></div> 
+    </p>
+      <div class="card-actions-quick" onclick="event.stopPropagation();">
+        <a href="https://t.me/Sounvisal" target="_blank" class="btn-card-tg" onclick="triggerTgOrderFromCard(this, event)">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 4.5 2.8 11.9c-1.2.5-1.2 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.2-2.1 4.6 3.4c.8.5 1.4.2 1.6-.8l3-14c.3-1.2-.4-1.7-1.9-1.8z"/></svg>
+          Telegram
+        </a>
+        <button class="btn-card-buy" onclick="triggerDirectOrderModal(this, event)">
+          ⚡ Buy Now
+        </button>
+      </div>
+</div> 
 <!-- end .leftbox -->
 
 
@@ -2417,7 +3946,17 @@
 - wireless tri-mode connectivity <br>
 ---------------------------- <br>
 - <b>Code: SP261124Q2</b>
-    </p></div> 
+    </p>
+      <div class="card-actions-quick" onclick="event.stopPropagation();">
+        <a href="https://t.me/Sounvisal" target="_blank" class="btn-card-tg" onclick="triggerTgOrderFromCard(this, event)">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 4.5 2.8 11.9c-1.2.5-1.2 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.2-2.1 4.6 3.4c.8.5 1.4.2 1.6-.8l3-14c.3-1.2-.4-1.7-1.9-1.8z"/></svg>
+          Telegram
+        </a>
+        <button class="btn-card-buy" onclick="triggerDirectOrderModal(this, event)">
+          ⚡ Buy Now
+        </button>
+      </div>
+</div> 
 <!-- end .leftbox -->
 	
 	<!-- ### Start centerbox Line ### -->
@@ -2430,7 +3969,17 @@
 - Compact Gaming Keyboard <br>
 ---------------------------- <br>
 - <b>Code: SP261124Q3</b>
-    </p></div> 
+    </p>
+      <div class="card-actions-quick" onclick="event.stopPropagation();">
+        <a href="https://t.me/Sounvisal" target="_blank" class="btn-card-tg" onclick="triggerTgOrderFromCard(this, event)">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 4.5 2.8 11.9c-1.2.5-1.2 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.2-2.1 4.6 3.4c.8.5 1.4.2 1.6-.8l3-14c.3-1.2-.4-1.7-1.9-1.8z"/></svg>
+          Telegram
+        </a>
+        <button class="btn-card-buy" onclick="triggerDirectOrderModal(this, event)">
+          ⚡ Buy Now
+        </button>
+      </div>
+</div> 
 <!-- end .leftbox -->
 
 	<!-- ### Start rightbox Line ### -->
@@ -2443,7 +3992,17 @@
 - Compact Gaming Keyboard <br>
 ---------------------------- <br>
 - <b>Code: SP261124Q4</b>
-    </p></div> 
+    </p>
+      <div class="card-actions-quick" onclick="event.stopPropagation();">
+        <a href="https://t.me/Sounvisal" target="_blank" class="btn-card-tg" onclick="triggerTgOrderFromCard(this, event)">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 4.5 2.8 11.9c-1.2.5-1.2 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.2-2.1 4.6 3.4c.8.5 1.4.2 1.6-.8l3-14c.3-1.2-.4-1.7-1.9-1.8z"/></svg>
+          Telegram
+        </a>
+        <button class="btn-card-buy" onclick="triggerDirectOrderModal(this, event)">
+          ⚡ Buy Now
+        </button>
+      </div>
+</div> 
 <!-- end .leftbox -->
 <!-- ### End Line ### -->
 
@@ -2458,7 +4017,17 @@
 - LIGHTSYNC RGB lighting <br>
 ---------------------------- <br>
 - <b>Code : ACP10252025-K1</b>		
-    </p></div> 
+    </p>
+      <div class="card-actions-quick" onclick="event.stopPropagation();">
+        <a href="https://t.me/Sounvisal" target="_blank" class="btn-card-tg" onclick="triggerTgOrderFromCard(this, event)">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 4.5 2.8 11.9c-1.2.5-1.2 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.2-2.1 4.6 3.4c.8.5 1.4.2 1.6-.8l3-14c.3-1.2-.4-1.7-1.9-1.8z"/></svg>
+          Telegram
+        </a>
+        <button class="btn-card-buy" onclick="triggerDirectOrderModal(this, event)">
+          ⚡ Buy Now
+        </button>
+      </div>
+</div> 
 <!-- end .leftbox -->
 
 
@@ -2472,7 +4041,17 @@
 - Designed for pro to win championships <br>
 ---------------------------- <br>
 - <b>Code : ACP10252025-K2</b>	
-    </p></div> 
+    </p>
+      <div class="card-actions-quick" onclick="event.stopPropagation();">
+        <a href="https://t.me/Sounvisal" target="_blank" class="btn-card-tg" onclick="triggerTgOrderFromCard(this, event)">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 4.5 2.8 11.9c-1.2.5-1.2 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.2-2.1 4.6 3.4c.8.5 1.4.2 1.6-.8l3-14c.3-1.2-.4-1.7-1.9-1.8z"/></svg>
+          Telegram
+        </a>
+        <button class="btn-card-buy" onclick="triggerDirectOrderModal(this, event)">
+          ⚡ Buy Now
+        </button>
+      </div>
+</div> 
 <!-- end .leftbox -->
 	
 	<!-- ### Start centerbox Line ### -->
@@ -2485,7 +4064,17 @@
 - Designed for pro to win championships <br>
 ---------------------------- <br>
 - <b>Code : ACP10252025-K3</b>
-    </p></div> 
+    </p>
+      <div class="card-actions-quick" onclick="event.stopPropagation();">
+        <a href="https://t.me/Sounvisal" target="_blank" class="btn-card-tg" onclick="triggerTgOrderFromCard(this, event)">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 4.5 2.8 11.9c-1.2.5-1.2 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.2-2.1 4.6 3.4c.8.5 1.4.2 1.6-.8l3-14c.3-1.2-.4-1.7-1.9-1.8z"/></svg>
+          Telegram
+        </a>
+        <button class="btn-card-buy" onclick="triggerDirectOrderModal(this, event)">
+          ⚡ Buy Now
+        </button>
+      </div>
+</div> 
 <!-- end .leftbox -->
 
 	<!-- ### Start rightbox Line ### -->
@@ -2498,7 +4087,17 @@
 - Logitech GX mechanical red switch silent <br>
 ---------------------------- <br>
 - <b>Code : ACP10252025-K4</b>
-    </p></div> 
+    </p>
+      <div class="card-actions-quick" onclick="event.stopPropagation();">
+        <a href="https://t.me/Sounvisal" target="_blank" class="btn-card-tg" onclick="triggerTgOrderFromCard(this, event)">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 4.5 2.8 11.9c-1.2.5-1.2 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.2-2.1 4.6 3.4c.8.5 1.4.2 1.6-.8l3-14c.3-1.2-.4-1.7-1.9-1.8z"/></svg>
+          Telegram
+        </a>
+        <button class="btn-card-buy" onclick="triggerDirectOrderModal(this, event)">
+          ⚡ Buy Now
+        </button>
+      </div>
+</div> 
 <!-- end .leftbox -->
 <!-- ### End Line ### -->
 
@@ -2524,7 +4123,17 @@
     - Standard 3.5mm audio jack <br/>
     ------------------------<br/>
     - Code: <b>AWH150-A1</b></p>		
-	</div>
+	
+      <div class="card-actions-quick" onclick="event.stopPropagation();">
+        <a href="https://t.me/Sounvisal" target="_blank" class="btn-card-tg" onclick="triggerTgOrderFromCard(this, event)">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 4.5 2.8 11.9c-1.2.5-1.2 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.2-2.1 4.6 3.4c.8.5 1.4.2 1.6-.8l3-14c.3-1.2-.4-1.7-1.9-1.8z"/></svg>
+          Telegram
+        </a>
+        <button class="btn-card-buy" onclick="triggerDirectOrderModal(this, event)">
+          ⚡ Buy Now
+        </button>
+      </div>
+</div>
 	<!-- end .leftbox -->
                   
 	<div class="centerbox1">
@@ -2535,7 +4144,17 @@
     - Standard 3.5mm audio jack <br/>
     ------------------------<br/>
     - Code: <b>AWH150-A4</b></p>				
-	</div>
+	
+      <div class="card-actions-quick" onclick="event.stopPropagation();">
+        <a href="https://t.me/Sounvisal" target="_blank" class="btn-card-tg" onclick="triggerTgOrderFromCard(this, event)">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 4.5 2.8 11.9c-1.2.5-1.2 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.2-2.1 4.6 3.4c.8.5 1.4.2 1.6-.8l3-14c.3-1.2-.4-1.7-1.9-1.8z"/></svg>
+          Telegram
+        </a>
+        <button class="btn-card-buy" onclick="triggerDirectOrderModal(this, event)">
+          ⚡ Buy Now
+        </button>
+      </div>
+</div>
 	<!-- end .leftbox -->
 	
 	<div class="centerbox2">
@@ -2546,7 +4165,17 @@
     - Standard 3.5mm audio jack <br/>
     ------------------------<br/>
     - Code: <b>AWH110-A3</b></p>		
-	</div>
+	
+      <div class="card-actions-quick" onclick="event.stopPropagation();">
+        <a href="https://t.me/Sounvisal" target="_blank" class="btn-card-tg" onclick="triggerTgOrderFromCard(this, event)">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 4.5 2.8 11.9c-1.2.5-1.2 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.2-2.1 4.6 3.4c.8.5 1.4.2 1.6-.8l3-14c.3-1.2-.4-1.7-1.9-1.8z"/></svg>
+          Telegram
+        </a>
+        <button class="btn-card-buy" onclick="triggerDirectOrderModal(this, event)">
+          ⚡ Buy Now
+        </button>
+      </div>
+</div>
 	<!-- end .leftbox -->
 	
 	<div class="rightbox">
@@ -2557,7 +4186,17 @@
     - Standard 3.5mm audio jack <br/>
     ------------------------<br/>
     - Code: <b>AWH151-A4</b></p>		
-	</div>
+	
+      <div class="card-actions-quick" onclick="event.stopPropagation();">
+        <a href="https://t.me/Sounvisal" target="_blank" class="btn-card-tg" onclick="triggerTgOrderFromCard(this, event)">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 4.5 2.8 11.9c-1.2.5-1.2 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.2-2.1 4.6 3.4c.8.5 1.4.2 1.6-.8l3-14c.3-1.2-.4-1.7-1.9-1.8z"/></svg>
+          Telegram
+        </a>
+        <button class="btn-card-buy" onclick="triggerDirectOrderModal(this, event)">
+          ⚡ Buy Now
+        </button>
+      </div>
+</div>
 	<!-- end .leftbox -->
     <!-- ### End Line ### -->
     
@@ -2570,7 +4209,17 @@
     - Standard 3.5mm audio jack <br/>
     ------------------------<br/>
     - Code: <b>AWP6U1</b></p>			
-	</div>
+	
+      <div class="card-actions-quick" onclick="event.stopPropagation();">
+        <a href="https://t.me/Sounvisal" target="_blank" class="btn-card-tg" onclick="triggerTgOrderFromCard(this, event)">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 4.5 2.8 11.9c-1.2.5-1.2 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.2-2.1 4.6 3.4c.8.5 1.4.2 1.6-.8l3-14c.3-1.2-.4-1.7-1.9-1.8z"/></svg>
+          Telegram
+        </a>
+        <button class="btn-card-buy" onclick="triggerDirectOrderModal(this, event)">
+          ⚡ Buy Now
+        </button>
+      </div>
+</div>
 	<!-- end .leftbox -->
                   
 	<div class="centerbox1">
@@ -2581,7 +4230,17 @@
     - USB Computer Headset <br/>
     ------------------------<br/>
     - Code: <b>AWH110-A2</b></p>				
-	</div>
+	
+      <div class="card-actions-quick" onclick="event.stopPropagation();">
+        <a href="https://t.me/Sounvisal" target="_blank" class="btn-card-tg" onclick="triggerTgOrderFromCard(this, event)">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 4.5 2.8 11.9c-1.2.5-1.2 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.2-2.1 4.6 3.4c.8.5 1.4.2 1.6-.8l3-14c.3-1.2-.4-1.7-1.9-1.8z"/></svg>
+          Telegram
+        </a>
+        <button class="btn-card-buy" onclick="triggerDirectOrderModal(this, event)">
+          ⚡ Buy Now
+        </button>
+      </div>
+</div>
 	<!-- end .leftbox -->
 	
 	<div class="centerbox2">
@@ -2592,7 +4251,17 @@
     - USB Computer Headset <br/>
     ------------------------<br/>
     - Code: <b>AWH151-A3</b></p>		
-	</div>
+	
+      <div class="card-actions-quick" onclick="event.stopPropagation();">
+        <a href="https://t.me/Sounvisal" target="_blank" class="btn-card-tg" onclick="triggerTgOrderFromCard(this, event)">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 4.5 2.8 11.9c-1.2.5-1.2 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.2-2.1 4.6 3.4c.8.5 1.4.2 1.6-.8l3-14c.3-1.2-.4-1.7-1.9-1.8z"/></svg>
+          Telegram
+        </a>
+        <button class="btn-card-buy" onclick="triggerDirectOrderModal(this, event)">
+          ⚡ Buy Now
+        </button>
+      </div>
+</div>
 	<!-- end .leftbox -->
 	
 	<div class="rightbox">
@@ -2603,7 +4272,17 @@
     - USB Computer Headset <br/>
     ------------------------<br/>
     - Code: <b>EAWH390A4</b></p>	
-	</div>
+	
+      <div class="card-actions-quick" onclick="event.stopPropagation();">
+        <a href="https://t.me/Sounvisal" target="_blank" class="btn-card-tg" onclick="triggerTgOrderFromCard(this, event)">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 4.5 2.8 11.9c-1.2.5-1.2 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.2-2.1 4.6 3.4c.8.5 1.4.2 1.6-.8l3-14c.3-1.2-.4-1.7-1.9-1.8z"/></svg>
+          Telegram
+        </a>
+        <button class="btn-card-buy" onclick="triggerDirectOrderModal(this, event)">
+          ⚡ Buy Now
+        </button>
+      </div>
+</div>
 	<!-- end .leftbox -->
     <!-- ### End Line ### -->
 	
@@ -2616,7 +4295,17 @@
     - USB Computer Headset <br/>
     ------------------------<br/>
     - Code: <b>EAWH390A5</b></p>		
-	</div>
+	
+      <div class="card-actions-quick" onclick="event.stopPropagation();">
+        <a href="https://t.me/Sounvisal" target="_blank" class="btn-card-tg" onclick="triggerTgOrderFromCard(this, event)">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 4.5 2.8 11.9c-1.2.5-1.2 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.2-2.1 4.6 3.4c.8.5 1.4.2 1.6-.8l3-14c.3-1.2-.4-1.7-1.9-1.8z"/></svg>
+          Telegram
+        </a>
+        <button class="btn-card-buy" onclick="triggerDirectOrderModal(this, event)">
+          ⚡ Buy Now
+        </button>
+      </div>
+</div>
 	<!-- end .leftbox -->
                   
 	<div class="centerbox1">
@@ -2627,7 +4316,17 @@
     - Frequency Response: 20 Hz - 20 kHz <br/>
     ------------------------<br/>
     - Code: <b>EAWP6U2</b></p>				
-	</div>
+	
+      <div class="card-actions-quick" onclick="event.stopPropagation();">
+        <a href="https://t.me/Sounvisal" target="_blank" class="btn-card-tg" onclick="triggerTgOrderFromCard(this, event)">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 4.5 2.8 11.9c-1.2.5-1.2 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.2-2.1 4.6 3.4c.8.5 1.4.2 1.6-.8l3-14c.3-1.2-.4-1.7-1.9-1.8z"/></svg>
+          Telegram
+        </a>
+        <button class="btn-card-buy" onclick="triggerDirectOrderModal(this, event)">
+          ⚡ Buy Now
+        </button>
+      </div>
+</div>
 	<!-- end .leftbox -->
 	
 	<div class="centerbox2">
@@ -2638,7 +4337,17 @@
     - Frequency Response: 20 Hz - 20 kHz <br/>
     ------------------------<br/>
     - Code: <b>EAWP6U3</b></p>		
-	</div>
+	
+      <div class="card-actions-quick" onclick="event.stopPropagation();">
+        <a href="https://t.me/Sounvisal" target="_blank" class="btn-card-tg" onclick="triggerTgOrderFromCard(this, event)">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 4.5 2.8 11.9c-1.2.5-1.2 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.2-2.1 4.6 3.4c.8.5 1.4.2 1.6-.8l3-14c.3-1.2-.4-1.7-1.9-1.8z"/></svg>
+          Telegram
+        </a>
+        <button class="btn-card-buy" onclick="triggerDirectOrderModal(this, event)">
+          ⚡ Buy Now
+        </button>
+      </div>
+</div>
 	<!-- end .leftbox -->
 	
 	<div class="rightbox">
@@ -2649,7 +4358,17 @@
     - Surround Sound Gaming Headset <br/>
     ------------------------<br/>
     - Code: <b>EAWP6U4</b></p>	
-	</div>
+	
+      <div class="card-actions-quick" onclick="event.stopPropagation();">
+        <a href="https://t.me/Sounvisal" target="_blank" class="btn-card-tg" onclick="triggerTgOrderFromCard(this, event)">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 4.5 2.8 11.9c-1.2.5-1.2 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.2-2.1 4.6 3.4c.8.5 1.4.2 1.6-.8l3-14c.3-1.2-.4-1.7-1.9-1.8z"/></svg>
+          Telegram
+        </a>
+        <button class="btn-card-buy" onclick="triggerDirectOrderModal(this, event)">
+          ⚡ Buy Now
+        </button>
+      </div>
+</div>
 	<!-- end .leftbox -->
     <!-- ### End Line ### -->
 	
@@ -2662,7 +4381,17 @@
     - Wireless Gaming Headset <br/>
     ------------------------<br/>
     - Code: <b>ESP140525C1</b></p>	
-	</div>
+	
+      <div class="card-actions-quick" onclick="event.stopPropagation();">
+        <a href="https://t.me/Sounvisal" target="_blank" class="btn-card-tg" onclick="triggerTgOrderFromCard(this, event)">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 4.5 2.8 11.9c-1.2.5-1.2 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.2-2.1 4.6 3.4c.8.5 1.4.2 1.6-.8l3-14c.3-1.2-.4-1.7-1.9-1.8z"/></svg>
+          Telegram
+        </a>
+        <button class="btn-card-buy" onclick="triggerDirectOrderModal(this, event)">
+          ⚡ Buy Now
+        </button>
+      </div>
+</div>
 	<!-- end .leftbox -->
                   
 	<div class="centerbox1">
@@ -2673,7 +4402,17 @@
     - Audio jack input Gaming Headset <br/>
     ------------------------<br/>
     - Code: <b>SP140525D1</b></p>	
-	</div>
+	
+      <div class="card-actions-quick" onclick="event.stopPropagation();">
+        <a href="https://t.me/Sounvisal" target="_blank" class="btn-card-tg" onclick="triggerTgOrderFromCard(this, event)">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 4.5 2.8 11.9c-1.2.5-1.2 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.2-2.1 4.6 3.4c.8.5 1.4.2 1.6-.8l3-14c.3-1.2-.4-1.7-1.9-1.8z"/></svg>
+          Telegram
+        </a>
+        <button class="btn-card-buy" onclick="triggerDirectOrderModal(this, event)">
+          ⚡ Buy Now
+        </button>
+      </div>
+</div>
 	<!-- end .leftbox -->
 	
 	<div class="centerbox2">
@@ -2684,7 +4423,17 @@
     - Bluetooth 5.2 Gaming Headset <br/>
     ------------------------<br/>
     - Code: <b>ESP140525A1</b></p>	
-	</div>
+	
+      <div class="card-actions-quick" onclick="event.stopPropagation();">
+        <a href="https://t.me/Sounvisal" target="_blank" class="btn-card-tg" onclick="triggerTgOrderFromCard(this, event)">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 4.5 2.8 11.9c-1.2.5-1.2 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.2-2.1 4.6 3.4c.8.5 1.4.2 1.6-.8l3-14c.3-1.2-.4-1.7-1.9-1.8z"/></svg>
+          Telegram
+        </a>
+        <button class="btn-card-buy" onclick="triggerDirectOrderModal(this, event)">
+          ⚡ Buy Now
+        </button>
+      </div>
+</div>
 	<!-- end .leftbox -->
 	
 	<div class="rightbox">
@@ -2695,7 +4444,17 @@
     - Bluetooth 5.2 Gaming Headset <br/>
     ------------------------<br/>
     - Code: <b>ESP140525A2</b></p>	
-	</div>
+	
+      <div class="card-actions-quick" onclick="event.stopPropagation();">
+        <a href="https://t.me/Sounvisal" target="_blank" class="btn-card-tg" onclick="triggerTgOrderFromCard(this, event)">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 4.5 2.8 11.9c-1.2.5-1.2 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.2-2.1 4.6 3.4c.8.5 1.4.2 1.6-.8l3-14c.3-1.2-.4-1.7-1.9-1.8z"/></svg>
+          Telegram
+        </a>
+        <button class="btn-card-buy" onclick="triggerDirectOrderModal(this, event)">
+          ⚡ Buy Now
+        </button>
+      </div>
+</div>
 	<!-- end .leftbox -->
 	<div class="clear br"></div> 
     <!-- ### End Line ### -->
@@ -2710,7 +4469,17 @@
     ------------------------<br/>
     - Code: <b>ESP140525A3</b></p>	
 	</b></p>	
-	</div>
+	
+      <div class="card-actions-quick" onclick="event.stopPropagation();">
+        <a href="https://t.me/Sounvisal" target="_blank" class="btn-card-tg" onclick="triggerTgOrderFromCard(this, event)">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 4.5 2.8 11.9c-1.2.5-1.2 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.2-2.1 4.6 3.4c.8.5 1.4.2 1.6-.8l3-14c.3-1.2-.4-1.7-1.9-1.8z"/></svg>
+          Telegram
+        </a>
+        <button class="btn-card-buy" onclick="triggerDirectOrderModal(this, event)">
+          ⚡ Buy Now
+        </button>
+      </div>
+</div>
 	<!-- end .leftbox -->
                   
 	<div class="centerbox1">
@@ -2721,7 +4490,17 @@
     - Surround Sound 7.1 <br/>
     ------------------------<br/>
     - Code: <b>SP140525B1</b></p>	
-	</div>
+	
+      <div class="card-actions-quick" onclick="event.stopPropagation();">
+        <a href="https://t.me/Sounvisal" target="_blank" class="btn-card-tg" onclick="triggerTgOrderFromCard(this, event)">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 4.5 2.8 11.9c-1.2.5-1.2 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.2-2.1 4.6 3.4c.8.5 1.4.2 1.6-.8l3-14c.3-1.2-.4-1.7-1.9-1.8z"/></svg>
+          Telegram
+        </a>
+        <button class="btn-card-buy" onclick="triggerDirectOrderModal(this, event)">
+          ⚡ Buy Now
+        </button>
+      </div>
+</div>
 	<!-- end .leftbox -->
 	
 	<div class="centerbox2">
@@ -2732,7 +4511,17 @@
     - Wireless input Gaming Headset <br/>
     ------------------------<br/>
     - Code: <b>SP140525C4</b></p>	
-	</div>
+	
+      <div class="card-actions-quick" onclick="event.stopPropagation();">
+        <a href="https://t.me/Sounvisal" target="_blank" class="btn-card-tg" onclick="triggerTgOrderFromCard(this, event)">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 4.5 2.8 11.9c-1.2.5-1.2 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.2-2.1 4.6 3.4c.8.5 1.4.2 1.6-.8l3-14c.3-1.2-.4-1.7-1.9-1.8z"/></svg>
+          Telegram
+        </a>
+        <button class="btn-card-buy" onclick="triggerDirectOrderModal(this, event)">
+          ⚡ Buy Now
+        </button>
+      </div>
+</div>
 	<!-- end .leftbox -->
 	
 	<div class="rightbox">
@@ -2743,7 +4532,17 @@
     - Wireless Gaming Headset <br/>
     ------------------------<br/>
     - Code: <b>SP140525B4</b></p>	
-	</div>
+	
+      <div class="card-actions-quick" onclick="event.stopPropagation();">
+        <a href="https://t.me/Sounvisal" target="_blank" class="btn-card-tg" onclick="triggerTgOrderFromCard(this, event)">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 4.5 2.8 11.9c-1.2.5-1.2 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.2-2.1 4.6 3.4c.8.5 1.4.2 1.6-.8l3-14c.3-1.2-.4-1.7-1.9-1.8z"/></svg>
+          Telegram
+        </a>
+        <button class="btn-card-buy" onclick="triggerDirectOrderModal(this, event)">
+          ⚡ Buy Now
+        </button>
+      </div>
+</div>
 	<!-- end .leftbox -->
     <!-- ### End Line ### -->
 
@@ -2756,7 +4555,17 @@
     - Wireless Gaming Headset <br/>
     ------------------------<br/>
     - Code: <b>SP140525B5</b></p>	
-	</div>
+	
+      <div class="card-actions-quick" onclick="event.stopPropagation();">
+        <a href="https://t.me/Sounvisal" target="_blank" class="btn-card-tg" onclick="triggerTgOrderFromCard(this, event)">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 4.5 2.8 11.9c-1.2.5-1.2 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.2-2.1 4.6 3.4c.8.5 1.4.2 1.6-.8l3-14c.3-1.2-.4-1.7-1.9-1.8z"/></svg>
+          Telegram
+        </a>
+        <button class="btn-card-buy" onclick="triggerDirectOrderModal(this, event)">
+          ⚡ Buy Now
+        </button>
+      </div>
+</div>
 	<!-- end .leftbox -->
                   
 	<div class="centerbox1">
@@ -2767,7 +4576,17 @@
     - USB / Bluetooth Gaming Headset <br/>
     ------------------------<br/>
     - Code: <b>SP140525B1</b></p>	
-	</div>
+	
+      <div class="card-actions-quick" onclick="event.stopPropagation();">
+        <a href="https://t.me/Sounvisal" target="_blank" class="btn-card-tg" onclick="triggerTgOrderFromCard(this, event)">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 4.5 2.8 11.9c-1.2.5-1.2 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.2-2.1 4.6 3.4c.8.5 1.4.2 1.6-.8l3-14c.3-1.2-.4-1.7-1.9-1.8z"/></svg>
+          Telegram
+        </a>
+        <button class="btn-card-buy" onclick="triggerDirectOrderModal(this, event)">
+          ⚡ Buy Now
+        </button>
+      </div>
+</div>
 	<!-- end .leftbox -->
 	
 	<div class="centerbox2">
@@ -2778,7 +4597,17 @@
     - USB / Bluetooth Gaming Headset <br/>
     ------------------------<br/>
     - Code: <b>SP140525B3</b></p>	
-	</div>
+	
+      <div class="card-actions-quick" onclick="event.stopPropagation();">
+        <a href="https://t.me/Sounvisal" target="_blank" class="btn-card-tg" onclick="triggerTgOrderFromCard(this, event)">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 4.5 2.8 11.9c-1.2.5-1.2 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.2-2.1 4.6 3.4c.8.5 1.4.2 1.6-.8l3-14c.3-1.2-.4-1.7-1.9-1.8z"/></svg>
+          Telegram
+        </a>
+        <button class="btn-card-buy" onclick="triggerDirectOrderModal(this, event)">
+          ⚡ Buy Now
+        </button>
+      </div>
+</div>
 	<!-- end .leftbox -->
 	
 	<div class="rightbox">
@@ -2789,7 +4618,17 @@
     - USB / Bluetooth Gaming Headset <br/>
     ------------------------<br/>
     - Code: <b>SP140525B4</b></p>	
-	</div>
+	
+      <div class="card-actions-quick" onclick="event.stopPropagation();">
+        <a href="https://t.me/Sounvisal" target="_blank" class="btn-card-tg" onclick="triggerTgOrderFromCard(this, event)">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 4.5 2.8 11.9c-1.2.5-1.2 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.2-2.1 4.6 3.4c.8.5 1.4.2 1.6-.8l3-14c.3-1.2-.4-1.7-1.9-1.8z"/></svg>
+          Telegram
+        </a>
+        <button class="btn-card-buy" onclick="triggerDirectOrderModal(this, event)">
+          ⚡ Buy Now
+        </button>
+      </div>
+</div>
 	<!-- end .leftbox -->
     <!-- ### End Line ### -->
 	
@@ -2828,7 +4667,17 @@
        <p class="title2">Logitech C270i 720p HD sensor </p>
         <p class="sp"><span class="price2">$35</span> $29</p>	
 <p class="txt"><b> Code: TK1311A105B3</b></p>
-    </div> 
+    
+      <div class="card-actions-quick" onclick="event.stopPropagation();">
+        <a href="https://t.me/Sounvisal" target="_blank" class="btn-card-tg" onclick="triggerTgOrderFromCard(this, event)">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 4.5 2.8 11.9c-1.2.5-1.2 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.2-2.1 4.6 3.4c.8.5 1.4.2 1.6-.8l3-14c.3-1.2-.4-1.7-1.9-1.8z"/></svg>
+          Telegram
+        </a>
+        <button class="btn-card-buy" onclick="triggerDirectOrderModal(this, event)">
+          ⚡ Buy Now
+        </button>
+      </div>
+</div> 
 	<!-- end .centerbox-->
 	
 	<div class="centerbox2">
@@ -2836,7 +4685,17 @@
        <p class="title2">Logitech C505e Business 720p HD sensor</p>
         <p class="sp"><span class="price2">$55</span> $49	
     <p class="txt"><b> Code: TK1311A100B4</b></p>
-    </div> 
+    
+      <div class="card-actions-quick" onclick="event.stopPropagation();">
+        <a href="https://t.me/Sounvisal" target="_blank" class="btn-card-tg" onclick="triggerTgOrderFromCard(this, event)">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 4.5 2.8 11.9c-1.2.5-1.2 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.2-2.1 4.6 3.4c.8.5 1.4.2 1.6-.8l3-14c.3-1.2-.4-1.7-1.9-1.8z"/></svg>
+          Telegram
+        </a>
+        <button class="btn-card-buy" onclick="triggerDirectOrderModal(this, event)">
+          ⚡ Buy Now
+        </button>
+      </div>
+</div> 
 	<!-- end .centerbox-->	
 	
 	<div class="rightbox">
@@ -2883,7 +4742,17 @@
        <p class="title2">Logitech C925e Business Webcam</p>
         <p class="sp"><span class="price2">$119</span> $109</p>	
 <p class="txt"><b> Code: PT-AN1311A39B3</b></p>
-    </div> 
+    
+      <div class="card-actions-quick" onclick="event.stopPropagation();">
+        <a href="https://t.me/Sounvisal" target="_blank" class="btn-card-tg" onclick="triggerTgOrderFromCard(this, event)">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 4.5 2.8 11.9c-1.2.5-1.2 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.2-2.1 4.6 3.4c.8.5 1.4.2 1.6-.8l3-14c.3-1.2-.4-1.7-1.9-1.8z"/></svg>
+          Telegram
+        </a>
+        <button class="btn-card-buy" onclick="triggerDirectOrderModal(this, event)">
+          ⚡ Buy Now
+        </button>
+      </div>
+</div> 
 	<!-- end .centerbox-->
 	
 	<div class="centerbox2">
@@ -2891,7 +4760,17 @@
        <p class="title2">Logitech C930e 1080P HD Video </p>
         <p class="sp"><span class="price2">$129</span> $119</p>	
 <p class="txt"><b> Code: AN1311A105B3</b></p>
-    </div> 
+    
+      <div class="card-actions-quick" onclick="event.stopPropagation();">
+        <a href="https://t.me/Sounvisal" target="_blank" class="btn-card-tg" onclick="triggerTgOrderFromCard(this, event)">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 4.5 2.8 11.9c-1.2.5-1.2 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.2-2.1 4.6 3.4c.8.5 1.4.2 1.6-.8l3-14c.3-1.2-.4-1.7-1.9-1.8z"/></svg>
+          Telegram
+        </a>
+        <button class="btn-card-buy" onclick="triggerDirectOrderModal(this, event)">
+          ⚡ Buy Now
+        </button>
+      </div>
+</div> 
 	<!-- end .centerbox-->	
 	
 	<div class="rightbox">
@@ -2936,7 +4815,17 @@
        <p class="title2">Logitech BRIO 100</p>
         <p class="sp"><span class="price2">$45</span> $32</p>
     <p class="txt"><b> Code: TK11311A100B2</b></p>
-    </div> 
+    
+      <div class="card-actions-quick" onclick="event.stopPropagation();">
+        <a href="https://t.me/Sounvisal" target="_blank" class="btn-card-tg" onclick="triggerTgOrderFromCard(this, event)">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 4.5 2.8 11.9c-1.2.5-1.2 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.2-2.1 4.6 3.4c.8.5 1.4.2 1.6-.8l3-14c.3-1.2-.4-1.7-1.9-1.8z"/></svg>
+          Telegram
+        </a>
+        <button class="btn-card-buy" onclick="triggerDirectOrderModal(this, event)">
+          ⚡ Buy Now
+        </button>
+      </div>
+</div> 
 	<!-- end .centerbox-->
 	
 	<div class="centerbox2">
@@ -2944,7 +4833,17 @@
        <p class="title2">Logitech BRIO 100</p>
         <p class="sp"><span class="price2">$45</span> $32</p>
     <p class="txt"><b> Code: TK11311A100B3</b></p>
-    </div> 
+    
+      <div class="card-actions-quick" onclick="event.stopPropagation();">
+        <a href="https://t.me/Sounvisal" target="_blank" class="btn-card-tg" onclick="triggerTgOrderFromCard(this, event)">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 4.5 2.8 11.9c-1.2.5-1.2 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.2-2.1 4.6 3.4c.8.5 1.4.2 1.6-.8l3-14c.3-1.2-.4-1.7-1.9-1.8z"/></svg>
+          Telegram
+        </a>
+        <button class="btn-card-buy" onclick="triggerDirectOrderModal(this, event)">
+          ⚡ Buy Now
+        </button>
+      </div>
+</div> 
 	<!-- end .centerbox-->	
 	
 	<div class="rightbox">
@@ -2989,7 +4888,17 @@
        <p class="title2">Logitech Brio 300</p>
         <p class="sp"><span class="price2">$69</span> $59</p>	
 <p class="txt"><b> Code: PT0112P980B1</b></p>
-    </div> 
+    
+      <div class="card-actions-quick" onclick="event.stopPropagation();">
+        <a href="https://t.me/Sounvisal" target="_blank" class="btn-card-tg" onclick="triggerTgOrderFromCard(this, event)">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 4.5 2.8 11.9c-1.2.5-1.2 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.2-2.1 4.6 3.4c.8.5 1.4.2 1.6-.8l3-14c.3-1.2-.4-1.7-1.9-1.8z"/></svg>
+          Telegram
+        </a>
+        <button class="btn-card-buy" onclick="triggerDirectOrderModal(this, event)">
+          ⚡ Buy Now
+        </button>
+      </div>
+</div> 
 	<!-- end .centerbox-->
 	
 	<div class="centerbox2">
@@ -2997,7 +4906,17 @@
        <p class="title2">Logitech Brio 305</p>
         <p class="sp"><span class="price2">$69</span> $59</p>	
 <p class="txt"><b> Code: PT0112P980B2</b></p>
-    </div> 
+    
+      <div class="card-actions-quick" onclick="event.stopPropagation();">
+        <a href="https://t.me/Sounvisal" target="_blank" class="btn-card-tg" onclick="triggerTgOrderFromCard(this, event)">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 4.5 2.8 11.9c-1.2.5-1.2 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.2-2.1 4.6 3.4c.8.5 1.4.2 1.6-.8l3-14c.3-1.2-.4-1.7-1.9-1.8z"/></svg>
+          Telegram
+        </a>
+        <button class="btn-card-buy" onclick="triggerDirectOrderModal(this, event)">
+          ⚡ Buy Now
+        </button>
+      </div>
+</div> 
 	<!-- end .centerbox-->	
 	
 	<div class="rightbox">
@@ -3040,7 +4959,17 @@
     - Color : White <br>
     ------------------ <br>
     - Code: EX15CA1 </p>
-    </div>
+    
+      <div class="card-actions-quick" onclick="event.stopPropagation();">
+        <a href="https://t.me/Sounvisal" target="_blank" class="btn-card-tg" onclick="triggerTgOrderFromCard(this, event)">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 4.5 2.8 11.9c-1.2.5-1.2 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.2-2.1 4.6 3.4c.8.5 1.4.2 1.6-.8l3-14c.3-1.2-.4-1.7-1.9-1.8z"/></svg>
+          Telegram
+        </a>
+        <button class="btn-card-buy" onclick="triggerDirectOrderModal(this, event)">
+          ⚡ Buy Now
+        </button>
+      </div>
+</div>
     <!-- end .leftbox -->
                   
     <div class="centerbox1">		
@@ -3052,7 +4981,17 @@
     - Color : Blue <br>
     ------------------ <br>
     - Code: EX15CA2 </p>
-    </div> 
+    
+      <div class="card-actions-quick" onclick="event.stopPropagation();">
+        <a href="https://t.me/Sounvisal" target="_blank" class="btn-card-tg" onclick="triggerTgOrderFromCard(this, event)">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 4.5 2.8 11.9c-1.2.5-1.2 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.2-2.1 4.6 3.4c.8.5 1.4.2 1.6-.8l3-14c.3-1.2-.4-1.7-1.9-1.8z"/></svg>
+          Telegram
+        </a>
+        <button class="btn-card-buy" onclick="triggerDirectOrderModal(this, event)">
+          ⚡ Buy Now
+        </button>
+      </div>
+</div> 
 	<!-- end .centerbox-->
 	
     <div class="centerbox2">
@@ -3064,7 +5003,17 @@
     - Color : Black <br>
     ------------------ <br>
     - Code: EX15CA3 </p>
-    </div> 
+    
+      <div class="card-actions-quick" onclick="event.stopPropagation();">
+        <a href="https://t.me/Sounvisal" target="_blank" class="btn-card-tg" onclick="triggerTgOrderFromCard(this, event)">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 4.5 2.8 11.9c-1.2.5-1.2 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.2-2.1 4.6 3.4c.8.5 1.4.2 1.6-.8l3-14c.3-1.2-.4-1.7-1.9-1.8z"/></svg>
+          Telegram
+        </a>
+        <button class="btn-card-buy" onclick="triggerDirectOrderModal(this, event)">
+          ⚡ Buy Now
+        </button>
+      </div>
+</div> 
 	<!-- end .centerbox-->	
 	
     <div class="rightbox">
@@ -3111,7 +5060,17 @@
     - Maximum DPI of 6400 <br>
     ------------------ <br>
     - Code: RAZERDA1 </p>
-    </div>
+    
+      <div class="card-actions-quick" onclick="event.stopPropagation();">
+        <a href="https://t.me/Sounvisal" target="_blank" class="btn-card-tg" onclick="triggerTgOrderFromCard(this, event)">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 4.5 2.8 11.9c-1.2.5-1.2 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.2-2.1 4.6 3.4c.8.5 1.4.2 1.6-.8l3-14c.3-1.2-.4-1.7-1.9-1.8z"/></svg>
+          Telegram
+        </a>
+        <button class="btn-card-buy" onclick="triggerDirectOrderModal(this, event)">
+          ⚡ Buy Now
+        </button>
+      </div>
+</div>
     <!-- end .leftbox -->
                   
     <div class="centerbox1">		
@@ -3123,7 +5082,17 @@
     - Maximum DPI of 6400 <br>
     ------------------ <br>
     - Code: RAZERDA2 </p>
-    </div> 
+    
+      <div class="card-actions-quick" onclick="event.stopPropagation();">
+        <a href="https://t.me/Sounvisal" target="_blank" class="btn-card-tg" onclick="triggerTgOrderFromCard(this, event)">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 4.5 2.8 11.9c-1.2.5-1.2 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.2-2.1 4.6 3.4c.8.5 1.4.2 1.6-.8l3-14c.3-1.2-.4-1.7-1.9-1.8z"/></svg>
+          Telegram
+        </a>
+        <button class="btn-card-buy" onclick="triggerDirectOrderModal(this, event)">
+          ⚡ Buy Now
+        </button>
+      </div>
+</div> 
 	<!-- end .centerbox-->
 	
     <div class="centerbox2">
@@ -3135,7 +5104,17 @@
     - 30K dpi optical sensor <br>
     ------------------ <br>
     - Code: RAZERDA3 </p>
-    </div> 
+    
+      <div class="card-actions-quick" onclick="event.stopPropagation();">
+        <a href="https://t.me/Sounvisal" target="_blank" class="btn-card-tg" onclick="triggerTgOrderFromCard(this, event)">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 4.5 2.8 11.9c-1.2.5-1.2 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.2-2.1 4.6 3.4c.8.5 1.4.2 1.6-.8l3-14c.3-1.2-.4-1.7-1.9-1.8z"/></svg>
+          Telegram
+        </a>
+        <button class="btn-card-buy" onclick="triggerDirectOrderModal(this, event)">
+          ⚡ Buy Now
+        </button>
+      </div>
+</div> 
 	<!-- end .centerbox-->	
 	
     <div class="rightbox">
@@ -3182,7 +5161,17 @@
     - True 7.1 surround sound <br>
     ------------------ <br>
     - Code: V3XA1 </p>
-    </div>
+    
+      <div class="card-actions-quick" onclick="event.stopPropagation();">
+        <a href="https://t.me/Sounvisal" target="_blank" class="btn-card-tg" onclick="triggerTgOrderFromCard(this, event)">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 4.5 2.8 11.9c-1.2.5-1.2 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.2-2.1 4.6 3.4c.8.5 1.4.2 1.6-.8l3-14c.3-1.2-.4-1.7-1.9-1.8z"/></svg>
+          Telegram
+        </a>
+        <button class="btn-card-buy" onclick="triggerDirectOrderModal(this, event)">
+          ⚡ Buy Now
+        </button>
+      </div>
+</div>
     <!-- end .leftbox -->
                   
     <div class="centerbox1">		
@@ -3194,7 +5183,17 @@
     - True 7.1 surround sound <br>
     ------------------ <br>
     - Code: V3XA2 </p>
-    </div> 
+    
+      <div class="card-actions-quick" onclick="event.stopPropagation();">
+        <a href="https://t.me/Sounvisal" target="_blank" class="btn-card-tg" onclick="triggerTgOrderFromCard(this, event)">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 4.5 2.8 11.9c-1.2.5-1.2 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.2-2.1 4.6 3.4c.8.5 1.4.2 1.6-.8l3-14c.3-1.2-.4-1.7-1.9-1.8z"/></svg>
+          Telegram
+        </a>
+        <button class="btn-card-buy" onclick="triggerDirectOrderModal(this, event)">
+          ⚡ Buy Now
+        </button>
+      </div>
+</div> 
 	<!-- end .centerbox-->
 	
     <div class="centerbox2">
@@ -3206,7 +5205,17 @@
     - True 7.1 surround sound <br>
     ------------------ <br>
     - Code: V3XA3 </p>
-    </div> 
+    
+      <div class="card-actions-quick" onclick="event.stopPropagation();">
+        <a href="https://t.me/Sounvisal" target="_blank" class="btn-card-tg" onclick="triggerTgOrderFromCard(this, event)">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 4.5 2.8 11.9c-1.2.5-1.2 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.2-2.1 4.6 3.4c.8.5 1.4.2 1.6-.8l3-14c.3-1.2-.4-1.7-1.9-1.8z"/></svg>
+          Telegram
+        </a>
+        <button class="btn-card-buy" onclick="triggerDirectOrderModal(this, event)">
+          ⚡ Buy Now
+        </button>
+      </div>
+</div> 
 	<!-- end .centerbox-->	
 	
     <div class="rightbox">
@@ -3259,7 +5268,17 @@
     - Interface : USB3.2 Gen 2X1 <br>
     ------------------ <br>
     - Code: TUFA1 </p>
-    </div>
+    
+      <div class="card-actions-quick" onclick="event.stopPropagation();">
+        <a href="https://t.me/Sounvisal" target="_blank" class="btn-card-tg" onclick="triggerTgOrderFromCard(this, event)">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 4.5 2.8 11.9c-1.2.5-1.2 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.2-2.1 4.6 3.4c.8.5 1.4.2 1.6-.8l3-14c.3-1.2-.4-1.7-1.9-1.8z"/></svg>
+          Telegram
+        </a>
+        <button class="btn-card-buy" onclick="triggerDirectOrderModal(this, event)">
+          ⚡ Buy Now
+        </button>
+      </div>
+</div>
     <!-- end .leftbox -->
                   
     <div class="centerbox1">		
@@ -3271,7 +5290,17 @@
     - Interface : USB3.2 Gen 2X2 <br>
     ------------------ <br>
     - Code: TUFA2 </p>
-    </div> 
+    
+      <div class="card-actions-quick" onclick="event.stopPropagation();">
+        <a href="https://t.me/Sounvisal" target="_blank" class="btn-card-tg" onclick="triggerTgOrderFromCard(this, event)">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 4.5 2.8 11.9c-1.2.5-1.2 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.2-2.1 4.6 3.4c.8.5 1.4.2 1.6-.8l3-14c.3-1.2-.4-1.7-1.9-1.8z"/></svg>
+          Telegram
+        </a>
+        <button class="btn-card-buy" onclick="triggerDirectOrderModal(this, event)">
+          ⚡ Buy Now
+        </button>
+      </div>
+</div> 
 	<!-- end .centerbox-->
 	
     <div class="centerbox2">
@@ -3283,7 +5312,17 @@
     - Interface : USB3.2 Gen 2X1 <br>
     ------------------ <br>
     - Code: COBBLEA1 </p>
-    </div> 
+    
+      <div class="card-actions-quick" onclick="event.stopPropagation();">
+        <a href="https://t.me/Sounvisal" target="_blank" class="btn-card-tg" onclick="triggerTgOrderFromCard(this, event)">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 4.5 2.8 11.9c-1.2.5-1.2 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.2-2.1 4.6 3.4c.8.5 1.4.2 1.6-.8l3-14c.3-1.2-.4-1.7-1.9-1.8z"/></svg>
+          Telegram
+        </a>
+        <button class="btn-card-buy" onclick="triggerDirectOrderModal(this, event)">
+          ⚡ Buy Now
+        </button>
+      </div>
+</div> 
 	<!-- end .centerbox-->	
 	
     <div class="rightbox">
@@ -3318,7 +5357,17 @@
     - Interface : USB3.2 Gen 2X1 <br>
     ------------------ <br>
     - Code: ARIONA1 </p>
-    </div>
+    
+      <div class="card-actions-quick" onclick="event.stopPropagation();">
+        <a href="https://t.me/Sounvisal" target="_blank" class="btn-card-tg" onclick="triggerTgOrderFromCard(this, event)">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 4.5 2.8 11.9c-1.2.5-1.2 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.2-2.1 4.6 3.4c.8.5 1.4.2 1.6-.8l3-14c.3-1.2-.4-1.7-1.9-1.8z"/></svg>
+          Telegram
+        </a>
+        <button class="btn-card-buy" onclick="triggerDirectOrderModal(this, event)">
+          ⚡ Buy Now
+        </button>
+      </div>
+</div>
     <!-- end .leftbox -->
                   
     <div class="centerbox1">		
@@ -3330,7 +5379,17 @@
     - Interface : USB3.2 Gen 2X1 <br>
     ------------------ <br>
     - Code: ARIONA2 </p>
-    </div> 
+    
+      <div class="card-actions-quick" onclick="event.stopPropagation();">
+        <a href="https://t.me/Sounvisal" target="_blank" class="btn-card-tg" onclick="triggerTgOrderFromCard(this, event)">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 4.5 2.8 11.9c-1.2.5-1.2 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.2-2.1 4.6 3.4c.8.5 1.4.2 1.6-.8l3-14c.3-1.2-.4-1.7-1.9-1.8z"/></svg>
+          Telegram
+        </a>
+        <button class="btn-card-buy" onclick="triggerDirectOrderModal(this, event)">
+          ⚡ Buy Now
+        </button>
+      </div>
+</div> 
 	<!-- end .centerbox-->
 	
     <div class="centerbox2">
@@ -3342,7 +5401,17 @@
     - Interface : USB3.2 Gen 2X2 <br>
     ------------------ <br>
     - Code: AIOLOSA1 </p>
-    </div> 
+    
+      <div class="card-actions-quick" onclick="event.stopPropagation();">
+        <a href="https://t.me/Sounvisal" target="_blank" class="btn-card-tg" onclick="triggerTgOrderFromCard(this, event)">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 4.5 2.8 11.9c-1.2.5-1.2 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.2-2.1 4.6 3.4c.8.5 1.4.2 1.6-.8l3-14c.3-1.2-.4-1.7-1.9-1.8z"/></svg>
+          Telegram
+        </a>
+        <button class="btn-card-buy" onclick="triggerDirectOrderModal(this, event)">
+          ⚡ Buy Now
+        </button>
+      </div>
+</div> 
 	<!-- end .centerbox-->	
 	
     <div class="rightbox">
@@ -3377,7 +5446,17 @@
     - Weight : 0.6kg±10% <br>
     ------------------ <br>
     - Code: BALLA1 </p>
-    </div>
+    
+      <div class="card-actions-quick" onclick="event.stopPropagation();">
+        <a href="https://t.me/Sounvisal" target="_blank" class="btn-card-tg" onclick="triggerTgOrderFromCard(this, event)">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 4.5 2.8 11.9c-1.2.5-1.2 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.2-2.1 4.6 3.4c.8.5 1.4.2 1.6-.8l3-14c.3-1.2-.4-1.7-1.9-1.8z"/></svg>
+          Telegram
+        </a>
+        <button class="btn-card-buy" onclick="triggerDirectOrderModal(this, event)">
+          ⚡ Buy Now
+        </button>
+      </div>
+</div>
     <!-- end .leftbox -->
                   
     <div class="centerbox1">		
@@ -3389,7 +5468,17 @@
     - Small MousePad <br>
     ------------------ <br>
     - Code: MOUSEPADA1 </p>
-    </div> 
+    
+      <div class="card-actions-quick" onclick="event.stopPropagation();">
+        <a href="https://t.me/Sounvisal" target="_blank" class="btn-card-tg" onclick="triggerTgOrderFromCard(this, event)">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 4.5 2.8 11.9c-1.2.5-1.2 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.2-2.1 4.6 3.4c.8.5 1.4.2 1.6-.8l3-14c.3-1.2-.4-1.7-1.9-1.8z"/></svg>
+          Telegram
+        </a>
+        <button class="btn-card-buy" onclick="triggerDirectOrderModal(this, event)">
+          ⚡ Buy Now
+        </button>
+      </div>
+</div> 
 	<!-- end .centerbox-->
 	
     <div class="centerbox2">
@@ -3401,7 +5490,17 @@
     - Large MousePad <br>
     ------------------ <br>
     - Code: MOUSEPADA2 </p>
-    </div> 
+    
+      <div class="card-actions-quick" onclick="event.stopPropagation();">
+        <a href="https://t.me/Sounvisal" target="_blank" class="btn-card-tg" onclick="triggerTgOrderFromCard(this, event)">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 4.5 2.8 11.9c-1.2.5-1.2 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.2-2.1 4.6 3.4c.8.5 1.4.2 1.6-.8l3-14c.3-1.2-.4-1.7-1.9-1.8z"/></svg>
+          Telegram
+        </a>
+        <button class="btn-card-buy" onclick="triggerDirectOrderModal(this, event)">
+          ⚡ Buy Now
+        </button>
+      </div>
+</div> 
 	<!-- end .centerbox-->	
 	
     <div class="rightbox">
@@ -3434,7 +5533,17 @@
     <p class="txt">
     ------------------ <br>
     - Code: BP1501GA1 </p>
-    </div>
+    
+      <div class="card-actions-quick" onclick="event.stopPropagation();">
+        <a href="https://t.me/Sounvisal" target="_blank" class="btn-card-tg" onclick="triggerTgOrderFromCard(this, event)">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 4.5 2.8 11.9c-1.2.5-1.2 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.2-2.1 4.6 3.4c.8.5 1.4.2 1.6-.8l3-14c.3-1.2-.4-1.7-1.9-1.8z"/></svg>
+          Telegram
+        </a>
+        <button class="btn-card-buy" onclick="triggerDirectOrderModal(this, event)">
+          ⚡ Buy Now
+        </button>
+      </div>
+</div>
     <!-- end .leftbox -->
                   
     <div class="centerbox1">		
@@ -3444,7 +5553,17 @@
     <p class="txt">
     ------------------ <br>
     - Code: BP1501GA2 </p>
-    </div> 
+    
+      <div class="card-actions-quick" onclick="event.stopPropagation();">
+        <a href="https://t.me/Sounvisal" target="_blank" class="btn-card-tg" onclick="triggerTgOrderFromCard(this, event)">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 4.5 2.8 11.9c-1.2.5-1.2 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.2-2.1 4.6 3.4c.8.5 1.4.2 1.6-.8l3-14c.3-1.2-.4-1.7-1.9-1.8z"/></svg>
+          Telegram
+        </a>
+        <button class="btn-card-buy" onclick="triggerDirectOrderModal(this, event)">
+          ⚡ Buy Now
+        </button>
+      </div>
+</div> 
 	<!-- end .centerbox-->
 	
     <div class="centerbox2">
@@ -3454,7 +5573,17 @@
     <p class="txt">
     ------------------ <br>
     - Code: BP1501GA3 </p>
-    </div> 
+    
+      <div class="card-actions-quick" onclick="event.stopPropagation();">
+        <a href="https://t.me/Sounvisal" target="_blank" class="btn-card-tg" onclick="triggerTgOrderFromCard(this, event)">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 4.5 2.8 11.9c-1.2.5-1.2 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.2-2.1 4.6 3.4c.8.5 1.4.2 1.6-.8l3-14c.3-1.2-.4-1.7-1.9-1.8z"/></svg>
+          Telegram
+        </a>
+        <button class="btn-card-buy" onclick="triggerDirectOrderModal(this, event)">
+          ⚡ Buy Now
+        </button>
+      </div>
+</div> 
 	<!-- end .centerbox-->	
 	
     <div class="rightbox">
@@ -3506,22 +5635,18 @@
       <div class="cc-footer__grid" style="display: grid !important; grid-template-columns: 1.8fr 1fr 1fr 1.5fr !important; gap: 44px !important; padding-bottom: 32px !important; padding-right: 48px !important; align-items: start !important;">
         <!-- Col 1: Brand & Contact -->
         <div class="cc-footer__col cc-footer__col--brand">
-          <div class="cc-footer__brand" style="display: flex !important; align-items: center !important; gap: 14px !important; margin-bottom: 12px !important;">
-            <svg class="brand-emblem-svg" width="42" height="42" viewBox="0 0 44 44" fill="none" style="width: 42px !important; height: 42px !important; min-width: 42px !important; flex-shrink: 0 !important; filter: drop-shadow(0 4px 10px rgba(37, 99, 235, 0.4)) !important;">
-              <rect width="44" height="44" rx="12" fill="#0f172a" stroke="rgba(255,255,255,0.18)" stroke-width="1.5"/>
-              <path d="M12 13 L22 35 L32 13 L26.2 13 L22 23 L17.8 13 Z" fill="#2563eb"/>
-              <circle cx="22" cy="18" r="2.4" fill="#FFD700"/>
-            </svg>
-            <div style="display: flex; flex-direction: column;">
-              <span class="cc-footer__name" style="font-family: 'Outfit', 'Inter', sans-serif !important; font-size: 21px !important; font-weight: 800 !important; color: #ffffff !important; letter-spacing: 0.6px !important; line-height: 1.1 !important; display: block !important;">VRS <span style="color: #38bdf8;">COMPUTER</span></span>
-              <span style="font-size: 11px; font-weight: 600; color: #94a3b8; letter-spacing: 0.4px; margin-top: 2px;">Tech Retailer &amp; Gaming Store</span>
+          <a href="index.html" class="cc-footer__brand" style="display: flex !important; align-items: center !important; gap: 14px !important; margin-bottom: 12px !important; text-decoration: none !important;">
+            <img src="assets/images/rvs-emblem.png" alt="RVS Computer Logo" class="cc-logo__img" width="68" height="50" style="width: 68px !important; height: 50px !important; object-fit: contain !important; filter: drop-shadow(0 4px 14px rgba(37, 99, 235, 0.4)) !important;">
+            <div class="cc-logo__text" style="display: flex !important; flex-direction: column !important; justify-content: center !important; gap: 3px !important; line-height: 1 !important;">
+              <span class="cc-logo__name" style="font-family: 'Outfit', 'Inter', sans-serif !important; font-size: 20px !important; font-weight: 800 !important; color: #ffffff !important; letter-spacing: -0.02em !important; line-height: 1.1 !important; display: flex !important; align-items: center !important; gap: 5px !important;">RVS <span class="accent" style="color: #38bdf8 !important;">COMPUTER</span></span>
+              <span class="cc-logo__tag" style="font-family: 'Inter', sans-serif !important; font-size: 11px !important; color: #94a3b8 !important; font-weight: 500 !important; letter-spacing: 0.15px !important; white-space: nowrap !important; line-height: 1.2 !important;">Laptop &amp; PC Store • Phnom Penh &amp; Chbar Mon</span>
             </div>
-          </div>
+          </a>
           <p class="cc-footer__tagline" style="font-size: 13.5px !important; line-height: 1.7 !important; color: #94a3b8 !important; margin-top: 10px !important; margin-bottom: 18px !important; max-width: 330px !important;">
             Your trusted partner for laptops, gaming systems, and computer components in Phnom Penh &amp; Krong Chbar Mon.
           </p>
           <div class="cc-footer__socials" style="display:flex!important;align-items:center!important;gap:10px!important;margin-top:14px!important;flex-direction:row!important;">
-            <a href="https://www.facebook.com" target="_blank" rel="noopener" aria-label="Facebook" style="width:38px!important;height:38px!important;min-width:38px!important;max-width:38px!important;min-height:38px!important;max-height:38px!important;display:inline-flex!important;align-items:center!important;justify-content:center!important;border-radius:50%!important;background:rgba(255,255,255,0.07)!important;color:#ffffff!important;border:1px solid rgba(255,255,255,0.14)!important;padding:0!important;flex-shrink:0!important;transition:all 0.2s!important;"><svg class="cc-footer__social-svg" width="18" height="18" style="width:18px!important;height:18px!important;max-width:18px!important;max-height:18px!important;min-width:18px!important;min-height:18px!important;display:block!important;" viewBox="0 0 24 24" fill="currentColor"><path d="M13.5 21v-8h2.7l.4-3.1h-3.1V8c0-.9.25-1.5 1.55-1.5H16.7V3.7c-.28-.04-1.25-.12-2.37-.12-2.34 0-3.94 1.43-3.94 4.05v2.26H8v3.1h2.4V21h3.1z"/></svg></a>
+            <a href="https://www.facebook.com/share/1EN8bpAQmG/?mibextid=wwXIfr" target="_blank" rel="noopener" aria-label="Facebook" style="width:38px!important;height:38px!important;min-width:38px!important;max-width:38px!important;min-height:38px!important;max-height:38px!important;display:inline-flex!important;align-items:center!important;justify-content:center!important;border-radius:50%!important;background:rgba(255,255,255,0.07)!important;color:#ffffff!important;border:1px solid rgba(255,255,255,0.14)!important;padding:0!important;flex-shrink:0!important;transition:all 0.2s!important;"><svg class="cc-footer__social-svg" width="18" height="18" style="width:18px!important;height:18px!important;max-width:18px!important;max-height:18px!important;min-width:18px!important;min-height:18px!important;display:block!important;" viewBox="0 0 24 24" fill="currentColor"><path d="M13.5 21v-8h2.7l.4-3.1h-3.1V8c0-.9.25-1.5 1.55-1.5H16.7V3.7c-.28-.04-1.25-.12-2.37-.12-2.34 0-3.94 1.43-3.94 4.05v2.26H8v3.1h2.4V21h3.1z"/></svg></a>
             <a href="https://t.me/Sounvisal" target="_blank" rel="noopener" aria-label="Telegram" style="width:38px!important;height:38px!important;min-width:38px!important;max-width:38px!important;min-height:38px!important;max-height:38px!important;display:inline-flex!important;align-items:center!important;justify-content:center!important;border-radius:50%!important;background:rgba(255,255,255,0.07)!important;color:#ffffff!important;border:1px solid rgba(255,255,255,0.14)!important;padding:0!important;flex-shrink:0!important;transition:all 0.2s!important;"><svg class="cc-footer__social-svg" width="18" height="18" style="width:18px!important;height:18px!important;max-width:18px!important;max-height:18px!important;min-width:18px!important;min-height:18px!important;display:block!important;" viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 4.5 2.8 11.9c-1.2.5-1.2 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.2-2.1 4.6 3.4c.8.5 1.4.2 1.6-.8l3-14c.3-1.2-.4-1.7-1.9-1.8zM8.9 14.5l9-5.6c.4-.3.8-.1.5.2l-7.4 6.7-.3 3.1z"/></svg></a>
             <a href="https://api.whatsapp.com/send/?phone=85598871314" target="_blank" rel="noopener" aria-label="WhatsApp" style="width:38px!important;height:38px!important;min-width:38px!important;max-width:38px!important;min-height:38px!important;max-height:38px!important;display:inline-flex!important;align-items:center!important;justify-content:center!important;border-radius:50%!important;background:rgba(255,255,255,0.07)!important;color:#ffffff!important;border:1px solid rgba(255,255,255,0.14)!important;padding:0!important;flex-shrink:0!important;transition:all 0.2s!important;"><svg class="cc-footer__social-svg" width="18" height="18" style="width:18px!important;height:18px!important;max-width:18px!important;max-height:18px!important;min-width:18px!important;min-height:18px!important;display:block!important;" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3a9 9 0 0 0-7.8 13.5L3 21l4.6-1.2A9 9 0 1 0 12 3zm0 16.3a7.3 7.3 0 0 1-3.7-1l-.3-.2-2.7.7.7-2.6-.2-.3A7.3 7.3 0 1 1 12 19.3zm4-5.4c-.2-.1-1.3-.6-1.5-.7-.2-.1-.4-.1-.5.1-.2.2-.6.7-.7.9-.1.2-.3.2-.5.1-.2-.1-1-.4-2-1.2-.7-.6-1.2-1.4-1.4-1.6-.1-.2 0-.4.1-.5l.4-.4c.1-.1.2-.3.2-.4 0-.2 0-.3-.1-.5-.1-.1-.5-1.2-.7-1.7-.2-.4-.4-.4-.5-.4h-.5c-.2 0-.4.1-.6.3-.2.2-.8.8-.8 1.9 0 1.1.8 2.2.9 2.3.1.2 1.6 2.5 3.9 3.5.6.2 1 .4 1.3.5.5.2 1 .1 1.4.1.4-.1 1.3-.5 1.5-1 .2-.5.2-.9.1-1z"/></svg></a>
             <a href="https://t.me/Sounvisal" target="_blank" rel="noopener" aria-label="WeChat" style="width:38px!important;height:38px!important;min-width:38px!important;max-width:38px!important;min-height:38px!important;max-height:38px!important;display:inline-flex!important;align-items:center!important;justify-content:center!important;border-radius:50%!important;background:rgba(255,255,255,0.07)!important;color:#ffffff!important;border:1px solid rgba(255,255,255,0.14)!important;padding:0!important;flex-shrink:0!important;transition:all 0.2s!important;"><svg class="cc-footer__social-svg" width="18" height="18" style="width:18px!important;height:18px!important;max-width:18px!important;max-height:18px!important;min-width:18px!important;min-height:18px!important;display:block!important;" viewBox="0 0 24 24" fill="currentColor"><path d="M8.691 2.188C3.891 2.188 0 5.476 0 9.53c0 2.212 1.17 4.203 3.002 5.55a.59.59 0 0 1 .213.665l-.39 1.48c-.019.07-.048.141-.048.213 0 .163.13.295.292.295a.326.326 0 0 0 .167-.046l1.906-1.103a.72.72 0 0 1 .593-.075c.875.244 1.802.378 2.76.378.232 0 .461-.009.689-.023a6.83 6.83 0 0 1-.225-1.724c0-4.053 3.891-7.341 8.691-7.341.282 0 .56.015.836.038C17.478 5.2 13.513 2.188 8.691 2.188zm-2.89 4.316c.52 0 .942.422.942.942 0 .52-.422.942-.942.942a.944.944 0 0 1-.943-.942c0-.52.423-.942.943-.942zm5.781 0c.52 0 .943.422.943.942 0 .52-.423.942-.943.942a.944.944 0 0 1-.942-.942c0-.52.422-.942.942-.942zm4.729 4.145c-4.001 0-7.245 2.74-7.245 6.12 0 3.38 3.244 6.12 7.245 6.12.8 0 1.572-.112 2.301-.315a.598.598 0 0 1 .495.063l1.589.92a.272.272 0 0 0 .139.038c.135 0 .244-.11.244-.245 0-.06-.024-.119-.04-.177l-.325-1.234a.49.49 0 0 1 .177-.555c1.527-1.123 2.502-2.781 2.502-4.622 0-3.38-3.244-6.12-7.245-6.12zm-2.415 3.597c.433 0 .785.352.785.785 0 .433-.352.785-.785.785a.787.787 0 0 1-.785-.785c0-.433.352-.785.785-.785zm4.83 0c.433 0 .785.352.785.785 0 .433-.352.785-.785.785a.787.787 0 0 1-.785-.785c0-.433.352-.785.785-.785z"/></svg></a>
@@ -3636,10 +5761,9 @@
 
       // Hero Slider (if present)
       const heroImages = [
-        "https://cccomputerkh.com/slidshow/CC 1920x625-01.jpg",
-        "https://cccomputerkh.com/slidshow/CC 1920x625-02.jpg",
-        "https://cccomputerkh.com/slidshow/CC 1920x625-03.jpg",
-        "https://cccomputerkh.com/slidshow/CC 1920x625-04.jpg"
+        "assets/images/hero-gaming.jpg",
+        "assets/images/hero-creator.jpg",
+        "assets/images/hero-custom-pc.jpg"
       ];
       const heroImg = document.getElementById("heroImg");
       const heroDotsContainer = document.getElementById("heroDots");
